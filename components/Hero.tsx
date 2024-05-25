@@ -9,6 +9,7 @@ const Hero = () => {
 				alt="Hero image"
 				className="object-cover right-4"
 				fill
+				priority
 				style={{
 					objectPosition: "61.5% 50%",
 				}}
