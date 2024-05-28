@@ -15,7 +15,11 @@ const Hero = () => {
 					objectPosition: "61.5% 50%",
 				}}
 			/>
-			<div className="hero-cta-container flex flex-col justify-end m-8 w-full z-10">
+			<div className="hero-cta-container flex flex-col sm:flex-row sm:h-fit sm:justify-start gap-4 justify-end m-8 w-full z-10">
+				<CustomButton
+					title="Request Import"
+					styles="bg-black text-white px-4 py-2 rounded-lg text-base"
+				/>
 				<CustomButton
 					title="View Inventory"
 					styles="border-2 border-white px-4 py-2 rounded-lg text-base"
