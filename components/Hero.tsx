@@ -22,7 +22,7 @@ const Hero = () => {
 				/>
 				<CustomButton
 					title="View Inventory"
-					styles="border-2 border-white px-4 py-2 rounded-lg text-base"
+					styles="bg-white text-black px-4 py-2 rounded-lg text-base"
 				/>
 			</div>
 		</div>
