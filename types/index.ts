@@ -12,6 +12,6 @@ export interface CarCardProps {
 	year: number;
 	make: string;
 	model: string;
-	price: number;
+	price: string;
 	pageUrl: string;
 }
