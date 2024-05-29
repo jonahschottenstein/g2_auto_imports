@@ -4,7 +4,7 @@ import { CustomButton } from ".";
 
 const Hero = () => {
 	return (
-		<div className="flex flex-1 relative w-full h-full sm:items-end">
+		<div className="hero flex flex-1 relative w-full h-screen sm:items-end">
 			<Image
 				src={"/tokyo-imports-hero-image.png"}
 				alt="Hero image"
