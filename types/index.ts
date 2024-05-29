@@ -7,7 +7,6 @@ export interface CustomButtonProps {
 }
 
 export interface CarCardProps {
-	id: string;
 	imageSrc: string;
 	year: number;
 	make: string;
