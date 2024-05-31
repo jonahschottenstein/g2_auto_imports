@@ -3,9 +3,12 @@ import Image from "next/image";
 import { CustomButton } from ".";
 
 const Hero = () => {
+	const NAV_BAR_HEIGHT = "72px";
+	// TODO: Make sure this is always the case
+
 	return (
 		<div
-			style={{ minHeight: "calc(100vh - 72px)" }}
+			style={{ minHeight: `calc(100vh - ${NAV_BAR_HEIGHT})` }}
 			className="hero flex flex-1 relative w-full h-screen sm:items-end">
 			<Image
 				src={"/tokyo-imports-hero-image.png"}
