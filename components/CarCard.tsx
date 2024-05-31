@@ -13,9 +13,26 @@ const CarCard = ({
 	pageUrl,
 }: CarCardProps) => {
 	return (
-		<div>
-			<Image src={imageSrc} alt={`Image of ${title}`} />
-			<h3>{title}</h3>
+		<div className="car-card flex flex-col relative">
+			<Link href={pageUrl}>
+				<Image
+					// src={imageSrc}
+					src={testImage}
+					alt={`Image of ${year} ${make} ${model}`}
+					// width={300}
+					style={{
+						aspectRatio: "4 / 3",
+						objectFit: "cover",
+						width: "100%",
+					}}
+				/>
+			</Link>
+			<div className="car-card-detail pr-3 py-3">
+				<Link href={pageUrl}>
+					<h3 className="car-card-title text-lg font-semibold ">{`${year} ${make} ${model}`}</h3>
+					<p>{price}</p>
+				</Link>
+			</div>
 		</div>
 	);
 };
