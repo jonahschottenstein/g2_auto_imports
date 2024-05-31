@@ -2,7 +2,7 @@ import React from "react";
 
 const NavBar = () => {
 	return (
-		<header className="absolute flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20">
+		<header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20">
 			<nav
 				className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
 				aria-label="Global">

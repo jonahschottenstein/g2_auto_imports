@@ -8,7 +8,7 @@ export default function Home() {
 	return (
 		// <main className="h-full flex flex-col items-center justify-between">
 		// <main className="flex flex-col flex-1 items-center justify-between">
-		<main className="flex-1">
+		<main className="flex flex-col flex-1">
 			<Hero />
 			<section className="featured-inventory-section w-full mt-8">
 				<h2 className="text-center text-2xl">Featured Inventory</h2>
