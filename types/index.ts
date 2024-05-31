@@ -14,3 +14,8 @@ export interface CarCardProps {
 	price: string;
 	pageUrl: string;
 }
+
+export interface Car extends CarCardProps {
+	id: string;
+	featured: boolean;
+}
