@@ -1,33 +1,10 @@
 import { CarCard, Hero } from "@/components";
+import { inventory } from "@/inventory";
 import Image from "next/image";
 
 export default function Home() {
-	const featuredInventory = [
-		{
-			imageSrc: "/tokyo-imports-hero-image.png",
-			year: 1990,
-			make: "Mitsubishi",
-			model: "Delica L300",
-			price: "$5,000",
-			pageUrl: "/",
-		},
-		{
-			imageSrc: "/tokyo-imports-hero-image.png",
-			year: 1990,
-			make: "Mitsubishi",
-			model: "Delica L300",
-			price: "$5,000",
-			pageUrl: "/",
-		},
-		{
-			imageSrc: "/tokyo-imports-hero-image.png",
-			year: 1990,
-			make: "Mitsubishi",
-			model: "Delica L300",
-			price: "$5,000",
-			pageUrl: "/",
-		},
-	];
+	const featuredInventory = inventory.filter((car) => car.featured);
+
 	return (
 		// <main className="h-full flex flex-col items-center justify-between">
 		// <main className="flex flex-col flex-1 items-center justify-between">
