@@ -1,7 +1,6 @@
 import React from "react";
 import { CarCardProps } from "@/types";
 import Image from "next/image";
-import testImage from "../public/tokyo-imports-hero-image.png";
 import Link from "next/link";
 
 const CarCard = ({
@@ -16,10 +15,11 @@ const CarCard = ({
 		<div className="car-card flex flex-col relative">
 			<Link href={pageUrl}>
 				<Image
-					// src={imageSrc}
-					src={testImage}
+					src={imageSrc}
 					alt={`Image of ${year} ${make} ${model}`}
-					// width={300}
+					width={100}
+					height={100}
+					// TODO: Figure out if the width and height are doing anything
 					style={{
 						aspectRatio: "4 / 3",
 						objectFit: "cover",
