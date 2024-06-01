@@ -19,8 +19,9 @@ const Page = ({ params }: { params: { id: string } }) => {
 		<main>
 			<div className="p-8">
 				<h1 className="text-center text-2xl mb-4">{carTitle}</h1>
-				<div className="car-page flex flex-col">
+				<div className="car-page flex flex-col gap-4 sm:flex-row">
 					<Image
+						className="w-full sm:w-8/12"
 						src={vehicleDetails?.imageSrc || "/"}
 						alt={`Image of ${carTitle}`}
 						width={100}
@@ -28,12 +29,11 @@ const Page = ({ params }: { params: { id: string } }) => {
 						style={{
 							aspectRatio: "4 / 3",
 							objectFit: "cover",
-							width: "100%",
 							height: "auto",
 						}}
 					/>
 					{vehicleDetails ? (
-						<table>
+						<table className="h-fit flex-1">
 							<thead>
 								<tr>
 									<th colSpan={2}>Vehicle Details</th>
@@ -43,8 +43,8 @@ const Page = ({ params }: { params: { id: string } }) => {
 								{Object.entries(vehicleDetails).map(([key, value]) => {
 									if (displayKeys.includes(key)) {
 										return (
-											<tr>
-												<td>{key}</td>
+											<tr className="border-b-2 border-gray-400">
+												<td>{key.slice(0, 1).toUpperCase() + key.slice(1)}</td>
 												<td>{value}</td>
 											</tr>
 										);
