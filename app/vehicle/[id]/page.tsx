@@ -17,9 +17,9 @@ const Page = ({ params }: { params: { id: string } }) => {
 
 	return (
 		<main>
-			<div className="p-8">
+			<div className="p-8 flex flex-col gap-8">
 				<h1 className="text-center text-2xl mb-4">{carTitle}</h1>
-				<div className="car-page flex flex-col gap-4 sm:flex-row">
+				<div className="car-page flex flex-col gap-8 sm:flex-row">
 					<Image
 						className="w-full sm:w-8/12"
 						src={vehicleDetails?.imageSrc || "/"}
@@ -55,6 +55,17 @@ const Page = ({ params }: { params: { id: string } }) => {
 					) : (
 						<p>No vehicle details available</p>
 					)}
+				</div>
+				<div className="vehicle-description-container">
+					<h2>Description</h2>
+					<p className="vehicle-description">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+						deserunt sed aut optio quibusdam nobis qui officiis ipsam harum
+						magni veritatis fuga, quisquam ex autem voluptatem delectus
+						exercitationem, reiciendis veniam quidem dolore nulla perferendis?
+						Ea quod, similique deleniti modi accusantium qui minus et ab aliquam
+						maiores, dignissimos aspernatur earum minima.
+					</p>
 				</div>
 			</div>
 		</main>
