@@ -17,9 +17,9 @@ const Page = ({ params }: { params: { id: string } }) => {
 
 	return (
 		<main>
-			<div className="p-8 flex flex-col gap-8">
-				<h1 className="text-center text-2xl mb-4">{carTitle}</h1>
-				<div className="car-page flex flex-col gap-8 sm:flex-row">
+			<div className="p-8 flex flex-col">
+				<h1 className="text-center text-2xl">{carTitle}</h1>
+				<div className="car-page flex flex-col gap-8 mt-4 mb-8 sm:flex-row">
 					<Image
 						className="w-full sm:w-8/12"
 						src={vehicleDetails?.imageSrc || "/"}
