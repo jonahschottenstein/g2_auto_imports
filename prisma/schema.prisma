@@ -9,6 +9,27 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Make {
+  id     Int     @id @default(autoincrement())
+  name   String
+  models Model[]
+}
+
+model Model {
+  id      Int    @id @default(autoincrement())
+  name    String
+  makeId  Int
+  make    Make   @relation(fields: [makeId], references: [id])
+  years   Year[]
+}
+
+model Year {
+  id      Int    @id @default(autoincrement())
+  year    Int
+  modelId Int
+  model   Model  @relation(fields: [modelId], references: [id])
 }
