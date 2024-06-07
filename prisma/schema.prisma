@@ -4,32 +4,32 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model Make {
-  id     Int    @id @default(autoincrement())
+  id     Int     @id @default(autoincrement())
   name   String
   models Model[]
 }
 
 model Model {
-  id         Int         @id @default(autoincrement())
-  name       String
-  make       Make        @relation(fields: [makeId], references: [id])
-  makeId     Int
-  productions Production[]
+  id      Int    @id @default(autoincrement())
+  name    String
+  makeId  Int
+  make    Make   @relation(fields: [makeId], references: [id])
+  productions   Production[]
 }
 
 model Production {
-  id         Int    @id @default(autoincrement())
-  production Int
-  model      Model  @relation(fields: [modelId], references: [id])
-  modelId    Int
+  id      Int    @id @default(autoincrement())
+  production    Int
+  modelId Int
+  model   Model  @relation(fields: [modelId], references: [id])
 }
