@@ -8,8 +8,10 @@ const Hero = () => {
 
 	return (
 		<div
-			style={{ minHeight: `calc(100vh - ${NAV_BAR_HEIGHT})` }}
-			className="hero flex flex-1 relative w-full h-screen sm:items-end">
+			// style={{ minHeight: `calc(100vh - ${NAV_BAR_HEIGHT})` }}
+			// className="hero flex flex-1 relative w-full h-screen min-h-screen sm:items-end"
+			// className={`hero flex flex-1 relative w-full h-screen min-h-[calc(100vh-72px)] items-end`}
+			className={`hero flex flex-1 relative w-full h-screen min-h-[calc(100vh-${NAV_BAR_HEIGHT})] items-end sm:min-h-screen`}>
 			<Image
 				src={"/tokyo-imports-hero-image.png"}
 				alt="Hero image"
