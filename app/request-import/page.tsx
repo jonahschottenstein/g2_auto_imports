@@ -1,12 +1,52 @@
 import React from "react";
 
+interface FormItemProps {
+	htmlForValue: string;
+	labelText: string;
+	inputType: string;
+	inputName: string;
+	inputId: string;
+}
+
+const FormItem = ({
+	htmlForValue,
+	labelText,
+	inputType,
+	inputName,
+	inputId,
+}: FormItemProps) => {
+	return (
+		<div className="form-item">
+			<label className="form-item-label" htmlFor={htmlForValue}>
+				{labelText}
+			</label>
+			<input
+				type={inputType}
+				name={inputName}
+				id={inputId}
+				className="form-input"
+				required
+			/>
+		</div>
+	);
+};
+
 const Page = () => {
-	return <div>Page</div>;
+	return (
+		<div className="request-import-page">
+			<form className="request-import-form"></form>
+		</div>
+	);
 };
 
 export default Page;
 
 /* 
+Idea: Each form input is it's own page
+    e.g., Select Make > Select Model > Select Year Range
+
+make, model, year, color, maxBudget
+
 Should probably use state hook for this form
 
 Maybe make a component for each type of input
@@ -15,6 +55,8 @@ Then put form info in an object with an input-type property
 I don't want the user to be able to choose a min year that's greater than the the max year they chose or a max year that's less than the min year they chose. 
 
 Why do I have inputName and name properties? I don't remember how they differ.
+
+make > model > year
 
 Options:
     Disable max year until min year is selected and use JavaScript to set the min year of the max year input
