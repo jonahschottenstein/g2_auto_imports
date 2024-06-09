@@ -1,9 +1,13 @@
 import { CarCard, Hero } from "@/components";
 import { inventory } from "@/inventory";
 import Image from "next/image";
+import { PrismaClient } from "@prisma/client";
 
-export default function Home() {
+const prisma = new PrismaClient();
+export default async function Home() {
 	const featuredInventory = inventory.filter((car) => car.featured);
+	const firstMake = await prisma.make.findFirst();
+	console.log("firstMake", firstMake);
 
 	return (
 		// <main className="h-full flex flex-col items-center justify-between">
