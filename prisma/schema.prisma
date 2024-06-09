@@ -14,22 +14,23 @@ datasource db {
 }
 
 model Make {
-  id     Int     @id @default(autoincrement())
-  name   String
+  id    Int     @id @default(autoincrement())
+  name  String  
   models Model[]
 }
 
 model Model {
-  id      Int    @id @default(autoincrement())
-  name    String
-  makeId  Int
-  make    Make   @relation(fields: [makeId], references: [id])
-  productions   Production[]
+  id       Int      @id @default(autoincrement())
+  name     String
+  make     Make     @relation(fields: [makeId], references: [id])
+  makeId   Int
+  productions Production[]
 }
 
 model Production {
-  id      Int    @id @default(autoincrement())
-  production    Int
-  modelId Int
-  model   Model  @relation(fields: [modelId], references: [id])
+  id        Int      @id @default(autoincrement())
+  startYear Int
+  endYear   Int
+  model     Model    @relation(fields: [modelId], references: [id])
+  modelId   Int
 }
