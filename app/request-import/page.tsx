@@ -13,8 +13,11 @@ const Page = async () => {
 	console.log("PRODUCTION", production);
 
 	return (
-		<div className="request-import-page">
-			<form className="request-import-form"></form>
+		<div className="request-import-page h-full mt-[72px] px-8">
+			<h1 className="text-center text-xl">Request Import</h1>
+			<form className="request-import-form h-full overflow-y-auto">
+				<MakeModelSelector category="make" options={makes} />
+			</form>
 		</div>
 	);
 };
@@ -60,35 +63,3 @@ Questions:
         maxYear: 2024
     })
 */
-
-const formData = {
-	yearRange: [
-		{
-			inputName: "min-year-number",
-			inputType: "number",
-			label: "Min. year",
-			id: "vehicle-min-year",
-			name: "vehicle-min-year",
-			min: "1950",
-			max: "2024",
-		},
-		{
-			inputName: "max-year-number",
-			inputType: "number",
-			label: "Max. year",
-			id: "vehicle-max-year",
-			name: "vehicle-max-year",
-			min: "1950",
-			max: "2024",
-		},
-	],
-	make: ["mazda", "mitsubishi", "nissan", "toyota"],
-	// model: carModels[`${carMake}`]
-	comments: {
-		inputName: "comments",
-		inputType: "textarea",
-		label: "Comments",
-		id: "comments",
-		name: "",
-	},
-};
