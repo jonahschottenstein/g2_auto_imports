@@ -19,3 +19,8 @@ export interface Car extends CarCardProps {
 	id: string;
 	featured: boolean;
 }
+
+export interface Make {
+	id: number;
+	name: string;
+}
