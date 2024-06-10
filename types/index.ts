@@ -30,3 +30,8 @@ export interface Model {
 	name: string;
 	makeId: number;
 }
+
+export interface MakeModelSelectorProps {
+	category: string;
+	options: Make[] | Model[];
+}
