@@ -1,37 +1,17 @@
 import React from "react";
+import { PrismaClient } from "@prisma/client";
+import MakeModelSelector from "@/components/MakeModelSelector";
 
-interface FormItemProps {
-	htmlForValue: string;
-	labelText: string;
-	inputType: string;
-	inputName: string;
-	inputId: string;
-}
+const prisma = new PrismaClient();
 
-const FormItem = ({
-	htmlForValue,
-	labelText,
-	inputType,
-	inputName,
-	inputId,
-}: FormItemProps) => {
-	return (
-		<div className="form-item">
-			<label className="form-item-label" htmlFor={htmlForValue}>
-				{labelText}
-			</label>
-			<input
-				type={inputType}
-				name={inputName}
-				id={inputId}
-				className="form-input"
-				required
-			/>
-		</div>
-	);
-};
+const Page = async () => {
+	const makes = await prisma.make.findMany();
+	console.log("MAKES", makes);
+	const models = await prisma.model.findMany();
+	console.log("MODELS", models);
+	const production = await prisma.production.findMany();
+	console.log("PRODUCTION", production);
 
-const Page = () => {
 	return (
 		<div className="request-import-page">
 			<form className="request-import-form"></form>
