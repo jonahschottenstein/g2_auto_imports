@@ -13,7 +13,7 @@ const Page = async () => {
 	console.log("PRODUCTION", production);
 
 	return (
-		<div className="request-import-page h-full mt-[72px] px-8">
+		<div className="request-import-page flex flex-col h-full mt-[72px] px-8">
 			<h1 className="text-center text-xl">Request Import</h1>
 			<form className="request-import-form h-full overflow-y-auto">
 				<MakeModelSelector category="make" options={makes} />
