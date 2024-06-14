@@ -31,8 +31,37 @@ const ProductionYearsSelector = ({
 	production,
 }: ProductionYearsSelectorProps) => {
 	const productionYears = getProductionYears(production);
+
+	const startYearDisplay =
+		stateValue.startYear > 0
+			? `Start Year: ${stateValue.startYear}`
+			: `Select start year`;
+	const endYearDisplay =
+		stateValue.startYear === 0 && stateValue.endYear === 0
+			? `End year: `
+			: stateValue.endYear > 0
+			? `End Year: ${stateValue.endYear}`
+			: `Select end year`;
+
+	const setButtonStyles = (year: number) => {
+		const buttonStyles =
+			year === stateValue.startYear
+				? "production-year start-year bg-blue-400 w-16 border-2 py-4"
+				: year === stateValue.endYear
+				? "production-year end-year bg-blue-400 w-16 border-2 py-4"
+				: year > stateValue.startYear && year < stateValue.endYear
+				? "production-year between-year bg-blue-300 w-16 border-2 py-4"
+				: "production-year w-16 border-2 py-4";
+
+		return buttonStyles;
+	};
+
 	return (
 		<div>
+			<div className="flex justify-between">
+				<span>{startYearDisplay}</span>
+				<span>{endYearDisplay}</span>
+			</div>
 			<ul className="flex flex-wrap">
 				{productionYears.map((year) => (
 					<li key={year}>
