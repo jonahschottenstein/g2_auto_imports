@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { CustomButton } from ".";
+import Link from "next/link";
 
 const Hero = () => {
 	const NAV_BAR_HEIGHT = "72px";
@@ -23,10 +24,11 @@ const Hero = () => {
 				}}
 			/>
 			<div className="hero-cta-container flex flex-col sm:flex-row sm:h-fit sm:justify-start gap-4 justify-end m-8 w-full z-10">
-				<CustomButton
+				{/* <CustomButton
 					title="Request Import"
 					styles="bg-black text-white px-4 py-2 rounded-lg text-base"
-				/>
+				/> */}
+				<Link href={"/request-import"}>Request Import</Link>
 				<CustomButton
 					title="View Inventory"
 					styles="bg-white text-black px-4 py-2 rounded-lg text-base"
