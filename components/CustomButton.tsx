@@ -1,9 +1,19 @@
 import { CustomButtonProps } from "@/types";
 import React from "react";
 
-const CustomButton = ({ title, styles, handleClick }: CustomButtonProps) => {
+const CustomButton = ({
+	title,
+	type = "button",
+	value,
+	styles,
+	handleClick,
+}: CustomButtonProps) => {
 	return (
-		<button className={`custom-button ${styles}`} onClick={handleClick}>
+		<button
+			type={type}
+			value={value}
+			className={`custom-button ${styles}`}
+			onClick={handleClick}>
 			{title}
 		</button>
 	);
