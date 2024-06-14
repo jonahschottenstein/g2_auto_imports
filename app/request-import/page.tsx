@@ -1,23 +1,22 @@
 import React from "react";
 import { PrismaClient } from "@prisma/client";
-import MakeModelSelector from "@/components/MakeModelSelector";
+import RequestImportForm from "@/components/RequestImportForm";
 
 const prisma = new PrismaClient();
 
 const Page = async () => {
 	const makes = await prisma.make.findMany();
-	console.log("MAKES", makes);
 	const models = await prisma.model.findMany();
-	console.log("MODELS", models);
 	const production = await prisma.production.findMany();
-	console.log("PRODUCTION", production);
 
 	return (
 		<div className="request-import-page flex flex-col h-full mt-[72px] px-8">
 			<h1 className="text-center text-xl">Request Import</h1>
-			<form className="request-import-form h-full overflow-y-auto">
-				<MakeModelSelector category="make" options={makes} />
-			</form>
+			<RequestImportForm
+				makes={makes}
+				models={models}
+				production={production}
+			/>
 		</div>
 	);
 };
