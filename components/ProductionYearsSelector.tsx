@@ -29,6 +29,8 @@ const getProductionYears = (productionObj: Production) => {
 
 const ProductionYearsSelector = ({
 	production,
+	stateValue,
+	handleClick,
 }: ProductionYearsSelectorProps) => {
 	const productionYears = getProductionYears(production);
 
@@ -65,7 +67,12 @@ const ProductionYearsSelector = ({
 			<ul className="flex flex-wrap">
 				{productionYears.map((year) => (
 					<li key={year}>
-						<CustomButton title={year.toString()} styles="w-16 border-2 py-4" />
+						<CustomButton
+							title={year.toString()}
+							value={year}
+							styles={setButtonStyles(year)}
+							handleClick={handleClick}
+						/>
 					</li>
 				))}
 			</ul>
@@ -87,4 +94,22 @@ for Production:
     so should you pass the Production object and make the array in the Selector component, or make the array in the form page and pass the array to the Selector component?
 
     Production might need to be a different component
+*/
+
+/* 
+Production Years Selector Rules:
+	- Should probably add a class to the selected buttons
+	- First selected year is highlighted
+	- If next selected year...
+		- precedes first selected year...
+			- first selected year 
+
+
+	- startYear, endYear
+
+	- startYear = first year clicked
+	- if second year clicked precedes current startYear, second year becomes start year
+	- if second year clicked is after first year clicked, that becomes endYear
+	- if second year clicked is same as first year clicked, startYear === endYear
+	- if startYear && endYear, and another year is clicked, that becomes startYear, and endYear is erased
 */
