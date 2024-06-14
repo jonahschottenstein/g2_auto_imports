@@ -36,4 +36,19 @@ export interface Model {
 export interface MakeModelSelectorProps {
 	category: string;
 	options: Make[] | Model[];
+	stateValue: string;
+	handleChange: ChangeEventHandler<HTMLInputElement>;
+}
+
+export interface Production {
+	id: number;
+	startYear: number;
+	endYear: number;
+	modelId: number;
+}
+
+export interface ProductionYearsSelectorProps {
+	production: Production;
+	stateValue: { startYear: number; endYear: number };
+	handleClick: MouseEventHandler<HTMLButtonElement>;
 }
