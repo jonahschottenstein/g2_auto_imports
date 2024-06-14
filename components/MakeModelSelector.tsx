@@ -7,21 +7,36 @@ const sortMakeModel = (options: MakeModelSelectorProps["options"]) => {
 	});
 };
 
-const MakeModelSelector = ({ category, options }: MakeModelSelectorProps) => {
+const MakeModelSelector = ({
+	category,
+	options,
+	stateValue,
+	handleChange,
+}: MakeModelSelectorProps) => {
 	const sortedOptions = sortMakeModel(options);
 
 	return (
 		<div className="selector">
 			{sortedOptions.map((option) => (
-				<div className="option-container border-y-2 p-2 hover:bg-slate-500 active:bg-slate-600">
-					<input
-						type="radio"
-						id={`${category}-${option.id}`}
-						name={category}
-						value={option.name}
-						className="absolute h-0 w-0 top-0 left-0 opacity-0"
-					/>
-					<label htmlFor={`${category}-${option.id}`}>{option.name}</label>
+				<div
+					key={option.name}
+					className="option-container border-y-2 hover:bg-slate-500 active:bg-slate-600">
+					<label
+						// htmlFor={`${category}-${option.id}`}
+						htmlFor={`${option.id}`}
+						className="block w-full h-full p-2 has-[:checked]:bg-blue-400">
+						<input
+							type="radio"
+							// id={`${category}-${option.id}`}
+							id={`${option.id}`}
+							name={category}
+							value={option.name}
+							checked={stateValue === option.name}
+							onChange={handleChange}
+							className="absolute h-0 w-0 top-0 left-0 opacity-0"
+						/>
+						{option.name}
+					</label>
 				</div>
 			))}
 		</div>
