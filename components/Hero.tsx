@@ -28,7 +28,8 @@ const Hero = () => {
 					title="Request Import"
 					styles="bg-black text-white px-4 py-2 rounded-lg text-base"
 				/> */}
-				<Link href={"/request-import"}>Request Import</Link>
+				{/* <Link href={"/request-import"}>Request Import</Link> */}
+				<Link href={"/request-import-form/step_1"}>Request Import</Link>
 				<CustomButton
 					title="View Inventory"
 					styles="bg-white text-black px-4 py-2 rounded-lg text-base"
