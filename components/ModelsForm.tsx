@@ -1,0 +1,97 @@
+"use client";
+
+import { useForm, useFormUpdater } from "@/context/request-import-form-context";
+import { Make, Model } from "@/types";
+import React from "react";
+import MakeModelSelector from "./MakeModelSelector";
+
+interface ModelsFormProps {
+	models: Model[];
+}
+
+interface ProductionYears {
+	startYear: number;
+	endYear: number;
+}
+
+// ? Would it be bad to use effect hook?
+
+// * May need to use router. Currently, if I'm on step_2 and I click the previous button to go back to step_1, then I go back a page, it takes me to step_2. I don't know if I want that or if that's how it's supposed to be. I looked at that Home Advisor form for reference.
+
+const ModelsForm = ({ models }: ModelsFormProps) => {
+	const user = useForm();
+	const updateUserData = useFormUpdater();
+
+	const resetFormField = (formField: string) => {
+		switch (formField) {
+			case "make":
+				return { make: { id: 0, name: "" } };
+			case "model":
+				return { model: { id: 0, name: "", makeId: 0 } };
+			case "productionYears":
+				console.log("PROD RESET");
+				return { productionYears: { startYear: 0, endYear: 0 } };
+
+			default:
+				console.log("default");
+				break;
+		}
+	};
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const target = e.target as HTMLInputElement;
+
+		console.log(target.className.includes("model-option"));
+
+		if (!target.className.includes("model-option")) return;
+
+		const hasSelectedProductionYears =
+			user.productionYears &&
+			(user.productionYears.startYear > 0 || user.productionYears.endYear > 0);
+
+		const data = hasSelectedProductionYears
+			? {
+					model: {
+						id: Number(target.id),
+						name: target.value,
+						makeId: Number(user.make?.id),
+					},
+					productionYears: {
+						startYear: 0,
+						endYear: 0,
+					},
+			  }
+			: {
+					model: {
+						id: Number(target.id),
+						name: target.value,
+						makeId: Number(user.make?.id),
+					},
+			  };
+
+		updateUserData(data);
+	};
+
+	const getMakeModels = (make: Make) => {
+		const makeModels = models.filter((model) => model.makeId === make.id);
+
+		return makeModels;
+	};
+
+	const make = user.make || { id: 0, name: "" };
+
+	return (
+		<div className="form-container">
+			<form className="request-import-form models-form h-full overflow-y-auto">
+				<MakeModelSelector
+					category="model"
+					options={getMakeModels(make)}
+					stateValue={user.model?.name || ""}
+					handleChange={handleChange}
+				/>
+			</form>
+		</div>
+	);
+};
+
+export default ModelsForm;
