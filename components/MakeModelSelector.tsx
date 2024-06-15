@@ -33,7 +33,7 @@ const MakeModelSelector = ({
 							value={option.name}
 							checked={stateValue === option.name}
 							onChange={handleChange}
-							className="absolute h-0 w-0 top-0 left-0 opacity-0"
+							className={`${category}-option absolute h-0 w-0 top-0 left-0 opacity-0`}
 						/>
 						{option.name}
 					</label>
