@@ -1,39 +1,19 @@
-import MakeModelSelector from "@/components/MakeModelSelector";
 import MakesForm from "@/components/MakesForm";
-import RequestImportForm from "@/components/RequestImportForm";
 import { PrismaClient } from "@prisma/client";
-import Link from "next/link";
 import React from "react";
 
 const prisma = new PrismaClient();
 
+// TODO: Think I need to do something when the page is refreshed. Currently, refreshing the page erases all user data, so if you're on the Model or Production page of the form, none of the options render.
+
 const page = async () => {
 	const makes = await prisma.make.findMany();
-	// const models = await prisma.model.findMany();
-	// const production = await prisma.production.findMany();
 
 	return (
-		<div className="form-page h-full pt-20">
+		<div className="form-page h-full">
 			<MakesForm makes={makes} />
-			<Link href={"/request-import-form/step_2"}>{"=>"}</Link>
 		</div>
 	);
 };
-/* const page = async () => {
-	const makes = await prisma.make.findMany();
-	const models = await prisma.model.findMany();
-	const production = await prisma.production.findMany();
-
-	return (
-		<div className="form-page h-full pt-20">
-			<RequestImportForm
-				makes={makes}
-				models={models}
-				production={production}
-			/>
-			<Link href={"/request-import-form/step_2"}>{"=>"}</Link>
-		</div>
-	);
-}; */
 
 export default page;
