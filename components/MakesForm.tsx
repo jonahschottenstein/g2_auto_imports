@@ -3,6 +3,7 @@
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import { Make } from "@/types";
 import MakeModelSelector from "./MakeModelSelector";
+import Link from "next/link";
 
 interface MakesFormProps {
 	makes: Make[];
@@ -11,21 +12,6 @@ interface MakesFormProps {
 const MakesForm = ({ makes }: MakesFormProps) => {
 	const user = useForm();
 	const updateUserData = useFormUpdater();
-
-	const resetFormField = (formField: string) => {
-		switch (formField) {
-			case "make":
-				return { make: { id: 0, name: "" } };
-			case "model":
-				return { model: { id: 0, name: "", makeId: 0 } };
-			case "productionYears":
-				return { productionYears: { startYear: 0, endYear: 0 } };
-
-			default:
-				console.log("default");
-				break;
-		}
-	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const target = e.target as HTMLInputElement;
@@ -49,6 +35,8 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 		updateUserData(data);
 	};
 
+	const makeIsSelected = user.make?.id && user.make.name;
+
 	return (
 		<div className="form-container">
 			<form className="request-import-form makes-form h-full overflow-y-auto">
@@ -59,6 +47,19 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 					handleChange={handleChange}
 				/>
 			</form>
+			<div className="form-nav-container w-full flex justify-around">
+				<Link
+					href={"/request-import-form/step_2"}
+					className={
+						makeIsSelected
+							? "next-form-link"
+							: "next-form-link pointer-events-none"
+					}
+					aria-disabled={!makeIsSelected}
+					tabIndex={!makeIsSelected ? -1 : undefined}>
+					{">"}
+				</Link>
+			</div>
 		</div>
 	);
 };

@@ -4,6 +4,7 @@ import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import { Make, Model } from "@/types";
 import React from "react";
 import MakeModelSelector from "./MakeModelSelector";
+import Link from "next/link";
 
 interface ModelsFormProps {
 	models: Model[];
@@ -80,6 +81,11 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 
 	const make = user.make || { id: 0, name: "" };
 
+	const makeIsSelected = user.make?.id && user.make.name;
+	const modelIsSelected =
+		user.model?.id && user.model.name && user.model.makeId;
+	const okayToContinue = makeIsSelected && modelIsSelected;
+
 	return (
 		<div className="form-container">
 			<form className="request-import-form models-form h-full overflow-y-auto">
@@ -90,6 +96,24 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 					handleChange={handleChange}
 				/>
 			</form>
+			<div className="form-nav-container w-full flex justify-around">
+				<Link
+					href={"/request-import-form/step_1"}
+					className="previous-form-link">
+					{"<"}
+				</Link>
+				<Link
+					href={"/request-import-form/step_3"}
+					className={
+						okayToContinue
+							? "next-form-link"
+							: "next-form-link pointer-events-none"
+					}
+					aria-disabled={!okayToContinue}
+					tabIndex={!okayToContinue ? -1 : undefined}>
+					{">"}
+				</Link>
+			</div>
 		</div>
 	);
 };

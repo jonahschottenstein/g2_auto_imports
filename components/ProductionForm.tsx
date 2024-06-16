@@ -4,6 +4,7 @@ import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import { Model, Production } from "@/types";
 import React from "react";
 import ProductionYearsSelector from "./ProductionYearsSelector";
+import Link from "next/link";
 
 interface ProductionFormProps {
 	production: Production[];
@@ -82,6 +83,11 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 
 	const productionYears = user.productionYears;
 
+	const makeIsSelected = user.make?.id && user.make.name;
+	const modelIsSelected =
+		user.model?.id && user.model.name && user.model.makeId;
+	const okayToContinue = makeIsSelected && modelIsSelected;
+
 	return (
 		<div className="form-container">
 			<form className="request-import-form production-form h-full overflow-y-auto">
@@ -95,6 +101,24 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 					<p>Could not find years of production</p>
 				)}
 			</form>
+			<div className="form-nav-container w-full flex justify-around">
+				<Link
+					href={"/request-import-form/step_1"}
+					className="previous-form-link">
+					{"<"}
+				</Link>
+				<Link
+					href={"/request-import-form/step_3"}
+					className={
+						okayToContinue
+							? "next-form-link"
+							: "next-form-link pointer-events-none"
+					}
+					aria-disabled={!okayToContinue}
+					tabIndex={!okayToContinue ? -1 : undefined}>
+					{">"}
+				</Link>
+			</div>
 		</div>
 	);
 };
