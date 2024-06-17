@@ -88,6 +88,7 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 
 	return (
 		<div className="form-container">
+			<h2 className="text-center text-2xl mb-4">Select Model</h2>
 			<form className="request-import-form models-form h-full overflow-y-auto">
 				<MakeModelSelector
 					category="model"
