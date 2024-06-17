@@ -38,7 +38,8 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 	const makeIsSelected = user.make?.id && user.make.name;
 
 	return (
-		<div className="form-container">
+		<div className="form-container px-8 h-full flex flex-col">
+			<h2 className="text-center text-2xl mb-4">Select Make</h2>
 			<form className="request-import-form makes-form h-full overflow-y-auto">
 				<MakeModelSelector
 					category="make"
