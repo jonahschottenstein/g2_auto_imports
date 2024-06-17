@@ -81,16 +81,36 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 		// TODO: Make this cleaner
 	};
 
+	const canContinue = (): boolean => {
+		const { make, model, productionYears } = user;
+
+		if (!productionYears?.startYear || !productionYears.endYear) return false;
+
+		const { startYear, endYear } = productionYears;
+
+		const makeIsSelected = make && make.id && make.name ? true : false;
+		const modelIsSelected =
+			model && model.id && model.name && model.makeId ? true : false;
+		const startYearIsSelected = startYear > 0;
+		const endYearIsSelected = endYear > 0;
+
+		const canContinue =
+			makeIsSelected &&
+			modelIsSelected &&
+			startYearIsSelected &&
+			endYearIsSelected;
+
+		return canContinue;
+	};
+
+	const isOkToContinue = canContinue();
+
 	const productionYears = user.productionYears;
 
-	const makeIsSelected = user.make?.id && user.make.name;
-	const modelIsSelected =
-		user.model?.id && user.model.name && user.model.makeId;
-	const okayToContinue = makeIsSelected && modelIsSelected;
-
 	return (
-		<div className="form-container">
-			<form className="request-import-form production-form h-full overflow-y-auto">
+		<div className="form-container px-8 h-full flex flex-col">
+			<h2 className="text-center text-2xl mb-4">Select Years</h2>
+			<form className="request-import-form production-form h-full overflow-y-hidden flex">
 				{productionObj && productionYears ? (
 					<ProductionYearsSelector
 						production={productionObj}
@@ -103,19 +123,19 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 			</form>
 			<div className="form-nav-container w-full flex justify-around">
 				<Link
-					href={"/request-import-form/step_1"}
+					href={"/request-import-form/step_2"}
 					className="previous-form-link">
 					{"<"}
 				</Link>
 				<Link
-					href={"/request-import-form/step_3"}
+					href={"/request-import-form/step_4"}
 					className={
-						okayToContinue
+						isOkToContinue
 							? "next-form-link"
 							: "next-form-link pointer-events-none"
 					}
-					aria-disabled={!okayToContinue}
-					tabIndex={!okayToContinue ? -1 : undefined}>
+					aria-disabled={!isOkToContinue}
+					tabIndex={!isOkToContinue ? -1 : undefined}>
 					{">"}
 				</Link>
 			</div>

@@ -8,7 +8,7 @@ const page = async () => {
 	const models = await prisma.model.findMany();
 
 	return (
-		<div className="form-page h-full">
+		<div className="form-page flex flex-col flex-1 overflow-auto">
 			<ModelsForm models={models} />
 		</div>
 	);

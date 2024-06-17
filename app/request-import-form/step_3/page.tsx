@@ -8,7 +8,7 @@ const page = async () => {
 	const production = await prisma.production.findMany();
 
 	return (
-		<div className="form-page h-full">
+		<div className="form-page flex flex-col flex-1 overflow-auto">
 			<ProductionForm production={production} />
 		</div>
 	);
