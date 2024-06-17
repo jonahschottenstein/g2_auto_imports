@@ -1,7 +1,9 @@
+import FormStepper from "@/components/FormStepper";
 import { FormProvider } from "@/context/request-import-form-context";
 import React from "react";
 
 const NAV_BAR_HEIGHT = `72px`;
+const FOOTER_HEIGHT = `24px`;
 
 const Layout = ({
 	children,
@@ -9,7 +11,10 @@ const Layout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<main className={`pt-[${NAV_BAR_HEIGHT}]`}>
+		// <main className={`pt-[${NAV_BAR_HEIGHT}]`}>
+		<main className={`pt-[72px] h-[calc(100%-24px)] flex flex-col`}>
+			<h1 className="text-center text-3xl text-bold mt-4">Request Import</h1>
+			<FormStepper steps={["Make", "Model", "Production", "Contact"]} />
 			<FormProvider>{children}</FormProvider>
 		</main>
 	);

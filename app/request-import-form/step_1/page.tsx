@@ -10,7 +10,7 @@ const page = async () => {
 	const makes = await prisma.make.findMany();
 
 	return (
-		<div className="form-page h-full">
+		<div className="form-page flex flex-col flex-1 overflow-auto">
 			<MakesForm makes={makes} />
 		</div>
 	);
