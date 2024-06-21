@@ -6,6 +6,12 @@ export interface User {
 	make: { id: number; name: string };
 	model: { id: number; name: string; makeId: number };
 	productionYears: { startYear: number; endYear: number };
+	contactInfo: {
+		firstName: string;
+		lastName: string;
+		email: string;
+		phone: string;
+	};
 }
 
 interface FormContextType {
@@ -20,6 +26,12 @@ export function FormProvider({ children }: { children: React.ReactNode }) {
 		make: { id: 0, name: "" },
 		model: { id: 0, name: "", makeId: 0 },
 		productionYears: { startYear: 0, endYear: 0 },
+		contactInfo: {
+			firstName: "",
+			lastName: "",
+			email: "",
+			phone: "",
+		},
 	});
 
 	const updateUserData = (values: Partial<User>) => {
