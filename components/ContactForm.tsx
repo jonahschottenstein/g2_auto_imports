@@ -7,8 +7,15 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import FormField from "./FormField";
+import {
+	useForm as useFormContext,
+	useFormUpdater,
+} from "@/context/request-import-form-context";
 
 const ContactForm = () => {
+	const user = useFormContext();
+	const updateUserData = useFormUpdater();
+
 	const {
 		register,
 		handleSubmit,
@@ -47,6 +54,8 @@ const ContactForm = () => {
 					type: "server",
 					message: errors[fieldWithError],
 				});
+			} else {
+				updateUserData({ contactInfo: data });
 			}
 		} catch (error) {
 			console.log("ERROR", error);
