@@ -4,7 +4,7 @@ import { ZodType, z } from "zod";
 
 export interface CustomButtonProps {
 	title: string;
-	type?: "button";
+	type?: "button" | "submit";
 	value?: number | string;
 	styles?: string;
 	handleClick?: MouseEventHandler<HTMLButtonElement>;
