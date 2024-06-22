@@ -11,7 +11,7 @@ const NavBar = () => {
 				className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
 				aria-label="Global">
 				<div className="flex items-center justify-between">
-					<a className="flex-none" href="#">
+					<a className="flex-none" href="/">
 						<svg
 							className="w-10 h-auto"
 							width="100"
