@@ -16,21 +16,17 @@ const Page = ({ params }: { params: { id: string } }) => {
 	const displayKeys = ["year", "make", "model", "price"];
 
 	return (
-		<main>
+		<main className="flex-1 pt-[72px]">
 			<div className="p-8 flex flex-col">
 				<h1 className="text-center text-2xl">{carTitle}</h1>
-				<div className="car-page flex flex-col gap-8 mt-4 mb-8 sm:flex-row">
+				<div className="car-page flex flex-col gap-8 my-8 sm:flex-row">
 					<Image
-						className="w-full sm:w-8/12"
+						className="w-full h-auto sm:w-8/12"
 						src={vehicleDetails?.imageSrc || "/"}
 						alt={`Image of ${carTitle}`}
 						width={100}
 						height={100}
-						style={{
-							aspectRatio: "4 / 3",
-							objectFit: "cover",
-							height: "auto",
-						}}
+						priority
 					/>
 					{vehicleDetails ? (
 						<table className="h-fit flex-1">
