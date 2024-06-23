@@ -4,6 +4,7 @@ import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import { Make } from "@/types";
 import MakeModelSelector from "./MakeModelSelector";
 import Link from "next/link";
+import { BackLink, NextLink } from "./CustomLinks";
 
 interface MakesFormProps {
 	makes: Make[];
@@ -40,27 +41,21 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
 			<h2 className="text-center text-2xl mb-4">Select Make</h2>
-			<form className="request-import-form makes-form h-full overflow-y-auto">
+			<form className="request-import-form makes-form flex flex-col h-[calc(100%-50px)]">
 				<MakeModelSelector
 					category="make"
 					options={makes}
 					stateValue={user.make?.name || ""}
 					handleChange={handleChange}
 				/>
+				<div className="form-nav-container w-full flex justify-around p-4">
+					<BackLink href="/request-import-form/step_1" isDisabled={true} />
+					<NextLink
+						href="/request-import-form/step_2"
+						isDisabled={!makeIsSelected}
+					/>
+				</div>
 			</form>
-			<div className="form-nav-container w-full flex justify-around">
-				<Link
-					href={"/request-import-form/step_2"}
-					className={
-						makeIsSelected
-							? "next-form-link"
-							: "next-form-link pointer-events-none"
-					}
-					aria-disabled={!makeIsSelected}
-					tabIndex={!makeIsSelected ? -1 : undefined}>
-					{">"}
-				</Link>
-			</div>
 		</div>
 	);
 };
