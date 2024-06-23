@@ -11,6 +11,8 @@ import {
 	useForm as useFormContext,
 	useFormUpdater,
 } from "@/context/request-import-form-context";
+import { BackLink } from "./CustomLinks";
+import CustomButton from "./CustomButton";
 
 const ContactForm = () => {
 	const user = useFormContext();
@@ -68,53 +70,53 @@ const ContactForm = () => {
 			<h2 className="text-center text-2xl mb-4">Contact Details</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="request-import-form contact-form h-full overflow-y-auto flex flex-col gap-4">
-				<FormField
-					label="First Name"
-					type="text"
-					inputId="first-name"
-					name="firstName"
-					register={register}
-					error={errors.firstName}
-					rule="Must be at least two letters"
-				/>
-				<FormField
-					label="Last Name"
-					type="text"
-					inputId="last-name"
-					name="lastName"
-					register={register}
-					error={errors.lastName}
-					rule="Must be at least two letters"
-				/>
-				<FormField
-					label="Email"
-					type="email"
-					inputId="email"
-					name="email"
-					register={register}
-					error={errors.email}
-				/>
-				<FormField
-					label="Phone"
-					type="tel"
-					inputId="phone"
-					name="phone"
-					register={register}
-					error={errors.phone}
-					rule="(###) ###-####"
-				/>
-				<button type="submit" className="submit-button">
-					Submit
-				</button>
+				className="request-import-form contact-form flex flex-col h-[calc(100%-50px)]">
+				<div className="contact-form-fields flex flex-col gap-4 flex-1 overflow-y-auto">
+					<FormField
+						label="First Name"
+						type="text"
+						inputId="first-name"
+						name="firstName"
+						register={register}
+						error={errors.firstName}
+						rule="Must be at least two letters"
+					/>
+					<FormField
+						label="Last Name"
+						type="text"
+						inputId="last-name"
+						name="lastName"
+						register={register}
+						error={errors.lastName}
+						rule="Must be at least two letters"
+					/>
+					<FormField
+						label="Email"
+						type="email"
+						inputId="email"
+						name="email"
+						register={register}
+						error={errors.email}
+					/>
+					<FormField
+						label="Phone"
+						type="tel"
+						inputId="phone"
+						name="phone"
+						register={register}
+						error={errors.phone}
+						rule="(###) ###-####"
+					/>
+				</div>
+				<div className="form-nav-container w-full flex justify-around p-4">
+					<BackLink href="/request-import-form/step_3" isDisabled={false} />
+					<CustomButton
+						title="Submit"
+						type="submit"
+						styles="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+					/>
+				</div>
 			</form>
-			<div className="form-nav-container w-full flex justify-around">
-				<Link
-					href={"/request-import-form/step_3"}
-					className="previous-form-link">
-					{"<"}
-				</Link>
-			</div>
 		</div>
 	);
 };
