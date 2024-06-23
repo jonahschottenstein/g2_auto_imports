@@ -59,7 +59,7 @@ const ProductionYearsSelector = ({
 	};
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col flex-1 overflow-y-auto">
 			<div className="flex justify-between">
 				<span>{startYearDisplay}</span>
 				<span>{endYearDisplay}</span>

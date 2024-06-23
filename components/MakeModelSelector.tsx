@@ -16,7 +16,7 @@ const MakeModelSelector = ({
 	const sortedOptions = sortMakeModel(options);
 
 	return (
-		<div className="selector">
+		<div className="selector flex-1 overflow-y-auto">
 			{sortedOptions.map((option) => (
 				<div
 					key={option.name}
