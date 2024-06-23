@@ -5,6 +5,7 @@ import { Model, Production } from "@/types";
 import React from "react";
 import ProductionYearsSelector from "./ProductionYearsSelector";
 import Link from "next/link";
+import { BackLink, NextLink } from "./CustomLinks";
 
 interface ProductionFormProps {
 	production: Production[];
@@ -110,7 +111,7 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
 			<h2 className="text-center text-2xl mb-4">Select Years</h2>
-			<form className="request-import-form production-form h-full overflow-y-hidden flex">
+			<form className="request-import-form production-form flex flex-col h-[calc(100%-50px)]">
 				{productionObj && productionYears ? (
 					<ProductionYearsSelector
 						production={productionObj}
@@ -120,25 +121,14 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 				) : (
 					<p>Could not find years of production</p>
 				)}
+				<div className="form-nav-container w-full flex justify-around p-4">
+					<BackLink href="/request-import-form/step_2" isDisabled={false} />
+					<NextLink
+						href="/request-import-form/step_4"
+						isDisabled={!isOkToContinue}
+					/>
+				</div>
 			</form>
-			<div className="form-nav-container w-full flex justify-around">
-				<Link
-					href={"/request-import-form/step_2"}
-					className="previous-form-link">
-					{"<"}
-				</Link>
-				<Link
-					href={"/request-import-form/step_4"}
-					className={
-						isOkToContinue
-							? "next-form-link"
-							: "next-form-link pointer-events-none"
-					}
-					aria-disabled={!isOkToContinue}
-					tabIndex={!isOkToContinue ? -1 : undefined}>
-					{">"}
-				</Link>
-			</div>
 		</div>
 	);
 };

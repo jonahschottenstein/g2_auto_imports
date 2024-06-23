@@ -5,6 +5,7 @@ import { Make, Model } from "@/types";
 import React from "react";
 import MakeModelSelector from "./MakeModelSelector";
 import Link from "next/link";
+import { BackLink, NextLink } from "./CustomLinks";
 
 interface ModelsFormProps {
 	models: Model[];
@@ -89,32 +90,21 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
 			<h2 className="text-center text-2xl mb-4">Select Model</h2>
-			<form className="request-import-form models-form h-full overflow-y-auto">
+			<form className="request-import-form models-form flex flex-col h-[calc(100%-50px)]">
 				<MakeModelSelector
 					category="model"
 					options={getMakeModels(make)}
 					stateValue={user.model?.name || ""}
 					handleChange={handleChange}
 				/>
+				<div className="form-nav-container w-full flex justify-around p-4">
+					<BackLink href="/request-import-form/step_1" isDisabled={false} />
+					<NextLink
+						href="/request-import-form/step_3"
+						isDisabled={!okayToContinue}
+					/>
+				</div>
 			</form>
-			<div className="form-nav-container w-full flex justify-around">
-				<Link
-					href={"/request-import-form/step_1"}
-					className="previous-form-link">
-					{"<"}
-				</Link>
-				<Link
-					href={"/request-import-form/step_3"}
-					className={
-						okayToContinue
-							? "next-form-link"
-							: "next-form-link pointer-events-none"
-					}
-					aria-disabled={!okayToContinue}
-					tabIndex={!okayToContinue ? -1 : undefined}>
-					{">"}
-				</Link>
-			</div>
 		</div>
 	);
 };
