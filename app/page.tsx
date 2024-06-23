@@ -37,3 +37,30 @@ export default async function Home() {
 		</main>
 	);
 }
+
+// TODO:
+/* 
+	- Add page for View Inventory link
+	- Figure out Hero height styling
+	- Make Form component (DRY)
+	- Don't know if you need "Request Import" <h1> on the Form pages. Takes up a lot of space
+	- form-nav-container with BackLink and NextLink should probably be its own component
+	- Fix Back/Next button placement in Form
+	- Think you should put Back/Next Links inside <Form>
+	- Figure out how to change error messages in ContactForm
+	- Figure out if you should disable submit button before inputs are completed
+	- Add client and server side validation for Steps 1-3
+	- Finish client and server side validation for Step 4
+	- Add FormReview Step (Step 5)
+	- Add Footer content
+	- Add your Links to NavBar
+	- Fix vehicle/[id]/page.tsx styling
+		- Add pt-[72px] to <main>
+		- Make table nicer
+		- Make description nicer
+		- Make Footer stay at bottom of page
+	- Go through and make sure you're typing everything you're supposed to and you're typing correctly
+	- Organize
+		- Make sure types are all where they belong, components are where they belong, utility functions are where they belong, etc.
+	
+*/
