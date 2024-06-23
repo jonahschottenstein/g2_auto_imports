@@ -12,28 +12,23 @@ const CarCard = ({
 	pageUrl,
 }: CarCardProps) => {
 	return (
-		<div className="car-card flex flex-col relative">
-			<Link href={pageUrl}>
-				<Image
-					src={imageSrc}
-					alt={`Image of ${year} ${make} ${model}`}
-					width={100}
-					height={100}
-					// TODO: Figure out if the width and height are doing anything
-					style={{
-						aspectRatio: "4 / 3",
-						objectFit: "cover",
-						width: "100%",
-					}}
-				/>
-			</Link>
-			<div className="car-card-detail pr-3 py-3">
-				<Link href={pageUrl}>
-					<h3 className="car-card-title text-lg font-semibold ">{`${year} ${make} ${model}`}</h3>
-					<p>{price}</p>
-				</Link>
+		<Link
+			className="flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-lg transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
+			href={pageUrl}>
+			<Image
+				className="w-full h-auto rounded-t-xl"
+				src={imageSrc}
+				alt={`Image of ${year} ${make} ${model}`}
+				width={100}
+				height={100}
+			/>
+			<div className="p-4 md:p-5">
+				<h3 className="text-lg font-bold text-gray-800 dark:text-white">
+					{`${year} ${make} ${model}`}
+				</h3>
+				<p className="mt-1 text-gray-500 dark:text-neutral-400">{price}</p>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
