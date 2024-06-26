@@ -13,10 +13,16 @@ import {
 } from "@/context/request-import-form-context";
 import { BackLink, NextLink } from "./CustomLinks";
 import CustomButton from "./CustomButton";
+import { useRouter } from "next/navigation";
+
+// TODO: Think I need to make CustomButton accept children instead of title so I can pass svg to it
 
 const ContactForm = () => {
 	const user = useFormContext();
 	const updateUserData = useFormUpdater();
+	const router = useRouter();
+
+	const values = user.contactInfo;
 
 	const {
 		register,
@@ -25,6 +31,7 @@ const ContactForm = () => {
 		setError,
 	} = useForm<FormData>({
 		resolver: zodResolver(UserSchema),
+		values,
 	});
 
 	const onSubmit = async (data: FormData) => {
@@ -58,6 +65,7 @@ const ContactForm = () => {
 				});
 			} else {
 				updateUserData({ contactInfo: data });
+				router.push("/request-import-form/step_5");
 			}
 		} catch (error) {
 			console.log("ERROR", error);
@@ -110,12 +118,12 @@ const ContactForm = () => {
 				</div>
 				<div className="form-nav-container w-full flex justify-around p-4">
 					<BackLink href="/request-import-form/step_3" isDisabled={false} />
-					{/* <CustomButton
+					<CustomButton
 						title="Submit"
 						type="submit"
 						styles="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-					/> */}
-					<NextLink href="/request-import-form/step_5" isDisabled={false} />
+					/>
+					{/* <NextLink href="/request-import-form/step_5" isDisabled={false} /> */}
 				</div>
 			</form>
 		</div>
