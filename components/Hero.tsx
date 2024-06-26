@@ -10,7 +10,7 @@ const Hero = () => {
 
 	return (
 		<div
-			className={`hero flex flex-1 relative w-full h-screen min-h-[calc(100vh-${NAV_BAR_HEIGHT})] items-end sm:min-h-screen`}>
+			className={`hero flex flex-1 relative w-full h-screen min-h-[calc(100vh-72px)] items-end sm:min-h-screen`}>
 			<Image
 				src={"/tokyo-imports-hero-image.png"}
 				alt="Hero image"
