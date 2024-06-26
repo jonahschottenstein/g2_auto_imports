@@ -51,6 +51,11 @@ export default async function Home() {
 			- comments
 		- save user's info to database or spreadsheet
 
+	- Add "required" indicators to form inputs (*)
+	- Adjust styling on invalid inputs
+	- Reconsider 2-letter minimum for first/last name inputs
+		- Maybe just make sure it's at least one *letter* (not number or symbol or space)
+
 	- When a form page is refreshed:
 		- Have something pop up that tells them this will reset the form
 		- If they confirm they want to refresh, router.push(step_1)
