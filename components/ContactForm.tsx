@@ -4,7 +4,7 @@ import { FormData, UserSchema, ValidFieldNames } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import FormField from "./FormField";
 import {
@@ -33,6 +33,20 @@ const ContactForm = () => {
 		resolver: zodResolver(UserSchema),
 		values,
 	});
+
+	useEffect(() => {
+		const handleBeforeUnload = (e: Event) => {
+			e.preventDefault();
+		};
+
+		window.addEventListener("beforeunload", handleBeforeUnload);
+
+		return () => {
+			window.removeEventListener("beforeunload", handleBeforeUnload);
+		};
+	});
+
+	// TODO: Need to either figure out how to get reload to redirect user to step_1/home page or save data through reload
 
 	const onSubmit = async (data: FormData) => {
 		console.log("SUCCESS", data);
