@@ -26,7 +26,7 @@ const Hero = () => {
 					href="/request-import-form/step_1"
 					title="Request Import"
 				/>
-				<SecondaryBlockLink href="/" title="View Inventory" />
+				<SecondaryBlockLink href="/inventory" title="View Inventory" />
 			</div>
 		</div>
 	);
