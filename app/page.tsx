@@ -50,7 +50,7 @@ export default async function Home() {
 			- state
 			- comments
 		- save user's info to database or spreadsheet
-
+	- Need to add state and comments form fields
 	- Add "required" indicators to form inputs (*)
 	- Adjust styling on invalid inputs
 	- Reconsider 2-letter minimum for first/last name inputs
