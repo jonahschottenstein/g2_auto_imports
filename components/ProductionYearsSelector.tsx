@@ -27,6 +27,46 @@ const getProductionYears = (productionObj: Production) => {
 	return productionYears;
 };
 
+interface YearsDisplayProps {
+	startYear: number;
+	endYear: number;
+}
+
+const YearsDisplay = ({ startYear, endYear }: YearsDisplayProps) => {
+	const startYearDisplay = startYear > 0 ? startYear : "Select year";
+	const endYearDisplay =
+		startYear === 0 && endYear === 0
+			? ""
+			: endYear > 0
+			? endYear
+			: "Select year";
+	const startYearActiveDisplay =
+		startYear > 0
+			? "active-indicator h-1 bg-inherit"
+			: "active-indicator h-1 bg-blue-500";
+	const endYearActiveDisplay =
+		startYear === 0 && endYear === 0
+			? "active-indicator h-1 bg-inherit"
+			: endYear > 0
+			? "active-indicator h-1 bg-inherit"
+			: "active-indicator h-1 bg-blue-500";
+
+	return (
+		<div className="years-display-container flex w-full mb-2">
+			<div className="year-display start-year flex flex-col flex-1 border-gray-300 border-[1px]">
+				<span className="text-center text-xs mt-1">Start Year</span>
+				<span className="text-center font-medium mb-1">{startYearDisplay}</span>
+				<div className={startYearActiveDisplay}></div>
+			</div>
+			<div className="year-display start-year flex flex-col flex-1 border-gray-300 border-[1px]">
+				<span className="text-center text-xs mt-1">End Year</span>
+				<span className="text-center font-medium mb-1">{endYearDisplay}</span>
+				<div className={endYearActiveDisplay}></div>
+			</div>
+		</div>
+	);
+};
+
 const ProductionYearsSelector = ({
 	production,
 	stateValue,
@@ -60,10 +100,14 @@ const ProductionYearsSelector = ({
 
 	return (
 		<div className="flex flex-col flex-1 overflow-y-auto">
-			<div className="flex justify-between">
+			{/* <div className="flex justify-between">
 				<span>{startYearDisplay}</span>
 				<span>{endYearDisplay}</span>
-			</div>
+			</div> */}
+			<YearsDisplay
+				startYear={stateValue.startYear}
+				endYear={stateValue.endYear}
+			/>
 			<div className="production-years-list-container flex-1 overflow-auto">
 				<ul className="flex flex-wrap">
 					{productionYears.map((year) => (
