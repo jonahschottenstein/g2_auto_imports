@@ -40,7 +40,26 @@ export default async function Home() {
 
 // TODO:
 /* 
+	- On Form Submission:
+		- on-screen confirmation that form was submitted
+		- automatic email sent to user
+		- grant gets email with user's info
+			- name
+			- email
+			- phone
+			- state
+			- comments
+		- save user's info to database or spreadsheet
+
+	- When a form page is refreshed:
+		- Have something pop up that tells them this will reset the form
+		- If they confirm they want to refresh, router.push(step_1)
+
+	- Add form stepper that works properly
+
 	- Add page for View Inventory link
+		- Don't need to worry about now, but toprank imports has a filter for the inventory. That could be something to add at some point.
+			- Will want to do it differently than they do, though, because there is an option for model that doesn't work until you select make. I think I would want the model filter to be invisible until make is selected
 	- Figure out Hero height styling
 	- Make Form component (DRY)
 	- Don't know if you need "Request Import" <h1> on the Form pages. Takes up a lot of space
