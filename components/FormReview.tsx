@@ -3,6 +3,8 @@
 import { useForm } from "@/context/request-import-form-context";
 import Link from "next/link";
 import React from "react";
+import { BackLink } from "./CustomLinks";
+import CustomButton from "./CustomButton";
 
 interface FormReviewSectionProps {
 	title: string;
@@ -14,6 +16,8 @@ interface FormReviewSectionRowProps {
 	children: React.ReactNode[];
 }
 
+// !Current component layout won't work. You have one Edit Button for all of Make, Model, Years. You would need an Edit Button for each of them
+
 const FormReviewSection = ({
 	title,
 	children,
@@ -21,7 +25,7 @@ const FormReviewSection = ({
 }: FormReviewSectionProps) => {
 	return (
 		<div>
-			<div className="title-row flex w-full justify-center gap-4">
+			<div className="title-row flex w-full justify-between gap-4">
 				<h3>{title}</h3>
 				<Link href={href}>Edit</Link>
 			</div>
@@ -32,7 +36,9 @@ const FormReviewSection = ({
 
 const FormReviewSectionRow = ({ children }: FormReviewSectionRowProps) => {
 	return (
-		<div className="section-row flex w-full justify-evenly">{children}</div>
+		<div className="section-row flex flex-col w-full p-4 border-2 border-slate-50">
+			{children}
+		</div>
 	);
 };
 
@@ -56,63 +62,51 @@ const FormReview = () => {
 		<div className="form-container px-8 h-full flex flex-col">
 			<h2 className="text-center text-2xl mb-4">Review</h2>
 			<form className="request-import-form review-form flex flex-col h-[calc(100%-50px)]">
-				<FormReviewSection title="Car Information" href="/">
-					<FormReviewSectionRow>
-						<div>{`Year(s)`}</div>
-						<div>
-							{user.productionYears?.startYear === user.productionYears?.endYear
-								? user.productionYears?.startYear
-								: user.productionYears?.startYear +
-								  "-" +
-								  user.productionYears?.endYear}
-						</div>
-					</FormReviewSectionRow>
-					<FormReviewSectionRow>
-						<div>Make</div>
-						<div>{user.make?.name}</div>
-					</FormReviewSectionRow>
-					<FormReviewSectionRow>
-						<div>Model</div>
-						<div>{user.model?.name}</div>
-					</FormReviewSectionRow>
-					{
-						// Object.entries(user)
-						// 	.filter(([key, value]) => {
-						// 		key !== "contactInfo";
-						// 	})
-						// 	.map(([key, value]) => {
-						// 		<div>{setVal(key, value)}</div>;
-						// return (
-						// 	<FormReviewSectionRow>
-						// 		<div>{key}</div>
-						// 		{key === "productionYears" ? (
-						// 			<div>{value.startYear + "-" + value.endYear}</div>
-						// 		) : (
-						// 			<div>{value.name}</div>
-						// 		)}
-						// 	</FormReviewSectionRow>
-						// );
-						// })
-					}
-					{/* {Object.keys(user)
-						.filter((key) => key !== "contactInfo")
-						.map((key) => {
-							return (
-								<FormReviewSectionRow>
-									<div>{key}</div>
-									<div>{}</div>
-								</FormReviewSectionRow>
-							);
-						})} */}
-					{/* <FormReviewSectionRow>
-						<div>Year(s)</div>
-						<div>
-							{user.productionYears?.startYear +
-								"-" +
-								user.productionYears?.endYear}
-						</div>
-					</FormReviewSectionRow> */}
-				</FormReviewSection>
+				<div className="form-review-sections flex flex-col gap-4 flex-1 overflow-y-auto">
+					<FormReviewSection title="Car Information" href="/">
+						<FormReviewSectionRow>
+							<h4>{`Year(s)`}</h4>
+							<div className="font-bold">
+								{user.productionYears?.startYear ===
+								user.productionYears?.endYear
+									? user.productionYears?.startYear
+									: user.productionYears?.startYear +
+									  "-" +
+									  user.productionYears?.endYear}
+							</div>
+						</FormReviewSectionRow>
+						<FormReviewSectionRow>
+							<h4>Make</h4>
+							<div className="font-bold">{user.make?.name}</div>
+						</FormReviewSectionRow>
+						<FormReviewSectionRow>
+							<h4>Model</h4>
+							<div className="font-bold">{user.model?.name}</div>
+						</FormReviewSectionRow>
+					</FormReviewSection>
+					<FormReviewSection title="Contact Information" href="/">
+						<FormReviewSectionRow>
+							<h4>Name</h4>
+							<div className="font-bold">{`${user.contactInfo?.firstName} ${user.contactInfo?.lastName}`}</div>
+						</FormReviewSectionRow>
+						<FormReviewSectionRow>
+							<h4>Email</h4>
+							<div className="font-bold">{`${user.contactInfo?.email}`}</div>
+						</FormReviewSectionRow>
+						<FormReviewSectionRow>
+							<h4>Phone</h4>
+							<div className="font-bold">{`${user.contactInfo?.phone}`}</div>
+						</FormReviewSectionRow>
+					</FormReviewSection>
+				</div>
+				<div className="form-nav-container w-full flex justify-around p-4">
+					<BackLink href="/request-import-form/step_4" isDisabled={false} />
+					<CustomButton
+						title="Submit"
+						type="submit"
+						styles="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+					/>
+				</div>
 			</form>
 		</div>
 	);
