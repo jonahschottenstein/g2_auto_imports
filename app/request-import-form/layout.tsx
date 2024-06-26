@@ -14,7 +14,7 @@ const Layout = ({
 		// <main className={`pt-[${NAV_BAR_HEIGHT}]`}>
 		<main className={`pt-[72px] h-[calc(100%-24px)] flex flex-col`}>
 			<h1 className="text-center text-3xl text-bold mt-4">Request Import</h1>
-			<FormStepper steps={["Make", "Model", "Production", "Contact"]} />
+			<FormStepper steps={["Make", "Model", "Year(s)", "Contact", "Review"]} />
 			<FormProvider>{children}</FormProvider>
 		</main>
 	);
