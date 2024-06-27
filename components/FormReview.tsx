@@ -58,10 +58,22 @@ const FormReview = () => {
 		);
 	};
 
+	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const formStepper = document.querySelector("div.form-stepper");
+		const stepFiveItem = document.querySelector("li.form-stepper-item-5");
+
+		stepFiveItem?.classList.add("success");
+		formStepper?.classList.add("completed");
+	};
+
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
 			<h2 className="text-center text-2xl mb-4">Review</h2>
-			<form className="request-import-form review-form flex flex-col h-[calc(100%-50px)]">
+			<form
+				onSubmit={onSubmit}
+				className="request-import-form review-form flex flex-col h-[calc(100%-50px)]">
 				<div className="form-review-sections flex gap-4 flex-1 overflow-y-auto">
 					<FormReviewSection title="Car Information" href="/">
 						<FormReviewSectionRow>
