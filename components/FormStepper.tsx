@@ -29,15 +29,15 @@ const FormStepper = ({ steps }: FormStepperProps) => {
 		const liState =
 			index === currentStep ? "active" : index < currentStep ? "success" : "";
 
-		const liClass = `flex items-center gap-x-2 shrink basis-0 flex-1 group ${liState}`;
+		const liClass = `form-stepper-item form-stepper-item-${index} flex items-center gap-x-2 shrink basis-0 flex-1 group ${liState}`;
 
 		return liClass;
 	};
 
 	return (
 		<nav className="w-full px-8 my-8">
-			<div data-hs-stepper="">
-				<ul className="relative flex flex-row gap-x-2">
+			<div className="form-stepper" data-hs-stepper="">
+				<ul className="form-steps-list relative flex flex-row gap-x-2">
 					{steps.map((step, index) => {
 						return (
 							<li
