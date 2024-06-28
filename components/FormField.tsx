@@ -16,12 +16,20 @@ const FormField = ({
 			<label htmlFor={inputId} className="form-field-label">
 				{label}
 			</label>
-			<input
-				type={type}
-				id={inputId}
-				className="p-1 bg-gray-400"
-				{...register(name, { valueAsNumber })}
-			/>
+			{type === "textarea" ? (
+				<textarea
+					id={inputId}
+					className="p-1 bg-gray-400"
+					{...register(name, { maxLength: 500 })}
+				/>
+			) : (
+				<input
+					type={type}
+					id={inputId}
+					className="p-1 bg-gray-400"
+					{...register(name, { valueAsNumber })}
+				/>
+			)}
 			{rule && <p className="rule text-xs">{rule}</p>}
 			{error && <span className="error-message">{error.message}</span>}
 		</div>
