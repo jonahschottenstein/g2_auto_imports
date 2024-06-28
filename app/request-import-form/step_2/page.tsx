@@ -1,3 +1,4 @@
+import FormStepper from "@/components/FormStepper";
 import ModelsForm from "@/components/ModelsForm";
 import { PrismaClient } from "@prisma/client";
 import React from "react";
@@ -9,6 +10,7 @@ const page = async () => {
 
 	return (
 		<div className="form-page flex flex-col flex-1 overflow-auto">
+			<FormStepper steps={["Make", "Model", "Year(s)", "Contact", "Review"]} />
 			<ModelsForm models={models} />
 		</div>
 	);
