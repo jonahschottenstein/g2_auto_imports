@@ -60,13 +60,19 @@ export interface FormData {
 	lastName: string;
 	email: string;
 	phone: string;
-	// state: string;
+	zipCode: string;
+	comments: string;
 }
 
-export type ValidFieldNames = "firstName" | "lastName" | "email" | "phone";
-// | "state";
+export type ValidFieldNames =
+	| "firstName"
+	| "lastName"
+	| "email"
+	| "phone"
+	| "zipCode"
+	| "comments";
 
-export type FormFieldTypes = "text" | "email" | "tel";
+export type FormFieldTypes = "text" | "email" | "tel" | "textarea";
 
 export interface FormFieldProps {
 	label: string;
@@ -94,7 +100,9 @@ export const UserSchema: ZodType<FormData> = z.object({
 		.min(2, { message: "Last name is too short" }),
 	email: z.string().email(),
 	phone: z.string().regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/),
-	// state: z.string(),
+	zipCode: z.string().regex(/^[0-9]{5}$/),
+	comments: z.string(),
+	// TODO: Make comments optional and everything else required
 });
 
 // TODO: Account for if someone goes by two names (e.g., John Michael LastName) or their last name is two words (e.g., FirstName Van Buren)
