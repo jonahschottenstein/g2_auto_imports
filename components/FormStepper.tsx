@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface FormStepperProps {
 	steps: string[];
@@ -20,8 +20,15 @@ interface FormStepperProps {
 }; */
 
 const FormStepper = ({ steps }: FormStepperProps) => {
+	const [currentStep, setCurrentStep] = useState<number>(1);
 	const pathName = usePathname();
-	const currentStep = Number(pathName?.slice(-1));
+
+	useEffect(() => {
+		if (pathName) {
+			const step = Number(pathName.slice(-1));
+			setCurrentStep(step);
+		}
+	}, [pathName]);
 
 	const liClass = (index: number) => {
 		if (!currentStep) return;
@@ -39,11 +46,13 @@ const FormStepper = ({ steps }: FormStepperProps) => {
 			<div className="form-stepper" data-hs-stepper="">
 				<ul className="form-steps-list relative flex flex-row gap-x-2">
 					{steps.map((step, index) => {
+						const className = liClass(index + 1);
+
 						return (
 							<li
 								key={step}
 								// className="flex items-center gap-x-2 shrink basis-0 flex-1 group"
-								className={liClass(index + 1)}
+								className={className}
 								data-hs-stepper-nav-item={`{"index": ${index + 1}}`}>
 								<span className="flex flex-col min-w-7 min-h-7 group sm:inline-flex sm:flex-row items-center text-xs align-middle">
 									<span className="size-7 flex justify-center items-center flex-shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
