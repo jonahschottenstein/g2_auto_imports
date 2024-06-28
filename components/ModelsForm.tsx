@@ -87,10 +87,14 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 		user.model?.id && user.model.name && user.model.makeId;
 	const okayToContinue = makeIsSelected && modelIsSelected;
 
+	const STEPPER_HEIGHT = "92px";
+	const H1_HEIGHT = "64px";
+
 	return (
-		<div className="form-container px-8 h-full flex flex-col">
-			<h2 className="text-center text-2xl mb-4">Select Model</h2>
-			<form className="request-import-form models-form flex flex-col h-[calc(100%-50px)]">
+		// <div className="form-container px-8 h-full flex flex-col">
+		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
+			<h1 className="text-center text-2xl my-4">Select Model</h1>
+			<form className="request-import-form models-form flex flex-col h-[calc(100%-64px)]">
 				<MakeModelSelector
 					category="model"
 					options={getMakeModels(make)}

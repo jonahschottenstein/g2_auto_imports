@@ -87,12 +87,14 @@ const ContactForm = () => {
 		}
 	};
 
+	const H1_HEIGHT = "64px";
+
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
-			<h2 className="text-center text-2xl mb-4">Contact Details</h2>
+			<h1 className="text-center text-2xl my-4">Contact Details</h1>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="request-import-form contact-form flex flex-col h-[calc(100%-50px)]">
+				className="request-import-form contact-form flex flex-col h-[calc(100%-64px)]">
 				<div className="contact-form-fields flex flex-col gap-4 flex-1 overflow-y-auto">
 					<FormField
 						label="First Name"

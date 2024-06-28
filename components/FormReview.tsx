@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { BackLink } from "./CustomLinks";
 import CustomButton from "./CustomButton";
+import { useRouter } from "next/navigation";
 
 interface FormReviewSectionProps {
 	title: string;
@@ -44,6 +45,7 @@ const FormReviewSectionRow = ({ children }: FormReviewSectionRowProps) => {
 
 const FormReview = () => {
 	const user = useForm();
+	const router = useRouter();
 
 	const setVal = (key: string, value: any) => {
 		return (
@@ -66,14 +68,20 @@ const FormReview = () => {
 
 		stepFiveItem?.classList.add("success");
 		formStepper?.classList.add("completed");
+
+		router.push("/request-import-form/post-request");
 	};
 
+	const STEPPER_HEIGHT = "92px";
+	const H1_HEIGHT = "64px";
+
 	return (
-		<div className="form-container px-8 h-full flex flex-col">
-			<h2 className="text-center text-2xl mb-4">Review</h2>
+		// <div className="form-container px-8 h-full flex flex-col">
+		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
+			<h1 className="text-center text-2xl my-4">Review</h1>
 			<form
 				onSubmit={onSubmit}
-				className="request-import-form review-form flex flex-col h-[calc(100%-50px)]">
+				className="request-import-form review-form flex flex-col h-[calc(100%-64px)]">
 				<div className="form-review-sections flex gap-4 flex-1 overflow-y-auto">
 					<FormReviewSection title="Car Information" href="/">
 						<FormReviewSectionRow>
