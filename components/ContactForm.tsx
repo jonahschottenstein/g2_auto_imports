@@ -63,6 +63,8 @@ const ContactForm = () => {
 				email: "email",
 				phone: "phone",
 				// state: "state",
+				zipCode: "zipCode",
+				comments: "comments",
 			};
 
 			// Find the first field with an error in the response data
@@ -87,10 +89,12 @@ const ContactForm = () => {
 		}
 	};
 
+	const STEPPER_HEIGHT = "92px";
 	const H1_HEIGHT = "64px";
 
 	return (
-		<div className="form-container px-8 h-full flex flex-col">
+		// <div className="form-container px-8 h-full flex flex-col">
+		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
 			<h1 className="text-center text-2xl my-4">Contact Details</h1>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
@@ -130,6 +134,23 @@ const ContactForm = () => {
 						register={register}
 						error={errors.phone}
 						rule="(###) ###-####"
+					/>
+					<FormField
+						label="Zip Code"
+						type="text"
+						inputId="zipCode"
+						name="zipCode"
+						register={register}
+						error={errors.phone}
+						rule="#####"
+					/>
+					<FormField
+						label="Comments"
+						type="textarea"
+						inputId="comments"
+						name="comments"
+						register={register}
+						error={errors.phone}
 					/>
 				</div>
 				<div className="form-nav-container w-full flex justify-around p-4">
