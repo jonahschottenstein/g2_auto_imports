@@ -117,6 +117,14 @@ const FormReview = () => {
 							<h4>Phone</h4>
 							<div className="font-bold">{`${user.contactInfo?.phone}`}</div>
 						</FormReviewSectionRow>
+						<FormReviewSectionRow>
+							<h4>Zip Code</h4>
+							<div className="font-bold">{`${user.contactInfo?.zipCode}`}</div>
+						</FormReviewSectionRow>
+						<FormReviewSectionRow>
+							<h4>Comments</h4>
+							<div className="font-bold">{`${user.contactInfo?.comments}`}</div>
+						</FormReviewSectionRow>
 					</FormReviewSection>
 				</div>
 				<div className="form-nav-container w-full flex justify-around p-4">
