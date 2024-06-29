@@ -2,11 +2,12 @@ import { CustomButtonProps } from "@/types";
 import React from "react";
 
 const CustomButton = ({
-	title,
+	// title,
 	type = "button",
 	value,
 	styles,
 	handleClick,
+	children,
 }: CustomButtonProps) => {
 	return (
 		<button
@@ -14,7 +15,8 @@ const CustomButton = ({
 			value={value}
 			className={`custom-button ${styles}`}
 			onClick={handleClick}>
-			{title}
+			{/* {title} */}
+			{children}
 		</button>
 	);
 };

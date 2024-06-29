@@ -3,11 +3,12 @@ import { FieldError, UseFormRegister } from "react-hook-form";
 import { ZodType, z } from "zod";
 
 export interface CustomButtonProps {
-	title: string;
+	// title: string;
 	type?: "button" | "submit";
 	value?: number | string;
 	styles?: string;
 	handleClick?: MouseEventHandler<HTMLButtonElement>;
+	children: React.ReactNode;
 }
 
 export interface CarCardProps {
