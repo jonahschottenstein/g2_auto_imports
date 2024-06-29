@@ -44,7 +44,7 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 	return (
 		// <div className="form-container px-8 h-full flex flex-col">
 		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
-			<h1 className="text-center text-2xl my-4">Select Make</h1>
+			<h1 className="text-center text-2xl mb-4">Select Make</h1>
 			<form className="request-import-form makes-form flex flex-col h-[calc(100%-64px)]">
 				<MakeModelSelector
 					category="make"

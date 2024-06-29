@@ -78,7 +78,7 @@ const FormReview = () => {
 	return (
 		// <div className="form-container px-8 h-full flex flex-col">
 		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
-			<h1 className="text-center text-2xl my-4">Review</h1>
+			<h1 className="text-center text-2xl mb-4">Review</h1>
 			<form
 				onSubmit={onSubmit}
 				className="request-import-form review-form flex flex-col h-[calc(100%-64px)]">

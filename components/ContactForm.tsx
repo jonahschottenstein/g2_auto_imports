@@ -95,7 +95,7 @@ const ContactForm = () => {
 	return (
 		// <div className="form-container px-8 h-full flex flex-col">
 		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
-			<h1 className="text-center text-2xl my-4">Contact Details</h1>
+			<h1 className="text-center text-2xl mb-4">Contact Details</h1>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
 				className="request-import-form contact-form flex flex-col h-[calc(100%-64px)]">
@@ -156,11 +156,26 @@ const ContactForm = () => {
 				<div className="form-nav-container w-full flex justify-around p-4">
 					<BackLink href="/request-import-form/step_3" isDisabled={false} />
 					<CustomButton
-						title="Submit"
+						// title="Submit"
 						// TODO: Need to have CustomButton take children so you can pass the svg arrow
 						type="submit"
-						styles="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-					/>
+						styles="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+						Next
+						<svg
+							className="flex-shrink-0 size-4"
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round">
+							<path d="M5 12h14"></path>
+							<path d="m12 5 7 7-7 7"></path>
+						</svg>
+					</CustomButton>
 					{/* <NextLink href="/request-import-form/step_5" isDisabled={false} /> */}
 				</div>
 			</form>
