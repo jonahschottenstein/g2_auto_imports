@@ -130,10 +130,11 @@ const FormReview = () => {
 				<div className="form-nav-container w-full flex justify-around p-4">
 					<BackLink href="/request-import-form/step_4" isDisabled={false} />
 					<CustomButton
-						title="Submit"
+						// title="Submit"
 						type="submit"
-						styles="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-					/>
+						styles="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+						Submit
+					</CustomButton>
 				</div>
 			</form>
 		</div>

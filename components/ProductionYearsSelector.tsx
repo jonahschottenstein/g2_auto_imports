@@ -113,11 +113,12 @@ const ProductionYearsSelector = ({
 					{productionYears.map((year) => (
 						<li key={year}>
 							<CustomButton
-								title={year.toString()}
+								// title={year.toString()}
 								value={year}
 								styles={setButtonStyles(year)}
-								handleClick={handleClick}
-							/>
+								handleClick={handleClick}>
+								{year.toString()}
+							</CustomButton>
 						</li>
 					))}
 				</ul>
