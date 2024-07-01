@@ -1,8 +1,8 @@
 "use client";
 
-import { useForm } from "@/context/request-import-form-context";
+import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { BackLink } from "./CustomLinks";
 import CustomButton from "./CustomButton";
 import { useRouter } from "next/navigation";
@@ -45,7 +45,15 @@ const FormReviewSectionRow = ({ children }: FormReviewSectionRowProps) => {
 
 const FormReview = () => {
 	const user = useForm();
+	const updateUserData = useFormUpdater();
 	const router = useRouter();
+
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		updateUserData(userData);
+	}, []);
 
 	const setVal = (key: string, value: any) => {
 		return (
