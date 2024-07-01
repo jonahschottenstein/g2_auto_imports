@@ -40,6 +40,18 @@ export default async function Home() {
 
 // TODO:
 /* 
+	- Should have first and last name displays on review page because that's how you asked for that information
+	- Would be nice to add animation when switching Form pages
+	- Should last name be required?
+	- Need to erase sessionStorage data when leaving form
+	- Need to set browser back/forward buttons when filling out form so it doesn't go from Step_2 to Step_3 to Step_2, for example
+	- Need to figure out how to keep BackLink and NextLink at bottom of ProductionYears page on reload
+	- If elements are selected using data from sessionStorage, scroll them into view
+		- Think I need to use ref
+	- Think I need to add form data to session storage in case page is reloaded
+	- Consider putting FormStepper back in layout.tsx. Think it'd be ok to have visible on PostRequest page
+		- And if it helps performance, it'd probably be worth it
+		- Don't know if I'll be able to do anything from layout.tsx about page reload though
 	- On Form Submission:
 		- on-screen confirmation that form was submitted
 		- automatic email sent to user
@@ -50,7 +62,7 @@ export default async function Home() {
 			- state
 			- comments
 		- save user's info to database or spreadsheet
-	- Need to add state and comments form fields
+	// - Need to add state and comments form fields
 	- Add "required" indicators to form inputs (*)
 	- Adjust styling on invalid inputs
 	- Reconsider 2-letter minimum for first/last name inputs
@@ -62,13 +74,13 @@ export default async function Home() {
 
 	- Add form stepper that works properly
 
-	- Add page for View Inventory link
-		- Don't need to worry about now, but toprank imports has a filter for the inventory. That could be something to add at some point.
-			- Will want to do it differently than they do, though, because there is an option for model that doesn't work until you select make. I think I would want the model filter to be invisible until make is selected
+	// - Add page for View Inventory link
+		// - Don't need to worry about now, but toprank imports has a filter for the inventory. That could be something to add at some point.
+			// - Will want to do it differently than they do, though, because there is an option for model that doesn't work until you select make. I think I would want the model filter to be invisible until make is selected
 	- Figure out Hero height styling
 	- Make Form component (DRY)
 	- ProductionYearsSelector should maybe use grid auto columns
-	- Don't know if you need "Request Import" <h1> on the Form pages. Takes up a lot of space
+	// - Don't know if you need "Request Import" <h1> on the Form pages. Takes up a lot of space
 	- form-nav-container with BackLink and NextLink should probably be its own component
 	- Fix Back/Next button placement in Form
 	- Think you should put Back/Next Links inside <Form>
@@ -76,7 +88,7 @@ export default async function Home() {
 	- Figure out if you should disable submit button before inputs are completed
 	- Add client and server side validation for Steps 1-3
 	- Finish client and server side validation for Step 4
-	- Add FormReview Step (Step 5)
+	// - Add FormReview Step (Step 5)
 	- Add Footer content
 	- Add your Links to NavBar
 	- Fix vehicle/[id]/page.tsx styling
