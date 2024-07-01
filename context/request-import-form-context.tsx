@@ -12,7 +12,7 @@ export interface User {
 		email: string;
 		phone: string;
 		zipCode: string;
-		comments: string;
+		comments?: string;
 	};
 }
 
@@ -34,7 +34,7 @@ export function FormProvider({ children }: { children: React.ReactNode }) {
 			email: "",
 			phone: "",
 			zipCode: "",
-			comments: "",
+			// comments: "",
 		},
 	});
 
