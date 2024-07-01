@@ -2,7 +2,7 @@
 
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import { Make, Model } from "@/types";
-import React from "react";
+import React, { useEffect } from "react";
 import MakeModelSelector from "./MakeModelSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
@@ -40,6 +40,13 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 		}
 	};
 
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		updateUserData(userData);
+	}, []);
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const target = e.target as HTMLInputElement;
 
@@ -70,6 +77,24 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 						makeId: Number(user.make?.id),
 					},
 			  };
+
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+		const newUserData = {
+			...userData,
+			model: {
+				id: Number(target.id),
+				name: target.value,
+				makeId: Number(user.make?.id),
+			},
+		};
+
+		sessionStorage.setItem(
+			"userData",
+			JSON.stringify({
+				...newUserData,
+			})
+		);
 
 		updateUserData(data);
 	};

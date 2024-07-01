@@ -5,6 +5,7 @@ import { Make } from "@/types";
 import MakeModelSelector from "./MakeModelSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
+import { useEffect } from "react";
 
 interface MakesFormProps {
 	makes: Make[];
@@ -13,6 +14,13 @@ interface MakesFormProps {
 const MakesForm = ({ makes }: MakesFormProps) => {
 	const user = useForm();
 	const updateUserData = useFormUpdater();
+
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+		// * Think I might need something that exits here if no userData
+		updateUserData(userData);
+	}, []);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const target = e.target as HTMLInputElement;
@@ -32,6 +40,12 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 				endYear: 0,
 			},
 		};
+		// TODO: Think this needs to be changed. Don't think done correctly, and doesn't include contactInfo
+
+		sessionStorage.setItem(
+			"userData",
+			JSON.stringify({ make: { id: Number(target.id), name: target.value } })
+		);
 
 		updateUserData(data);
 	};

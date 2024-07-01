@@ -2,7 +2,7 @@
 
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import { Model, Production } from "@/types";
-import React from "react";
+import React, { useEffect } from "react";
 import ProductionYearsSelector from "./ProductionYearsSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
@@ -14,6 +14,13 @@ interface ProductionFormProps {
 const ProductionForm = ({ production }: ProductionFormProps) => {
 	const user = useForm();
 	const updateUserData = useFormUpdater();
+
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		updateUserData(userData);
+	}, []);
 
 	const getModelProductionObj = (model: Model) => {
 		const modelProductionObj = production.find(
@@ -36,6 +43,20 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 			productionYears: { startYear: Number(target.value), endYear: 0 },
 		};
 
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+		const newUserData = {
+			...userData,
+			...data,
+		};
+
+		sessionStorage.setItem(
+			"userData",
+			JSON.stringify({
+				...newUserData,
+			})
+		);
+
 		updateUserData(data);
 	};
 
@@ -52,6 +73,20 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 				endYear: Number(target.value),
 			},
 		};
+
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+		const newUserData = {
+			...userData,
+			...data,
+		};
+
+		sessionStorage.setItem(
+			"userData",
+			JSON.stringify({
+				...newUserData,
+			})
+		);
 
 		updateUserData(data);
 	};
@@ -116,14 +151,12 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
 			<h1 className="text-center text-2xl mb-4">Select Years</h1>
 			<form className="request-import-form production-form flex flex-col h-[calc(100%-64px)]">
-				{productionObj && productionYears ? (
+				{productionObj && productionYears && (
 					<ProductionYearsSelector
 						production={productionObj}
 						stateValue={productionYears}
 						handleClick={handleClick}
 					/>
-				) : (
-					<p>Could not find years of production</p>
 				)}
 				<div className="form-nav-container w-full flex justify-around p-4">
 					<BackLink href="/request-import-form/step_2" isDisabled={false} />

@@ -35,16 +35,11 @@ const ContactForm = () => {
 	});
 
 	useEffect(() => {
-		const handleBeforeUnload = (e: Event) => {
-			e.preventDefault();
-		};
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
 
-		window.addEventListener("beforeunload", handleBeforeUnload);
-
-		return () => {
-			window.removeEventListener("beforeunload", handleBeforeUnload);
-		};
-	});
+		updateUserData(userData);
+	}, []);
 
 	// TODO: Need to either figure out how to get reload to redirect user to step_1/home page or save data through reload
 
@@ -80,7 +75,33 @@ const ContactForm = () => {
 					message: errors[fieldWithError],
 				});
 			} else {
-				updateUserData({ contactInfo: data });
+				const data = {
+					contactInfo: {
+						firstName: (
+							document.getElementById("first-name") as HTMLInputElement
+						).value,
+						lastName: (document.getElementById("last-name") as HTMLInputElement)
+							.value,
+						email: (document.getElementById("email") as HTMLInputElement).value,
+						phone: (document.getElementById("phone") as HTMLInputElement).value,
+						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
+							.value,
+						comments: (
+							document.getElementById("comments") as HTMLTextAreaElement
+						).value,
+					},
+				};
+				const storedUserData = sessionStorage.getItem("userData");
+				const userData = storedUserData && JSON.parse(storedUserData);
+				const newUserData = {
+					...userData,
+					...data,
+				};
+
+				sessionStorage.setItem("userData", JSON.stringify({ ...newUserData }));
+
+				updateUserData(data);
+
 				router.push("/request-import-form/step_5");
 			}
 		} catch (error) {
@@ -107,7 +128,7 @@ const ContactForm = () => {
 						name="firstName"
 						register={register}
 						error={errors.firstName}
-						rule="Must be at least two letters"
+						// rule="Must be at least two letters"
 					/>
 					<FormField
 						label="Last Name"
@@ -116,7 +137,7 @@ const ContactForm = () => {
 						name="lastName"
 						register={register}
 						error={errors.lastName}
-						rule="Must be at least two letters"
+						// rule="Must be at least two letters"
 					/>
 					<FormField
 						label="Email"
@@ -138,10 +159,10 @@ const ContactForm = () => {
 					<FormField
 						label="Zip Code"
 						type="text"
-						inputId="zipCode"
+						inputId="zip-code"
 						name="zipCode"
 						register={register}
-						error={errors.phone}
+						error={errors.zipCode}
 						rule="#####"
 					/>
 					<FormField
@@ -150,7 +171,7 @@ const ContactForm = () => {
 						inputId="comments"
 						name="comments"
 						register={register}
-						error={errors.phone}
+						error={errors.comments}
 					/>
 				</div>
 				<div className="form-nav-container w-full flex justify-around p-4">
