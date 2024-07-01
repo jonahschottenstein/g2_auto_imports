@@ -36,7 +36,7 @@ const FormStepper = ({ steps }: FormStepperProps) => {
 		const liState =
 			index === currentStep ? "active" : index < currentStep ? "success" : "";
 
-		const liClass = `form-stepper-item form-stepper-item-${index} flex items-center gap-x-2 shrink basis-0 flex-1 group ${liState}`;
+		const liClass = `form-stepper-item form-stepper-item-${index} flex items-center gap-x-2 shrink basis-0 flex-1 last:max-w-fit group ${liState}`;
 
 		return liClass;
 	};
