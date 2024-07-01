@@ -11,10 +11,18 @@ const FormField = ({
 	valueAsNumber,
 	rule,
 }: FormFieldProps) => {
+	const afterLabelContent =
+		type === "textarea"
+			? "after:content-['(optional)']"
+			: "after:content-['(required)']";
 	return (
 		<div className="form-field-container flex flex-col">
-			<label htmlFor={inputId} className="form-field-label">
+			{/* <label htmlFor={inputId} className="form-field-label"> */}
+			<label
+				htmlFor={inputId}
+				className={`form-field-label ${afterLabelContent} after:ml-1 after:text-xs`}>
 				{label}
+				{/* {type === "textarea" ? `${label} ` : `* ${label}`} */}
 			</label>
 			{type === "textarea" ? (
 				<textarea
