@@ -106,8 +106,12 @@ const FormReview = () => {
 					</FormReviewSection>
 					<FormReviewSection title="Contact Information" href="/">
 						<FormReviewSectionRow>
-							<h4>Name</h4>
-							<div className="font-bold">{`${user.contactInfo?.firstName} ${user.contactInfo?.lastName}`}</div>
+							<h4>First Name</h4>
+							<div className="font-bold">{`${user.contactInfo?.firstName}`}</div>
+						</FormReviewSectionRow>
+						<FormReviewSectionRow>
+							<h4>Last Name</h4>
+							<div className="font-bold">{`${user.contactInfo?.lastName}`}</div>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Email</h4>
