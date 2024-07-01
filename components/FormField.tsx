@@ -28,6 +28,7 @@ const FormField = ({
 				<textarea
 					id={inputId}
 					className="p-1 bg-gray-400"
+					maxLength={500}
 					{...register(name, { maxLength: 500 })}
 				/>
 			) : (
@@ -35,7 +36,7 @@ const FormField = ({
 					type={type}
 					id={inputId}
 					className="p-1 bg-gray-400"
-					{...register(name, { valueAsNumber })}
+					{...register(name, { required: true, valueAsNumber })}
 				/>
 			)}
 			{rule && <p className="rule text-xs">{rule}</p>}
