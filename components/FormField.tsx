@@ -11,10 +11,17 @@ const FormField = ({
 	valueAsNumber,
 	rule,
 }: FormFieldProps) => {
+	const inputMode =
+		inputId === "email"
+			? "email"
+			: inputId === "phone" || inputId === "zip-code"
+			? "numeric"
+			: "text";
 	const afterLabelContent =
 		type === "textarea"
 			? "after:content-['(optional)']"
 			: "after:content-['(required)']";
+
 	return (
 		<div className="form-field-container flex flex-col">
 			{/* <label htmlFor={inputId} className="form-field-label"> */}
@@ -34,6 +41,7 @@ const FormField = ({
 			) : (
 				<input
 					type={type}
+					inputMode={inputMode}
 					id={inputId}
 					className="p-1 bg-gray-400"
 					{...register(name, { required: true, valueAsNumber })}
