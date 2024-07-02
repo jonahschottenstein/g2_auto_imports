@@ -1,5 +1,9 @@
 import React from "react";
-import { Production, ProductionYearsSelectorProps } from "@/types";
+import {
+	Production,
+	ProductionYearsSelectorProps,
+	YearsDisplayProps,
+} from "@/types";
 import CustomButton from "./CustomButton";
 
 /* const getRange = (size: number, startYear: number): ReadonlyArray<number> => {
@@ -26,11 +30,6 @@ const getProductionYears = (productionObj: Production) => {
 
 	return productionYears;
 };
-
-interface YearsDisplayProps {
-	startYear: number;
-	endYear: number;
-}
 
 const YearsDisplay = ({ startYear, endYear }: YearsDisplayProps) => {
 	const startYearDisplay = startYear > 0 ? startYear : "Select year";

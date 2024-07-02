@@ -1,14 +1,9 @@
+import { CarData } from "@/types";
+
 const Database = require("better-sqlite3");
 const fs = require("fs");
 const path = require("path");
 const { parse } = require("csv-parse");
-
-interface CarData {
-	Make: string;
-	Model: string;
-	ProductionStartYear: number;
-	ProductionEndYear: number;
-}
 
 const db = new Database("prisma/dev.db");
 

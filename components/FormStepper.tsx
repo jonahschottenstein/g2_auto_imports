@@ -1,11 +1,8 @@
 "use client";
 
+import { FormStepperProps } from "@/types";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-
-interface FormStepperProps {
-	steps: string[];
-}
 
 /* const FormStepper = ({ steps }: FormStepperProps) => {
 	return (

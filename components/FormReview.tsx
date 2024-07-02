@@ -7,16 +7,7 @@ import { BackLink } from "./CustomLinks";
 import CustomButton from "./CustomButton";
 import { useRouter } from "next/navigation";
 import FormContainer from "./FormContainer";
-
-interface FormReviewSectionProps {
-	title: string;
-	children: React.ReactNode[];
-	href: string;
-}
-
-interface FormReviewSectionRowProps {
-	children: React.ReactNode[];
-}
+import { FormReviewSectionProps, FormReviewSectionRowProps } from "@/types";
 
 // !Current component layout won't work. You have one Edit Button for all of Make, Model, Years. You would need an Edit Button for each of them
 

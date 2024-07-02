@@ -1,16 +1,12 @@
 "use client";
 
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
-import { Make } from "@/types";
+import { Make, MakesFormProps } from "@/types";
 import MakeModelSelector from "./MakeModelSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
 import { useEffect } from "react";
 import FormContainer from "./FormContainer";
-
-interface MakesFormProps {
-	makes: Make[];
-}
 
 const MakesForm = ({ makes }: MakesFormProps) => {
 	const user = useForm();

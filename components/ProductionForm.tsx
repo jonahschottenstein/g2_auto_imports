@@ -1,16 +1,12 @@
 "use client";
 
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
-import { Model, Production } from "@/types";
+import { Model, Production, ProductionFormProps } from "@/types";
 import React, { useEffect } from "react";
 import ProductionYearsSelector from "./ProductionYearsSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
 import FormContainer from "./FormContainer";
-
-interface ProductionFormProps {
-	production: Production[];
-}
 
 const ProductionForm = ({ production }: ProductionFormProps) => {
 	const user = useForm();

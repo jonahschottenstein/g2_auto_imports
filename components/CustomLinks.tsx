@@ -1,14 +1,5 @@
+import { CustomLink, ProgressLink } from "@/types";
 import Link from "next/link";
-
-interface CustomLink {
-	href: string;
-	title: string;
-}
-
-interface ProgressLink {
-	href: string;
-	isDisabled: boolean;
-}
 
 export const PrimaryBlockLink = ({ href, title }: CustomLink) => {
 	return (

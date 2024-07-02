@@ -2,6 +2,37 @@ import { ChangeEventHandler, MouseEventHandler } from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 import { ZodType, z } from "zod";
 
+/* Database */
+export interface CarData {
+	Make: string;
+	Model: string;
+	ProductionStartYear: number;
+	ProductionEndYear: number;
+}
+/* Database */
+
+/* Context */
+export interface User {
+	make: { id: number; name: string };
+	model: { id: number; name: string; makeId: number };
+	productionYears: { startYear: number; endYear: number };
+	contactInfo: {
+		firstName: string;
+		lastName: string;
+		email: string;
+		phone: string;
+		zipCode: string;
+		comments?: string;
+	};
+}
+
+export interface FormContextType {
+	user: Partial<User>;
+	updateUserData: (values: Partial<User>) => void;
+}
+/* Context */
+
+/* Buttons/Links */
 export interface CustomButtonProps {
 	// title: string;
 	type?: "button" | "submit";
@@ -11,6 +42,18 @@ export interface CustomButtonProps {
 	children: React.ReactNode;
 }
 
+export interface CustomLink {
+	href: string;
+	title: string;
+}
+
+export interface ProgressLink {
+	href: string;
+	isDisabled: boolean;
+}
+/* Buttons/Links */
+
+/* Car */
 export interface CarCardProps {
 	imageSrc: string;
 	year: number;
@@ -36,6 +79,32 @@ export interface Model {
 	makeId: number;
 }
 
+export interface Production {
+	id: number;
+	startYear: number;
+	endYear: number;
+	modelId: number;
+}
+/* Car */
+
+/* Form */
+export interface FormStepperProps {
+	steps: string[];
+}
+
+export interface FormContainerProps {
+	h1: string;
+	children: React.ReactNode;
+}
+
+export interface MakesFormProps {
+	makes: Make[];
+}
+
+export interface ModelsFormProps {
+	models: Model[];
+}
+
 export interface MakeModelSelectorProps {
 	category: string;
 	options: Make[] | Model[];
@@ -43,11 +112,8 @@ export interface MakeModelSelectorProps {
 	handleChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export interface Production {
-	id: number;
-	startYear: number;
-	endYear: number;
-	modelId: number;
+export interface ProductionFormProps {
+	production: Production[];
 }
 
 export interface ProductionYearsSelectorProps {
@@ -56,12 +122,12 @@ export interface ProductionYearsSelectorProps {
 	handleClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface FormContainerProps {
-	h1: string;
-	children: React.ReactNode;
+export interface YearsDisplayProps {
+	startYear: number;
+	endYear: number;
 }
 
-export interface FormData {
+export interface ContactFormData {
 	firstName: string;
 	lastName: string;
 	email: string;
@@ -85,13 +151,13 @@ export interface FormFieldProps {
 	type: FormFieldTypes;
 	inputId: string;
 	name: ValidFieldNames;
-	register: UseFormRegister<FormData>;
+	register: UseFormRegister<ContactFormData>;
 	error: FieldError | undefined;
 	valueAsNumber?: boolean;
 	rule?: string;
 }
 
-export const UserSchema: ZodType<FormData> = z.object({
+export const UserSchema: ZodType<ContactFormData> = z.object({
 	firstName: z
 		.string({
 			required_error: "required field",
@@ -99,23 +165,26 @@ export const UserSchema: ZodType<FormData> = z.object({
 		.trim()
 		.min(1, { message: "Enter first name" })
 		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/),
-	// .regex(/^[A-Za-z]{1,}$/)
-	// .min(2, { message: "First name is too short" })
 	lastName: z
 		.string()
 		.trim()
 		.min(1, { message: "Enter last name" })
 		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/),
-	// .regex(/^[A-Za-z]{1,}$/)
-	// .min(2, { message: "Last name is too short" })
 	email: z.string().email(),
 	phone: z.string().regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/),
 	zipCode: z
 		.string()
-		// .length(5)
 		.regex(/^[0-9]{5}$/, { message: "Zip code must be exactly five digits" }),
 	comments: z.string().max(500).optional(),
-	// TODO: Make comments optional and everything else required
 });
 
-// TODO: Account for if someone goes by two names (e.g., John Michael LastName) or their last name is two words (e.g., FirstName Van Buren)
+export interface FormReviewSectionProps {
+	title: string;
+	children: React.ReactNode[];
+	href: string;
+}
+
+export interface FormReviewSectionRowProps {
+	children: React.ReactNode[];
+}
+/* Form */

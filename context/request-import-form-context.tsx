@@ -1,25 +1,7 @@
 "use client";
 
+import { FormContextType, User } from "@/types";
 import { createContext, useContext, useState } from "react";
-
-export interface User {
-	make: { id: number; name: string };
-	model: { id: number; name: string; makeId: number };
-	productionYears: { startYear: number; endYear: number };
-	contactInfo: {
-		firstName: string;
-		lastName: string;
-		email: string;
-		phone: string;
-		zipCode: string;
-		comments?: string;
-	};
-}
-
-interface FormContextType {
-	user: Partial<User>;
-	updateUserData: (values: Partial<User>) => void;
-}
 
 const FormContext = createContext<FormContextType | undefined>(undefined);
 

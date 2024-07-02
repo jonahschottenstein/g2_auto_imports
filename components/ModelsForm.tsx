@@ -1,21 +1,12 @@
 "use client";
 
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
-import { Make, Model } from "@/types";
+import { Make, Model, ModelsFormProps } from "@/types";
 import React, { useEffect } from "react";
 import MakeModelSelector from "./MakeModelSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
 import FormContainer from "./FormContainer";
-
-interface ModelsFormProps {
-	models: Model[];
-}
-
-interface ProductionYears {
-	startYear: number;
-	endYear: number;
-}
 
 // ? Would it be bad to use effect hook?
 
