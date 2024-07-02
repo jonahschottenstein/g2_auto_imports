@@ -56,6 +56,11 @@ export interface ProductionYearsSelectorProps {
 	handleClick: MouseEventHandler<HTMLButtonElement>;
 }
 
+export interface FormContainerProps {
+	h1: string;
+	children: React.ReactNode;
+}
+
 export interface FormData {
 	firstName: string;
 	lastName: string;
