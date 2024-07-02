@@ -1,10 +1,18 @@
 "use client";
 
-import { useForm } from "@/context/request-import-form-context";
-import React from "react";
+import { useForm, useFormUpdater } from "@/context/request-import-form-context";
+import React, { useEffect } from "react";
 
 const PostRequest = () => {
 	const user = useForm();
+	const updateUserData = useFormUpdater();
+
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		updateUserData(userData);
+	}, []);
 
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
