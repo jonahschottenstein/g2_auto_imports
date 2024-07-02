@@ -97,18 +97,23 @@ export const UserSchema: ZodType<FormData> = z.object({
 			required_error: "required field",
 		})
 		.trim()
-		.min(1, { message: "Enter first name" }),
+		.min(1, { message: "Enter first name" })
+		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/),
 	// .regex(/^[A-Za-z]{1,}$/)
 	// .min(2, { message: "First name is too short" })
-	lastName: z.string().trim().min(1, { message: "Enter last name" }),
+	lastName: z
+		.string()
+		.trim()
+		.min(1, { message: "Enter last name" })
+		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/),
 	// .regex(/^[A-Za-z]{1,}$/)
 	// .min(2, { message: "Last name is too short" })
 	email: z.string().email(),
 	phone: z.string().regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/),
 	zipCode: z
 		.string()
-		.length(5)
-		.regex(/^[0-9]{5}$/),
+		// .length(5)
+		.regex(/^[0-9]{5}$/, { message: "Zip code must be exactly five digits" }),
 	comments: z.string().max(500).optional(),
 	// TODO: Make comments optional and everything else required
 });
