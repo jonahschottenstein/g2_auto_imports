@@ -14,6 +14,7 @@ import {
 import { BackLink, NextLink } from "./CustomLinks";
 import CustomButton from "./CustomButton";
 import { useRouter } from "next/navigation";
+import FormContainer from "./FormContainer";
 
 // TODO: Think I need to make CustomButton accept children instead of title so I can pass svg to it
 
@@ -114,9 +115,7 @@ const ContactForm = () => {
 	const H1_HEIGHT = "64px";
 
 	return (
-		// <div className="form-container px-8 h-full flex flex-col">
-		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
-			<h1 className="text-center text-2xl mb-4">Contact Details</h1>
+		<FormContainer h1="Contact Details">
 			<form
 				onSubmit={handleSubmit(onSubmit)}
 				className="request-import-form contact-form flex flex-col h-[calc(100%-64px)]">
@@ -200,7 +199,7 @@ const ContactForm = () => {
 					{/* <NextLink href="/request-import-form/step_5" isDisabled={false} /> */}
 				</div>
 			</form>
-		</div>
+		</FormContainer>
 	);
 };
 

@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import MakeModelSelector from "./MakeModelSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
+import FormContainer from "./FormContainer";
 
 interface ModelsFormProps {
 	models: Model[];
@@ -116,9 +117,7 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 	const H1_HEIGHT = "64px";
 
 	return (
-		// <div className="form-container px-8 h-full flex flex-col">
-		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
-			<h1 className="text-center text-2xl mb-4">Select Model</h1>
+		<FormContainer h1="Select Model">
 			<form className="request-import-form models-form flex flex-col h-[calc(100%-64px)]">
 				<MakeModelSelector
 					category="model"
@@ -134,8 +133,30 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 					/>
 				</div>
 			</form>
-		</div>
+		</FormContainer>
 	);
+
+	// return (
+	// 	// <div className="form-container px-8 h-full flex flex-col">
+	// 	<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
+	// 		<h1 className="text-center text-2xl mb-4">Select Model</h1>
+	// 		<form className="request-import-form models-form flex flex-col h-[calc(100%-64px)]">
+	// 			<MakeModelSelector
+	// 				category="model"
+	// 				options={getMakeModels(make)}
+	// 				stateValue={user.model?.name || ""}
+	// 				handleChange={handleChange}
+	// 			/>
+	// 			<div className="form-nav-container w-full flex justify-around p-4">
+	// 				<BackLink href="/request-import-form/step_1" isDisabled={false} />
+	// 				<NextLink
+	// 					href="/request-import-form/step_3"
+	// 					isDisabled={!okayToContinue}
+	// 				/>
+	// 			</div>
+	// 		</form>
+	// 	</div>
+	// );
 };
 
 export default ModelsForm;

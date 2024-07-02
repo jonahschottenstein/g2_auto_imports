@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import ProductionYearsSelector from "./ProductionYearsSelector";
 import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
+import FormContainer from "./FormContainer";
 
 interface ProductionFormProps {
 	production: Production[];
@@ -147,10 +148,8 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 	const H1_HEIGHT = "64px";
 
 	return (
-		// <div className="form-container px-8 h-full flex flex-col">
-		<div className="form-container px-8 h-[calc(100%-92px)] flex flex-col">
-			<h1 className="text-center text-2xl mb-4">Select Years</h1>
-			<form className="request-import-form production-form flex flex-col h-[calc(100%-64px)]">
+		<FormContainer h1="Select Year(s)">
+			<form className="request-import-form production-form flex flex-col items-center h-[calc(100%-64px)]">
 				{productionObj && productionYears && (
 					<ProductionYearsSelector
 						production={productionObj}
@@ -166,7 +165,7 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 					/>
 				</div>
 			</form>
-		</div>
+		</FormContainer>
 	);
 };
 
