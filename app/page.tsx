@@ -40,7 +40,19 @@ export default async function Home() {
 
 // TODO:
 /* 
-	- Should have first and last name displays on review page because that's how you asked for that information
+In order:
+	1. 
+*/
+/* 
+	- On mobile, PostRequest h1 needs more margin-top
+	// - Should autofocus First Name
+	// 	- Actually, there are accessibility issues, so maybe not
+	- Don't know if I should make ContactForm (and FormReview) height auto
+	- Right now, ProductionForm is wider than the rest
+		- Back/Next buttons are further apart
+	- Don't know if I should add pt-[72px] to this <main> element like I did for the Form pages
+	- If you refresh Indeed form, it takes you back to the beginning
+	//- Should have first and last name displays on review page because that's how you asked for that information
 	- Would be nice to add animation when switching Form pages
 	- Should last name be required?
 	- Need to erase sessionStorage data when leaving form
@@ -63,10 +75,10 @@ export default async function Home() {
 			- comments
 		- save user's info to database or spreadsheet
 	// - Need to add state and comments form fields
-	- Add "required" indicators to form inputs (*)
+	// - Add "required" indicators to form inputs (*)
 	- Adjust styling on invalid inputs
-	- Reconsider 2-letter minimum for first/last name inputs
-		- Maybe just make sure it's at least one *letter* (not number or symbol or space)
+	// - Reconsider 2-letter minimum for first/last name inputs
+	// 	- Maybe just make sure it's at least one *letter* (not number or symbol or space)
 
 	- When a form page is refreshed:
 		- Have something pop up that tells them this will reset the form
@@ -83,7 +95,7 @@ export default async function Home() {
 	// - Don't know if you need "Request Import" <h1> on the Form pages. Takes up a lot of space
 	- form-nav-container with BackLink and NextLink should probably be its own component
 	- Fix Back/Next button placement in Form
-	- Think you should put Back/Next Links inside <Form>
+	// - Think you should put Back/Next Links inside <Form>
 	- Figure out how to change error messages in ContactForm
 	- Figure out if you should disable submit button before inputs are completed
 	- Add client and server side validation for Steps 1-3
@@ -92,7 +104,7 @@ export default async function Home() {
 	- Add Footer content
 	- Add your Links to NavBar
 	- Fix vehicle/[id]/page.tsx styling
-		- Add pt-[72px] to <main>
+		// - Add pt-[72px] to <main>
 		- Make table nicer
 		- Make description nicer
 		- Make Footer stay at bottom of page
