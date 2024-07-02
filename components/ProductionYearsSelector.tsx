@@ -99,7 +99,7 @@ const ProductionYearsSelector = ({
 	};
 
 	return (
-		<div className="flex flex-col flex-1 overflow-y-auto">
+		<div className="flex flex-col flex-1 overflow-y-auto w-fit">
 			{/* <div className="flex justify-between">
 				<span>{startYearDisplay}</span>
 				<span>{endYearDisplay}</span>
@@ -108,8 +108,9 @@ const ProductionYearsSelector = ({
 				startYear={stateValue.startYear}
 				endYear={stateValue.endYear}
 			/>
-			<div className="production-years-list-container flex-1 overflow-auto">
-				<ul className="flex flex-wrap">
+			<div className="production-years-list-container flex-1 overflow-auto w-fit">
+				{/* <ul className="flex flex-wrap"> */}
+				<ul className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
 					{productionYears.map((year) => (
 						<li key={year}>
 							<CustomButton
