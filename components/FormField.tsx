@@ -47,8 +47,12 @@ const FormField = ({
 					{...register(name, { required: true, valueAsNumber })}
 				/>
 			)}
-			{rule && <p className="rule text-xs">{rule}</p>}
-			{error && <span className="error-message">{error.message}</span>}
+			{/* {rule && <p className="rule text-xs">{rule}</p>} */}
+			{error && (
+				<span className="error-message text-sm text-red-600">
+					{error.message}
+				</span>
+			)}
 		</div>
 	);
 };
