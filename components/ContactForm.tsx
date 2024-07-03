@@ -1,6 +1,6 @@
 "use client";
 
-import { FormData, UserSchema, ValidFieldNames } from "@/types";
+import { ContactFormData, UserSchema, ValidFieldNames } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Link from "next/link";
@@ -30,7 +30,7 @@ const ContactForm = () => {
 		handleSubmit,
 		formState: { errors },
 		setError,
-	} = useForm<FormData>({
+	} = useForm<ContactFormData>({
 		resolver: zodResolver(UserSchema),
 		values,
 	});
@@ -44,7 +44,7 @@ const ContactForm = () => {
 
 	// TODO: Need to either figure out how to get reload to redirect user to step_1/home page or save data through reload
 
-	const onSubmit = async (data: FormData) => {
+	const onSubmit = async (data: ContactFormData) => {
 		console.log("SUCCESS", data);
 
 		try {
