@@ -2,7 +2,8 @@
 
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { BackLink } from "./CustomLinks";
 import CustomButton from "./CustomButton";
 import { useRouter } from "next/navigation";
@@ -38,7 +39,27 @@ const FormReviewSectionRow = ({ children }: FormReviewSectionRowProps) => {
 const FormReview = () => {
 	const user = useForm();
 	const updateUserData = useFormUpdater();
+	const formRef = useRef<HTMLFormElement>(null);
 	const router = useRouter();
+
+	const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		if (!formRef.current) return;
+
+		emailjs
+			.sendForm("import_form_service", "import_form", formRef.current, {
+				publicKey: "mGa2zHLRjc8S7ytXl",
+			})
+			.then(
+				() => {
+					console.log("SUCCESS");
+				},
+				(error) => {
+					console.log("FAILED...", error.text);
+				}
+			);
+	};
 
 	useEffect(() => {
 		const storedUserData = sessionStorage.getItem("userData");
@@ -70,6 +91,8 @@ const FormReview = () => {
 		formStepper?.classList.add("completed");
 
 		router.push("/request-import-form/post-request");
+
+		sendEmail(e);
 	};
 
 	const STEPPER_HEIGHT = "92px";
@@ -78,54 +101,133 @@ const FormReview = () => {
 	return (
 		<FormContainer h1="Review">
 			<form
+				ref={formRef}
 				onSubmit={onSubmit}
 				className="request-import-form review-form flex flex-col h-[calc(100%-64px)]">
 				<div className="form-review-sections flex flex-col gap-4 flex-1 overflow-y-auto">
 					<FormReviewSection title="Car Information" href="/">
 						<FormReviewSectionRow>
 							<h4>{`Year(s)`}</h4>
-							<div className="font-bold">
+							{/* <div className="font-bold">
 								{user.productionYears?.startYear ===
 								user.productionYears?.endYear
 									? user.productionYears?.startYear
 									: user.productionYears?.startYear +
 									  "-" +
 									  user.productionYears?.endYear}
-							</div>
+							</div> */}
+							<input
+								type="text"
+								id="user-production-years"
+								name="userProductionYears"
+								value={
+									user.productionYears?.startYear ===
+									user.productionYears?.endYear
+										? user.productionYears?.startYear
+										: user.productionYears?.startYear +
+										  "-" +
+										  user.productionYears?.endYear
+								}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Make</h4>
-							<div className="font-bold">{user.make?.name}</div>
+							{/* <div className="font-bold">{user.make?.name}</div> */}
+							<input
+								type="text"
+								id="user-car-make"
+								name="userCarMake"
+								value={user.make?.name}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Model</h4>
-							<div className="font-bold">{user.model?.name}</div>
+							{/* <div className="font-bold">{user.model?.name}</div> */}
+							<input
+								type="text"
+								id="user-car-model"
+								name="userCarModel"
+								value={user.model?.name}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 					</FormReviewSection>
 					<FormReviewSection title="Contact Information" href="/">
 						<FormReviewSectionRow>
 							<h4>First Name</h4>
-							<div className="font-bold">{`${user.contactInfo?.firstName}`}</div>
+							{/* <div className="font-bold">{`${user.contactInfo?.firstName}`}</div> */}
+							<input
+								type="text"
+								id="user-first-name"
+								name="userFirstName"
+								value={user.contactInfo?.firstName}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Last Name</h4>
-							<div className="font-bold">{`${user.contactInfo?.lastName}`}</div>
+							{/* <div className="font-bold">{`${user.contactInfo?.lastName}`}</div> */}
+							<input
+								type="text"
+								id="user-last-name"
+								name="userLastName"
+								value={user.contactInfo?.lastName}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Email</h4>
-							<div className="font-bold">{`${user.contactInfo?.email}`}</div>
+							{/* <div className="font-bold">{`${user.contactInfo?.email}`}</div> */}
+							<input
+								type="email"
+								id="user-email"
+								name="userEmail"
+								value={user.contactInfo?.email}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Phone</h4>
-							<div className="font-bold">{`${user.contactInfo?.phone}`}</div>
+							{/* <div className="font-bold">{`${user.contactInfo?.phone}`}</div> */}
+							<input
+								type="tel"
+								id="user-phone"
+								name="userPhone"
+								value={user.contactInfo?.phone}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Zip Code</h4>
-							<div className="font-bold">{`${user.contactInfo?.zipCode}`}</div>
+							{/* <div className="font-bold">{`${user.contactInfo?.zipCode}`}</div> */}
+							<input
+								type="text"
+								id="user-zip-code"
+								name="userZipCode"
+								value={user.contactInfo?.zipCode}
+								readOnly
+								className="bg-transparent pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
 							<h4>Comments</h4>
-							<div className="font-bold">{`${user.contactInfo?.comments}`}</div>
+							{/* <div className="font-bold">{`${user.contactInfo?.comments}`}</div> */}
+							<textarea
+								id="user-comments"
+								name="userComments"
+								value={user.contactInfo?.comments}
+								readOnly
+								className="bg-transparent resize-none pointer-events-none"
+							/>
 						</FormReviewSectionRow>
 					</FormReviewSection>
 				</div>
