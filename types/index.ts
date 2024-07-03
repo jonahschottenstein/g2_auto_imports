@@ -170,12 +170,16 @@ export const UserSchema: ZodType<ContactFormData> = z.object({
 		.trim()
 		.min(1, { message: "Enter last name" })
 		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/),
-	email: z.string().email(),
-	phone: z.string().regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/),
+	email: z.string().trim().email(),
+	phone: z
+		.string()
+		.trim()
+		.regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/),
 	zipCode: z
 		.string()
+		.trim()
 		.regex(/^[0-9]{5}$/, { message: "Zip code must be exactly five digits" }),
-	comments: z.string().max(500).optional(),
+	comments: z.string().trim().max(500).optional(),
 });
 
 export interface FormReviewSectionProps {
