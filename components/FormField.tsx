@@ -44,6 +44,7 @@ const FormField = ({
 					inputMode={inputMode}
 					id={inputId}
 					className="p-1 bg-gray-400"
+					required
 					{...register(name, { required: true, valueAsNumber })}
 				/>
 			)}
