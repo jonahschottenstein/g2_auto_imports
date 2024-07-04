@@ -1,6 +1,18 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const NavBar = () => {
+	const pathName = usePathname();
+
+	const linkStyles = (href: string) => {
+		return pathName === href
+			? "font-medium text-blue-500"
+			: "font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500";
+	};
+
 	return (
 		// <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20">
 		<header
@@ -11,7 +23,8 @@ const NavBar = () => {
 				className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
 				aria-label="Global">
 				<div className="flex items-center justify-between">
-					<a className="flex-none" href="/">
+					{/* <a className="flex-none" href="/"> */}
+					<Link href={"/"}>
 						<svg
 							className="w-10 h-auto"
 							width="100"
@@ -25,7 +38,7 @@ const NavBar = () => {
 								fill="white"
 							/>
 						</svg>
-					</a>
+					</Link>
 					<div className="sm:hidden">
 						<button
 							type="button"
@@ -69,27 +82,47 @@ const NavBar = () => {
 					id="navbar-image-1"
 					className="hs-collapse hidden overflow-hidden transition-all duration-700 basis-full grow sm:block">
 					<div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5 h-screen sm:h-auto">
-						<a
+						{/* <a
 							className="font-medium text-blue-500"
 							href="#"
 							aria-current="page">
 							Landing
-						</a>
-						<a
+						</a> */}
+						<Link href={"/"} className={linkStyles("/")}>
+							Home
+						</Link>
+						{/* <a
 							className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
 							href="#">
-							Account
-						</a>
-						<a
+							Request Import
+						</a> */}
+						<Link
+							href={"/request-import-form/step_1"}
+							className={linkStyles("/request-import-form/step_1")}>
+							Request Import
+						</Link>
+						{/* <a
 							className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
 							href="#">
-							Work
-						</a>
-						<a
+							Inventory
+						</a> */}
+						<Link href={"/inventory"} className={linkStyles("/inventory")}>
+							Inventory
+						</Link>
+						{/* <a
 							className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
 							href="#">
 							Blog
-						</a>
+						</a> */}
+						<Link
+							href={"/contact/form"}
+							// className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
+							// className={`font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 ${
+							// 	pathName === "/contact/form" ? "text-blue-500" : "text-gray-600"
+							// }`}
+							className={linkStyles("/contact/form")}>
+							Contact
+						</Link>
 					</div>
 				</div>
 			</nav>
