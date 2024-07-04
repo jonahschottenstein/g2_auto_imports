@@ -13,6 +13,14 @@ const NavBar = () => {
 			: "font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500";
 	};
 
+	const closeMenu = () => {
+		const toggleButton: HTMLElement | null = document.querySelector(
+			".hs-collapse-toggle"
+		);
+		toggleButton && toggleButton.click();
+	};
+	// TODO: Find a better solution
+
 	return (
 		// <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20">
 		<header
@@ -82,45 +90,25 @@ const NavBar = () => {
 					id="navbar-image-1"
 					className="hs-collapse hidden overflow-hidden transition-all duration-700 basis-full grow sm:block">
 					<div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5 h-screen sm:h-auto">
-						{/* <a
-							className="font-medium text-blue-500"
-							href="#"
-							aria-current="page">
-							Landing
-						</a> */}
-						<Link href={"/"} className={linkStyles("/")}>
+						<Link href={"/"} className={linkStyles("/")} onClick={closeMenu}>
 							Home
 						</Link>
-						{/* <a
-							className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
-							href="#">
-							Request Import
-						</a> */}
 						<Link
 							href={"/request-import-form/step_1"}
-							className={linkStyles("/request-import-form/step_1")}>
+							className={linkStyles("/request-import-form/step_1")}
+							onClick={closeMenu}>
 							Request Import
 						</Link>
-						{/* <a
-							className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
-							href="#">
-							Inventory
-						</a> */}
-						<Link href={"/inventory"} className={linkStyles("/inventory")}>
+						<Link
+							href={"/inventory"}
+							className={linkStyles("/inventory")}
+							onClick={closeMenu}>
 							Inventory
 						</Link>
-						{/* <a
-							className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
-							href="#">
-							Blog
-						</a> */}
 						<Link
 							href={"/contact/form"}
-							// className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
-							// className={`font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 ${
-							// 	pathName === "/contact/form" ? "text-blue-500" : "text-gray-600"
-							// }`}
-							className={linkStyles("/contact/form")}>
+							className={linkStyles("/contact/form")}
+							onClick={closeMenu}>
 							Contact
 						</Link>
 					</div>
