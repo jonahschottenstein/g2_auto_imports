@@ -109,7 +109,8 @@ const ProductionYearsSelector = ({
 			/>
 			<div className="production-years-list-container flex-1 overflow-auto w-fit">
 				{/* <ul className="flex flex-wrap"> */}
-				<ul className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
+				{/* <ul className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10"> */}
+				<ul className="grid grid-cols-5 sm:grid-cols-6">
 					{productionYears.map((year) => (
 						<li key={year}>
 							<CustomButton
