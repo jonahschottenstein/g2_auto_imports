@@ -75,7 +75,7 @@ const FooterRow = ({ listItems }: FooterRowProps) => {
 				{listItems.map((listItem, index) => {
 					return (
 						<Link
-							className="text-sm flex justify-center items-center mx-2 hover:underline"
+							className="text-white text-sm flex justify-center items-center mx-2 hover:underline"
 							key={index}
 							href={listItem.href}
 							target={listItem.hasOwnProperty("target") ? "_blank" : "_self"}>
@@ -91,7 +91,7 @@ const FooterRow = ({ listItems }: FooterRowProps) => {
 
 const Footer = () => {
 	return (
-		<footer className="dark:bg-neutral-800">
+		<footer className="bg-neutral-800 dark:bg-neutral-800">
 			<FooterRow listItems={siteLinks} />
 			<FooterRow listItems={socialMediaLinks} />
 		</footer>
