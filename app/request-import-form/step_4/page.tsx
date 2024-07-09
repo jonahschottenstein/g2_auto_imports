@@ -4,7 +4,9 @@ import React from "react";
 
 const page = () => {
 	return (
-		<div className="form-page flex flex-col flex-1 items-center overflow-x-hidden overflow-y-auto">
+		<div
+			// className="form-page flex flex-col flex-1 items-center overflow-x-hidden overflow-y-auto"
+			className="form-page flex flex-col flex-1 items-center overflow-x-hidden overflow-y-clip">
 			<FormStepper steps={["Make", "Model", "Year(s)", "Contact", "Review"]} />
 			<ContactForm />
 		</div>
