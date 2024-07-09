@@ -1,5 +1,6 @@
 import FormStepper from "@/components/FormStepper";
 import { FormProvider } from "@/context/request-import-form-context";
+import { StepProvider } from "@/context/step-context";
 import React from "react";
 
 const NAV_BAR_HEIGHT = `72px`;
@@ -16,7 +17,9 @@ const Layout = ({
 		<main className={`pt-[72px] h-full min-h-full flex flex-col`}>
 			{/* <h1 className="text-center text-3xl text-bold mt-4">Request Import</h1> */}
 			{/* <FormStepper steps={["Make", "Model", "Year(s)", "Contact", "Review"]} /> */}
-			<FormProvider>{children}</FormProvider>
+			<FormProvider>
+				<StepProvider>{children}</StepProvider>
+			</FormProvider>
 		</main>
 	);
 };
