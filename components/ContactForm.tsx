@@ -1,11 +1,16 @@
 "use client";
 
-import { ContactFormData, UserSchema, ValidFieldNames } from "@/types";
+import {
+	ContactFormData,
+	FormFieldTypes,
+	UserSchema,
+	ValidFieldNames,
+} from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { FieldError, UseFormRegister, useForm } from "react-hook-form";
 import FormField from "./FormField";
 import {
 	useForm as useFormContext,
@@ -13,7 +18,7 @@ import {
 } from "@/context/request-import-form-context";
 import { BackLink, NextLink } from "./CustomLinks";
 import CustomButton from "./CustomButton";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import FormContainer from "./FormContainer";
 
 // TODO: Think I need to make CustomButton accept children instead of title so I can pass svg to it
@@ -114,6 +119,13 @@ const ContactForm = () => {
 	const STEPPER_HEIGHT = "92px";
 	const H1_HEIGHT = "64px";
 
+	/* 
+		main: take away height and min-height
+		main > div: take away overflow-y
+		
+		form: height: auto
+	*/
+
 	return (
 		<FormContainer h1="Contact Details">
 			<form
@@ -204,3 +216,244 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
+/* 
+	- contact-form-fields could be component that accepts children
+
+*/
+
+export interface FormFieldsContainerProps {
+	children: React.ReactNode;
+}
+
+export interface FormField2 {
+	key: string;
+	label: string;
+	type: FormFieldTypes;
+	inputId: string;
+	name: ValidFieldNames;
+	register: UseFormRegister<ContactFormData>;
+	error: FieldError | undefined;
+}
+
+export const FormFieldsContainer = ({ children }: FormFieldsContainerProps) => {
+	return (
+		// <div className="form-fields-container flex flex-col gap-4 flex-1 overflow-y-auto">
+		<div className="form-fields-container flex flex-col gap-4 flex-1 ">
+			{/* {Array.isArray(children) &&
+				children?.map((formField: FormField2) => {
+					return (
+						<FormField
+							key={formField.inputId}
+							label={formField.label}
+							type={formField.type}
+							inputId={formField.inputId}
+							name={formField.name}
+							register={formField.register}
+							error={formField.error}
+						/>
+					);
+				})} */}
+			{children}
+		</div>
+	);
+};
+// Think this should just have children ^
+
+export interface ButtonsGroupProps {
+	styles: string;
+	children: React.ReactNode;
+}
+
+export const ButtonsGroup = ({ styles, children }: ButtonsGroupProps) => {
+	return <div className={`buttons-group ${styles}`}>{children}</div>;
+};
+
+export interface ContactForm2Props {
+	buttonsGroupStyles: string;
+	buttonsGroupChildren: React.ReactNode;
+}
+
+export const ContactForm2 = ({
+	buttonsGroupStyles,
+	buttonsGroupChildren,
+}: ContactForm2Props) => {
+	const user = useFormContext();
+	const updateUserData = useFormUpdater();
+	const router = useRouter();
+	const pathName = usePathname();
+
+	const values = user.contactInfo;
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		setError,
+	} = useForm<ContactFormData>({
+		resolver: zodResolver(UserSchema),
+		values,
+	});
+
+	const onSubmit = async (data: ContactFormData) => {
+		console.log("SUCCESS", data);
+		console.log("PATHNAME", pathName);
+
+		try {
+			const response = await axios.post("/api/form", data); // Make a POST request
+			const { errors = {} } = response.data; // Destructure the 'errors' property from the response data
+			console.log("ERRORS", errors);
+
+			// Define a mapping between server-side field names and their corresponding client-side names
+			const fieldErrorMapping: Record<string, ValidFieldNames> = {
+				firstName: "firstName",
+				lastName: "lastName",
+				email: "email",
+				phone: "phone",
+				// state: "state",
+				zipCode: "zipCode",
+				comments: "comments",
+			};
+
+			// Find the first field with an error in the response data
+			const fieldWithError = Object.keys(fieldErrorMapping).find(
+				(field) => errors[field]
+			);
+
+			// If a field with an error is found, update the form error state using setError
+			if (fieldWithError) {
+				// Use the ValidFieldNames type to ensure the correct field names
+				setError(fieldErrorMapping[fieldWithError], {
+					type: "server",
+					message: errors[fieldWithError],
+				});
+			} else {
+				// if (pathName !== "/contact/form") {
+				if (pathName === "/request-import-form/step_4") {
+					const data = {
+						contactInfo: {
+							firstName: (
+								document.getElementById("first-name") as HTMLInputElement
+							).value,
+							lastName: (
+								document.getElementById("last-name") as HTMLInputElement
+							).value,
+							email: (document.getElementById("email") as HTMLInputElement)
+								.value,
+							phone: (document.getElementById("phone") as HTMLInputElement)
+								.value,
+							zipCode: (document.getElementById("zip-code") as HTMLInputElement)
+								.value,
+							comments: (
+								document.getElementById("comments") as HTMLTextAreaElement
+							).value,
+						},
+					};
+					/* const storedUserData = sessionStorage.getItem("userData");
+					const userData = storedUserData && JSON.parse(storedUserData);
+					const newUserData = {
+						...userData,
+						...data,
+					};
+
+					sessionStorage.setItem(
+						"userData",
+						JSON.stringify({ ...newUserData })
+					); */
+
+					updateUserData(data);
+
+					router.push("/request-import-form/step_5");
+				} else {
+					console.log("Go to post-contact page");
+					console.log("Send emails");
+					router.push("/contact/post-contact");
+				}
+			}
+		} catch (error) {
+			console.log("ERROR", error);
+			alert("Submitting form failed!");
+		}
+	};
+
+	const formFieldsData: FormField2[] = [
+		{
+			key: "first-name",
+			label: "First Name",
+			type: "text",
+			inputId: "first-name",
+			name: "firstName",
+			register: register,
+			error: errors.firstName,
+		},
+		{
+			key: "last-name",
+			label: "Last Name",
+			type: "text",
+			inputId: "last-name",
+			name: "lastName",
+			register: register,
+			error: errors.lastName,
+		},
+		{
+			key: "email",
+			label: "Email",
+			type: "email",
+			inputId: "email",
+			name: "email",
+			register: register,
+			error: errors.email,
+		},
+		{
+			key: "phone",
+			label: "Phone",
+			type: "tel",
+			inputId: "phone",
+			name: "phone",
+			register: register,
+			error: errors.phone,
+		},
+		{
+			key: "zip-code",
+			label: "Zip Code",
+			type: "text",
+			inputId: "zip-code",
+			name: "zipCode",
+			register: register,
+			error: errors.zipCode,
+		},
+		{
+			key: "comments",
+			label: "Comments",
+			type: "textarea",
+			inputId: "comments",
+			name: "comments",
+			register: register,
+			error: errors.comments,
+		},
+	];
+	return (
+		<form
+			onSubmit={handleSubmit(onSubmit)}
+			className="contact-form flex flex-col h-[calc(100%-64px)]">
+			<FormFieldsContainer>
+				{formFieldsData.map((formFieldData: FormField2) => {
+					return (
+						<FormField
+							key={formFieldData.inputId}
+							label={formFieldData.label}
+							type={formFieldData.type}
+							inputId={formFieldData.inputId}
+							name={formFieldData.name}
+							register={formFieldData.register}
+							error={formFieldData.error}
+						/>
+					);
+				})}
+			</FormFieldsContainer>
+			<ButtonsGroup styles={buttonsGroupStyles}>
+				{buttonsGroupChildren}
+			</ButtonsGroup>
+		</form>
+	);
+};
