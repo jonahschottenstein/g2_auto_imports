@@ -142,7 +142,8 @@ const CheckMarkDisplay = () => {
 const ItemStatusWrapper = ({ styles, children }: ItemStatusWrapperProps) => {
 	return (
 		<span
-			className={`size-7 flex justify-center items-center flex-shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 ${styles}`}>
+			/* className={`size-7 flex justify-center items-center flex-shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 ${styles}`} */
+			className={`size-7 flex justify-center items-center flex-shrink-0 font-medium rounded-full group-focus:bg-gray-200 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 ${styles}`}>
 			{children}
 		</span>
 	);
@@ -161,13 +162,16 @@ const FormStepperItem = ({
 	stepNumber,
 	stepName,
 }: FormStepperItemProps) => {
+	const unvisitedStyles = "bg-gray-100 text-gray-800";
 	const activeStyles = "bg-blue-600 text-white dark:bg-blue-500";
 	const successStyles = "bg-blue-600 text-white dark:bg-blue-500";
 	const completedStyles =
 		"bg-teal-500 group-focus:bg-teal-600 dark:bg-teal-500";
 
 	const wrapperStyles =
-		status === "is-active"
+		status === "is-unvisited"
+			? unvisitedStyles
+			: status === "is-active"
 			? activeStyles
 			: status === "is-successful"
 			? successStyles
@@ -251,6 +255,8 @@ const FormStepper = ({ steps }: FormStepperProps2) => {
 										? "is-active"
 										: index + 1 < contextStep
 										? "is-successful"
+										: index + 1 > contextStep
+										? "is-unvisited"
 										: ""
 								}
 								stepNumber={stepNumber}
