@@ -20,7 +20,8 @@ const MakeModelSelector = ({
 			{sortedOptions.map((option) => (
 				<div
 					key={option.name}
-					className="option-container border-y-2 hover:bg-slate-500 active:bg-slate-600">
+					/* className="option-container border-y-2 hover:bg-slate-500 active:bg-slate-600" */
+					className="option-container border-y-2">
 					<label
 						// htmlFor={`${category}-${option.id}`}
 						htmlFor={`${option.id}`}
