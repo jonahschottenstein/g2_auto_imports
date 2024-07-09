@@ -72,13 +72,17 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 
 		const storedUserData = sessionStorage.getItem("userData");
 		const userData = storedUserData && JSON.parse(storedUserData);
-		const newUserData = {
+		/* const newUserData = {
 			...userData,
 			model: {
 				id: Number(target.id),
 				name: target.value,
 				makeId: Number(user.make?.id),
 			},
+		}; */
+		const newUserData = {
+			...userData,
+			...data,
 		};
 
 		sessionStorage.setItem(
