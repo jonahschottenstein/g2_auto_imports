@@ -40,10 +40,25 @@ export default async function Home() {
 
 // TODO:
 /* 
+ASK YOURSELF: WHAT ISN'T WORKING? FIX THAT FIRST
 In order:
-	1. 
+	// 1. Hamburger menu
+	// 2. Form refresh
+	3. FormStepper on refresh
+		- Think you can make your own stepper
+		- Keep state in Stepper and sessionStorage
+		- Use Preline UI Stepper as reference
+	4. Invalid input styling
+	5. Scroll selected form inputs into view
+	6. In desktop, when a nav link is clicked, a transition causes the links to disappear for a sec
 */
 /* 
+	- Maybe add pointer-events: none to hero image
+	- Need to collapse hamburger menu on smaller screen sizes when a link is clicked
+	- Add CAPTCHA to form
+	- Look at this for form submission: 
+		- https://react.dev/reference/react-dom/components/form#noun-labs-1201738-(2)
+	- If you keep using sessionStorage, you should clear it onSubmit or when leaving the form
 	- On mobile, PostRequest h1 needs more margin-top
 	// - Should autofocus First Name
 	// 	- Actually, there are accessibility issues, so maybe not
@@ -101,8 +116,8 @@ In order:
 	- Add client and server side validation for Steps 1-3
 	- Finish client and server side validation for Step 4
 	// - Add FormReview Step (Step 5)
-	- Add Footer content
-	- Add your Links to NavBar
+	// - Add Footer content
+	// - Add your Links to NavBar
 	- Fix vehicle/[id]/page.tsx styling
 		// - Add pt-[72px] to <main>
 		- Make table nicer
