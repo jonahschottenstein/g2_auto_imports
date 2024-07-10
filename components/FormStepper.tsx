@@ -250,6 +250,7 @@ const FormStepper = ({ steps }: FormStepperProps2) => {
 						const stepNumber: Step = (index + 1) as Step;
 						return (
 							<FormStepperItem
+								key={stepTitle}
 								status={
 									index + 1 === contextStep
 										? "is-active"
