@@ -37,6 +37,7 @@ const FormField = ({
 					className="p-1 bg-gray-400"
 					maxLength={500}
 					{...register(name, { maxLength: 500 })}
+					// TODO: Think I should set a max height/rows for textarea
 				/>
 			) : (
 				<input
