@@ -6,8 +6,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 export default async function Home() {
 	const featuredInventory = inventory.filter((car) => car.featured);
-	const firstMake = await prisma.make.findFirst();
-	console.log("firstMake", firstMake);
 
 	return (
 		// <main className="h-full flex flex-col items-center justify-between">
@@ -37,6 +35,54 @@ export default async function Home() {
 		</main>
 	);
 }
+
+/* 
+	Request Import Form
+		Make
+			<main>
+				height: auto
+				min-height: auto
+			<div className="form-page">
+				overflow-y: auto
+		Model
+			<main>
+				height: auto
+				min-height: auto
+			<div className="form-page">
+				overflow-y: auto
+		Year(s)
+			<main>
+				min-height: auto
+				height: auto
+			<div className="form-page">
+				overflow-y: auto
+		Contact
+			<main>
+				min-height: auto
+				height: auto
+			<div className="form-page">
+				overflow-y: auto
+			<div className="form-container">
+				height: auto
+					(not sure necessary)
+			<form>
+				height: auto
+					(not sure necessary)
+			<div className="contact-form-fields">
+				overflow-y: visible
+					(not sure necessary)
+		Review
+			<main>
+				min-height: auto
+				height: auto
+			<div className="form-page">
+				overflow-y: auto
+			<textarea>
+				this.style.height=this.scrollHeight + "px"
+			
+
+			
+*/
 
 // TODO:
 /* 
