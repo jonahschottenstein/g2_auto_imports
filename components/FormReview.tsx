@@ -68,6 +68,17 @@ const FormReview = () => {
 		updateUserData(userData);
 	}, []);
 
+	const textareaTextContent =
+		document.getElementById("user-comments")?.textContent;
+
+	useEffect(() => {
+		const textarea = document.getElementById("user-comments");
+
+		if (!textarea) return;
+
+		textarea.style.height = textarea.scrollHeight + "px";
+	}, [textareaTextContent]);
+
 	const setVal = (key: string, value: any) => {
 		return (
 			<>
