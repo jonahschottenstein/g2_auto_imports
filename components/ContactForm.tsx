@@ -131,7 +131,8 @@ const ContactForm = () => {
 			<form
 				onSubmit={handleSubmit(onSubmit)}
 				className="request-import-form contact-form flex flex-col h-[calc(100%-64px)]">
-				<div className="contact-form-fields flex flex-col gap-4 flex-1 overflow-y-auto">
+				{/* Removing overflow-y: auto from contact-form-fields fixed scroll problem, but not sure if I should also set request-import-form height: auto */}
+				<div className="contact-form-fields flex flex-col gap-4 flex-1">
 					<FormField
 						label="First Name"
 						type="text"
