@@ -115,7 +115,7 @@ const FormReview = () => {
 				ref={formRef}
 				onSubmit={onSubmit}
 				className="request-import-form review-form flex flex-col h-[calc(100%-64px)]">
-				<div className="form-review-sections flex flex-col gap-4 flex-1 overflow-y-auto">
+				<div className="form-review-sections flex flex-col gap-4 flex-1">
 					<FormReviewSection title="Car Information" href="/">
 						<FormReviewSectionRow>
 							<h4>{`Year(s)`}</h4>
