@@ -14,6 +14,10 @@ const PostRequest = () => {
 		updateUserData(userData);
 	}, []);
 
+	useEffect(() => {
+		sessionStorage.clear();
+	}, []);
+
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
 			<h1 className="text-center text-2xl my-4">
