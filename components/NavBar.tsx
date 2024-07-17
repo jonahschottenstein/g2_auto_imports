@@ -10,7 +10,7 @@ const NavBar = () => {
 	const linkStyles = (href: string) => {
 		return pathName === href
 			? "font-medium text-blue-500"
-			: "font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500";
+			: "font-medium text-gray-600 hover:text-gray-400";
 	};
 
 	const closeMenu = () => {
@@ -24,7 +24,7 @@ const NavBar = () => {
 	return (
 		// <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20">
 		<header
-			className="fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20"
+			className="fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20"
 			// className="fixed flex flex-wrap h-[72px] sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20"
 		>
 			<nav

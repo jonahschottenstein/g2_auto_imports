@@ -143,7 +143,7 @@ const ItemStatusWrapper = ({ styles, children }: ItemStatusWrapperProps) => {
 	return (
 		<span
 			/* className={`size-7 flex justify-center items-center flex-shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 ${styles}`} */
-			className={`size-7 flex justify-center items-center flex-shrink-0 font-medium rounded-full group-focus:bg-gray-200 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 ${styles}`}>
+			className={`size-7 flex justify-center items-center flex-shrink-0 font-medium rounded-full group-focus:bg-gray-200 ${styles}`}>
 			{children}
 		</span>
 	);
@@ -151,7 +151,7 @@ const ItemStatusWrapper = ({ styles, children }: ItemStatusWrapperProps) => {
 
 const StepName = ({ stepName }: StepNameProps) => {
 	return (
-		<span className="ms-0 sm:ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+		<span className="ms-0 sm:ms-2 text-sm font-medium text-gray-800">
 			{stepName}
 		</span>
 	);
@@ -163,10 +163,9 @@ const FormStepperItem = ({
 	stepName,
 }: FormStepperItemProps) => {
 	const unvisitedStyles = "bg-gray-100 text-gray-800";
-	const activeStyles = "bg-blue-600 text-white dark:bg-blue-500";
-	const successStyles = "bg-blue-600 text-white dark:bg-blue-500";
-	const completedStyles =
-		"bg-teal-500 group-focus:bg-teal-600 dark:bg-teal-500";
+	const activeStyles = "bg-blue-600 text-white";
+	const successStyles = "bg-blue-600 text-white";
+	const completedStyles = "bg-teal-500 group-focus:bg-teal-600 ";
 
 	const wrapperStyles =
 		status === "is-unvisited"
@@ -179,8 +178,9 @@ const FormStepperItem = ({
 			? completedStyles
 			: "";
 
-	const lineStyles =
-		status === "is-successful" ? "bg-blue-600 dark:bg-blue-600" : "";
+	/* 	const lineStyles =
+		status === "is-successful" ? "bg-blue-600 dark:bg-blue-600" : ""; */
+	const lineStyles = status === "is-successful" ? "bg-blue-600" : "";
 
 	console.log("STATUS", status);
 	return (
@@ -197,7 +197,7 @@ const FormStepperItem = ({
 				<StepName stepName={stepName} />
 			</span>
 			<div
-				className={`w-full h-px flex-1 bg-gray-200 group-last:hidden dark:bg-neutral-700 ${lineStyles}`}></div>
+				className={`w-full h-px flex-1 bg-gray-200 group-last:hidden ${lineStyles}`}></div>
 		</li>
 	);
 };
