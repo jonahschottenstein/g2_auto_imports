@@ -243,7 +243,7 @@ const FormStepper = ({ steps }: FormStepperProps2) => {
 	// * This way, when all five steps are successful, you can set the values to "is-completed" to set those styles
 
 	return (
-		<nav className="w-full px-8 my-8">
+		<nav className="w-full px-8 my-8 font-sans">
 			<div className="form-stepper">
 				<ul className="form-steps-list relative flex flex-row gap-x-2">
 					{steps.map((stepTitle, index) => {
