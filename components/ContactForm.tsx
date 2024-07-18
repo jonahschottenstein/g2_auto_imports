@@ -475,7 +475,7 @@ export const ContactForm2 = ({
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="contact-form flex flex-col h-[calc(100%-64px)]">
+			className="contact-form flex flex-col h-[calc(100%-64px)] font-sans">
 			<FormFieldsContainer>
 				{formFieldsData.map((formFieldData: FormField2) => {
 					return (
