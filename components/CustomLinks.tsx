@@ -5,7 +5,7 @@ export const PrimaryBlockLink = ({ href, title }: CustomLink) => {
 	return (
 		<Link
 			href={href}
-			className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none sm:w-60">
+			className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none sm:w-60 font-sans">
 			{title}
 		</Link>
 	);
@@ -15,7 +15,7 @@ export const SecondaryBlockLink = ({ href, title }: CustomLink) => {
 	return (
 		<Link
 			href={href}
-			className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+			className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none sm:w-60 font-sans">
 			{title}
 		</Link>
 	);
@@ -23,8 +23,8 @@ export const SecondaryBlockLink = ({ href, title }: CustomLink) => {
 
 export const NextLink = ({ href, isDisabled }: ProgressLink) => {
 	const styles = isDisabled
-		? "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 opacity-50 pointer-events-none"
-		: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 ";
+		? "py-3 px-4 inline-flex items-center gap-x-2 font-sans text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 opacity-50 pointer-events-none"
+		: "py-3 px-4 inline-flex items-center gap-x-2 font-sans text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 ";
 	return (
 		<Link
 			href={href}
@@ -52,8 +52,8 @@ export const NextLink = ({ href, isDisabled }: ProgressLink) => {
 
 export const BackLink = ({ href, isDisabled }: ProgressLink) => {
 	const styles = isDisabled
-		? "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 opacity-50 pointer-events-none"
-		: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50";
+		? "py-3 px-4 inline-flex items-center gap-x-2 font-sans text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 opacity-50 pointer-events-none"
+		: "py-3 px-4 inline-flex items-center gap-x-2 font-sans text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50";
 	return (
 		<Link
 			href={href}
