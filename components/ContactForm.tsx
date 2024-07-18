@@ -329,6 +329,45 @@ export const ContactForm2 = ({
 					message: errors[fieldWithError],
 				});
 			} else {
+				const data = {
+					contactInfo: {
+						firstName: (
+							document.getElementById("first-name") as HTMLInputElement
+						).value,
+						lastName: (document.getElementById("last-name") as HTMLInputElement)
+							.value,
+						email: (document.getElementById("email") as HTMLInputElement).value,
+						phone: (document.getElementById("phone") as HTMLInputElement).value,
+						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
+							.value,
+						comments: (
+							document.getElementById("comments") as HTMLTextAreaElement
+						).value,
+					},
+				};
+
+				if (pathName === "/request-import-form/step_4") {
+					const storedUserData = sessionStorage.getItem("userData");
+					const userData = storedUserData && JSON.parse(storedUserData);
+					const newUserData = {
+						...userData,
+						...data,
+					};
+
+					sessionStorage.setItem(
+						"userData",
+						JSON.stringify({ ...newUserData })
+					);
+
+					updateUserData(data);
+
+					router.push("/request-import-form/step_5");
+				} else if (pathName === "/contact/form") {
+					sessionStorage.setItem("contactInfo", JSON.stringify(data));
+
+					router.push("/contact/post-contact");
+				}
+
 				// if (pathName !== "/contact/form") {
 				if (pathName === "/request-import-form/step_4") {
 					const data = {
