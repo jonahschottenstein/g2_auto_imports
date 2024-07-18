@@ -8,7 +8,9 @@ import React from "react";
 const FormContainer2 = ({ h1, children }: FormContainerProps) => {
 	return (
 		<div className="form-container px-8 h-full flex flex-col min-w-96 max-w-lg w-full">
-			<h1 className="text-center text-2xl mt-8 mb-4">{h1}</h1>
+			<h1 className="text-center text-2xl mt-8 mb-4 font-display font-bold uppercase">
+				{h1}
+			</h1>
 			{children}
 		</div>
 	);
