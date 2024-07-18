@@ -13,7 +13,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 		? `${vehicleDetails.year} ${vehicleDetails.make} ${vehicleDetails.model}`
 		: "Vehicle not found";
 
-	const displayKeys = ["year", "make", "model", "price"];
+	const displayKeys = ["year", "make", "model", "price", "mileage", "features"];
 
 	return (
 		<main className="flex-1 pt-[72px]">
