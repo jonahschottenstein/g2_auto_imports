@@ -65,6 +65,8 @@ export interface CarCardProps {
 
 export interface Car extends CarCardProps {
 	id: string;
+	mileage: string;
+	features: string[];
 	featured: boolean;
 }
 
