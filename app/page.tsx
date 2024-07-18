@@ -8,14 +8,13 @@ export default async function Home() {
 	const featuredInventory = inventory.filter((car) => car.featured);
 
 	return (
-		// <main className="h-full flex flex-col items-center justify-between">
-		// <main className="flex flex-col flex-1 items-center justify-between">
 		<main className="flex flex-col flex-1">
 			<Hero />
-			<section className="featured-inventory-section w-full mt-8">
-				<h2 className="text-center text-2xl">Featured Inventory</h2>
-				{/* <ul className="flex flex-wrap"> */}
-				<ul className="grid grid-cols-1 p-8 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+			<section className="featured-inventory-section w-full p-8">
+				<h2 className="text-center text-3xl text-gray-900 font-bold font-display uppercase mb-6">
+					Featured Inventory
+				</h2>
+				<ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 					{featuredInventory.map(
 						({ imageSrc, year, make, model, price, pageUrl }, index) => (
 							<li key={`${year}-${make}-${model}-${index}`}>
@@ -38,6 +37,8 @@ export default async function Home() {
 
 /* 
 	Request Import Form
+		- Think you should probably make the nav buttons sticky/fixed
+		- Also maybe put them on either side of the form
 		Make
 			<main>
 				height: auto
@@ -56,6 +57,8 @@ export default async function Home() {
 				height: auto
 			<div className="form-page">
 				overflow-y: auto
+			<form> > <div>
+				overflow-y: visible
 		Contact
 			<main>
 				min-height: auto
@@ -86,6 +89,7 @@ export default async function Home() {
 
 // TODO:
 /* 
+- Now the years page and post-request page are too small
 ASK YOURSELF: WHAT ISN'T WORKING? FIX THAT FIRST
 In order:
 	// 1. Hamburger menu
