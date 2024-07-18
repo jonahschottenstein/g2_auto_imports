@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
+import { Oswald, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import PrelineScript from "@/components/PrelineScript";
 import { Footer, NavBar } from "@/components";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+
+const oswald = Oswald({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-oswald",
+});
+const roboto_flex = Roboto_Flex({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-roboto-flex",
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -18,7 +30,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={`${oswald.variable} ${roboto_flex.variable}`}>
 				<NavBar />
 				{children}
 				<Footer />
