@@ -91,7 +91,7 @@ const FooterRow = ({ listItems }: FooterRowProps) => {
 
 const Footer = () => {
 	return (
-		<footer className="bg-neutral-800">
+		<footer className="bg-neutral-800 font-sans">
 			<FooterRow listItems={siteLinks} />
 			<FooterRow listItems={socialMediaLinks} />
 		</footer>

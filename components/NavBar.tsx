@@ -9,8 +9,8 @@ const NavBar = () => {
 
 	const linkStyles = (href: string) => {
 		return pathName === href
-			? "font-medium text-blue-500"
-			: "font-medium text-gray-600 hover:text-gray-400";
+			? "font-medium text-blue-500 font-sans"
+			: "font-medium text-gray-600 font-sans hover:text-gray-400";
 	};
 
 	const closeMenu = () => {
@@ -50,7 +50,7 @@ const NavBar = () => {
 					<div className="sm:hidden">
 						<button
 							type="button"
-							className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10"
+							className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
 							data-hs-collapse="#navbar-image-1"
 							aria-controls="navbar-image-1"
 							aria-label="Toggle navigation">

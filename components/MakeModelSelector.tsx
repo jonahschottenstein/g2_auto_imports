@@ -16,7 +16,7 @@ const MakeModelSelector = ({
 	const sortedOptions = sortMakeModel(options);
 
 	return (
-		<div className="selector flex-1">
+		<div className="selector flex-1 font-sans">
 			{sortedOptions.map((option) => (
 				<div
 					key={option.name}
