@@ -7,10 +7,12 @@ import React from "react";
 
 const FormContainer2 = ({ h1, children }: FormContainerProps) => {
 	return (
-		<div className="form-container px-8 h-full flex flex-col min-w-96 max-w-lg w-full">
-			<h1 className="text-center text-2xl mt-8 mb-4 font-display font-bold uppercase">
-				{h1}
-			</h1>
+		<div className="form-container px-8 h-full flex flex-col min-w-96 max-w-lg w-full m-auto">
+			<div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
+				<h1 className="font-medium font-display text-black text-2xl uppercase sm:text-4xl dark:text-white">
+					{h1}
+				</h1>
+			</div>
 			{children}
 		</div>
 	);
@@ -18,7 +20,8 @@ const FormContainer2 = ({ h1, children }: FormContainerProps) => {
 
 const page = () => {
 	return (
-		<div className="form-page flex flex-col flex-1 items-center overflow-x-hidden overflow-y-auto">
+		// <div className="form-page flex flex-col flex-1 items-center overflow-x-hidden overflow-y-auto">
+		<div className="form-page w-full max-w-7xl px-4 lg:px-6 lg:px-8 py-12 lg:py-24 mx-auto">
 			{/* <ContactForm /> */}
 			<FormContainer2 h1="Contact Us">
 				<ContactForm2
