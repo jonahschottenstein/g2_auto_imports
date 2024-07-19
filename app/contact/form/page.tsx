@@ -21,7 +21,7 @@ const FormContainer2 = ({ h1, children }: FormContainerProps) => {
 const page = () => {
 	return (
 		// <div className="form-page flex flex-col flex-1 items-center overflow-x-hidden overflow-y-auto">
-		<div className="form-page w-full max-w-7xl px-4 lg:px-6 lg:px-8 py-12 lg:py-24 mx-auto">
+		<div className="form-page w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 mx-auto">
 			{/* <ContactForm /> */}
 			<FormContainer2 h1="Contact Us">
 				<ContactForm2

@@ -52,7 +52,7 @@ const CardGrid = ({ children }: CardGridProps) => {
 const page = () => {
 	return (
 		<main className="pt-[72px] flex-1">
-			<div className="inventory-page w-full max-w-7xl px-4 lg:px-6 lg:px-8 py-12 mx-auto h-full">
+			<div className="inventory-page w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 mx-auto h-full">
 				<div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
 					<h1 className="font-medium font-display text-black text-2xl uppercase sm:text-4xl dark:text-white">
 						Inventory
