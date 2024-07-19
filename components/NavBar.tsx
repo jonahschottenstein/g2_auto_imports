@@ -24,7 +24,7 @@ const NavBar = () => {
 	return (
 		// <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20">
 		<header
-			className="fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20"
+			className="border-b-2 border-gray-400 fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20"
 			// className="fixed flex flex-wrap h-[72px] sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800 z-20"
 		>
 			<nav
