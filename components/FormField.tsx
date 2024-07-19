@@ -27,14 +27,14 @@ const FormField = ({
 			{/* <label htmlFor={inputId} className="form-field-label"> */}
 			<label
 				htmlFor={inputId}
-				className={`form-field-label ${afterLabelContent} after:ml-1 after:text-xs`}>
+				className={`form-field-label font-sans ${afterLabelContent} after:ml-1 after:text-xs`}>
 				{label}
 				{/* {type === "textarea" ? `${label} ` : `* ${label}`} */}
 			</label>
 			{type === "textarea" ? (
 				<textarea
 					id={inputId}
-					className="p-1 bg-gray-400"
+					className="p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg"
 					maxLength={500}
 					{...register(name, { maxLength: 500 })}
 					// TODO: Think I should set a max height/rows for textarea
@@ -44,7 +44,7 @@ const FormField = ({
 					type={type}
 					inputMode={inputMode}
 					id={inputId}
-					className="p-1 bg-gray-400"
+					className="p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg"
 					required
 					{...register(name, { required: true, valueAsNumber })}
 				/>
