@@ -10,7 +10,8 @@ const Layout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<main className={`pt-[72px] h-full min-h-full flex flex-col`}>
+		// <main className={`pt-[72px] h-full min-h-full flex flex-col`}>
+		<main className={`pt-[72px] h-auto flex flex-col`}>
 			<FormProvider>{children}</FormProvider>
 		</main>
 	);
