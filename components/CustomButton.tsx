@@ -13,7 +13,7 @@ const CustomButton = ({
 		<button
 			type={type}
 			value={value}
-			className={`custom-button ${styles}`}
+			className={`custom-button font-sans ${styles}`}
 			onClick={handleClick}>
 			{/* {title} */}
 			{children}
