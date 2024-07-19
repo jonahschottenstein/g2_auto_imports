@@ -18,9 +18,9 @@ const FormReviewSection = ({
 	href,
 }: FormReviewSectionProps) => {
 	return (
-		<div className="form-review-section flex-1">
+		<div className="form-review-section flex-1 font-sans">
 			<div className="title-row flex w-full justify-between gap-4">
-				<h3>{title}</h3>
+				<h3 className="font-bold text-sm text-[#6f6f6f]">{title}</h3>
 				<Link href={href}>Edit</Link>
 			</div>
 			<div className="content">{children}</div>
@@ -118,7 +118,7 @@ const FormReview = () => {
 				<div className="form-review-sections flex flex-col gap-4 flex-1">
 					<FormReviewSection title="Car Information" href="/">
 						<FormReviewSectionRow>
-							<h4>{`Year(s)`}</h4>
+							<h4 className="text-[#595959] text-sm">{`Year(s)`}</h4>
 							{/* <div className="font-bold">
 								{user.productionYears?.startYear ===
 								user.productionYears?.endYear
@@ -140,11 +140,11 @@ const FormReview = () => {
 										  user.productionYears?.endYear
 								}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
-							<h4>Make</h4>
+							<h4 className="text-[#595959] text-sm">Make</h4>
 							{/* <div className="font-bold">{user.make?.name}</div> */}
 							<input
 								type="text"
@@ -152,11 +152,11 @@ const FormReview = () => {
 								name="userCarMake"
 								value={user.make?.name}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
-							<h4>Model</h4>
+							<h4 className="text-[#595959] text-sm">Model</h4>
 							{/* <div className="font-bold">{user.model?.name}</div> */}
 							<input
 								type="text"
@@ -164,13 +164,13 @@ const FormReview = () => {
 								name="userCarModel"
 								value={user.model?.name}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 					</FormReviewSection>
 					<FormReviewSection title="Contact Information" href="/">
 						<FormReviewSectionRow>
-							<h4>First Name</h4>
+							<h4 className="text-[#595959] text-sm">First Name</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.firstName}`}</div> */}
 							<input
 								type="text"
@@ -178,11 +178,11 @@ const FormReview = () => {
 								name="userFirstName"
 								value={user.contactInfo?.firstName}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
-							<h4>Last Name</h4>
+							<h4 className="text-[#595959] text-sm">Last Name</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.lastName}`}</div> */}
 							<input
 								type="text"
@@ -190,11 +190,11 @@ const FormReview = () => {
 								name="userLastName"
 								value={user.contactInfo?.lastName}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
-							<h4>Email</h4>
+							<h4 className="text-[#595959] text-sm">Email</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.email}`}</div> */}
 							<input
 								type="email"
@@ -202,11 +202,11 @@ const FormReview = () => {
 								name="userEmail"
 								value={user.contactInfo?.email}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
-							<h4>Phone</h4>
+							<h4 className="text-[#595959] text-sm">Phone</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.phone}`}</div> */}
 							<input
 								type="tel"
@@ -214,11 +214,11 @@ const FormReview = () => {
 								name="userPhone"
 								value={user.contactInfo?.phone}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
-							<h4>Zip Code</h4>
+							<h4 className="text-[#595959] text-sm">Zip Code</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.zipCode}`}</div> */}
 							<input
 								type="text"
@@ -226,18 +226,18 @@ const FormReview = () => {
 								name="userZipCode"
 								value={user.contactInfo?.zipCode}
 								readOnly
-								className="bg-transparent pointer-events-none"
+								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow>
-							<h4>Comments</h4>
+							<h4 className="text-[#595959] text-sm">Comments</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.comments}`}</div> */}
 							<textarea
 								id="user-comments"
 								name="userComments"
 								value={user.contactInfo?.comments}
 								readOnly
-								className="bg-transparent resize-none pointer-events-none"
+								className="bg-transparent resize-none pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
 					</FormReviewSection>
