@@ -20,11 +20,11 @@ const PostRequest = () => {
 
 	return (
 		<div className="form-container px-8 h-full flex flex-col">
-			<h1 className="text-center text-2xl my-4">
+			<h1 className="text-center text-2xl my-4 font-display">
 				Your import request has been submitted!
 			</h1>
 			<div>
-				<p>
+				<p className="font-sans">
 					You will get an email confirmation at{" "}
 					<span className="font-bold">{user.contactInfo?.email}</span>
 				</p>

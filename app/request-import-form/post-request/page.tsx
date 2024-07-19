@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
 	return (
-		<div className="form-page">
+		<div className="form-page min-h-[calc(100vh-72px)]">
 			<PostRequest />
 		</div>
 	);
