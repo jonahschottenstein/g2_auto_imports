@@ -42,24 +42,32 @@ const YearsDisplay = ({ startYear, endYear }: YearsDisplayProps) => {
 	const startYearActiveDisplay =
 		startYear > 0
 			? "active-indicator h-1 bg-inherit"
-			: "active-indicator h-1 bg-blue-500";
+			: "active-indicator h-1 bg-[#BC002D]";
 	const endYearActiveDisplay =
 		startYear === 0 && endYear === 0
 			? "active-indicator h-1 bg-inherit"
 			: endYear > 0
 			? "active-indicator h-1 bg-inherit"
-			: "active-indicator h-1 bg-blue-500";
+			: "active-indicator h-1 bg-[#BC002D]";
 
 	return (
 		<div className="years-display-container flex w-full mb-2">
 			<div className="year-display start-year flex flex-col flex-1 border-gray-300 border-[1px]">
-				<span className="text-center text-xs mt-1">Start Year</span>
-				<span className="text-center font-medium mb-1">{startYearDisplay}</span>
+				<span className="text-center text-xs mt-1 font-sans uppercase">
+					Start Year
+				</span>
+				<span className="text-center font-medium mb-1 font-sans">
+					{startYearDisplay}
+				</span>
 				<div className={startYearActiveDisplay}></div>
 			</div>
 			<div className="year-display start-year flex flex-col flex-1 border-gray-300 border-[1px]">
-				<span className="text-center text-xs mt-1">End Year</span>
-				<span className="text-center font-medium mb-1">{endYearDisplay}</span>
+				<span className="text-center text-xs mt-1 font-sans uppercase">
+					End Year
+				</span>
+				<span className="text-center font-medium mb-1 font-sans">
+					{endYearDisplay}
+				</span>
 				<div className={endYearActiveDisplay}></div>
 			</div>
 		</div>
@@ -84,7 +92,7 @@ const ProductionYearsSelector = ({
 			? `End Year: ${stateValue.endYear}`
 			: `Select end year`;
 
-	const setButtonStyles = (year: number) => {
+	/* 	const setButtonStyles = (year: number) => {
 		const buttonStyles =
 			year === stateValue.startYear
 				? "production-year start-year bg-blue-400 w-16 border-2 py-4"
@@ -93,6 +101,18 @@ const ProductionYearsSelector = ({
 				: year > stateValue.startYear && year < stateValue.endYear
 				? "production-year between-year bg-blue-300 w-16 border-2 py-4"
 				: "production-year w-16 border-2 py-4";
+
+		return buttonStyles;
+	}; */
+	const setButtonStyles = (year: number) => {
+		const buttonStyles =
+			year === stateValue.startYear
+				? "production-year start-year bg-[#BC002D] text-white w-16 py-4"
+				: year === stateValue.endYear
+				? "production-year end-year bg-[#BC002D] text-white w-16 py-4"
+				: year > stateValue.startYear && year < stateValue.endYear
+				? "production-year between-year bg-gray-200 w-16 py-4"
+				: "production-year w-16 py-4";
 
 		return buttonStyles;
 	};
