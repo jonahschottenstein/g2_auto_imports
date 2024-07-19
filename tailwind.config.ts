@@ -20,6 +20,9 @@ const config: Config = {
 			},
 		},
 	},
-	plugins: [require("preline/plugin")],
+	corePlugins: {
+		aspectRatio: false,
+	},
+	plugins: [require("preline/plugin"), require("@tailwindcss/aspect-ratio")],
 };
 export default config;
