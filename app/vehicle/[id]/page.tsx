@@ -17,7 +17,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
 	return (
 		<main className="flex-1 pt-[72px]">
-			<div className="p-8 flex flex-col">
+			<div className="p-8 flex flex-col max-w-screen-xl m-auto">
 				<h1 className="text-center text-5xl mb-4 font-display font-bold uppercase">
 					{carTitle}
 				</h1>
@@ -66,9 +66,9 @@ const Page = ({ params }: { params: { id: string } }) => {
 						<p>No vehicle details available</p>
 					)}
 				</div>
-				<div className="vehicle-description-container">
-					<h2>Description</h2>
-					<p className="vehicle-description">
+				<div className="vehicle-description-container max-w-2xl">
+					<h2 className="text-2xl font-display uppercase mb-2">Description</h2>
+					<p className="vehicle-description font-sans">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
 						deserunt sed aut optio quibusdam nobis qui officiis ipsam harum
 						magni veritatis fuga, quisquam ex autem voluptatem delectus
