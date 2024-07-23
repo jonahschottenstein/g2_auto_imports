@@ -11,7 +11,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 	// * Not sure if you typed this correctly
 
 	const carTitle = vehicleDetails
-		? `${vehicleDetails.year} ${vehicleDetails.make} ${vehicleDetails.model}`
+		? `${vehicleDetails.year} ${vehicleDetails.make.name} ${vehicleDetails.model.name}`
 		: "Vehicle not found";
 
 	const displayKeys = ["year", "make", "model", "price", "mileage", "features"];
@@ -67,7 +67,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 															))}
 														</ul>
 													) : (
-														value
+														value.name || value
 													)}
 												</td>
 											</tr>

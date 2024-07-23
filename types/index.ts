@@ -63,10 +63,16 @@ export interface CarCardProps {
 	pageUrl: string;
 }
 
-export interface Car extends CarCardProps {
+export interface Car {
 	id: string;
+	imageSrc: string;
+	year: number;
+	make: Make;
+	model: Model;
+	price: string;
 	mileage: string;
 	features: string[];
+	pageUrl: string;
 	featured: boolean;
 }
 

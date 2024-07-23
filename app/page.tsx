@@ -67,11 +67,11 @@ const FeaturedInventorySection = ({
 					({ imageSrc, year, make, model, price, pageUrl }) => {
 						return (
 							<Card
-								key={`${year}-${make}-${model}-card`}
+								key={`${year}-${make.name}-${model.name}-card`}
 								href={pageUrl}
 								src={imageSrc}
 								alt="Alt text"
-								title={`${year} ${make} ${model}`}
+								title={`${year} ${make.name} ${model.name}`}
 								description={price}
 							/>
 						);
