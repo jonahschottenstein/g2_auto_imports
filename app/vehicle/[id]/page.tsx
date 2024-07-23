@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { inventory } from "@/inventory";
 import { Car } from "@/types";
+import { CustomButton } from "@/components";
 
 const Page = ({ params }: { params: { id: string } }) => {
 	const vehicleDetails: Car | undefined = inventory.find(
@@ -22,14 +23,27 @@ const Page = ({ params }: { params: { id: string } }) => {
 					{carTitle}
 				</h1>
 				<div className="car-page flex flex-col gap-8 my-8 md:flex-row">
-					<Image
-						className="w-full h-auto md:w-8/12 object-contain self-start"
-						src={vehicleDetails?.imageSrc || "/"}
-						alt={`Image of ${carTitle}`}
-						width={100}
-						height={100}
-						priority
-					/>
+					<div className="image-and-button-container w-full h-auto md:w-8/12 flex flex-col gap-1">
+						<Image
+							className="w-full h-auto object-contain self-start rounded-lg"
+							src={vehicleDetails?.imageSrc || "/"}
+							alt={`Image of ${carTitle}`}
+							width={100}
+							height={100}
+							priority
+						/>
+						{/* <Image
+							className="w-full h-auto md:w-8/12 object-contain self-start"
+							src={vehicleDetails?.imageSrc || "/"}
+							alt={`Image of ${carTitle}`}
+							width={100}
+							height={100}
+							priority
+						/> */}
+						<CustomButton styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans">
+							Request Import
+						</CustomButton>
+					</div>
 					{vehicleDetails ? (
 						<table className="flex-1">
 							{/* <thead>
