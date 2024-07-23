@@ -104,15 +104,25 @@ const ProductionYearsSelector = ({
 
 		return buttonStyles;
 	}; */
+	const setLiStyles = (year: number) => {
+		const liStyles =
+			year === stateValue.startYear && stateValue.endYear
+				? "bg-gray-200 rounded-l-[50%]"
+				: year === stateValue.endYear
+				? "bg-gray-200 rounded-r-[50%]"
+				: "";
+
+		return liStyles;
+	};
 	const setButtonStyles = (year: number) => {
 		const buttonStyles =
 			year === stateValue.startYear
-				? "production-year start-year bg-[#BC002D] text-white w-16 py-4"
+				? "production-year start-year bg-[#BC002D] text-white w-10 h-10 rounded-[50%] text-xs"
 				: year === stateValue.endYear
-				? "production-year end-year bg-[#BC002D] text-white w-16 py-4"
+				? "production-year end-year bg-[#BC002D] text-white w-10 h-10 rounded-[50%] text-xs"
 				: year > stateValue.startYear && year < stateValue.endYear
-				? "production-year between-year bg-gray-200 w-16 py-4"
-				: "production-year w-16 py-4";
+				? "production-year between-year bg-gray-200 w-10 h-10 text-xs"
+				: "production-year w-10 h-10 text-xs";
 
 		return buttonStyles;
 	};
@@ -130,9 +140,9 @@ const ProductionYearsSelector = ({
 			<div className="production-years-list-container flex-1 overflow-auto w-fit">
 				{/* <ul className="flex flex-wrap"> */}
 				{/* <ul className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10"> */}
-				<ul className="grid grid-cols-5 sm:grid-cols-6">
+				<ul className="grid grid-cols-5 gap-y-2 sm:grid-cols-6">
 					{productionYears.map((year) => (
-						<li key={year}>
+						<li key={year} className={setLiStyles(year)}>
 							<CustomButton
 								// title={year.toString()}
 								value={year}
