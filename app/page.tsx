@@ -168,6 +168,10 @@ In order:
 	6. In desktop, when a nav link is clicked, a transition causes the links to disappear for a sec
 */
 /* 
+	- Form has autofill on Chrome but not Safari. May need to add manually for Safari
+	- Nav Buttons for MakesForm and ModelsForm are in different places
+	- Years Form Nav Buttons overflow screen
+	- Inventory page shows Footer. Not sure if I want that
 	- Need to add Request Import Button on vehicle page
 		- Start form process, filling in info up to ContactForm
 	- Maybe add pointer-events: none to hero image
