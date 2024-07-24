@@ -106,7 +106,9 @@ const ProductionYearsSelector = ({
 	}; */
 	const setLiStyles = (year: number) => {
 		const liStyles =
-			year === stateValue.startYear && stateValue.endYear
+			year === stateValue.startYear && year === stateValue.endYear
+				? ""
+				: year === stateValue.startYear && stateValue.endYear
 				? "bg-gray-200 rounded-l-[50%]"
 				: year === stateValue.endYear
 				? "bg-gray-200 rounded-r-[50%]"
