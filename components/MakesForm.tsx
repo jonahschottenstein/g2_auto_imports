@@ -52,9 +52,12 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 	const STEPPER_HEIGHT = "92px";
 	const H1_HEIGHT = "64px";
 
+	// TODO: If you change 64px to 124px, make sure you remove unnecessary space at the bottom of the page
+	// * Changed to 124px so Links don't overflow page
+
 	return (
 		<FormContainer h1="Select Make">
-			<form className="request-import-form makes-form flex flex-col h-[calc(100%-64px)]">
+			<form className="request-import-form makes-form flex flex-col h-[calc(100%-124px)]">
 				<MakeModelSelector
 					category="make"
 					options={makes}
