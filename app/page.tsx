@@ -3,6 +3,7 @@ import { inventory } from "@/inventory";
 import Link from "next/link";
 import Image from "next/image";
 import { Car } from "@/types";
+import WhatIsSection from "@/components/WhatIsSection";
 
 interface CardProps {
 	href: string;
@@ -93,8 +94,10 @@ export default async function Home() {
 	const featuredInventory = inventory.filter((car) => car.featured);
 
 	return (
+		// * You changed pt to 32px because its child has pt of 40px (at large screen size)
 		<main className="flex flex-col flex-1 pt-[32px]">
 			<Hero />
+			<WhatIsSection />
 			<FeaturedInventorySection featuredInventory={featuredInventory} />
 		</main>
 	);
