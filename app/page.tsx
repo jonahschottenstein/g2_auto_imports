@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Car } from "@/types";
 import WhatIsSection from "@/components/WhatIsSection";
+import AboutUsSection from "@/components/AboutUsSection";
 
 interface CardProps {
 	href: string;
@@ -98,6 +99,7 @@ export default async function Home() {
 		<main className="flex flex-col flex-1 pt-[32px]">
 			<Hero />
 			<WhatIsSection />
+			<AboutUsSection />
 			<FeaturedInventorySection featuredInventory={featuredInventory} />
 		</main>
 	);
@@ -157,6 +159,7 @@ export default async function Home() {
 
 // TODO:
 /* 
+Don't like how What's Tokyo-Imports? => Your Gateway to Authentic JDM Imports looks on home page
 // - Now the years page and post-request page are too small
 ASK YOURSELF: WHAT ISN'T WORKING? FIX THAT FIRST
 In order:
