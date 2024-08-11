@@ -5,6 +5,7 @@ import {
 	faBriefcase,
 	faCar,
 	faChartSimple,
+	faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
@@ -38,10 +39,10 @@ const iconBlocks: IconBlockProps[] = [
 			"Each car listing includes comprehensive details and high-quality images to help you make informed decisions.",
 	},
 	{
-		icon: faBriefcase as IconProp,
-		title: "Professional Expertise",
+		icon: faClock as IconProp,
+		title: "Real-Time Inventory",
 		blurb:
-			"Our team has years of experience in the car import industry, providing expert advice and support throughout the process.",
+			"Stay updated with our constantly refreshed inventory, featuring the latest arrivals and exclusive deals.",
 	},
 ];
 
