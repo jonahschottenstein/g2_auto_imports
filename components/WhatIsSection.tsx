@@ -93,7 +93,7 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 
 const WhatIsSection = () => {
 	return (
-		<div className="what-is-section w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 mx-auto">
+		<div className="what-is-section w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 mx-auto border-t-2 border-t-slate-100">
 			<div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
 				<h2 className="font-medium font-display text-black text-2xl uppercase sm:text-4xl ">
 					What's Tokyo-Imports?
