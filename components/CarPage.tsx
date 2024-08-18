@@ -322,19 +322,13 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 							if (displayKeys.includes(key)) {
 								return (
 									<tr className="first:border-t border-b border-gray-300">
-										<td className="py-2 text-gray-700 font-display text-sm uppercase">
+										<td className="py-2 text-black font-sans text-base font-semibold capitalize border-r border-gray-300 pl-2 pr-4">
 											{key}
 										</td>
-										<td className="py-2 text-gray-600 font-sans font-bold text-base">
-											{key === "features" ? (
-												<ul className="list-disc pl-4">
-													{value.map((feature: string) => (
-														<li>{feature}</li>
-													))}
-												</ul>
-											) : (
-												value.name || value
-											)}
+										<td className="py-2 text-gray-700 font-sans text-base pl-4">
+											{key === "features"
+												? value.join(", ")
+												: value.name || value}
 										</td>
 									</tr>
 								);
