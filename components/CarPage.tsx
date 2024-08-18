@@ -253,7 +253,7 @@ export const ImageGridItem = ({
 
 const ImageGrid = ({ galleryData }: ImageGridProps) => {
 	return (
-		<div className="grid overflow-x-auto gap-1 p-1 border-neutral-950 border-2 grid-rows-[repeat(2,_100px)] grid-cols-[repeat(6,_minMax(100px,_1fr))] md:grid-rows-[repeat(4,_100px)]">
+		<div className="grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)]">
 			{galleryData.map(({ src, alt, hasOverlay }, index) => {
 				return (
 					<ImageGridItem
