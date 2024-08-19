@@ -24,6 +24,14 @@ const CarouselItem = ({ src, alt }: CarouselItem) => {
 	);
 };
 
+const gallerySections = [
+	{ name: "exterior", indexes: [0, 1] },
+	{ name: "interior", indexes: [2, 3] },
+	{ name: "mechanical", indexes: [4, 5] },
+	{ name: "docs", indexes: [6, 7] },
+	{ name: "other", indexes: [8] },
+];
+
 const images = [
 	{ src: "/P35-0901053_07.jpg", alt: "test-image" },
 	{ src: "/P35-0901053_07.jpg", alt: "test-image" },
@@ -155,6 +163,15 @@ const Carousel = ({ swiperRef, onClick, onChange }) => {
 					<div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
 				</SwiperSlide>
 			</Swiper>
+			<div className="gallery-section-buttons flex justify-between pt-2">
+				{gallerySections.map((section) => (
+					<button
+						className="border border-black p-1 font-sans capitalize"
+						onClick={() => onClick(section.indexes[0])}>
+						{section.name}
+					</button>
+				))}
+			</div>
 		</>
 	);
 };
