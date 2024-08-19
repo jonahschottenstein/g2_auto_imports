@@ -36,20 +36,40 @@ const images = [
 	{ src: "/P35-0901053_07.jpg", alt: "test-image" },
 ];
 
-const Carousel = () => {
-	const [swiperRef, setSwiperRef] = useState(null);
-	const [slides, setSlides] = useState(
+const Carousel = ({ swiperRef, onClick, onChange }) => {
+	// const [swiperRef, setSwiperRef] = useState(null);
+	/* 	const [slides, setSlides] = useState(
 		Array.from({ length: 500 }).map((_, index) => `Slide ${index + 1}`)
-	);
-	const swiper = useSwiper();
+	); */
+	// const [activeIndex, setActiveIndex] = useState(0);
+	// const swiperRef = useRef(null);
 
-	const slideTo = (index) => {
-		swiperRef.slideTo(index - 1, 0);
-	};
+	// const handleSwiperChange = (swiper) => {
+	// 	setActiveIndex(swiper.activeIndex);
+	// };
+
+	// const components = [<Table />, <Terrasse />]; // Список компонентов
+	// const slideNames = ["Restaurant", "Terrasse"]; // Список названий слайдов
+
+	// const handleItemClick = (index) => {
+	// 	if (!swiperRef.current) return;
+
+	// 	swiperRef.current.swiper.slideTo(index);
+	// };
+	// const swiper = useSwiper();
+
+	// const slideTo = (index: number) => {
+	// 	console.log("SLIDE TO");
+	// 	console.log("SWIPER REF", swiperRef);
+	// 	if (!swiperRef) return;
+
+	// 	swiperRef.slideTo(index - 1, 0);
+	// };
 
 	return (
 		<>
 			<Swiper
+				ref={swiperRef}
 				// style={{
 				//   '--swiper-navigation-color': '#fff',
 				//   '--swiper-pagination-color': '#fff',
@@ -60,6 +80,10 @@ const Carousel = () => {
 				}}
 				navigation={true}
 				modules={[Pagination, Navigation]}
+				// onSwiper={setSwiperRef}
+				onSwiper={(swiper) => console.log(swiper)}
+				// onSlideChange={handleSwiperChange}
+				onSlideChange={onChange}
 				className="mySwiper">
 				{/* {images.map(({ src, alt }) => (
 					<CarouselItem src={src} alt={alt} />
