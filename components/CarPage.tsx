@@ -2,12 +2,14 @@
 
 import { useFormUpdater } from "@/context/request-import-form-context";
 import Image from "next/image";
-import React from "react";
+import React, { useRef, useState } from "react";
 import CustomButton from "./CustomButton";
 import { Car } from "@/types";
 import { useRouter } from "next/navigation";
 import Carousel from "./Carousel";
 import GalleryModal from "./GalleryModal";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Thumbs } from "swiper/modules";
 
 interface VehicleDetails {
 	vehicleDetails: Car | undefined;
@@ -141,7 +143,23 @@ const galleryData = [
 	{ src: "/P35-0901053_07.jpg", alt: "alt8", hasOverlay: true, index: 8 },
 ];
 
-export const ImageModal = () => {
+export const ImageModal = ({ index }) => {
+	const [activeIndex, setActiveIndex] = useState(0);
+	const swiperRef = useRef(null);
+
+	const handleSwiperChange = (swiper) => {
+		console.log("SWIPER", swiper);
+		setActiveIndex(swiper.activeIndex);
+	};
+
+	const handleItemClick = (index) => {
+		console.log("INDEX", index);
+		if (!swiperRef.current) return;
+
+		setActiveIndex(index);
+		swiperRef.current.swiper.slideTo(index);
+	};
+
 	return (
 		<>
 			<button
@@ -150,7 +168,8 @@ export const ImageModal = () => {
 				aria-haspopup="dialog"
 				aria-expanded="false"
 				aria-controls="hs-vertically-centered-modal"
-				data-hs-overlay="#hs-vertically-centered-modal"></button>
+				data-hs-overlay="#hs-vertically-centered-modal"
+				onClick={() => handleItemClick(4)}></button>
 
 			<div
 				id="hs-vertically-centered-modal"
@@ -189,7 +208,11 @@ export const ImageModal = () => {
 							</button>
 						</div>
 						<div className="p-4 overflow-y-auto">
-							<Carousel />
+							<Carousel
+								swiperRef={swiperRef}
+								onClick={handleItemClick}
+								onChange={handleSwiperChange}
+							/>
 						</div>
 						<div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
 							<button
@@ -246,7 +269,7 @@ export const ImageGridItem = ({
 				</div>
 			</div>
 
-			{index === 8 ? <GalleryModal /> : <ImageModal />}
+			{index === 8 ? <GalleryModal /> : <ImageModal index={index} />}
 		</div>
 	);
 };
