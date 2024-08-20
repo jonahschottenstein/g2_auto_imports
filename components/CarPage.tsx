@@ -409,7 +409,9 @@ const images = [
 const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 	const updateUserData = useFormUpdater();
 	const router = useRouter();
-	const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+		null
+	);
 	const [showFullGrid, setShowFullGrid] = useState(false);
 
 	const handleImageClick = (index: number) => {
