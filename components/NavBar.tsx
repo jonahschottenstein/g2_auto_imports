@@ -3,7 +3,8 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { HamburgerMenuButton } from "./XButton";
+import { HamburgerMenuButton } from "./HamburgerMenuButton";
+import XButton from "./XButton";
 
 const NavBar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,24 +73,10 @@ const NavBar = () => {
 									<div className="font-sans text-black text-xl font-bold flex justify-center items-center">
 										Menu
 									</div>
-									<button
-										onClick={closeMenu}
-										className="focus:outline-none text-black flex justify-center items-center">
-										{/* Close Icon */}
-										<svg
-											className="w-8 h-8"
-											fill="none"
-											stroke="currentColor"
-											viewBox="0 0 24 24"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={2}
-												d="M6 18L18 6M6 6l12 12"
-											/>
-										</svg>
-									</button>
+									<XButton
+										onClose={closeMenu}
+										styles="focus:outline-none text-black flex justify-center items-center"
+									/>
 								</div>
 								{links.map(({ title, href }) => (
 									<div className="w-full h-14 flex items-center border-t-2 last:border-b-2 border-gray-100 cursor-pointer hover:bg-slate-100">
