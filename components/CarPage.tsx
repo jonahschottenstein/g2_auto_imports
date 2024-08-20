@@ -155,6 +155,17 @@ const images = [
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt6" },
 	{ src: "/P35-0901053_07.jpg", alt: "alt7" },
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt8" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt9" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt10" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt11" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt12" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt13" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt14" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt15" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt6" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt17" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt18" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt19" },
 ];
 
 /* export const ImageModal = ({ index }) => {
@@ -450,6 +461,7 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 				images={images}
 				onImageClick={handleImageClick}
 				onLastImageClick={handleLastImageClick}
+				totalPhotosCount={images.length}
 			/>
 			{selectedImageIndex !== null && (
 				<ImageCarousel
