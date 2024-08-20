@@ -33,7 +33,7 @@ const ImageCarousel = ({
 		<div className="image-carousel fixed inset-0 bg-black flex justify-center items-center pt-[calc(72px_-_1rem)]">
 			<button
 				onClick={onClose}
-				className="close-button absolute top-20 right-4 text-white font-sans p-2">
+				className="close-button absolute top-20 right-2 text-white font-sans p-2">
 				X
 			</button>
 			<div className="image-carousel-content relative">
