@@ -19,10 +19,10 @@ const ImageGalleryModal = ({
 }: ImageGalleryModalProps) => {
 	return (
 		<div className="fixed inset-0 bg-black flex justify-center items-center pt-[calc(72px_-_1rem)]">
-			<div className="relative bg-black p-4 w-full h-full overflow-scroll">
+			<div className="relative bg-black p-4 sm:px-20 w-full h-full overflow-scroll">
 				<button
 					onClick={onClose}
-					className="absolute top-0 right-0 text-white p-2">
+					className="absolute top-2 right-2 text-white p-2 font-sans">
 					X
 				</button>
 				<div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-12">
