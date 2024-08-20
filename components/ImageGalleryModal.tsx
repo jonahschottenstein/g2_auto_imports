@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import XButton from "./XButton";
 
 interface ImageProps {
 	src: string;
@@ -20,11 +21,10 @@ const ImageGalleryModal = ({
 	return (
 		<div className="fixed inset-0 bg-black flex justify-center items-center pt-[calc(72px_-_1rem)]">
 			<div className="relative bg-black p-4 md:px-20 w-full h-full overflow-scroll">
-				<button
-					onClick={onClose}
-					className="absolute top-2 right-2 text-white p-2 font-sans">
-					X
-				</button>
+				<XButton
+					onClose={onClose}
+					styles={"absolute top-4 right-2 text-white p-2 font-sans"}
+				/>
 				<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4 mt-12">
 					{images.map(({ src, alt }, index) => (
 						<Image
