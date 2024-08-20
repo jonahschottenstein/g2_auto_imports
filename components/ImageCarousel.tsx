@@ -1,7 +1,12 @@
 import React from "react";
 
+interface ImageProps {
+	src: string;
+	alt: string;
+}
+
 interface ImageCarouselProps {
-	images: string[];
+	images: ImageProps[];
 	currentIndex: number;
 	onClose: () => void;
 }
@@ -25,26 +30,26 @@ const ImageCarousel = ({
 	};
 
 	return (
-		<div className="image-carousel fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center">
+		<div className="image-carousel fixed inset-0 bg-black flex justify-center items-center pt-[calc(72px_-_1rem)]">
+			<button
+				onClick={onClose}
+				className="close-button absolute top-20 right-4 text-white font-sans p-2">
+				X
+			</button>
 			<div className="image-carousel-content relative">
 				<button
-					onClick={onClose}
-					className="close-button absolute top-0 right-0 text-white p-2">
-					X
-				</button>
-				<button
 					onClick={handlePrevious}
-					className="prev-button absolute left-0 text-white p-2">
+					className="prev-button absolute left-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md">
 					‹
 				</button>
 				<img
-					src={images[currentImageIndex]}
+					src={images[currentImageIndex].src}
 					alt={`Carousel ${currentImageIndex + 1}`}
-					className="image-carousel-image w-auto h-full"
+					className="image-carousel-image w-auto h-full max-h-[450px]"
 				/>
 				<button
 					onClick={handleNext}
-					className="next-button absolute right-0 text-white p-2">
+					className="next-button absolute right-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md">
 					›
 				</button>
 			</div>
