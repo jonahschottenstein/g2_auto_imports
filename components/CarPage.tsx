@@ -11,6 +11,7 @@ import GalleryModal from "./GalleryModal";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ImageGrid from "./ImageGrid";
 import ImageCarousel from "./ImageCarousel";
+import ImageGalleryModal from "./ImageGalleryModal";
 
 interface VehicleDetails {
 	vehicleDetails: Car | undefined;
@@ -156,7 +157,7 @@ const images = [
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt8" },
 ];
 
-export const ImageModal = ({ index }) => {
+/* export const ImageModal = ({ index }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef(null);
 
@@ -249,9 +250,9 @@ export const ImageModal = ({ index }) => {
 			</div>
 		</>
 	);
-};
+}; */
 
-export const ImageGridItem = ({
+/* export const ImageGridItem = ({
 	src,
 	alt,
 	hasOverlay,
@@ -289,7 +290,7 @@ export const ImageGridItem = ({
 			{index === 8 ? <GalleryModal /> : <ImageModal index={index} />}
 		</div>
 	);
-};
+}; */
 
 /* const ImageGrid = ({ galleryData }: ImageGridProps) => {
 	return (
@@ -398,13 +399,21 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 	const updateUserData = useFormUpdater();
 	const router = useRouter();
 	const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+	const [showFullGrid, setShowFullGrid] = useState(false);
 
 	const handleImageClick = (index: number) => {
+		console.log("HANDLE IMAGE CLICK");
+		setShowFullGrid(false);
 		setSelectedImageIndex(index);
+	};
+
+	const handleLastImageClick = () => {
+		setShowFullGrid(true);
 	};
 
 	const closeModal = () => {
 		setSelectedImageIndex(null);
+		setShowFullGrid(false);
 	};
 
 	const handleClick = () => {
@@ -437,11 +446,22 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 			<div className="vehicle-heading">
 				<h1 className="font-display text-2xl mt-2">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
 			</div>
-			<ImageGrid images={images} onImageClick={handleImageClick} />
+			<ImageGrid
+				images={images}
+				onImageClick={handleImageClick}
+				onLastImageClick={handleLastImageClick}
+			/>
 			{selectedImageIndex !== null && (
 				<ImageCarousel
 					images={images}
 					currentIndex={selectedImageIndex}
+					onClose={closeModal}
+				/>
+			)}
+			{showFullGrid && (
+				<ImageGalleryModal
+					images={images}
+					onImageClick={handleImageClick}
 					onClose={closeModal}
 				/>
 			)}
