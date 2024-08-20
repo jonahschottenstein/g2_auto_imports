@@ -79,9 +79,10 @@ const NavBar = () => {
 									/>
 								</div>
 								{links.map(({ title, href }) => (
-									<div className="w-full h-14 flex items-center border-t-2 last:border-b-2 border-gray-100 cursor-pointer hover:bg-slate-100">
+									<div
+										key={`${title}-link-mobile`}
+										className="w-full h-14 flex items-center border-t-2 last:border-b-2 border-gray-100 cursor-pointer hover:bg-slate-100">
 										<Link
-											key={`${title}-link-mobile`}
 											href={href}
 											className="flex items-center w-full h-full px-4 py-2 text-base font-sans font-semibold text-black"
 											onClick={(e) => {
