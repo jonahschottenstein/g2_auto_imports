@@ -45,7 +45,7 @@ const ImageCarousel = ({
 				<img
 					src={images[currentImageIndex].src}
 					alt={`Carousel ${currentImageIndex + 1}`}
-					className="image-carousel-image w-auto h-full max-h-[450px]"
+					className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
 				/>
 				<button
 					onClick={handleNext}
