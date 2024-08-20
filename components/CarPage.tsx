@@ -9,7 +9,8 @@ import { useRouter } from "next/navigation";
 import Carousel from "./Carousel";
 import GalleryModal from "./GalleryModal";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs } from "swiper/modules";
+import ImageGrid from "./ImageGrid";
+import ImageCarousel from "./ImageCarousel";
 
 interface VehicleDetails {
 	vehicleDetails: Car | undefined;
@@ -134,7 +135,7 @@ interface ImageGridProps {
 const galleryData = [
 	{ src: "/P35-0901053_07.jpg", alt: "alt0", hasOverlay: false, index: 0 },
 	{ src: "/P35-0901053_07.jpg", alt: "alt1", hasOverlay: false, index: 1 },
-	{ src: "/P35-0901053_07.jpg", alt: "alt2", hasOverlay: false, index: 2 },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt2", hasOverlay: false, index: 2 },
 	{ src: "/P35-0901053_07.jpg", alt: "alt3", hasOverlay: false, index: 3 },
 	{ src: "/P35-0901053_07.jpg", alt: "alt4", hasOverlay: false, index: 4 },
 	{ src: "/P35-0901053_07.jpg", alt: "alt5", hasOverlay: false, index: 5 },
@@ -143,33 +144,49 @@ const galleryData = [
 	{ src: "/P35-0901053_07.jpg", alt: "alt8", hasOverlay: true, index: 8 },
 ];
 
+const images = [
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt0" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt1" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt2" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt3" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt4" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt5" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt6" },
+	{ src: "/P35-0901053_07.jpg", alt: "alt7" },
+	{ src: "/PE8W-0402421_04.JPG", alt: "alt8" },
+];
+
 export const ImageModal = ({ index }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef(null);
 
 	const handleSwiperChange = (swiper) => {
-		console.log("SWIPER", swiper);
+		// console.log("SWIPER", swiper);
 		setActiveIndex(swiper.activeIndex);
 	};
 
 	const handleItemClick = (index) => {
-		console.log("INDEX", index);
+		console.log(`${index}`);
+		console.log("INDEX", index, typeof index);
+		console.log("SWIPER HIC", swiperRef.current.swiper);
 		if (!swiperRef.current) return;
-
+		if (!index) return;
 		setActiveIndex(index);
 		swiperRef.current.swiper.slideTo(index);
+		// swiperRef.current.swiper.activeIndex = index;
+		// swiperRef.current.swiper.realIndex = index;
 	};
 
 	return (
 		<>
 			<button
 				type="button"
-				className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-transparent focus:outline-none disabled:opacity-50 disabled:pointer-events-none absolute top-0 left-0 bottom-0 right-0"
+				className="image-modal-button py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-transparent focus:outline-none disabled:opacity-50 disabled:pointer-events-none absolute top-0 left-0 bottom-0 right-0"
 				aria-haspopup="dialog"
 				aria-expanded="false"
 				aria-controls="hs-vertically-centered-modal"
 				data-hs-overlay="#hs-vertically-centered-modal"
-				onClick={() => handleItemClick(4)}></button>
+				onClick={() => handleItemClick(index)}></button>
 
 			<div
 				id="hs-vertically-centered-modal"
@@ -241,7 +258,7 @@ export const ImageGridItem = ({
 	index,
 }: ImageGridItemProps) => {
 	return (
-		<div className="group block relative overflow-hidden rounded-lg first:row-span-2 first:col-span-2 md:first:row-span-4 md:first:col-span-4">
+		<div className="image-grid-item group block relative overflow-hidden rounded-lg first:row-span-2 first:col-span-2 md:first:row-span-4 md:first:col-span-4">
 			<Image
 				className="w-full h-full size-40 object-cover bg-gray-100 rounded-lg"
 				src={src}
@@ -274,9 +291,9 @@ export const ImageGridItem = ({
 	);
 };
 
-const ImageGrid = ({ galleryData }: ImageGridProps) => {
+/* const ImageGrid = ({ galleryData }: ImageGridProps) => {
 	return (
-		<div className="grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)]">
+		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)]">
 			{galleryData.map(({ src, alt, hasOverlay }, index) => {
 				return (
 					<ImageGridItem
@@ -290,11 +307,105 @@ const ImageGrid = ({ galleryData }: ImageGridProps) => {
 			})}
 		</div>
 	);
-};
+}; */
+
+// const CarPage = ({ vehicleDetails }: VehicleDetails) => {
+// 	const updateUserData = useFormUpdater();
+// 	const router = useRouter();
+
+// 	const handleClick = () => {
+// 		if (!vehicleDetails?.make.id) return;
+
+// 		const data = {
+// 			make: { id: vehicleDetails?.make.id, name: vehicleDetails?.make.name },
+// 			model: {
+// 				id: vehicleDetails?.model.id,
+// 				name: vehicleDetails?.model.name,
+// 				makeId: vehicleDetails?.model.makeId,
+// 			},
+// 			productionYears: {
+// 				startYear: vehicleDetails?.year,
+// 				endYear: vehicleDetails?.year,
+// 			},
+// 		};
+
+// 		sessionStorage.setItem("userData", JSON.stringify(data));
+
+// 		updateUserData(data);
+
+// 		router.push("/request-import-form/step_4");
+// 	};
+
+// 	const displayKeys = ["year", "make", "model", "price", "mileage", "features"];
+
+// 	return (
+// 		<div className="p-2 flex flex-col max-w-screen-xl m-auto space-y-4 md:px-10">
+// 			<div className="vehicle-heading">
+// 				<h1 className="font-display text-2xl mt-2">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
+// 			</div>
+// 			<ImageGrid galleryData={galleryData} />
+// 			<CustomButton
+// 				styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans"
+// 				handleClick={handleClick}>
+// 				Request Import
+// 			</CustomButton>
+
+// 			{vehicleDetails ? (
+// 				<table className="flex-1">
+// 					{/* <thead>
+// 								<tr className="font-display">
+// 									<th colSpan={2}>Vehicle Details</th>
+// 								</tr>
+// 							</thead> */}
+// 					<tbody>
+// 						{Object.entries(vehicleDetails).map(([key, value]) => {
+// 							if (displayKeys.includes(key)) {
+// 								return (
+// 									<tr className="first:border-t border-b border-gray-300">
+// 										<td className="py-2 text-black font-sans text-base font-semibold capitalize border-r border-gray-300 pl-2 pr-4">
+// 											{key}
+// 										</td>
+// 										<td className="py-2 text-gray-700 font-sans text-base pl-4">
+// 											{key === "features"
+// 												? value.join(", ")
+// 												: value.name || value}
+// 										</td>
+// 									</tr>
+// 								);
+// 							}
+// 						})}
+// 					</tbody>
+// 				</table>
+// 			) : (
+// 				<p>No vehicle details available</p>
+// 			)}
+// 			<div className="vehicle-description-container max-w-2xl">
+// 				<h2 className="text-xl font-display uppercase my-2">Description</h2>
+// 				<p className="vehicle-description font-sans">
+// 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+// 					deserunt sed aut optio quibusdam nobis qui officiis ipsam harum magni
+// 					veritatis fuga, quisquam ex autem voluptatem delectus exercitationem,
+// 					reiciendis veniam quidem dolore nulla perferendis? Ea quod, similique
+// 					deleniti modi accusantium qui minus et ab aliquam maiores, dignissimos
+// 					aspernatur earum minima.
+// 				</p>
+// 			</div>
+// 		</div>
+// 	);
+// };
 
 const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 	const updateUserData = useFormUpdater();
 	const router = useRouter();
+	const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+	const handleImageClick = (index: number) => {
+		setSelectedImageIndex(index);
+	};
+
+	const closeModal = () => {
+		setSelectedImageIndex(null);
+	};
 
 	const handleClick = () => {
 		if (!vehicleDetails?.make.id) return;
@@ -326,7 +437,14 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 			<div className="vehicle-heading">
 				<h1 className="font-display text-2xl mt-2">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
 			</div>
-			<ImageGrid galleryData={galleryData} />
+			<ImageGrid images={images} onImageClick={handleImageClick} />
+			{selectedImageIndex !== null && (
+				<ImageCarousel
+					images={images}
+					currentIndex={selectedImageIndex}
+					onClose={closeModal}
+				/>
+			)}
 			<CustomButton
 				styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans"
 				handleClick={handleClick}>
