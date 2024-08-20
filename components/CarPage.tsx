@@ -516,7 +516,7 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 			)}
 			<div className="vehicle-description-container max-w-2xl">
 				<h2 className="text-xl font-display uppercase my-2">Description</h2>
-				<p className="vehicle-description font-sans">
+				<p className="vehicle-description font-sans mb-4">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
 					deserunt sed aut optio quibusdam nobis qui officiis ipsam harum magni
 					veritatis fuga, quisquam ex autem voluptatem delectus exercitationem,
