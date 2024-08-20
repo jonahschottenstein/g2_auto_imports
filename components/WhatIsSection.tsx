@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faBox,
-	faBriefcase,
 	faCar,
 	faChartSimple,
 	faClock,
@@ -67,7 +66,7 @@ const IconBlockComponent = ({ icon, title, blurb }: IconBlockProps) => {
 
 const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 	return (
-		<div className="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
+		<div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
 			<div className="lg:col-span-1">
 				<h2 className="font-sans font-bold text-2xl md:text-3xl text-gray-800">
 					Your Gateway to Authentic JDM Imports
@@ -93,7 +92,7 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 
 const WhatIsSection = () => {
 	return (
-		<div className="what-is-section w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 mx-auto border-t-2 border-t-slate-100">
+		<div className="what-is-section flex flex-col justify-center items-center min-w-full w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 border-t-2 border-t-slate-100">
 			<div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
 				<h2 className="font-medium font-display text-black text-2xl uppercase sm:text-4xl ">
 					What's Tokyo-Imports?
