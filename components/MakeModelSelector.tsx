@@ -27,7 +27,7 @@ const MakeModelSelector = ({
 
 	useLayoutEffect(() => {
 		handleScrollToSelectedMake();
-	}, [stateValue]);
+	}, []);
 
 	// * 371px is the max-height that makes the page height full
 
