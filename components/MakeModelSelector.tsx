@@ -26,19 +26,24 @@ const MakeModelSelector = ({
 		});
 	};
 
-	const elementIsVisibleInViewport = (el, container) => {
+	const elementIsVisibleInViewport = (
+		el: HTMLDivElement | null,
+		container: Element | null
+	) => {
 		if (!el) return;
 
 		const elementRect = el.getBoundingClientRect();
-		const containerRect = container.getBoundingClientRect();
+		const containerRect = container?.getBoundingClientRect();
+
+		if (!elementRect || !containerRect) return;
 
 		// Check if the element is partially visible in the container
 		const isVerticallyVisible =
-			elementRect.top < containerRect.bottom &&
-			elementRect.bottom > containerRect.top;
+			elementRect.top < containerRect?.bottom &&
+			elementRect.bottom > containerRect?.top;
 		const isHorizontallyVisible =
-			elementRect.left < containerRect.right &&
-			elementRect.right > containerRect.left;
+			elementRect.left < containerRect?.right &&
+			elementRect.right > containerRect?.left;
 
 		return isVerticallyVisible && isHorizontallyVisible;
 	};
