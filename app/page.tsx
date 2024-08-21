@@ -159,6 +159,9 @@ export default async function Home() {
 
 // TODO:
 /* 
+Make page Nav buttons are higher up than on Model page
+	- Because on mobile you can't see them without scrolling
+		- Need to figure out what to do for this
 Don't like how What's Tokyo-Imports? => Your Gateway to Authentic JDM Imports looks on home page
 // - Now the years page and post-request page are too small
 ASK YOURSELF: WHAT ISN'T WORKING? FIX THAT FIRST
