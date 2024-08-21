@@ -114,6 +114,8 @@ export default async function Home() {
 
 // TODO:
 /* 
+Padding is not uniform across all pages. Needs to be fixed.
+	- e.g., on CarPage
 Should make a Section component that takes SectionContent as child
 MakeModelSelector doesn't scroll to selected item when Request Import link is clicked from Home page because selectedMakeRef.current is null
 	- Need stateValue dependency to get MakeModelSelector to scroll to selected item on page visit
