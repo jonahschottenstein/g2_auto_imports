@@ -14,6 +14,67 @@ interface CardProps {
 	description: string;
 }
 
+type CarCardProps = {
+	href: string;
+	image: string;
+	name: string;
+	price: string;
+	// onButtonClick: () => void;
+};
+
+// I think at large size, align the button to the right of the price
+// At small size, put it at the bottom and have it take up the entire width of the card
+// Or leave it to the right and make the grid one column
+// const CarCard2 = ({ image, name, price }: CarCardProps) => {
+// 	return (
+// 		<div className="car-card min-w-80 bg-white shadow-lg rounded-lg overflow-hidden">
+// 			<img
+// 				src={image}
+// 				alt={name}
+// 				className="car-image w-full h-48 object-cover"
+// 			/>
+// 			<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 px-4 font-sans">
+// 				{name}
+// 			</h3>
+// 			<p className="car-price text-md font-medium text-gray-600 px-4 font-sans">
+// 				{price}
+// 			</p>
+// 			<button
+// 				className="cta-button bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg m-4 block w-[288px] font-sans hover:bg-blue-700"
+// 				// onClick={onButtonClick}
+// 			>
+// 				View Details
+// 			</button>
+// 		</div>
+// 	);
+// };
+const CarCard2 = ({ href, image, name, price }: CarCardProps) => {
+	return (
+		<div className="car-card flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
+			<Image
+				src={image}
+				alt={name}
+				width={100}
+				height={100}
+				className="car-image w-full object-cover pointer-events-none"
+			/>
+			<div className="car-card-details px-4">
+				<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 font-sans">
+					{name}
+				</h3>
+				<p className="car-price text-md font-medium text-gray-600 font-sans">
+					{price}
+				</p>
+				<Link
+					href={href}
+					className="car-card-cta-link bg-blue-600 text-white font-semibold py-2 px-4 my-4 rounded-lg block w-full font-sans text-center hover:bg-blue-700">
+					View Details
+				</Link>
+			</div>
+		</div>
+	);
+};
+
 const Card = ({ href, src, alt, title, description }: CardProps) => {
 	return (
 		<Link className="group block" href={href}>
@@ -49,6 +110,14 @@ const CardGrid = ({ children }: CardGridProps) => {
 	);
 };
 
+const CardGrid2 = ({ children }: CardGridProps) => {
+	return (
+		<div className="card-grid grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+			{children}
+		</div>
+	);
+};
+
 interface FeaturedInventorySectionProps {
 	featuredInventory: Car[];
 }
@@ -64,28 +133,41 @@ const FeaturedInventorySection = ({
 					Featured Inventory
 				</h2>
 			</div>
-			<CardGrid>
+			<CardGrid2>
 				{featuredInventory.map(
 					({ imageSrc, year, make, model, price, pageUrl }) => {
+						{
+							/* <Card
+							key={`${year}-${make.name}-${model.name}-card`}
+							href={pageUrl}
+							src={imageSrc}
+							alt="Alt text"
+							title={`${year} ${make.name} ${model.name}`}
+							description={price}
+						/> */
+						}
 						return (
-							<Card
-								key={`${year}-${make.name}-${model.name}-card`}
+							<CarCard2
 								href={pageUrl}
-								src={imageSrc}
-								alt="Alt text"
-								title={`${year} ${make.name} ${model.name}`}
-								description={price}
+								image={imageSrc}
+								name={`${year} ${make.name} ${model.name}`}
+								price={price}
 							/>
 						);
 					}
 				)}
-			</CardGrid>
+			</CardGrid2>
 			<div className="mt-10 lg:mt-20 text-center">
-				<a
-					className="relative inline-block font-medium md:text-lg font-sans text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 hover:before:bg-black focus:outline-none focus:before:bg-black "
+				{/* <a
+					className="relative inline-block font-medium md:text-lg font-sans text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-blue-600 hover:before:bg-black focus:outline-none focus:before:bg-black "
 					href="/inventory">
 					View all inventory
-				</a>
+				</a> */}
+				<Link
+					href="/inventory"
+					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:text-blue-700">
+					View all inventory
+				</Link>
 			</div>
 		</div>
 	);
