@@ -159,7 +159,11 @@ export default async function Home() {
 
 // TODO:
 /* 
-Make page Nav buttons are higher up than on Model page
+MakeModelSelector doesn't scroll to selected item when Request Import link is clicked from Home page because selectedMakeRef.current is null
+	- Need stateValue dependency to get MakeModelSelector to scroll to selected item on page visit
+	- But when it's a dependency, it also scrolls the item to the bottom every time an item is clicked
+	- Use IntersectionObserver
+Makes page Nav buttons are higher up than on Model page
 	- Because on mobile you can't see them without scrolling
 		- Need to figure out what to do for this
 Don't like how What's Tokyo-Imports? => Your Gateway to Authentic JDM Imports looks on home page
