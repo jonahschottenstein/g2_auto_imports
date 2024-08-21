@@ -2,7 +2,7 @@
 
 import { useFormUpdater } from "@/context/request-import-form-context";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CustomButton from "./CustomButton";
 import { Car } from "@/types";
 import { useRouter } from "next/navigation";
@@ -413,6 +413,18 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 		null
 	);
 	const [showFullGrid, setShowFullGrid] = useState(false);
+
+	useEffect(() => {
+		if (selectedImageIndex !== null || showFullGrid) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "auto";
+		}
+
+		return () => {
+			document.body.style.overflow = "auto";
+		};
+	}, [selectedImageIndex, showFullGrid]);
 
 	const handleImageClick = (index: number) => {
 		console.log("HANDLE IMAGE CLICK");
