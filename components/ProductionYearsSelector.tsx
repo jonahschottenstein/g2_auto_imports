@@ -42,13 +42,13 @@ const YearsDisplay = ({ startYear, endYear }: YearsDisplayProps) => {
 	const startYearActiveDisplay =
 		startYear > 0
 			? "active-indicator h-1 bg-inherit"
-			: "active-indicator h-1 bg-[#BC002D]";
+			: "active-indicator h-1 bg-blue-600";
 	const endYearActiveDisplay =
 		startYear === 0 && endYear === 0
 			? "active-indicator h-1 bg-inherit"
 			: endYear > 0
 			? "active-indicator h-1 bg-inherit"
-			: "active-indicator h-1 bg-[#BC002D]";
+			: "active-indicator h-1 bg-blue-600";
 
 	return (
 		<div className="years-display-container flex w-full mb-2">
@@ -119,9 +119,9 @@ const ProductionYearsSelector = ({
 	const setButtonStyles = (year: number) => {
 		const buttonStyles =
 			year === stateValue.startYear
-				? "production-year start-year bg-[#BC002D] text-white w-10 h-10 rounded-[50%] text-xs"
+				? "production-year start-year bg-blue-600 text-white w-10 h-10 rounded-[50%] text-xs"
 				: year === stateValue.endYear
-				? "production-year end-year bg-[#BC002D] text-white w-10 h-10 rounded-[50%] text-xs"
+				? "production-year end-year bg-blue-600 text-white w-10 h-10 rounded-[50%] text-xs"
 				: year > stateValue.startYear && year < stateValue.endYear
 				? "production-year between-year bg-gray-200 w-10 h-10 text-xs"
 				: "production-year w-10 h-10 text-xs";
