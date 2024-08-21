@@ -1,5 +1,4 @@
 import React from "react";
-import { CarCardProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -34,7 +33,7 @@ import Link from "next/link";
 	);
 }; */
 
-const CarCard = ({
+/* const CarCard = ({
 	imageSrc,
 	year,
 	make,
@@ -60,6 +59,40 @@ const CarCard = ({
 				<p className="text-lg font-sans text-gray-600">{`${price}`}</p>
 			</div>
 		</Link>
+	);
+}; */
+
+interface CarCardProps {
+	href: string;
+	image: string;
+	name: string;
+	price: string;
+}
+
+const CarCard = ({ href, image, name, price }: CarCardProps) => {
+	return (
+		<div className="car-card flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
+			<Image
+				src={image}
+				alt={name}
+				width={100}
+				height={100}
+				className="car-image w-full object-cover pointer-events-none"
+			/>
+			<div className="car-card-details px-4">
+				<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 font-sans">
+					{name}
+				</h3>
+				<p className="car-price text-md font-medium text-gray-600 font-sans">
+					{price}
+				</p>
+				<Link
+					href={href}
+					className="car-card-cta-link bg-blue-600 text-white font-semibold py-2 px-4 my-4 rounded-lg block w-full font-sans text-center hover:bg-blue-700">
+					View Details
+				</Link>
+			</div>
+		</div>
 	);
 };
 
