@@ -98,7 +98,7 @@ const NavBar = () => {
 						)}
 					</div>
 				) : (
-					<div className="flex space-x-4 font-sans">
+					<div className="flex space-x-4 font-sans text-base font-medium">
 						{links.map(({ title, href }) => (
 							<Link
 								key={`${title}-link-desktop`}
