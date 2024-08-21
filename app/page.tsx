@@ -1,122 +1,10 @@
 import { CarCard, Hero } from "@/components";
 import { inventory } from "@/inventory";
 import Link from "next/link";
-import Image from "next/image";
 import { Car } from "@/types";
 import WhatIsSection from "@/components/WhatIsSection";
 import AboutUsSection from "@/components/AboutUsSection";
-
-interface CardProps {
-	href: string;
-	src: string;
-	alt: string;
-	title: string;
-	description: string;
-}
-
-type CarCardProps = {
-	href: string;
-	image: string;
-	name: string;
-	price: string;
-	// onButtonClick: () => void;
-};
-
-// I think at large size, align the button to the right of the price
-// At small size, put it at the bottom and have it take up the entire width of the card
-// Or leave it to the right and make the grid one column
-// const CarCard2 = ({ image, name, price }: CarCardProps) => {
-// 	return (
-// 		<div className="car-card min-w-80 bg-white shadow-lg rounded-lg overflow-hidden">
-// 			<img
-// 				src={image}
-// 				alt={name}
-// 				className="car-image w-full h-48 object-cover"
-// 			/>
-// 			<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 px-4 font-sans">
-// 				{name}
-// 			</h3>
-// 			<p className="car-price text-md font-medium text-gray-600 px-4 font-sans">
-// 				{price}
-// 			</p>
-// 			<button
-// 				className="cta-button bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg m-4 block w-[288px] font-sans hover:bg-blue-700"
-// 				// onClick={onButtonClick}
-// 			>
-// 				View Details
-// 			</button>
-// 		</div>
-// 	);
-// };
-const CarCard2 = ({ href, image, name, price }: CarCardProps) => {
-	return (
-		<div className="car-card flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
-			<Image
-				src={image}
-				alt={name}
-				width={100}
-				height={100}
-				className="car-image w-full object-cover pointer-events-none"
-			/>
-			<div className="car-card-details px-4">
-				<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 font-sans">
-					{name}
-				</h3>
-				<p className="car-price text-md font-medium text-gray-600 font-sans">
-					{price}
-				</p>
-				<Link
-					href={href}
-					className="car-card-cta-link bg-blue-600 text-white font-semibold py-2 px-4 my-4 rounded-lg block w-full font-sans text-center hover:bg-blue-700">
-					View Details
-				</Link>
-			</div>
-		</div>
-	);
-};
-
-const Card = ({ href, src, alt, title, description }: CardProps) => {
-	return (
-		<Link className="group block" href={href}>
-			<div className="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl ">
-				<Image
-					className="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
-					src={src}
-					alt={alt}
-					width={200}
-					height={200}
-				/>
-			</div>
-
-			<div className="pt-4">
-				<h3 className="relative inline-block font-medium font-sans text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 ">
-					{title}
-				</h3>
-				<p className="mt-1 font-sans text-gray-600 ">{description}</p>
-			</div>
-		</Link>
-	);
-};
-
-interface CardGridProps {
-	children: React.ReactNode;
-}
-
-const CardGrid = ({ children }: CardGridProps) => {
-	return (
-		<div className=" grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-			{children}
-		</div>
-	);
-};
-
-const CardGrid2 = ({ children }: CardGridProps) => {
-	return (
-		<div className="card-grid grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-			{children}
-		</div>
-	);
-};
+import CardGrid from "@/components/CardGrid";
 
 interface FeaturedInventorySectionProps {
 	featuredInventory: Car[];
@@ -133,21 +21,11 @@ const FeaturedInventorySection = ({
 					Featured Inventory
 				</h2>
 			</div>
-			<CardGrid2>
+			<CardGrid>
 				{featuredInventory.map(
 					({ imageSrc, year, make, model, price, pageUrl }) => {
-						{
-							/* <Card
-							key={`${year}-${make.name}-${model.name}-card`}
-							href={pageUrl}
-							src={imageSrc}
-							alt="Alt text"
-							title={`${year} ${make.name} ${model.name}`}
-							description={price}
-						/> */
-						}
 						return (
-							<CarCard2
+							<CarCard
 								href={pageUrl}
 								image={imageSrc}
 								name={`${year} ${make.name} ${model.name}`}
@@ -156,13 +34,8 @@ const FeaturedInventorySection = ({
 						);
 					}
 				)}
-			</CardGrid2>
+			</CardGrid>
 			<div className="mt-10 lg:mt-20 text-center">
-				{/* <a
-					className="relative inline-block font-medium md:text-lg font-sans text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-blue-600 hover:before:bg-black focus:outline-none focus:before:bg-black "
-					href="/inventory">
-					View all inventory
-				</a> */}
 				<Link
 					href="/inventory"
 					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:text-blue-700">
@@ -241,6 +114,7 @@ export default async function Home() {
 
 // TODO:
 /* 
+Should make a Section component that takes SectionContent as child
 MakeModelSelector doesn't scroll to selected item when Request Import link is clicked from Home page because selectedMakeRef.current is null
 	- Need stateValue dependency to get MakeModelSelector to scroll to selected item on page visit
 	- But when it's a dependency, it also scrolls the item to the bottom every time an item is clicked
