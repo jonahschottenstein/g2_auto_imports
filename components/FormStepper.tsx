@@ -182,7 +182,7 @@ const FormStepperItem = ({
 		status === "is-successful" ? "bg-blue-600 dark:bg-blue-600" : ""; */
 	const lineStyles = status === "is-successful" ? "bg-blue-600" : "";
 
-	console.log("STATUS", status);
+	// console.log("STATUS", status);
 	return (
 		<li
 			className={`form-stepper-item form-stepper-item-${stepNumber} flex items-center gap-x-2 shrink basis-0 flex-1 last:max-w-fit group`}>
