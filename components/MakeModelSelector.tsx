@@ -15,6 +15,7 @@ const MakeModelSelector = ({
 }: MakeModelSelectorProps) => {
 	const selectedMakeRef = useRef<null | HTMLDivElement>(null);
 	const sortedOptions = sortMakeModel(options);
+	const container = document.querySelector(".selector");
 
 	const handleScrollToSelectedMake = () => {
 		if (!selectedMakeRef.current) return;
@@ -25,9 +26,34 @@ const MakeModelSelector = ({
 		});
 	};
 
+	const elementIsVisibleInViewport = (el, container) => {
+		if (!el) return;
+
+		const elementRect = el.getBoundingClientRect();
+		const containerRect = container.getBoundingClientRect();
+
+		// Check if the element is partially visible in the container
+		const isVerticallyVisible =
+			elementRect.top < containerRect.bottom &&
+			elementRect.bottom > containerRect.top;
+		const isHorizontallyVisible =
+			elementRect.left < containerRect.right &&
+			elementRect.right > containerRect.left;
+
+		return isVerticallyVisible && isHorizontallyVisible;
+	};
+
 	useLayoutEffect(() => {
+		const selectedMakeIsVisible = elementIsVisibleInViewport(
+			selectedMakeRef.current,
+			container
+		);
+
+		if (selectedMakeIsVisible) return;
+
 		handleScrollToSelectedMake();
-	}, []);
+	}, [stateValue]);
+	// THIS IS AN IMPROVEMENT. INTERSECTIONOBSERVER IS PROBABLY A BETTER SOLUTION
 
 	// * 371px is the max-height that makes the page height full
 
