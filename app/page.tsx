@@ -1,50 +1,8 @@
-import { CarCard, Hero } from "@/components";
+import { Hero } from "@/components";
 import { inventory } from "@/inventory";
-import Link from "next/link";
-import { Car } from "@/types";
 import WhatIsSection from "@/components/WhatIsSection";
 import AboutUsSection from "@/components/AboutUsSection";
-import CardGrid from "@/components/CardGrid";
-
-interface FeaturedInventorySectionProps {
-	featuredInventory: Car[];
-}
-
-const FeaturedInventorySection = ({
-	featuredInventory,
-}: FeaturedInventorySectionProps) => {
-	return (
-		// TODO: Should probably change div to section
-		<div className="featured-inventory-section w-full px-4 md:px-6 lg:px-8 py-12 lg:py-24 border-t-2 border-t-slate-100">
-			<div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
-				<h2 className="font-medium font-display text-black text-2xl uppercase sm:text-4xl ">
-					Featured Inventory
-				</h2>
-			</div>
-			<CardGrid>
-				{featuredInventory.map(
-					({ imageSrc, year, make, model, price, pageUrl }) => {
-						return (
-							<CarCard
-								href={pageUrl}
-								image={imageSrc}
-								name={`${year} ${make.name} ${model.name}`}
-								price={price}
-							/>
-						);
-					}
-				)}
-			</CardGrid>
-			<div className="mt-10 lg:mt-20 text-center">
-				<Link
-					href="/inventory"
-					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:text-blue-700">
-					View all inventory
-				</Link>
-			</div>
-		</div>
-	);
-};
+import FeaturedInventorySection from "@/components/FeaturedInventorySection";
 
 export default async function Home() {
 	const featuredInventory = inventory.filter((car) => car.featured);
@@ -136,7 +94,7 @@ In order:
 	// 	- Use Preline UI Stepper as reference
 	4. Invalid input styling
 	5. Scroll selected form inputs into view
-	6. In desktop, when a nav link is clicked, a transition causes the links to disappear for a sec
+	// 6. In desktop, when a nav link is clicked, a transition causes the links to disappear for a sec
 */
 /* 
 	- Form has autofill on Chrome but not Safari. May need to add manually for Safari
