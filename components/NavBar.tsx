@@ -35,7 +35,6 @@ const NavBar = () => {
 	}, []);
 
 	useEffect(() => {
-		console.log(pathName);
 		closeMenu();
 	}, [pathName]);
 
