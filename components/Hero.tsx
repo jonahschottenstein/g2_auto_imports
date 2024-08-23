@@ -160,7 +160,7 @@ const HeroContent = () => {
 
 const Hero = () => {
 	return (
-		<section className="relative w-full h-screen">
+		<section className="relative w-full h-[calc(100vh-74px)]">
 			<div className="absolute inset-0">
 				<Image
 					src={heroImage}
