@@ -7,6 +7,7 @@ import {
 	faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import Section from "./Section";
 
 interface IconBlockProps {
 	icon: IconProp;
@@ -92,14 +93,9 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 
 const WhatIsSection = () => {
 	return (
-		<div className="what-is-section flex flex-col justify-center items-center min-w-full w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 border-t-2 border-t-slate-100">
-			<div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
-				<h2 className="font-medium font-display text-black text-2xl uppercase sm:text-4xl ">
-					What's Tokyo-Imports?
-				</h2>
-			</div>
+		<Section h2="What's Tokyo-Imports?">
 			<IconBlockGrid iconBlocks={iconBlocks} />
-		</div>
+		</Section>
 	);
 };
 
