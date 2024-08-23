@@ -6,7 +6,7 @@ interface CardGridProps {
 
 const CardGrid = ({ children }: CardGridProps) => {
 	return (
-		<div className="card-grid grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+		<div className="card-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{children}
 		</div>
 	);
