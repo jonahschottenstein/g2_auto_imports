@@ -9,7 +9,8 @@ export default async function Home() {
 
 	return (
 		// * You changed pt to 32px because its child has pt of 40px (at large screen size)
-		<main className="flex flex-col flex-1 pt-[32px]">
+		// pt is 74px now because added 2px border bottom to header
+		<main className="flex flex-col flex-1 sm:pt-[74px]">
 			<Hero />
 			<WhatIsSection />
 			<AboutUsSection />
