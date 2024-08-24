@@ -1,5 +1,6 @@
 import React from "react";
 import XButton from "./XButton";
+import Image from "next/image";
 
 /* interface ImageProps {
 	src: string;
@@ -43,11 +44,18 @@ const ImageCarousel = ({
 					className="prev-button absolute left-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md">
 					‹
 				</button>
-				<img
+				{/* <img
 					// src={images[currentImageIndex].src}
 					src={images[currentImageIndex]}
 					alt={`Carousel ${currentImageIndex + 1}`}
 					className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
+				/> */}
+				<Image
+					src={images[currentImageIndex]}
+					alt={`Carousel ${currentImageIndex + 1}`}
+					className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
+					width={450}
+					height={450}
 				/>
 				<button
 					onClick={handleNext}
