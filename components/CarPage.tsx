@@ -406,7 +406,7 @@ const images = [
 // 	);
 // };
 
-const CarPage = ({ vehicleDetails }: VehicleDetails) => {
+const CarPageOld2 = ({ vehicleDetails }: VehicleDetails) => {
 	const updateUserData = useFormUpdater();
 	const router = useRouter();
 	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
@@ -536,6 +536,144 @@ const CarPage = ({ vehicleDetails }: VehicleDetails) => {
 					deleniti modi accusantium qui minus et ab aliquam maiores, dignissimos
 					aspernatur earum minima.
 				</p>
+			</div>
+		</div>
+	);
+};
+
+interface CarTableProps {
+	vehicleDetails: Car;
+	displayKeys: string[];
+}
+
+const CarTable = ({ vehicleDetails, displayKeys }: CarTableProps) => {
+	return (
+		<table className="car-table flex-1">
+			<tbody>
+				{Object.entries(vehicleDetails).map(([key, value]) => {
+					if (displayKeys.includes(key)) {
+						return (
+							<tr className="first:border-t border-b border-gray-300">
+								<td className="py-2 text-black font-sans text-base font-semibold capitalize border-r border-gray-300 pl-2 pr-4">
+									{key}
+								</td>
+								<td className="py-2 text-gray-700 font-sans text-base pl-4">
+									{key === "features" ? value.join(", ") : value.name || value}
+								</td>
+							</tr>
+						);
+					}
+				})}
+			</tbody>
+		</table>
+	);
+};
+
+const CarPage = ({ vehicleDetails }: VehicleDetails) => {
+	const updateUserData = useFormUpdater();
+	const router = useRouter();
+	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+		null
+	);
+	const [showFullGrid, setShowFullGrid] = useState(false);
+
+	useEffect(() => {
+		if (selectedImageIndex !== null || showFullGrid) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "auto";
+		}
+
+		return () => {
+			document.body.style.overflow = "auto";
+		};
+	}, [selectedImageIndex, showFullGrid]);
+
+	const handleImageClick = (index: number) => {
+		console.log("HANDLE IMAGE CLICK");
+		setShowFullGrid(false);
+		setSelectedImageIndex(index);
+	};
+
+	const handleLastImageClick = () => {
+		setShowFullGrid(true);
+	};
+
+	const closeModal = () => {
+		setSelectedImageIndex(null);
+		setShowFullGrid(false);
+	};
+
+	const handleClick = () => {
+		if (!vehicleDetails?.make.id) return;
+
+		const data = {
+			make: { id: vehicleDetails?.make.id, name: vehicleDetails?.make.name },
+			model: {
+				id: vehicleDetails?.model.id,
+				name: vehicleDetails?.model.name,
+				makeId: vehicleDetails?.model.makeId,
+			},
+			productionYears: {
+				startYear: vehicleDetails?.year,
+				endYear: vehicleDetails?.year,
+			},
+		};
+
+		sessionStorage.setItem("userData", JSON.stringify(data));
+
+		updateUserData(data);
+
+		router.push("/request-import-form/step_4");
+	};
+
+	const displayKeys = ["year", "make", "model", "price", "mileage", "features"];
+
+	return (
+		<div className="w-full px-4 md:px-6 lg:px-8 py-4">
+			<div className="max-w-screen-xl mx-auto space-y-4 flex flex-col">
+				<div className="vehicle-heading">
+					<h1 className="font-display text-2xl">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
+				</div>
+				<ImageGrid
+					images={images}
+					onImageClick={handleImageClick}
+					onLastImageClick={handleLastImageClick}
+					totalPhotosCount={images.length}
+				/>
+				{selectedImageIndex !== null && (
+					<ImageCarousel
+						images={images}
+						currentIndex={selectedImageIndex}
+						onClose={closeModal}
+					/>
+				)}
+				{showFullGrid && (
+					<ImageGalleryModal
+						images={images}
+						onImageClick={handleImageClick}
+						onClose={closeModal}
+					/>
+				)}
+				<CustomButton
+					styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans"
+					handleClick={handleClick}>
+					Request Import
+				</CustomButton>
+				{vehicleDetails && (
+					<CarTable vehicleDetails={vehicleDetails} displayKeys={displayKeys} />
+				)}
+				<div className="vehicle-description-container max-w-2xl">
+					<h2 className="text-xl font-display uppercase my-2">Description</h2>
+					<p className="vehicle-description font-sans mb-4">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+						deserunt sed aut optio quibusdam nobis qui officiis ipsam harum
+						magni veritatis fuga, quisquam ex autem voluptatem delectus
+						exercitationem, reiciendis veniam quidem dolore nulla perferendis?
+						Ea quod, similique deleniti modi accusantium qui minus et ab aliquam
+						maiores, dignissimos aspernatur earum minima.
+					</p>
+				</div>
 			</div>
 		</div>
 	);
