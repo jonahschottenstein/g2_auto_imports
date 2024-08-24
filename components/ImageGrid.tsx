@@ -1,13 +1,14 @@
 import Image from "next/image";
 import React, { MouseEventHandler } from "react";
 
-interface ImageProps {
+/* interface ImageProps {
 	src: string;
 	alt: string;
-}
+} */
 
 interface ImageGridProps {
-	images: ImageProps[];
+	// images: ImageProps[];
+	images: string[];
 	onImageClick: (index: number) => void;
 	onLastImageClick: () => void;
 	totalPhotosCount: number;
@@ -59,10 +60,22 @@ const ImageGrid = ({
 }: ImageGridProps) => {
 	return (
 		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)]">
-			{images.slice(0, 9).map(({ src, alt }, index) => (
+			{/* <div className="image-grid grid overflow-x-auto gap-1 grid-cols-[repeat(6,_minMax(10rem,_1fr))]"> */}
+			{/* {images.slice(0, 9).map(({ src, alt }, index) => (
 				<ImageGridItem
 					src={src}
 					alt={alt}
+					index={index}
+					totalPhotosCount={totalPhotosCount}
+					onClick={() =>
+						index === 8 ? onLastImageClick() : onImageClick(index)
+					}
+				/>
+			))} */}
+			{images.slice(0, 9).map((image, index) => (
+				<ImageGridItem
+					src={image}
+					alt={"alt"}
 					index={index}
 					totalPhotosCount={totalPhotosCount}
 					onClick={() =>
