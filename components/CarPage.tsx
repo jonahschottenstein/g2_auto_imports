@@ -15,6 +15,7 @@ import ImageGalleryModal from "./ImageGalleryModal";
 
 interface VehicleDetails {
 	vehicleDetails: Car | undefined;
+	images: string[];
 }
 
 const CarPageOld = ({ vehicleDetails }: VehicleDetails) => {
@@ -145,7 +146,7 @@ const galleryData = [
 	{ src: "/P35-0901053_07.jpg", alt: "alt8", hasOverlay: true, index: 8 },
 ];
 
-const images = [
+/* const images = [
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt0" },
 	{ src: "/P35-0901053_07.jpg", alt: "alt1" },
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt2" },
@@ -166,7 +167,7 @@ const images = [
 	{ src: "/P35-0901053_07.jpg", alt: "alt17" },
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt18" },
 	{ src: "/P35-0901053_07.jpg", alt: "alt19" },
-];
+]; */
 
 /* export const ImageModal = ({ index }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -406,140 +407,140 @@ const images = [
 // 	);
 // };
 
-const CarPageOld2 = ({ vehicleDetails }: VehicleDetails) => {
-	const updateUserData = useFormUpdater();
-	const router = useRouter();
-	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
-		null
-	);
-	const [showFullGrid, setShowFullGrid] = useState(false);
+// const CarPageOld2 = ({ vehicleDetails }: VehicleDetails) => {
+// 	const updateUserData = useFormUpdater();
+// 	const router = useRouter();
+// 	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+// 		null
+// 	);
+// 	const [showFullGrid, setShowFullGrid] = useState(false);
 
-	useEffect(() => {
-		if (selectedImageIndex !== null || showFullGrid) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
-		}
+// 	useEffect(() => {
+// 		if (selectedImageIndex !== null || showFullGrid) {
+// 			document.body.style.overflow = "hidden";
+// 		} else {
+// 			document.body.style.overflow = "auto";
+// 		}
 
-		return () => {
-			document.body.style.overflow = "auto";
-		};
-	}, [selectedImageIndex, showFullGrid]);
+// 		return () => {
+// 			document.body.style.overflow = "auto";
+// 		};
+// 	}, [selectedImageIndex, showFullGrid]);
 
-	const handleImageClick = (index: number) => {
-		console.log("HANDLE IMAGE CLICK");
-		setShowFullGrid(false);
-		setSelectedImageIndex(index);
-	};
+// 	const handleImageClick = (index: number) => {
+// 		console.log("HANDLE IMAGE CLICK");
+// 		setShowFullGrid(false);
+// 		setSelectedImageIndex(index);
+// 	};
 
-	const handleLastImageClick = () => {
-		setShowFullGrid(true);
-	};
+// 	const handleLastImageClick = () => {
+// 		setShowFullGrid(true);
+// 	};
 
-	const closeModal = () => {
-		setSelectedImageIndex(null);
-		setShowFullGrid(false);
-	};
+// 	const closeModal = () => {
+// 		setSelectedImageIndex(null);
+// 		setShowFullGrid(false);
+// 	};
 
-	const handleClick = () => {
-		if (!vehicleDetails?.make.id) return;
+// 	const handleClick = () => {
+// 		if (!vehicleDetails?.make.id) return;
 
-		const data = {
-			make: { id: vehicleDetails?.make.id, name: vehicleDetails?.make.name },
-			model: {
-				id: vehicleDetails?.model.id,
-				name: vehicleDetails?.model.name,
-				makeId: vehicleDetails?.model.makeId,
-			},
-			productionYears: {
-				startYear: vehicleDetails?.year,
-				endYear: vehicleDetails?.year,
-			},
-		};
+// 		const data = {
+// 			make: { id: vehicleDetails?.make.id, name: vehicleDetails?.make.name },
+// 			model: {
+// 				id: vehicleDetails?.model.id,
+// 				name: vehicleDetails?.model.name,
+// 				makeId: vehicleDetails?.model.makeId,
+// 			},
+// 			productionYears: {
+// 				startYear: vehicleDetails?.year,
+// 				endYear: vehicleDetails?.year,
+// 			},
+// 		};
 
-		sessionStorage.setItem("userData", JSON.stringify(data));
+// 		sessionStorage.setItem("userData", JSON.stringify(data));
 
-		updateUserData(data);
+// 		updateUserData(data);
 
-		router.push("/request-import-form/step_4");
-	};
+// 		router.push("/request-import-form/step_4");
+// 	};
 
-	const displayKeys = ["year", "make", "model", "price", "mileage", "features"];
+// 	const displayKeys = ["year", "make", "model", "price", "mileage", "features"];
 
-	return (
-		<div className="p-2 flex flex-col max-w-screen-xl m-auto space-y-4 md:px-10">
-			<div className="vehicle-heading">
-				<h1 className="font-display text-2xl mt-2">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
-			</div>
-			<ImageGrid
-				images={images}
-				onImageClick={handleImageClick}
-				onLastImageClick={handleLastImageClick}
-				totalPhotosCount={images.length}
-			/>
-			{selectedImageIndex !== null && (
-				<ImageCarousel
-					images={images}
-					currentIndex={selectedImageIndex}
-					onClose={closeModal}
-				/>
-			)}
-			{showFullGrid && (
-				<ImageGalleryModal
-					images={images}
-					onImageClick={handleImageClick}
-					onClose={closeModal}
-				/>
-			)}
-			<CustomButton
-				styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans"
-				handleClick={handleClick}>
-				Request Import
-			</CustomButton>
+// 	return (
+// 		<div className="p-2 flex flex-col max-w-screen-xl m-auto space-y-4 md:px-10">
+// 			<div className="vehicle-heading">
+// 				<h1 className="font-display text-2xl mt-2">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
+// 			</div>
+// 			<ImageGrid
+// 				images={images}
+// 				onImageClick={handleImageClick}
+// 				onLastImageClick={handleLastImageClick}
+// 				totalPhotosCount={images.length}
+// 			/>
+// 			{selectedImageIndex !== null && (
+// 				<ImageCarousel
+// 					images={images}
+// 					currentIndex={selectedImageIndex}
+// 					onClose={closeModal}
+// 				/>
+// 			)}
+// 			{showFullGrid && (
+// 				<ImageGalleryModal
+// 					images={images}
+// 					onImageClick={handleImageClick}
+// 					onClose={closeModal}
+// 				/>
+// 			)}
+// 			<CustomButton
+// 				styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans"
+// 				handleClick={handleClick}>
+// 				Request Import
+// 			</CustomButton>
 
-			{vehicleDetails ? (
-				<table className="flex-1">
-					{/* <thead>
-								<tr className="font-display">
-									<th colSpan={2}>Vehicle Details</th>
-								</tr>
-							</thead> */}
-					<tbody>
-						{Object.entries(vehicleDetails).map(([key, value]) => {
-							if (displayKeys.includes(key)) {
-								return (
-									<tr className="first:border-t border-b border-gray-300">
-										<td className="py-2 text-black font-sans text-base font-semibold capitalize border-r border-gray-300 pl-2 pr-4">
-											{key}
-										</td>
-										<td className="py-2 text-gray-700 font-sans text-base pl-4">
-											{key === "features"
-												? value.join(", ")
-												: value.name || value}
-										</td>
-									</tr>
-								);
-							}
-						})}
-					</tbody>
-				</table>
-			) : (
-				<p>No vehicle details available</p>
-			)}
-			<div className="vehicle-description-container max-w-2xl">
-				<h2 className="text-xl font-display uppercase my-2">Description</h2>
-				<p className="vehicle-description font-sans mb-4">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-					deserunt sed aut optio quibusdam nobis qui officiis ipsam harum magni
-					veritatis fuga, quisquam ex autem voluptatem delectus exercitationem,
-					reiciendis veniam quidem dolore nulla perferendis? Ea quod, similique
-					deleniti modi accusantium qui minus et ab aliquam maiores, dignissimos
-					aspernatur earum minima.
-				</p>
-			</div>
-		</div>
-	);
-};
+// 			{vehicleDetails ? (
+// 				<table className="flex-1">
+// 					{/* <thead>
+// 								<tr className="font-display">
+// 									<th colSpan={2}>Vehicle Details</th>
+// 								</tr>
+// 							</thead> */}
+// 					<tbody>
+// 						{Object.entries(vehicleDetails).map(([key, value]) => {
+// 							if (displayKeys.includes(key)) {
+// 								return (
+// 									<tr className="first:border-t border-b border-gray-300">
+// 										<td className="py-2 text-black font-sans text-base font-semibold capitalize border-r border-gray-300 pl-2 pr-4">
+// 											{key}
+// 										</td>
+// 										<td className="py-2 text-gray-700 font-sans text-base pl-4">
+// 											{key === "features"
+// 												? value.join(", ")
+// 												: value.name || value}
+// 										</td>
+// 									</tr>
+// 								);
+// 							}
+// 						})}
+// 					</tbody>
+// 				</table>
+// 			) : (
+// 				<p>No vehicle details available</p>
+// 			)}
+// 			<div className="vehicle-description-container max-w-2xl">
+// 				<h2 className="text-xl font-display uppercase my-2">Description</h2>
+// 				<p className="vehicle-description font-sans mb-4">
+// 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+// 					deserunt sed aut optio quibusdam nobis qui officiis ipsam harum magni
+// 					veritatis fuga, quisquam ex autem voluptatem delectus exercitationem,
+// 					reiciendis veniam quidem dolore nulla perferendis? Ea quod, similique
+// 					deleniti modi accusantium qui minus et ab aliquam maiores, dignissimos
+// 					aspernatur earum minima.
+// 				</p>
+// 			</div>
+// 		</div>
+// 	);
+// };
 
 interface CarTableProps {
 	vehicleDetails: Car;
@@ -569,7 +570,7 @@ const CarTable = ({ vehicleDetails, displayKeys }: CarTableProps) => {
 	);
 };
 
-const CarPage = ({ vehicleDetails }: VehicleDetails) => {
+const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 	const updateUserData = useFormUpdater();
 	const router = useRouter();
 	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
