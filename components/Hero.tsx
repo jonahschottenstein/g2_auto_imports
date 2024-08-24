@@ -165,7 +165,7 @@ const Hero = () => {
 				<Image
 					src={heroImage}
 					alt="JDM Car"
-					className="w-full h-full object-cover"
+					className="w-full h-full object-cover pointer-events-none select-none"
 					priority
 				/>
 			</div>
