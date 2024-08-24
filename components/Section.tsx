@@ -4,6 +4,7 @@ interface SectionProps {
 	h2: string;
 	children: React.ReactNode;
 }
+
 const Section = ({ h2, children }: SectionProps) => {
 	return (
 		<section className="section w-full px-4 md:px-6 lg:px-8 py-12 lg:py-24 border-t-2 border-t-slate-100 first:border-t-0">
@@ -12,7 +13,9 @@ const Section = ({ h2, children }: SectionProps) => {
 					{h2}
 				</h2>
 			</div>
-			{children}
+			<div className="section-content-wrapper max-w-screen-xl mx-auto">
+				{children}
+			</div>
 		</section>
 	);
 };
