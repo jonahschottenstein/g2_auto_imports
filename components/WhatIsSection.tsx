@@ -56,9 +56,9 @@ const IconBlockComponent = ({ icon, title, blurb }: IconBlockProps) => {
 				size="sm"
 			/>
 			<div className="grow">
-				<h3 className="text-lg font-semibold font-sans text-gray-800">
+				<h4 className="text-lg font-semibold font-sans text-gray-800">
 					{title}
-				</h3>
+				</h4>
 				<p className="mt-1 font-sans text-gray-600">{blurb}</p>
 			</div>
 		</div>
@@ -69,9 +69,9 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 	return (
 		<div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
 			<div className="lg:col-span-1">
-				<h2 className="font-sans font-bold text-2xl md:text-3xl text-gray-800">
+				<h3 className="font-sans font-bold text-2xl md:text-3xl text-gray-800">
 					Your Gateway to Authentic JDM Imports
-				</h2>
+				</h3>
 				<p className="mt-2 md:mt-4 font-sans text-gray-500">
 					Tokyo-Imports is your trusted partner for bringing the best Japanese
 					Domestic Market vehicles directly to your driveway, offering a
