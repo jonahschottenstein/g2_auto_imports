@@ -46,8 +46,8 @@ const NavBar = () => {
 	];
 
 	return (
-		<header className="border-b-2 border-gray-100 fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20">
-			<nav className="w-full mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between">
+		<header className="border-b-2 border-gray-100 fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20 px-4 md:px-6 lg:px-8">
+			<nav className="w-full mx-auto flex items-center justify-between max-w-screen-xl">
 				<Link href={"/"}>
 					<svg
 						className="w-10 h-auto"
