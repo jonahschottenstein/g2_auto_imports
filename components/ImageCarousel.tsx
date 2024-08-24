@@ -1,13 +1,14 @@
 import React from "react";
 import XButton from "./XButton";
 
-interface ImageProps {
+/* interface ImageProps {
 	src: string;
 	alt: string;
-}
+} */
 
 interface ImageCarouselProps {
-	images: ImageProps[];
+	// images: ImageProps[];
+	images: string[];
 	currentIndex: number;
 	onClose: () => void;
 }
@@ -43,7 +44,8 @@ const ImageCarousel = ({
 					‹
 				</button>
 				<img
-					src={images[currentImageIndex].src}
+					// src={images[currentImageIndex].src}
+					src={images[currentImageIndex]}
 					alt={`Carousel ${currentImageIndex + 1}`}
 					className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
 				/>
