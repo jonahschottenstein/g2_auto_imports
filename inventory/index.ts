@@ -18,7 +18,7 @@ export const inventory: Car[] = [
 		imageSrc: "/PE8W-0402421_04.JPG",
 		year: 1999,
 		make: { id: 8, name: "MITSUBISHI" },
-		model: { id: 538, name: "DELICA STAR WAGON", makeId: 8 },
+		model: { id: 538, name: "DELICA SPACE GEAR", makeId: 8 },
 		price: "$6,000",
 		mileage: "100,000 KM",
 		features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5"],
