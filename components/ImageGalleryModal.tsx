@@ -2,13 +2,14 @@ import Image from "next/image";
 import React from "react";
 import XButton from "./XButton";
 
-interface ImageProps {
+/* interface ImageProps {
 	src: string;
 	alt: string;
-}
+} */
 
 interface ImageGalleryModalProps {
-	images: ImageProps[];
+	// images: ImageProps[];
+	images: string[];
 	onImageClick: (index: number) => void;
 	onClose: () => void;
 }
@@ -26,11 +27,12 @@ const ImageGalleryModal = ({
 					styles={"absolute top-4 right-2 text-white p-2 font-sans"}
 				/>
 				<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4 mt-12">
-					{images.map(({ src, alt }, index) => (
+					{/* {images.map(({ src, alt }, index) => ( */}
+					{images.map((image, index) => (
 						<Image
 							key={index}
-							src={src}
-							alt={alt}
+							src={image}
+							alt={"alt"}
 							className="w-full h-auto cursor-pointer"
 							width={100}
 							height={100}
