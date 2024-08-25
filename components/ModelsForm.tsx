@@ -109,11 +109,11 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 	const okayToContinue = makeIsSelected && modelIsSelected;
 
 	const STEPPER_HEIGHT = "92px";
-	const H1_HEIGHT = "64px";
+	const H1_HEIGHT = "64px"; // at small viewport size;
 
 	return (
 		<FormContainer h1="Select Model">
-			<form className="request-import-form models-form flex flex-col h-[calc(100%-64px)]">
+			<form className="request-import-form models-form flex flex-col h-[calc(100%-124px)]">
 				<MakeModelSelector
 					category="model"
 					options={getMakeModels(make)}
