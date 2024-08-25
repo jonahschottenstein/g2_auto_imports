@@ -59,7 +59,7 @@ const ImageGrid = ({
 	totalPhotosCount,
 }: ImageGridProps) => {
 	return (
-		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)]">
+		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)] mt-4">
 			{/* <div className="image-grid grid overflow-x-auto gap-1 grid-cols-[repeat(6,_minMax(10rem,_1fr))]"> */}
 			{/* {images.slice(0, 9).map(({ src, alt }, index) => (
 				<ImageGridItem

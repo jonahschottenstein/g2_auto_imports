@@ -549,7 +549,7 @@ interface CarTableProps {
 
 const CarTable = ({ vehicleDetails, displayKeys }: CarTableProps) => {
 	return (
-		<table className="car-table flex-1">
+		<table className="car-table flex-1 mt-4">
 			<tbody>
 				{Object.entries(vehicleDetails).map(([key, value]) => {
 					if (displayKeys.includes(key)) {
@@ -632,7 +632,7 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 
 	return (
 		<div className="w-full px-4 md:px-6 lg:px-8 py-4">
-			<div className="max-w-screen-xl mx-auto space-y-4 flex flex-col">
+			<div className="max-w-screen-xl mx-auto flex flex-col">
 				<div className="vehicle-heading">
 					<h1 className="font-display text-2xl">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
 				</div>
@@ -657,14 +657,14 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 					/>
 				)}
 				<CustomButton
-					styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans"
+					styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans mt-4"
 					handleClick={handleClick}>
 					Request Import
 				</CustomButton>
 				{vehicleDetails && (
 					<CarTable vehicleDetails={vehicleDetails} displayKeys={displayKeys} />
 				)}
-				<div className="vehicle-description-container max-w-2xl">
+				<div className="vehicle-description-container max-w-2xl mt-4">
 					<h2 className="text-xl font-display uppercase my-2">Description</h2>
 					<p className="vehicle-description font-sans mb-4">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
