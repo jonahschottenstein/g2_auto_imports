@@ -145,7 +145,7 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 
 	return (
 		<FormContainer h1="Select Year(s)">
-			<form className="request-import-form production-form flex flex-col items-center h-[calc(100%-64px)]">
+			<form className="request-import-form production-form flex flex-col items-center h-[calc(100%-124px)]">
 				{productionObj && productionYears && (
 					<ProductionYearsSelector
 						production={productionObj}
