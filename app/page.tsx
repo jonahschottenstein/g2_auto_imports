@@ -73,9 +73,10 @@ export default async function Home() {
 
 // TODO:
 /* 
-Padding is not uniform across all pages. Needs to be fixed.
-	- e.g., on CarPage
-Should make a Section component that takes SectionContent as child
+// - //! Fix heading hierarchy in WhatIsSection
+// - //! Padding is not uniform across all pages. Needs to be fixed.
+	// - e.g., on CarPage
+// Should make a Section component that takes SectionContent as child
 MakeModelSelector doesn't scroll to selected item when Request Import link is clicked from Home page because selectedMakeRef.current is null
 	- Need stateValue dependency to get MakeModelSelector to scroll to selected item on page visit
 	- But when it's a dependency, it also scrolls the item to the bottom every time an item is clicked
@@ -101,11 +102,11 @@ In order:
 	- Form has autofill on Chrome but not Safari. May need to add manually for Safari
 	- Nav Buttons for MakesForm and ModelsForm are in different places
 	- Years Form Nav Buttons overflow screen
-	- Inventory page shows Footer. Not sure if I want that
-	- Need to add Request Import Button on vehicle page
-		- Start form process, filling in info up to ContactForm
-	- Maybe add pointer-events: none to hero image
-	- Need to collapse hamburger menu on smaller screen sizes when a link is clicked
+	- //! Inventory page shows Footer. Not sure if I want that
+	// - Need to add Request Import Button on vehicle page
+	// 	- Start form process, filling in info up to ContactForm
+	// - Maybe add pointer-events: none to hero image
+	// - Need to collapse hamburger menu on smaller screen sizes when a link is clicked
 	- Add CAPTCHA to form
 	- Look at this for form submission: 
 		- https://react.dev/reference/react-dom/components/form#noun-labs-1201738-(2)
@@ -124,8 +125,8 @@ In order:
 	- Need to erase sessionStorage data when leaving form
 	- Need to set browser back/forward buttons when filling out form so it doesn't go from Step_2 to Step_3 to Step_2, for example
 	- Need to figure out how to keep BackLink and NextLink at bottom of ProductionYears page on reload
-	- If elements are selected using data from sessionStorage, scroll them into view
-		- Think I need to use ref
+	// - If elements are selected using data from sessionStorage, scroll them into view
+	// 	- Think I need to use ref
 	// - Think I need to add form data to session storage in case page is reloaded
 	- Consider putting FormStepper back in layout.tsx. Think it'd be ok to have visible on PostRequest page
 		- And if it helps performance, it'd probably be worth it
@@ -142,7 +143,7 @@ In order:
 		- save user's info to database or spreadsheet
 	// - Need to add state and comments form fields
 	// - Add "required" indicators to form inputs (*)
-	- Adjust styling on invalid inputs
+	- //! Adjust styling on invalid inputs
 	// - Reconsider 2-letter minimum for first/last name inputs
 	// 	- Maybe just make sure it's at least one *letter* (not number or symbol or space)
 
@@ -150,7 +151,7 @@ In order:
 		- Have something pop up that tells them this will reset the form
 		- If they confirm they want to refresh, router.push(step_1)
 
-	- Add form stepper that works properly
+	// - Add form stepper that works properly
 
 	// - Add page for View Inventory link
 		// - Don't need to worry about now, but toprank imports has a filter for the inventory. That could be something to add at some point.
@@ -169,11 +170,11 @@ In order:
 	// - Add FormReview Step (Step 5)
 	// - Add Footer content
 	// - Add your Links to NavBar
-	- Fix vehicle/[id]/page.tsx styling
-		// - Add pt-[72px] to <main>
-		- Make table nicer
-		- Make description nicer
-		- Make Footer stay at bottom of page
+	// - Fix vehicle/[id]/page.tsx styling
+	// 	// - Add pt-[72px] to <main>
+	// 	- Make table nicer
+	// 	- Make description nicer
+	// 	- Make Footer stay at bottom of page
 	- Go through and make sure you're typing everything you're supposed to and you're typing correctly
 	- Organize
 		- Make sure types are all where they belong, components are where they belong, utility functions are where they belong, etc.
