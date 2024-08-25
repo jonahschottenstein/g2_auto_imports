@@ -33,10 +33,12 @@ const ImageCarousel = ({
 	};
 
 	return (
-		<div className="image-carousel fixed inset-0 bg-black flex justify-center items-center pt-[calc(72px_-_1rem)]">
+		<div className="image-carousel fixed inset-0 bg-black flex justify-center items-center z-30">
 			<XButton
 				onClose={onClose}
-				styles={"absolute top-20 right-2 text-white font-sans p-2"}
+				styles={
+					"absolute top-2 right-2 text-white font-sans p-2 z-50 bg-black bg-opacity-75 flex justify-center items-center rounded-md"
+				}
 			/>
 			<div className="image-carousel-content relative">
 				<button
@@ -53,9 +55,11 @@ const ImageCarousel = ({
 				<Image
 					src={images[currentImageIndex]}
 					alt={`Carousel ${currentImageIndex + 1}`}
-					className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
-					width={450}
-					height={450}
+					// className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
+					className="image-carousel-image object-contain"
+					width={600}
+					height={400}
+					// TODO: Figure this out (width/height/fill/sizes/etc.)
 				/>
 				<button
 					onClick={handleNext}
