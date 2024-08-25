@@ -80,12 +80,12 @@ const MakeModelSelector = ({
 					<div
 						key={option.name}
 						/* className="option-container border-y-2 hover:bg-slate-500 active:bg-slate-600" */
-						className="option-container border-y-2"
+						className="option-container first:border-t-2 border-b-2 border-gray-100"
 						{...itemProps}>
 						<label
 							// htmlFor={`${category}-${option.id}`}
 							htmlFor={`${option.id}`}
-							className="block relative w-full h-full p-2 has-[:checked]:bg-blue-600 has-[:checked]:text-white">
+							className="block relative w-full h-full p-2 has-[:checked]:bg-blue-600 has-[:checked]:text-white cursor-pointer">
 							<input
 								type="radio"
 								// id={`${category}-${option.id}`}
