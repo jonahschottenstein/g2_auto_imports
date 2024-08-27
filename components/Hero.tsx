@@ -153,9 +153,14 @@ const HeroContent = () => {
 				<p className="text-lg md:text-xl lg:text-2xl mb-4">
 					Explore our exclusive collection of JDM imports.
 				</p>
-				<button className="w-full md:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-300">
+				{/* <button className="w-full md:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-300">
 					View Inventory
-				</button>
+				</button> */}
+				<Link
+					href="/inventory"
+					className="w-full md:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-center text-white font-semibold rounded-lg transition duration-300">
+					View Inventory
+				</Link>
 			</div>
 		</div>
 	);
