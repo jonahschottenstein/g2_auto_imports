@@ -554,7 +554,9 @@ const CarTable = ({ vehicleDetails, displayKeys }: CarTableProps) => {
 				{Object.entries(vehicleDetails).map(([key, value]) => {
 					if (displayKeys.includes(key)) {
 						return (
-							<tr className="first:border-t border-b border-gray-300">
+							<tr
+								key={`${key}-row`}
+								className="first:border-t border-b border-gray-300">
 								<td className="py-2 text-black font-sans text-base font-semibold capitalize border-r border-gray-300 pl-2 pr-4">
 									{key}
 								</td>
