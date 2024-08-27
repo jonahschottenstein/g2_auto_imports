@@ -75,8 +75,12 @@ const CarCard = ({ href, image, name, price }: CarCardProps) => {
 			<Image
 				src={image}
 				alt={name}
-				width={100}
-				height={100}
+				width={650}
+				height={330}
+				style={{
+					aspectRatio: 16 / 9,
+					objectPosition: "50% 63%",
+				}}
 				className="car-image w-full object-cover pointer-events-none"
 			/>
 			<div className="car-card-details px-4">
