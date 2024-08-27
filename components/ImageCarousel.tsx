@@ -2,13 +2,7 @@ import React from "react";
 import XButton from "./XButton";
 import Image from "next/image";
 
-/* interface ImageProps {
-	src: string;
-	alt: string;
-} */
-
 interface ImageCarouselProps {
-	// images: ImageProps[];
 	images: string[];
 	currentIndex: number;
 	onClose: () => void;
@@ -40,26 +34,21 @@ const ImageCarousel = ({
 					"absolute top-2 right-2 text-white font-sans p-2 z-50 bg-black bg-opacity-75 flex justify-center items-center rounded-md"
 				}
 			/>
-			<div className="image-carousel-content relative">
+			<div className="image-carousel-content relative w-full h-full">
 				<button
 					onClick={handlePrevious}
 					className="prev-button absolute left-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md">
 					‹
 				</button>
-				{/* <img
-					// src={images[currentImageIndex].src}
-					src={images[currentImageIndex]}
-					alt={`Carousel ${currentImageIndex + 1}`}
-					className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
-				/> */}
 				<Image
 					src={images[currentImageIndex]}
 					alt={`Carousel ${currentImageIndex + 1}`}
 					// className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
 					className="image-carousel-image object-contain"
-					width={600}
-					height={400}
-					priority={true}
+					// width={600}
+					// height={400}
+					fill
+					// priority={true}
 					// TODO: Figure this out (width/height/fill/sizes/etc.)
 				/>
 				<button
