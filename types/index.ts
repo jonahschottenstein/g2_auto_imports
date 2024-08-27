@@ -38,6 +38,7 @@ export interface CustomButtonProps {
 	type?: "button" | "submit";
 	value?: number | string;
 	styles?: string;
+	isDisabled?: boolean;
 	handleClick?: MouseEventHandler<HTMLButtonElement>;
 	children: React.ReactNode;
 }
@@ -169,24 +170,40 @@ export const UserSchema: ZodType<ContactFormData> = z.object({
 	firstName: z
 		.string({
 			required_error: "required field",
+			// TODO: Figure out if you want to include required_error. https://github.com/colinhacks/zod/issues/3114 says error message will only appear if the value is undefined, not an empty string.
 		})
 		.trim()
 		.min(1, { message: "Enter first name" })
-		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/),
+		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/, {
+			message:
+				"Please enter a valid first name. It should only contain letters.",
+			// TODO: Determine if you want to make it only contain letters.
+		}),
 	lastName: z
 		.string()
 		.trim()
 		.min(1, { message: "Enter last name" })
-		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/),
-	email: z.string().trim().email(),
+		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/, {
+			message:
+				"Please enter a valid last name. It should only contain letters.",
+			// TODO: Determine if you want to make it only contain letters.
+		}),
+	email: z.string().trim().email({
+		message:
+			"Please enter a valid email address in the format: example@domain.com.",
+	}),
 	phone: z
 		.string()
 		.trim()
-		.regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/),
+		.regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/, {
+			message:
+				"Please enter a valid phone number, including area code. Only numbers, dashes, and parentheses are allowed.",
+			// TODO: Figure out if you want to allow spaces. Currently, spaces are allowed.
+		}),
 	zipCode: z
 		.string()
 		.trim()
-		.regex(/^[0-9]{5}$/, { message: "Zip code must be exactly five digits" }),
+		.regex(/^[0-9]{5}$/, { message: "Please enter a valid 5-digit zip code." }),
 	comments: z.string().trim().max(500).optional(),
 });
 
