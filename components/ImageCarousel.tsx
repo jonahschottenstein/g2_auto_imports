@@ -37,7 +37,7 @@ const ImageCarousel = ({
 			<div className="image-carousel-content relative w-full h-full">
 				<button
 					onClick={handlePrevious}
-					className="prev-button absolute left-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md">
+					className="prev-button absolute left-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md z-40">
 					‹
 				</button>
 				<Image
@@ -53,7 +53,7 @@ const ImageCarousel = ({
 				/>
 				<button
 					onClick={handleNext}
-					className="next-button absolute right-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md">
+					className="next-button absolute right-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md z-40">
 					›
 				</button>
 			</div>
