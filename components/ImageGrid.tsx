@@ -40,6 +40,7 @@ const ImageGridItem = ({
 				width={450}
 				height={450}
 				className="w-full h-full object-cover"
+				priority={index === 0 ? true : false}
 				// className="image-grid-item group block relative overflow-hidden first:rounded-l-lg last:rounded-ee-lg [&:nth-child(5)]:rounded-tr-lg md:[&:nth-child(5)]:rounded-none md:[&:nth-child(3)]:rounded-tr-lg first:row-span-2 first:col-span-2 md:first:row-span-4 md:first:col-span-4 object-cover w-full h-full cursor-pointer"
 				// onClick={onClick}
 			/>
@@ -74,6 +75,7 @@ const ImageGrid = ({
 			))} */}
 			{images.slice(0, 9).map((image, index) => (
 				<ImageGridItem
+					key={image}
 					src={image}
 					alt={"alt"}
 					index={index}

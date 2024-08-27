@@ -59,6 +59,7 @@ const ImageCarousel = ({
 					className="image-carousel-image object-contain"
 					width={600}
 					height={400}
+					priority={true}
 					// TODO: Figure this out (width/height/fill/sizes/etc.)
 				/>
 				<button
