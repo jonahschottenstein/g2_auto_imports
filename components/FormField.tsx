@@ -1,5 +1,6 @@
 import React from "react";
 import { FormFieldProps } from "@/types";
+import { FieldError } from "react-hook-form";
 
 const FormField = ({
 	label,
@@ -21,6 +22,11 @@ const FormField = ({
 		type === "textarea"
 			? "after:content-['(optional)']"
 			: "after:content-['(required)']";
+
+	const setInputStyles = (error: FieldError | undefined) =>
+		error
+			? "p-1 font-sans bg-transparent border-2 border-red-600 rounded-lg"
+			: "p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg";
 
 	return (
 		<div className="form-field-container flex flex-col">
@@ -44,14 +50,15 @@ const FormField = ({
 					type={type}
 					inputMode={inputMode}
 					id={inputId}
-					className="p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg"
+					// className="p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg"
+					className={setInputStyles(error)}
 					required
 					{...register(name, { required: true, valueAsNumber })}
 				/>
 			)}
 			{/* {rule && <p className="rule text-xs">{rule}</p>} */}
 			{error && (
-				<span className="error-message text-sm text-red-600">
+				<span className="error-message font-sans text-sm text-red-600">
 					{error.message}
 				</span>
 			)}
