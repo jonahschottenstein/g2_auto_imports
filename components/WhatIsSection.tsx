@@ -69,7 +69,8 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 	return (
 		<div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
 			<div className="lg:col-span-1">
-				<h3 className="font-sans font-bold text-2xl md:text-3xl text-gray-800">
+				{/* <h3 className="font-sans font-bold text-2xl md:text-3xl text-gray-800"> */}
+				<h3 className="font-sans font-bold text-xl md:text-2xl text-gray-800">
 					Your Gateway to Authentic JDM Imports
 				</h3>
 				<p className="mt-2 md:mt-4 font-sans text-gray-500">

@@ -13,7 +13,7 @@ const CardGrid = ({ children }: CardGridProps) => {
 
 	return (
 		<div
-			className={`card-grid grid grid-cols-1 sm:grid-cols-2 ${gridStyles} gap-4`}>
+			className={`card-grid grid grid-cols-1 sm:grid-cols-2 ${gridStyles} gap-4 md:gap-5 lg:gap-6`}>
 			{children}
 		</div>
 	);
