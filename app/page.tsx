@@ -73,6 +73,7 @@ export default async function Home() {
 
 // TODO:
 /* 
+! On CarPage, space between CarTable and Description is bigger than between the rest of the elements
 ! FIGURE OUT WHY IMAGES ARE LOADING SLOWLY
 	- ISSUE MAY BE DEV TOOLS
 
