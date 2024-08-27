@@ -74,6 +74,7 @@ export default async function Home() {
 // TODO:
 /* 
 ! FIGURE OUT WHY IMAGES ARE LOADING SLOWLY
+	- ISSUE MAY BE DEV TOOLS
 
 // - //! Fix heading hierarchy in WhatIsSection
 // - //! Padding is not uniform across all pages. Needs to be fixed.
