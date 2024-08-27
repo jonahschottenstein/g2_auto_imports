@@ -3,7 +3,7 @@ import { Car } from "@/types";
 export const inventory: Car[] = [
 	{
 		id: "P35W-0901053",
-		imageSrc: "/P35-0901053_07.jpg",
+		imageSrc: "/images/P35W-0901053/DSC00904.JPEG",
 		year: 1999,
 		make: { id: 8, name: "MITSUBISHI" },
 		model: { id: 539, name: "DELICA STAR WAGON", makeId: 8 },
@@ -15,7 +15,7 @@ export const inventory: Car[] = [
 	},
 	{
 		id: "PEDW-0402421",
-		imageSrc: "/PE8W-0402421_04.JPG",
+		imageSrc: "/images/PEDW-0402421/DSC00905.JPEG",
 		year: 1999,
 		make: { id: 8, name: "MITSUBISHI" },
 		model: { id: 538, name: "DELICA SPACE GEAR", makeId: 8 },
