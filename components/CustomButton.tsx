@@ -6,6 +6,7 @@ const CustomButton = ({
 	type = "button",
 	value,
 	styles,
+	isDisabled = false,
 	handleClick,
 	children,
 }: CustomButtonProps) => {
@@ -14,6 +15,7 @@ const CustomButton = ({
 			type={type}
 			value={value}
 			className={`custom-button font-sans ${styles}`}
+			disabled={isDisabled}
 			onClick={handleClick}>
 			{/* {title} */}
 			{children}
