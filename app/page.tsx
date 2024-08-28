@@ -73,6 +73,14 @@ export default async function Home() {
 
 // TODO:
 /* 
+! Hero image doesn't work on mobile
+! NavBar takes up too much room on mobile landscape
+	- Maybe:
+		- Make NavBar height 60px (same as Nike)
+		- Make it disappear on scroll down and reappear on scroll up
+! NavBar Links show, then are replaced with HamburgerMenuButton on mobile
+	- Fixed this, but takes too long
+	- Need to speed up
 ! On CarPage, space between CarTable and Description is bigger than between the rest of the elements
 ! FIGURE OUT WHY IMAGES ARE LOADING SLOWLY
 	// - ISSUE MAY BE DEV TOOLS
