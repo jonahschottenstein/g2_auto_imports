@@ -8,8 +8,7 @@ import XButton from "./XButton";
 
 const NavBar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [isMobileView, setIsMobileView] = useState(false);
-
+	const [isMobileView, setIsMobileView] = useState<boolean | null>(null);
 	const pathName = usePathname();
 
 	// Function to toggle the hamburger menu
@@ -96,7 +95,7 @@ const NavBar = () => {
 							</div>
 						)}
 					</div>
-				) : (
+				) : isMobileView === null ? null : (
 					<div className="flex space-x-4 font-sans text-base font-medium">
 						{links.map(({ title, href }) => (
 							<Link
