@@ -51,18 +51,23 @@ const HeroContent = () => {
 const Hero = () => {
 	return (
 		<section className="relative w-full h-[calc(100vh-74px)] px-4 md:px-6 lg:px-8">
-			{/* <div className="absolute inset-0"> */}
-			<div
-				// className={`absolute inset-0 bg-[url('/images/hero/hero_mobile.jpeg')] md:bg-[url('/images/hero/hero_desktop.jpeg')] bg-cover bg-[50%_70%] md:bg-[50%_80%]`}
-				className={`absolute inset-0 bg-[url('/images/hero/hero_mobile.jpeg')] lg:bg-[url('/images/hero/hero_desktop.jpeg')] bg-cover bg-[50%_70%] lg:bg-[50%_100%]`}>
-				{/* <Image
+			<div className="absolute inset-0">
+				{/* <div */}
+				{/* // className= */}
+				{/* {`absolute inset-0 bg-[url('/images/hero/hero_mobile.jpeg')] md:bg-[url('/images/hero/hero_desktop.jpeg')] bg-cover bg-[50%_70%] md:bg-[50%_80%]`} */}
+				{/* // className= */}
+				{/* {`absolute inset-0 bg-[url('/images/hero/hero_mobile.jpeg')] lg:bg-[url('/images/hero/hero_desktop.jpeg')] bg-cover bg-[50%_70%] lg:bg-[50%_100%]`} */}
+				{/* // > */}
+				<Image
 					// src={heroImage}
-					// src={heroBackgroundDesktop}
-					src={heroBackgroundMobile}
+					src={heroBackgroundDesktop}
+					// src={heroBackgroundMobile}
 					alt="JDM Car"
-					className="w-full h-full object-cover pointer-events-none select-none"
+					// className="w-full h-full object-cover pointer-events-none select-none"
+					className="w-full h-full object-cover object-[50%_100%] xl:object-[50%_85%] pointer-events-none select-none"
+					fill
 					priority
-				/> */}
+				/>
 			</div>
 			<HeroContent />
 		</section>
