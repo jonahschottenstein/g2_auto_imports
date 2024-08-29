@@ -2,6 +2,7 @@
 
 import {
 	ContactFormData,
+	ContactPageSchema,
 	FormFieldTypes,
 	UserSchema,
 	ValidFieldNames,
@@ -39,7 +40,7 @@ export const ContactPageContactForm = () => {
 		formState: { errors },
 		setError,
 	} = useForm<ContactFormData>({
-		resolver: zodResolver(UserSchema),
+		resolver: zodResolver(ContactPageSchema),
 		values,
 	});
 
