@@ -101,6 +101,7 @@ const NavBar = () => {
 							<Link
 								key={`${title}-link-desktop`}
 								href={href}
+								className="text-gray-600 hover:text-black"
 								onClick={closeMenu}>
 								{title}
 							</Link>
