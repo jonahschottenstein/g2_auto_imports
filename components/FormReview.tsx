@@ -68,11 +68,10 @@ const FormReview = () => {
 		updateUserData(userData);
 	}, []);
 
-	const textareaTextContent =
-		document.getElementById("user-comments")?.textContent;
+	const textareaTextContent = document.getElementById("comments")?.textContent;
 
 	useEffect(() => {
-		const textarea = document.getElementById("user-comments");
+		const textarea = document.getElementById("comments");
 
 		if (!textarea) return;
 
@@ -129,8 +128,8 @@ const FormReview = () => {
 							</div> */}
 							<input
 								type="text"
-								id="user-production-years"
-								name="userProductionYears"
+								id="production-years"
+								name="productionYears"
 								value={
 									user.productionYears?.startYear ===
 									user.productionYears?.endYear
@@ -148,8 +147,8 @@ const FormReview = () => {
 							{/* <div className="font-bold">{user.make?.name}</div> */}
 							<input
 								type="text"
-								id="user-car-make"
-								name="userCarMake"
+								id="car-make"
+								name="carMake"
 								value={user.make?.name}
 								readOnly
 								className="bg-transparent pointer-events-none font-bold text-base"
@@ -160,8 +159,8 @@ const FormReview = () => {
 							{/* <div className="font-bold">{user.model?.name}</div> */}
 							<input
 								type="text"
-								id="user-car-model"
-								name="userCarModel"
+								id="car-model"
+								name="carModel"
 								value={user.model?.name}
 								readOnly
 								className="bg-transparent pointer-events-none font-bold text-base"
@@ -174,8 +173,8 @@ const FormReview = () => {
 							{/* <div className="font-bold">{`${user.contactInfo?.firstName}`}</div> */}
 							<input
 								type="text"
-								id="user-first-name"
-								name="userFirstName"
+								id="first-name"
+								name="firstName"
 								value={user.contactInfo?.firstName}
 								readOnly
 								className="bg-transparent pointer-events-none font-bold text-base"
@@ -186,8 +185,8 @@ const FormReview = () => {
 							{/* <div className="font-bold">{`${user.contactInfo?.lastName}`}</div> */}
 							<input
 								type="text"
-								id="user-last-name"
-								name="userLastName"
+								id="last-name"
+								name="lastName"
 								value={user.contactInfo?.lastName}
 								readOnly
 								className="bg-transparent pointer-events-none font-bold text-base"
@@ -198,8 +197,8 @@ const FormReview = () => {
 							{/* <div className="font-bold">{`${user.contactInfo?.email}`}</div> */}
 							<input
 								type="email"
-								id="user-email"
-								name="userEmail"
+								id="email"
+								name="email"
 								value={user.contactInfo?.email}
 								readOnly
 								className="bg-transparent pointer-events-none font-bold text-base"
@@ -210,8 +209,8 @@ const FormReview = () => {
 							{/* <div className="font-bold">{`${user.contactInfo?.phone}`}</div> */}
 							<input
 								type="tel"
-								id="user-phone"
-								name="userPhone"
+								id="phone"
+								name="phone"
 								value={user.contactInfo?.phone}
 								readOnly
 								className="bg-transparent pointer-events-none font-bold text-base"
@@ -222,8 +221,8 @@ const FormReview = () => {
 							{/* <div className="font-bold">{`${user.contactInfo?.zipCode}`}</div> */}
 							<input
 								type="text"
-								id="user-zip-code"
-								name="userZipCode"
+								id="zip-code"
+								name="zipCode"
 								value={user.contactInfo?.zipCode}
 								readOnly
 								className="bg-transparent pointer-events-none font-bold text-base"
@@ -233,8 +232,8 @@ const FormReview = () => {
 							<h4 className="text-[#595959] text-sm">Comments</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.comments}`}</div> */}
 							<textarea
-								id="user-comments"
-								name="userComments"
+								id="comments"
+								name="comments"
 								value={user.contactInfo?.comments}
 								readOnly
 								className="bg-transparent resize-none pointer-events-none font-bold text-base"
