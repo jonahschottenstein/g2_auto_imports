@@ -16,12 +16,13 @@ const FeaturedInventorySection = ({
 		<Section h2="Featured Inventory">
 			<CardGrid>
 				{featuredInventory.map(
-					({ imageSrc, year, make, model, price, pageUrl }) => {
+					({ imageSrc, year, make, model, price, features, pageUrl }) => {
 						return (
 							<CarCard
 								href={pageUrl}
 								image={imageSrc}
 								name={`${year} ${make.name} ${model.name}`}
+								features={features}
 								price={price}
 							/>
 						);
