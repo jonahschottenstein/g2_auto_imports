@@ -83,13 +83,15 @@ const CarCard = ({ href, image, name, price }: CarCardProps) => {
 				}}
 				className="car-image w-full object-cover pointer-events-none"
 			/>
-			<div className="car-card-details px-4">
-				<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 font-sans">
-					{name}
-				</h3>
-				<p className="car-price text-md font-medium text-gray-600 font-sans">
-					{price}
-				</p>
+			<div className="car-card-details px-4 flex flex-col flex-1 justify-between">
+				<div className="car-card-name-and-price">
+					<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 font-sans">
+						{name}
+					</h3>
+					<p className="car-price text-md font-medium text-gray-600 font-sans">
+						{price}
+					</p>
+				</div>
 				<Link
 					href={href}
 					className="car-card-cta-link bg-blue-600 text-white font-semibold py-2 px-4 my-4 rounded-lg block w-full font-sans text-center hover:bg-blue-700">
