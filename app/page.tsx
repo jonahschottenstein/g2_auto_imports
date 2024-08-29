@@ -73,15 +73,20 @@ export default async function Home() {
 
 // TODO:
 /* 
+? Don't know if Request Import button width should fill container at large sizes
+! Getting 500 internal server error on load of page 1 of request import form because you're using document.querySelector(".selector") before page has loaded in MakeModelSelector
+! Layout on Chrome/Safari is slightly different than on Firefox
+	- e.g., Request import form nav buttons 
+	- Look for other instances
 ! Think I want more space at the bottom of Request Import Form Contact page
 ! Should probably add more detail for the Comments textarea explaining what its purpose is, like how ADPList does.
-! Will need to update schema for required comments OR make a second schema for contact page form
+// ! Will need to update schema for required comments OR make a second schema for contact page form
 ! Think you need more consistency with typefaces and uppercase/lowercase usage
 ! Look at adding more and/or styling PostRequest/PostContact components
 ! sessionStorage contactInfo object has a key called contactInfo with all the data--it's redundant
-! Does Grant want an email list (that user can opt in/out of)?
-! Does Grant want to add text saying user won't be sent mass emails?
-! ContactForm at /contact/form should make comments required, right?
+? Does Grant want an email list (that user can opt in/out of)?
+? Does Grant want to add text saying user won't be sent mass emails?
+// ! ContactForm at /contact/form should make comments required, right?
 ! Figure out what happens if Form submission doesn't work
 ! Need to combine ContactForm components (you have 2 versions)
 ! You're at the point where you're about to start touching up styling more. You should make classes so you don't have to manually go through and change a style on each individual element
@@ -117,7 +122,7 @@ MakeModelSelector doesn't scroll to selected item when Request Import link is cl
 // Makes page Nav buttons are higher up than on Model page
 // 	- Because on mobile you can't see them without scrolling
 // 		- Need to figure out what to do for this
-Don't like how What's Tokyo-Imports? => Your Gateway to Authentic JDM Imports looks on home page
+// Don't like how What's Tokyo-Imports? => Your Gateway to Authentic JDM Imports looks on home page
 // - Now the years page and post-request page are too small
 ASK YOURSELF: WHAT ISN'T WORKING? FIX THAT FIRST
 In order:
@@ -127,7 +132,7 @@ In order:
 	// 	- Think you can make your own stepper
 	// 	- Keep state in Stepper and sessionStorage
 	// 	- Use Preline UI Stepper as reference
-	4. Invalid input styling
+	// 4. Invalid input styling
 	5. Scroll selected form inputs into view
 	// 6. In desktop, when a nav link is clicked, a transition causes the links to disappear for a sec
 */
@@ -135,7 +140,7 @@ In order:
 	- Form has autofill on Chrome but not Safari. May need to add manually for Safari
 	// - Nav Buttons for MakesForm and ModelsForm are in different places
 	// - Years Form Nav Buttons overflow screen
-	- //! Inventory page shows Footer. Not sure if I want that
+	// - //! Inventory page shows Footer. Not sure if I want that
 	// - Need to add Request Import Button on vehicle page
 	// 	- Start form process, filling in info up to ContactForm
 	// - Maybe add pointer-events: none to hero image
@@ -176,7 +181,7 @@ In order:
 		- save user's info to database or spreadsheet
 	// - Need to add state and comments form fields
 	// - Add "required" indicators to form inputs (*)
-	- //! Adjust styling on invalid inputs
+	// - //! Adjust styling on invalid inputs
 	// - Reconsider 2-letter minimum for first/last name inputs
 	// 	- Maybe just make sure it's at least one *letter* (not number or symbol or space)
 
