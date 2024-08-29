@@ -19,8 +19,12 @@ const FormField = ({
 			: inputId === "phone" || inputId === "zip-code"
 			? "numeric"
 			: "text";
+	// const afterLabelContent =
+	// 	type === "textarea"
+	// 		? "after:content-['(optional)']"
+	// 		: "after:content-['(required)']";
 	const afterLabelContent =
-		type === "textarea"
+		type === "textarea" && !areCommentsRequired
 			? "after:content-['(optional)']"
 			: "after:content-['(required)']";
 
@@ -41,7 +45,8 @@ const FormField = ({
 			{type === "textarea" ? (
 				<textarea
 					id={inputId}
-					className="p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg"
+					className={setInputStyles(error)}
+					required={areCommentsRequired}
 					maxLength={500}
 					{...register(name, { maxLength: 500 })}
 					// TODO: Think I should set a max height/rows for textarea
