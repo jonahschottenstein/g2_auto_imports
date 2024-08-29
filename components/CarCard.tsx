@@ -66,10 +66,11 @@ interface CarCardProps {
 	href: string;
 	image: string;
 	name: string;
+	features: string[];
 	price: string;
 }
 
-const CarCard = ({ href, image, name, price }: CarCardProps) => {
+const CarCard = ({ href, image, name, features, price }: CarCardProps) => {
 	return (
 		<div className="car-card flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
 			<Image
@@ -84,11 +85,19 @@ const CarCard = ({ href, image, name, price }: CarCardProps) => {
 				className="car-image w-full object-cover pointer-events-none"
 			/>
 			<div className="car-card-details px-4 flex flex-col flex-1 justify-between">
-				<div className="car-card-name-and-price">
-					<h3 className="car-name text-lg font-semibold text-gray-800 mt-2 font-sans">
+				<div className="car-card-info">
+					<h3 className="car-name text-lg font-semibold text-black mt-2 font-display">
 						{name}
 					</h3>
-					<p className="car-price text-md font-medium text-gray-600 font-sans">
+					{/* <p className="car-card-features font-sans">{features.join(" | ")}</p> */}
+					<ul className="car-card-features-list">
+						{features.map((feature) => (
+							<li className="inline text-base text-gray-800 font-sans after:content-['_|_'] after:text-gray-400 last:after:content-none">
+								{feature}
+							</li>
+						))}
+					</ul>
+					<p className="car-price text-md font-semibold text-black font-sans">
 						{price}
 					</p>
 				</div>
