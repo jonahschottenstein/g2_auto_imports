@@ -73,6 +73,23 @@ export default async function Home() {
 
 // TODO:
 /* 
+! Look at adding more and/or styling PostRequest/PostContact components
+! sessionStorage contactInfo object has a key called contactInfo with all the data--it's redundant
+! Does Grant want an email list (that user can opt in/out of)?
+! Does Grant want to add text saying user won't be sent mass emails?
+! ContactForm at /contact/form should make comments required, right?
+! Figure out what happens if Form submission doesn't work
+! Need to combine ContactForm components (you have 2 versions)
+! You're at the point where you're about to start touching up styling more. You should make classes so you don't have to manually go through and change a style on each individual element
+	- e.g., primary-color, primary-link, etc.
+- On primary button/link:
+	- Hover should make bg-color lighter, not darker
+- On secondary button/link:
+	- Hover should fill background and make text white
+- Wonder if you could use 180 degree camera to take pictures of inside of car and use something like three.js to make it so you can look around inside car
+- Clamp font sizes of Hero section (make fluid)
+- I think it's better for images of cars to face right
+! Make it so NavBar doesn't re-render on page reload
 ! Hero image doesn't work on mobile
 ! NavBar takes up too much room on mobile landscape
 	- Maybe:
