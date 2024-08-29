@@ -11,6 +11,7 @@ const FormField = ({
 	error,
 	valueAsNumber,
 	rule,
+	areCommentsRequired,
 }: FormFieldProps) => {
 	const inputMode =
 		inputId === "email"
