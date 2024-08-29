@@ -199,6 +199,9 @@ export const ContactPageContactForm = () => {
 							name={formFieldData.name}
 							register={formFieldData.register}
 							error={formFieldData.error}
+							areCommentsRequired={
+								formFieldData.inputId === "comments" ? true : false
+							}
 						/>
 					);
 				})}
