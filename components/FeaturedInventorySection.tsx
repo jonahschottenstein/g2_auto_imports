@@ -29,9 +29,14 @@ const FeaturedInventorySection = ({
 				)}
 			</CardGrid>
 			<div className="mt-10 lg:mt-20 text-center">
-				<Link
+				{/* <Link
 					href="/inventory"
 					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:text-blue-700">
+					View all inventory
+				</Link> */}
+				<Link
+					href="/inventory"
+					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:bg-blue-700 hover:text-white hover:border-transparent">
 					View all inventory
 				</Link>
 			</div>
