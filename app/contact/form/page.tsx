@@ -1,5 +1,8 @@
 import { CustomButton } from "@/components";
-import ContactForm, { ContactForm2 } from "@/components/ContactForm";
+import ContactForm, {
+	ContactForm2,
+	ContactPageContactForm,
+} from "@/components/ContactForm";
 import { BackLink } from "@/components/CustomLinks";
 import FormContainer from "@/components/FormContainer";
 import { FormContainerProps } from "@/types";
@@ -24,7 +27,7 @@ const page = () => {
 		<div className="form-page w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 mx-auto min-h-[calc(100vh-72px)]">
 			{/* <ContactForm /> */}
 			<FormContainer2 h1="Contact Us">
-				<ContactForm2
+				{/* <ContactForm2
 					buttonsGroupStyles="py-4"
 					buttonsGroupChildren={
 						<CustomButton
@@ -35,7 +38,8 @@ const page = () => {
 							Submit
 						</CustomButton>
 					}
-				/>
+				/> */}
+				<ContactPageContactForm />
 			</FormContainer2>
 		</div>
 	);
