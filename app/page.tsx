@@ -73,6 +73,10 @@ export default async function Home() {
 
 // TODO:
 /* 
+! Think I want more space at the bottom of Request Import Form Contact page
+! Should probably add more detail for the Comments textarea explaining what its purpose is, like how ADPList does.
+! Will need to update schema for required comments OR make a second schema for contact page form
+! Think you need more consistency with typefaces and uppercase/lowercase usage
 ! Look at adding more and/or styling PostRequest/PostContact components
 ! sessionStorage contactInfo object has a key called contactInfo with all the data--it's redundant
 ! Does Grant want an email list (that user can opt in/out of)?
