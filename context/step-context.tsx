@@ -1,6 +1,5 @@
 "use client";
 
-import { FormContextType, User } from "@/types";
 import { createContext, useContext, useState } from "react";
 
 export type Step = 1 | 2 | 3 | 4 | 5;
