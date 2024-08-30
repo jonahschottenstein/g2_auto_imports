@@ -38,6 +38,7 @@ export interface CustomButtonProps {
 	type?: "button" | "submit";
 	value?: number | string;
 	styles?: string;
+	ariaLabel: string;
 	isDisabled?: boolean;
 	handleClick?: MouseEventHandler<HTMLButtonElement>;
 	children: React.ReactNode;
