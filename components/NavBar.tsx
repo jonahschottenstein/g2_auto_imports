@@ -8,7 +8,6 @@ import XButton from "./XButton";
 
 const NavBar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [isMobileView, setIsMobileView] = useState<boolean | null>(null);
 	const pathName = usePathname();
 
 	// Function to toggle the hamburger menu
@@ -17,18 +16,13 @@ const NavBar = () => {
 	// Function to close the hamburger menu when a link is clicked
 	const closeMenu = () => setIsMenuOpen(false);
 
-	// Function to handle window resizing
 	const handleResize = () => {
-		if (window.innerWidth < 768) {
-			setIsMobileView(true);
-		} else {
-			setIsMobileView(false);
-			setIsMenuOpen(false); // Ensure the menu is closed when switching to desktop view
+		if (window.innerWidth >= 768) {
+			setIsMenuOpen(false);
 		}
 	};
 
 	useEffect(() => {
-		handleResize(); // Set initial view mode
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
@@ -47,6 +41,7 @@ const NavBar = () => {
 	return (
 		<header className="border-b-2 border-gray-100 fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20 px-4 md:px-6 lg:px-8">
 			<nav className="w-full mx-auto flex items-center justify-between max-w-screen-xl">
+				{/* Logo */}
 				<Link href={"/"} aria-label="Home page">
 					<svg
 						className="w-10 h-auto"
@@ -62,54 +57,55 @@ const NavBar = () => {
 						/>
 					</svg>
 				</Link>
-				{isMobileView ? (
-					<div className="relative flex">
-						<HamburgerMenuButton onClick={toggleMenu} />
-						{isMenuOpen && (
-							<div className="fixed inset-0 bg-white z-50 flex flex-col items-start justify-start pt-[74px]">
-								<div className="open-menu-navbar h-[74px] absolute top-0 left-0 right-0 flex justify-between p-4">
-									<div className="font-sans text-black text-xl font-bold flex justify-center items-center">
-										Menu
-									</div>
-									<XButton
-										onClose={closeMenu}
-										styles="focus:outline-none text-black flex justify-center items-center"
-									/>
+
+				{/* Hamburger Menu Button */}
+				<div className="relative flex md:hidden">
+					<HamburgerMenuButton onClick={toggleMenu} />
+					{isMenuOpen && (
+						<div className="fixed inset-0 bg-white z-50 flex flex-col items-start justify-start pt-[74px]">
+							<div className="open-menu-navbar h-[74px] absolute top-0 left-0 right-0 flex justify-between p-4">
+								<div className="font-sans text-black text-xl font-bold flex justify-center items-center">
+									Menu
 								</div>
-								{links.map(({ title, href }) => (
-									<div
-										key={`${title}-link-mobile`}
-										className="w-full h-14 flex items-center border-t-2 last:border-b-2 border-gray-100 cursor-pointer hover:bg-slate-100">
-										<Link
-											href={href}
-											className="flex items-center w-full h-full px-4 py-2 text-base font-sans font-semibold text-black"
-											aria-label={title}
-											onClick={(e) => {
-												const target = e.target as HTMLLinkElement;
-												if (target.getAttribute("href") !== pathName) return;
-												closeMenu();
-											}}>
-											{title}
-										</Link>
-									</div>
-								))}
+								<XButton
+									onClose={closeMenu}
+									styles="focus:outline-none text-black flex justify-center items-center"
+								/>
 							</div>
-						)}
-					</div>
-				) : isMobileView === null ? null : (
-					<div className="flex space-x-4 font-sans text-base font-medium">
-						{links.map(({ title, href }) => (
-							<Link
-								key={`${title}-link-desktop`}
-								href={href}
-								className="text-gray-600 hover:text-black"
-								aria-label={title}
-								onClick={closeMenu}>
-								{title}
-							</Link>
-						))}
-					</div>
-				)}
+							{links.map(({ title, href }) => (
+								<div
+									key={`${title}-link-mobile`}
+									className="w-full h-14 flex items-center border-t-2 last:border-b-2 border-gray-100 cursor-pointer hover:bg-slate-100">
+									<Link
+										href={href}
+										className="flex items-center w-full h-full px-4 py-2 text-base font-sans font-semibold text-black"
+										aria-label={title}
+										onClick={(e) => {
+											const target = e.target as HTMLLinkElement;
+											if (target.getAttribute("href") !== pathName) return;
+											closeMenu();
+										}}>
+										{title}
+									</Link>
+								</div>
+							))}
+						</div>
+					)}
+				</div>
+
+				{/* Desktop Links */}
+				<div className="hidden md:flex space-x-4 font-sans text-base font-medium">
+					{links.map(({ title, href }) => (
+						<Link
+							key={`${title}-link-desktop`}
+							href={href}
+							className="text-gray-600 hover:text-black"
+							aria-label={title}
+							onClick={closeMenu}>
+							{title}
+						</Link>
+					))}
+				</div>
 			</nav>
 		</header>
 	);
