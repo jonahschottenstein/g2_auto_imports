@@ -24,6 +24,7 @@ const FeaturedInventorySection = ({
 								name={`${year} ${make.name} ${model.name}`}
 								features={features}
 								price={price}
+								pathName={"/"}
 							/>
 						);
 					}
