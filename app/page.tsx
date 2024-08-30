@@ -73,6 +73,11 @@ export default async function Home() {
 
 // TODO:
 /* 
+// ! Figure out sizes prop for CarCard image
+// 	- Has to work for Featured Inventory Section and Inventory page
+// 	- Will need conditional logic
+! Maybe see if you can add priority to Image conditionally if it's in the viewport / above the fold
+! Add priority to first CarCard Image on Inventory page
 ? Should import all components to index.ts (Look into why)
 ? Don't know if Request Import button width should fill container at large sizes
 ! Getting 500 internal server error on load of page 1 of request import form because you're using document.querySelector(".selector") before page has loaded in MakeModelSelector
