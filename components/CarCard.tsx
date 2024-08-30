@@ -73,17 +73,21 @@ interface CarCardProps {
 const CarCard = ({ href, image, name, features, price }: CarCardProps) => {
 	return (
 		<div className="car-card flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
-			<Image
-				src={image}
-				alt={name}
-				width={650}
-				height={330}
+			<div
+				className="car-card-image-wrapper relative w-full"
 				style={{
 					aspectRatio: 16 / 9,
-					objectPosition: "50% 63%",
-				}}
-				className="car-image w-full object-cover pointer-events-none"
-			/>
+				}}>
+				<Image
+					src={image}
+					alt={name}
+					style={{
+						objectPosition: "50% 63%",
+					}}
+					className="car-image object-cover pointer-events-none"
+					fill
+				/>
+			</div>
 			<div className="car-card-details px-4 flex flex-col flex-1 justify-between">
 				<div className="car-card-info">
 					<h3 className="car-name text-lg font-semibold text-black mt-2 font-display">
