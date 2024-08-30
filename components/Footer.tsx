@@ -74,14 +74,20 @@ const FooterRow = ({ listItems }: FooterRowProps) => {
 			<ul className="flex gap-4">
 				{listItems.map((listItem, index) => {
 					return (
-						<Link
-							className="text-white text-sm flex justify-center items-center mx-2 hover:underline"
-							key={index}
-							href={listItem.href}
-							target={listItem.hasOwnProperty("target") ? "_blank" : "_self"}>
-							{listItem.hasOwnProperty("icon") ? listItem.icon : listItem.title}
-						</Link>
-						// ? Don't know if it matters if I add hover:underline class to Links with icons instead of text
+						<li className="flex justify-center items-center text-center">
+							<Link
+								key={index}
+								href={listItem.href}
+								className="text-white text-sm flex justify-center items-center mx-2 hover:underline"
+								aria-label={`${listItem.title}`}
+								target={listItem.hasOwnProperty("target") ? "_blank" : "_self"}>
+								{listItem.hasOwnProperty("icon")
+									? listItem.icon
+									: listItem.title}
+							</Link>
+							{/* // ? Don't know if it matters if I add hover:underline class to
+							Links with icons instead of text */}
+						</li>
 					);
 				})}
 			</ul>
