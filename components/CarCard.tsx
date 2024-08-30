@@ -103,7 +103,8 @@ const CarCard = ({ href, image, name, features, price }: CarCardProps) => {
 				</div>
 				<Link
 					href={href}
-					className="car-card-cta-link bg-blue-600 text-white font-semibold py-2 px-4 my-4 rounded-lg block w-full font-sans text-center hover:bg-blue-700">
+					className="car-card-cta-link bg-blue-600 text-white font-semibold py-2 px-4 my-4 rounded-lg block w-full font-sans text-center hover:bg-blue-700"
+					aria-label="View details">
 					View Details
 				</Link>
 			</div>
