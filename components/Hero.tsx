@@ -40,7 +40,8 @@ const HeroContent = () => {
 				</p>
 				<Link
 					href="/inventory"
-					className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-center text-white font-semibold rounded-lg transition duration-300">
+					className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-center text-white font-semibold rounded-lg transition duration-300"
+					aria-label="View inventory">
 					View Inventory
 				</Link>
 			</div>
