@@ -68,9 +68,22 @@ interface CarCardProps {
 	name: string;
 	features: string[];
 	price: string;
+	pathName: string;
 }
 
-const CarCard = ({ href, image, name, features, price }: CarCardProps) => {
+const CarCard = ({
+	href,
+	image,
+	name,
+	features,
+	price,
+	pathName,
+}: CarCardProps) => {
+	const getImageSizes =
+		pathName === "/"
+			? "(max-width: 640px) 100vw, (min-width: 640px) 50vw"
+			: "(max-width: 640px) 100vw, ((min-width: 640px) and (max-width: 768px)) 50vw, ((min-width: 768px) and (max-width: 1024px)) 33.33vw, (min-width: 1024px) 25vw";
+
 	return (
 		<div className="car-card flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
 			<div
@@ -86,11 +99,12 @@ const CarCard = ({ href, image, name, features, price }: CarCardProps) => {
 					}}
 					className="car-image object-cover pointer-events-none"
 					fill
+					sizes={getImageSizes}
 				/>
 			</div>
 			<div className="car-card-details px-4 flex flex-col flex-1 justify-between">
 				<div className="car-card-info">
-					<h3 className="car-name text-lg font-semibold text-black mt-2 font-display">
+					<h3 className="car-name text-lg font-semibold text-black mt-2 font-sans">
 						{name}
 					</h3>
 					{/* <p className="car-card-features font-sans">{features.join(" | ")}</p> */}
