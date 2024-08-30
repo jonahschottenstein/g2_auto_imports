@@ -6,6 +6,7 @@ const CustomButton = ({
 	type = "button",
 	value,
 	styles,
+	ariaLabel,
 	isDisabled = false,
 	handleClick,
 	children,
@@ -15,6 +16,7 @@ const CustomButton = ({
 			type={type}
 			value={value}
 			className={`custom-button font-sans ${styles}`}
+			aria-label={ariaLabel}
 			disabled={isDisabled}
 			onClick={handleClick}>
 			{/* {title} */}

@@ -37,7 +37,9 @@ const ImageCarousel = ({
 			<div className="image-carousel-content relative w-full h-full">
 				<button
 					onClick={handlePrevious}
-					className="prev-button absolute left-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md z-40">
+					className="prev-button absolute left-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md z-40"
+					name="view-previous-image-button"
+					aria-label="View previous image">
 					‹
 				</button>
 				<Image
@@ -53,7 +55,9 @@ const ImageCarousel = ({
 				/>
 				<button
 					onClick={handleNext}
-					className="next-button absolute right-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md z-40">
+					className="next-button absolute right-4 top-[50%] font-sans text-3xl text-white p-2 bg-black bg-opacity-75 w-9 h-14 rounded-md z-40"
+					name="view-next-image-button"
+					aria-label="View next image">
 					›
 				</button>
 			</div>

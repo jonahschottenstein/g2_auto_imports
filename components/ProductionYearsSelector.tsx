@@ -206,6 +206,7 @@ const ProductionYearsSelector = ({
 								// title={year.toString()}
 								value={year}
 								styles={setButtonStyles(year)}
+								ariaLabel={`${year}`}
 								handleClick={handleClick}>
 								{year.toString()}
 							</CustomButton>

@@ -47,7 +47,7 @@ const NavBar = () => {
 	return (
 		<header className="border-b-2 border-gray-100 fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20 px-4 md:px-6 lg:px-8">
 			<nav className="w-full mx-auto flex items-center justify-between max-w-screen-xl">
-				<Link href={"/"}>
+				<Link href={"/"} aria-label="Home page">
 					<svg
 						className="w-10 h-auto"
 						width="100"
@@ -83,6 +83,7 @@ const NavBar = () => {
 										<Link
 											href={href}
 											className="flex items-center w-full h-full px-4 py-2 text-base font-sans font-semibold text-black"
+											aria-label={title}
 											onClick={(e) => {
 												const target = e.target as HTMLLinkElement;
 												if (target.getAttribute("href") !== pathName) return;
@@ -102,6 +103,7 @@ const NavBar = () => {
 								key={`${title}-link-desktop`}
 								href={href}
 								className="text-gray-600 hover:text-black"
+								aria-label={title}
 								onClick={closeMenu}>
 								{title}
 							</Link>

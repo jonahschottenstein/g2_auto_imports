@@ -10,7 +10,11 @@ interface XButtonProps {
 
 const XButton = ({ onClose, styles }: XButtonProps) => {
 	return (
-		<button onClick={onClose} className={styles}>
+		<button
+			onClick={onClose}
+			className={styles}
+			name="exit-button"
+			aria-label="exit-button">
 			<FontAwesomeIcon icon={faXmark as IconProp} className="size-6" />
 		</button>
 	);

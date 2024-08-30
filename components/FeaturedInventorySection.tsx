@@ -37,7 +37,8 @@ const FeaturedInventorySection = ({
 				</Link> */}
 				<Link
 					href="/inventory"
-					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:bg-blue-700 hover:text-white hover:border-transparent">
+					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:bg-blue-700 hover:text-white hover:border-transparent"
+					aria-label="View all inventory">
 					View all inventory
 				</Link>
 			</div>
