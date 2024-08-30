@@ -1,9 +1,8 @@
 "use client";
 
 import { Step, useStep, useStepUpdater } from "@/context/step-context";
-import { FormStepperProps } from "@/types";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 /* const FormStepper = ({ steps }: FormStepperProps) => {
 	return (

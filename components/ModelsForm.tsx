@@ -1,10 +1,9 @@
 "use client";
 
 import { useForm, useFormUpdater } from "@/context/request-import-form-context";
-import { Make, Model, ModelsFormProps } from "@/types";
+import { Make, ModelsFormProps } from "@/types";
 import React, { useEffect } from "react";
 import MakeModelSelector from "./MakeModelSelector";
-import Link from "next/link";
 import { BackLink, NextLink } from "./CustomLinks";
 import FormContainer from "./FormContainer";
 

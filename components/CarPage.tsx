@@ -1,14 +1,10 @@
 "use client";
 
 import { useFormUpdater } from "@/context/request-import-form-context";
-import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomButton from "./CustomButton";
 import { Car } from "@/types";
 import { useRouter } from "next/navigation";
-import Carousel from "./Carousel";
-import GalleryModal from "./GalleryModal";
-import { Swiper, SwiperSlide } from "swiper/react";
 import ImageGrid from "./ImageGrid";
 import ImageCarousel from "./ImageCarousel";
 import ImageGalleryModal from "./ImageGalleryModal";
@@ -123,18 +119,18 @@ interface VehicleDetails {
 // 	);
 // };
 
-interface ImageGridItemProps {
+/* interface ImageGridItemProps {
 	src: string;
 	alt: string;
 	hasOverlay: boolean;
 	index: number;
-}
+} */
 
-interface ImageGridProps {
+/* interface ImageGridProps {
 	galleryData: ImageGridItemProps[];
-}
+} */
 
-const galleryData = [
+/* const galleryData = [
 	{ src: "/P35-0901053_07.jpg", alt: "alt0", hasOverlay: false, index: 0 },
 	{ src: "/P35-0901053_07.jpg", alt: "alt1", hasOverlay: false, index: 1 },
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt2", hasOverlay: false, index: 2 },
@@ -144,7 +140,7 @@ const galleryData = [
 	{ src: "/P35-0901053_07.jpg", alt: "alt6", hasOverlay: false, index: 6 },
 	{ src: "/P35-0901053_07.jpg", alt: "alt7", hasOverlay: false, index: 7 },
 	{ src: "/P35-0901053_07.jpg", alt: "alt8", hasOverlay: true, index: 8 },
-];
+]; */
 
 /* const images = [
 	{ src: "/PE8W-0402421_04.JPG", alt: "alt0" },
