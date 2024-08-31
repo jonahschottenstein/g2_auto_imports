@@ -1,4 +1,4 @@
-import { ContactPageContactForm } from "@/components/ContactForm";
+import StandAloneContactForm from "@/components/StandAloneContactForm";
 import { FormContainerProps } from "@/types";
 import React from "react";
 
@@ -17,23 +17,9 @@ const FormContainer2 = ({ h1, children }: FormContainerProps) => {
 
 const page = () => {
 	return (
-		// <div className="form-page flex flex-col flex-1 items-center overflow-x-hidden overflow-y-auto">
 		<div className="form-page w-full max-w-7xl px-4 md:px-6 lg:px-8 py-12 lg:py-24 mx-auto min-h-[calc(100vh-72px)]">
-			{/* <ContactForm /> */}
 			<FormContainer2 h1="Contact Us">
-				{/* <ContactForm2
-					buttonsGroupStyles="py-4"
-					buttonsGroupChildren={
-						<CustomButton
-							// title="Submit"
-							// TODO: Need to have CustomButton take children so you can pass the svg arrow
-							type="submit"
-							styles="w-full justify-center py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-							Submit
-						</CustomButton>
-					}
-				/> */}
-				<ContactPageContactForm />
+				<StandAloneContactForm />
 			</FormContainer2>
 		</div>
 	);
