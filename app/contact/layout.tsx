@@ -1,4 +1,3 @@
-import { FormProvider } from "@/context/request-import-form-context";
 import React from "react";
 
 const NAV_BAR_HEIGHT = `72px`;
@@ -9,12 +8,7 @@ const Layout = ({
 }: Readonly<{
 	children: React.ReactNode;
 }>) => {
-	return (
-		// <main className={`pt-[72px] h-full min-h-full flex flex-col`}>
-		<main className={`pt-[72px] h-auto flex flex-col`}>
-			<FormProvider>{children}</FormProvider>
-		</main>
-	);
+	return <main className={`pt-[72px] h-auto flex flex-col`}>{children}</main>;
 };
 // ? Not sure I need to use FormProvider
 
