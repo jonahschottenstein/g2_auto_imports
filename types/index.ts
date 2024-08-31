@@ -161,7 +161,30 @@ export interface FormFieldProps {
 	type: FormFieldTypes;
 	inputId: string;
 	name: ValidFieldNames;
-	register: UseFormRegister<ContactFormData>;
+	register:
+		| UseFormRegister<ContactFormData>
+		| UseFormRegister<StandAloneContactFormData>;
+	error: FieldError | undefined;
+	valueAsNumber?: boolean;
+	rule?: string;
+	areCommentsRequired?: boolean;
+}
+
+export interface StandAloneContactFormData {
+	firstName: string;
+	lastName: string;
+	email: string;
+	phone: string;
+	zipCode: string;
+	comments: string;
+}
+
+export interface StandAloneFormFieldProps {
+	label: string;
+	type: FormFieldTypes;
+	inputId: string;
+	name: ValidFieldNames;
+	register: UseFormRegister<StandAloneContactFormData>;
 	error: FieldError | undefined;
 	valueAsNumber?: boolean;
 	rule?: string;
