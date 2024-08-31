@@ -29,6 +29,11 @@ const ImageGridItem = ({
 	totalPhotosCount,
 	onClick,
 }: ImageGridItemProps) => {
+	const imageSizes =
+		index === 0
+			? "(max-width: 768px) 324px, (max-width: 1024px) 652px, (min-width: 1024px) 63vw"
+			: "160px";
+
 	return (
 		<div
 			key={index}
@@ -37,12 +42,10 @@ const ImageGridItem = ({
 			<Image
 				src={src}
 				alt={alt}
-				width={450}
-				height={450}
+				fill
+				sizes={imageSizes}
 				className="w-full h-full object-cover"
 				priority={index === 0 ? true : false}
-				// className="image-grid-item group block relative overflow-hidden first:rounded-l-lg last:rounded-ee-lg [&:nth-child(5)]:rounded-tr-lg md:[&:nth-child(5)]:rounded-none md:[&:nth-child(3)]:rounded-tr-lg first:row-span-2 first:col-span-2 md:first:row-span-4 md:first:col-span-4 object-cover w-full h-full cursor-pointer"
-				// onClick={onClick}
 			/>
 			{index === 8 && (
 				<div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-xl font-sans font-semibold">
@@ -61,18 +64,6 @@ const ImageGrid = ({
 }: ImageGridProps) => {
 	return (
 		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)] mt-4">
-			{/* <div className="image-grid grid overflow-x-auto gap-1 grid-cols-[repeat(6,_minMax(10rem,_1fr))]"> */}
-			{/* {images.slice(0, 9).map(({ src, alt }, index) => (
-				<ImageGridItem
-					src={src}
-					alt={alt}
-					index={index}
-					totalPhotosCount={totalPhotosCount}
-					onClick={() =>
-						index === 8 ? onLastImageClick() : onImageClick(index)
-					}
-				/>
-			))} */}
 			{images.slice(0, 9).map((image, index) => (
 				<ImageGridItem
 					key={image}
