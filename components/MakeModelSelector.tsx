@@ -15,7 +15,6 @@ const MakeModelSelector = ({
 }: MakeModelSelectorProps) => {
 	const selectedMakeRef = useRef<null | HTMLDivElement>(null);
 	const sortedOptions = sortMakeModel(options);
-	const container = document.querySelector(".selector");
 
 	const handleScrollToSelectedMake = () => {
 		if (!selectedMakeRef.current) return;
@@ -49,6 +48,7 @@ const MakeModelSelector = ({
 	};
 
 	useLayoutEffect(() => {
+		const container = document.querySelector(".selector");
 		const selectedMakeIsVisible = elementIsVisibleInViewport(
 			selectedMakeRef.current,
 			container
