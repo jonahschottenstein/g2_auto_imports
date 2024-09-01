@@ -73,6 +73,13 @@ export default async function Home() {
 
 // TODO:
 /* 
+! TESTING
+
+? Is it an issue that you're using UserSchema for StandAloneContactForm in the POST function?
+// ! Need to adjust alignment on PostContact page 
+	- (and maybe PostRequest)
+! Make StandAloneContactForm comments section minimum character requirement 1 character
+// ! Properly size CarPage images
 // ! Figure out sizes prop for CarCard image
 // 	- Has to work for Featured Inventory Section and Inventory page
 // 	- Will need conditional logic
@@ -80,7 +87,7 @@ export default async function Home() {
 ! Add priority to first CarCard Image on Inventory page
 ? Should import all components to index.ts (Look into why)
 ? Don't know if Request Import button width should fill container at large sizes
-! Getting 500 internal server error on load of page 1 of request import form because you're using document.querySelector(".selector") before page has loaded in MakeModelSelector
+// ! Getting 500 internal server error on load of page 1 of request import form because you're using document.querySelector(".selector") before page has loaded in MakeModelSelector
 ! Layout on Chrome/Safari is slightly different than on Firefox
 	- e.g., Request import form nav buttons 
 	- Look for other instances
@@ -104,15 +111,15 @@ export default async function Home() {
 - Wonder if you could use 180 degree camera to take pictures of inside of car and use something like three.js to make it so you can look around inside car
 - Clamp font sizes of Hero section (make fluid)
 - I think it's better for images of cars to face right
-! Make it so NavBar doesn't re-render on page reload
+// ! Make it so NavBar doesn't re-render on page reload
 ! Hero image doesn't work on mobile
 ! NavBar takes up too much room on mobile landscape
 	- Maybe:
 		- Make NavBar height 60px (same as Nike)
 		- Make it disappear on scroll down and reappear on scroll up
-! NavBar Links show, then are replaced with HamburgerMenuButton on mobile
-	- Fixed this, but takes too long
-	- Need to speed up
+// ! NavBar Links show, then are replaced with HamburgerMenuButton on mobile
+// 	- Fixed this, but takes too long
+// 	- Need to speed up
 ! On CarPage, space between CarTable and Description is bigger than between the rest of the elements
 ! FIGURE OUT WHY IMAGES ARE LOADING SLOWLY
 	// - ISSUE MAY BE DEV TOOLS
@@ -121,10 +128,10 @@ export default async function Home() {
 // - //! Padding is not uniform across all pages. Needs to be fixed.
 	// - e.g., on CarPage
 // Should make a Section component that takes SectionContent as child
-MakeModelSelector doesn't scroll to selected item when Request Import link is clicked from Home page because selectedMakeRef.current is null
-	- Need stateValue dependency to get MakeModelSelector to scroll to selected item on page visit
-	- But when it's a dependency, it also scrolls the item to the bottom every time an item is clicked
-	- Use IntersectionObserver
+// MakeModelSelector doesn't scroll to selected item when Request Import link is clicked from Home page because selectedMakeRef.current is null
+// 	- Need stateValue dependency to get MakeModelSelector to scroll to selected item on page visit
+// 	- But when it's a dependency, it also scrolls the item to the bottom every time an item is clicked
+// 	- Use IntersectionObserver
 // Makes page Nav buttons are higher up than on Model page
 // 	- Because on mobile you can't see them without scrolling
 // 		- Need to figure out what to do for this
@@ -139,7 +146,7 @@ In order:
 	// 	- Keep state in Stepper and sessionStorage
 	// 	- Use Preline UI Stepper as reference
 	// 4. Invalid input styling
-	5. Scroll selected form inputs into view
+	// 5. Scroll selected form inputs into view
 	// 6. In desktop, when a nav link is clicked, a transition causes the links to disappear for a sec
 */
 /* 
@@ -151,7 +158,7 @@ In order:
 	// 	- Start form process, filling in info up to ContactForm
 	// - Maybe add pointer-events: none to hero image
 	// - Need to collapse hamburger menu on smaller screen sizes when a link is clicked
-	- Add CAPTCHA to form
+	// - Add CAPTCHA to form
 	- Look at this for form submission: 
 		- https://react.dev/reference/react-dom/components/form#noun-labs-1201738-(2)
 	- If you keep using sessionStorage, you should clear it onSubmit or when leaving the form
@@ -207,10 +214,10 @@ In order:
 	- form-nav-container with BackLink and NextLink should probably be its own component
 	// - Fix Back/Next button placement in Form
 	// - Think you should put Back/Next Links inside <Form>
-	- Figure out how to change error messages in ContactForm
+	// - Figure out how to change error messages in ContactForm
 	- Figure out if you should disable submit button before inputs are completed
 	- Add client and server side validation for Steps 1-3
-	- Finish client and server side validation for Step 4
+	// - Finish client and server side validation for Step 4
 	// - Add FormReview Step (Step 5)
 	// - Add Footer content
 	// - Add your Links to NavBar
