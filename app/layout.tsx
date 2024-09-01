@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import { Oswald, Roboto_Flex } from "next/font/google";
 import "./globals.css";
-import PrelineScript from "@/components/PrelineScript";
+// import PrelineScript from "@/components/PrelineScript";
 import { Footer, NavBar } from "@/components";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -35,7 +35,7 @@ export default function RootLayout({
 				{children}
 				<Footer />
 			</body>
-			<PrelineScript />
+			{/* <PrelineScript /> */}
 		</html>
 	);
 }
