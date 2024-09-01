@@ -5,8 +5,16 @@ import React from "react";
 
 const prisma = new PrismaClient();
 
-const page = async () => {
-	const models = await prisma.model.findMany();
+const page = async ({
+	searchParams,
+}: {
+	searchParams: { [key: string]: string };
+}) => {
+	console.log("SEARCH PARAMS", searchParams);
+	// const models = await prisma.model.findMany();
+	const models = await prisma.model.findMany({
+		where: { makeId: Number(searchParams.id) },
+	});
 
 	return (
 		<div
