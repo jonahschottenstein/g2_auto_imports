@@ -66,7 +66,9 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 				<div className="form-nav-container w-full flex justify-around p-4">
 					<BackLink href="/request-import-form/step_1" isDisabled={true} />
 					<NextLink
-						href="/request-import-form/step_2"
+						// href="/request-import-form/step_2"
+						// href={{ pathName: "/request-import-form/step_2", query: user.make }}
+						href={`/request-import-form/step_2?id=${user.make?.id}&name=${user.make?.name}`}
 						isDisabled={!makeIsSelected}
 					/>
 				</div>
