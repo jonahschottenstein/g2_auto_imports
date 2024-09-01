@@ -102,26 +102,10 @@ const StandAloneContactForm = () => {
 					message: errors[fieldWithError],
 				});
 			} else {
-				const data = {
-					contactInfo: {
-						firstName: (
-							document.getElementById("first-name") as HTMLInputElement
-						).value,
-						lastName: (document.getElementById("last-name") as HTMLInputElement)
-							.value,
-						email: (document.getElementById("email") as HTMLInputElement).value,
-						phone: (document.getElementById("phone") as HTMLInputElement).value,
-						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
-							.value,
-						comments: (
-							document.getElementById("comments") as HTMLTextAreaElement
-						).value,
-					},
-				};
+				const userEmail = (document.getElementById("email") as HTMLInputElement)
+					.value;
 
-				sessionStorage.setItem("contactInfo", JSON.stringify(data));
-
-				router.push("/contact/post-contact");
+				router.push(`/contact/post-contact/?email=${userEmail}`);
 
 				sendEmail(formRef.current as HTMLFormElement);
 			}
