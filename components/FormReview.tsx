@@ -68,15 +68,15 @@ const FormReview = () => {
 		updateUserData(userData);
 	}, []);
 
-	const textareaTextContent = document.getElementById("comments")?.textContent;
+	// const textareaTextContent = document.getElementById("comments")?.textContent;
 
-	useEffect(() => {
+	/* 	useEffect(() => {
 		const textarea = document.getElementById("comments");
 
 		if (!textarea) return;
 
 		textarea.style.height = textarea.scrollHeight + "px";
-	}, [textareaTextContent]);
+	}, [textareaTextContent]); */
 
 	const setVal = (key: string, value: any) => {
 		return (
