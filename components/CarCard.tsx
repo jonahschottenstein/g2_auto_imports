@@ -69,6 +69,7 @@ interface CarCardProps {
 	features: string[];
 	price: string;
 	pathName: string;
+	index?: number;
 }
 
 const CarCard = ({
@@ -78,6 +79,7 @@ const CarCard = ({
 	features,
 	price,
 	pathName,
+	index,
 }: CarCardProps) => {
 	const getImageSizes =
 		pathName === "/"
@@ -100,6 +102,7 @@ const CarCard = ({
 					className="car-image object-cover pointer-events-none"
 					fill
 					sizes={getImageSizes}
+					priority={index === 0 ? true : false}
 				/>
 			</div>
 			<div className="car-card-details px-4 flex flex-col flex-1 justify-between">
