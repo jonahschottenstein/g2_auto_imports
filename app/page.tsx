@@ -75,6 +75,13 @@ export default async function Home() {
 /* 
 ! TESTING
 
+! Lighthouse says first CarCard Image loaded lazily on mobile. Need to add priority.
+! Lighthouse saying CarCard Images not sized correctly on mobile
+! CarCard car title is an h3 element. When you use CarCards on /inventory page, there is only an h1 element, no h2s. Need to figure this out.
+! Think you used the index for Make, Model, etc. options. Need to put real for values, ids, etc
+! Look at passing data with searchParams for request-import-form
+! Use useFormStatus to change UI to show user what's happening
+! Maybe pass user email to PostContact using params
 ? Is it an issue that you're using UserSchema for StandAloneContactForm in the POST function?
 // ! Need to adjust alignment on PostContact page 
 	- (and maybe PostRequest)
