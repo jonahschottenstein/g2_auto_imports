@@ -44,7 +44,10 @@ const Page = () => {
 				<div className="inventory-page-content max-w-screen-xl mx-auto">
 					<CardGrid>
 						{inventory.map(
-							({ imageSrc, year, make, model, features, price, pageUrl }) => {
+							(
+								{ imageSrc, year, make, model, features, price, pageUrl },
+								index
+							) => {
 								return (
 									<CarCard
 										key={`${year}-${make.name}-${model.name}-card`}
@@ -54,6 +57,7 @@ const Page = () => {
 										features={features}
 										price={price}
 										pathName="/inventory"
+										index={index}
 									/>
 								);
 							}
