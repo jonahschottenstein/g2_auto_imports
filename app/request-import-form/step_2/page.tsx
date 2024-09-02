@@ -11,10 +11,10 @@ const page = async ({
 	searchParams: { [key: string]: string };
 }) => {
 	console.log("SEARCH PARAMS", searchParams);
-	// const models = await prisma.model.findMany();
-	const models = await prisma.model.findMany({
-		where: { makeId: Number(searchParams.id) },
-	});
+	const models = await prisma.model.findMany();
+	// const models = await prisma.model.findMany({
+	// 	where: { makeId: Number(searchParams.id) },
+	// });
 
 	return (
 		<div
