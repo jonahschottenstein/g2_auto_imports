@@ -75,6 +75,8 @@ export default async function Home() {
 /* 
 ! TESTING
 
+? Should I make min-height of Home page Section 100vh?
+	- Not sure "What's Tokyo Imports?" Section looks good with height < 100vh
 ! Need to figure out Desktop => Mobile layouts
 	- I've been adding space at the bottoms of pages so they don't overflow the viewport, but it looks bad on Desktop
 ! Lighthouse says first CarCard Image loaded lazily on mobile. Need to add priority.
