@@ -75,6 +75,7 @@ export default async function Home() {
 /* 
 ! TESTING
 
+! Don't forget about FAQ Section
 ! Need to replace Tokyo-Imports with G2 Auto Imports
 ? Should I make min-height of Home page Section 100vh?
 	- Not sure "What's Tokyo Imports?" Section looks good with height < 100vh
