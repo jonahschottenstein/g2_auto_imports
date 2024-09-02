@@ -75,6 +75,8 @@ export default async function Home() {
 /* 
 ! TESTING
 
+! Need to figure out Desktop => Mobile layouts
+	- I've been adding space at the bottoms of pages so they don't overflow the viewport, but it looks bad on Desktop
 ! Lighthouse says first CarCard Image loaded lazily on mobile. Need to add priority.
 ! Lighthouse saying CarCard Images not sized correctly on mobile
 ! CarCard car title is an h3 element. When you use CarCards on /inventory page, there is only an h1 element, no h2s. Need to figure this out.
