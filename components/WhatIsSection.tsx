@@ -94,7 +94,7 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 
 const WhatIsSection = () => {
 	return (
-		<Section h2="What's Tokyo-Imports?">
+		<Section h2="What's G2 Auto Imports?">
 			<IconBlockGrid iconBlocks={iconBlocks} />
 		</Section>
 	);
