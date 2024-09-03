@@ -24,7 +24,7 @@ const iconBlocks: IconBlockProps[] = [
 		icon: faCar as IconProp,
 		title: "Authentic JDM Cars",
 		blurb:
-			"Tokyo-Imports specializes in importing genuine Japanese Domestic Market vehicles directly from Japan.",
+			"G2 Auto Imports specializes in importing genuine Japanese Domestic Market vehicles directly from Japan.",
 	},
 	{
 		icon: faBox as IconProp,
@@ -74,7 +74,7 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 					Your Gateway to Authentic JDM Imports
 				</h3>
 				<p className="mt-2 md:mt-4 font-sans text-gray-500">
-					Tokyo-Imports is your trusted partner for bringing the best Japanese
+					G2 Auto Imports is your trusted partner for bringing the best Japanese
 					Domestic Market vehicles directly to your driveway, offering a
 					seamless and informed import experience from start to finish.
 				</p>
