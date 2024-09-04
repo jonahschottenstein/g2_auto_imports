@@ -6,16 +6,33 @@ import React, { useEffect } from "react";
 import ProductionYearsSelector from "./ProductionYearsSelector";
 import { BackLink, NextLink } from "./CustomLinks";
 import FormContainer from "./FormContainer";
+import { useRouter } from "next/navigation";
 
 const ProductionForm = ({ production }: ProductionFormProps) => {
 	const user = useForm();
 	const updateUserData = useFormUpdater();
+	const router = useRouter();
+
+	/* 	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		updateUserData(userData);
+	}, []); */
 
 	useEffect(() => {
 		const storedUserData = sessionStorage.getItem("userData");
 		const userData = storedUserData && JSON.parse(storedUserData);
 
-		updateUserData(userData);
+		if (!userData?.make?.name || userData?.make?.id === 0) {
+			console.log("NO MAKE");
+			router.push("/request-import-form/step_1");
+		} else if (!userData?.model?.name || userData?.model?.id === 0) {
+			console.log("NO MODEL");
+			router.push("/request-import-form/step_2");
+		} else {
+			updateUserData(userData);
+		}
 	}, []);
 
 	const getModelProductionObj = (model: Model) => {

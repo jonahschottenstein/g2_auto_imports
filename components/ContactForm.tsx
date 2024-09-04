@@ -234,11 +234,32 @@ const ContactForm = () => {
 		values,
 	});
 
-	useEffect(() => {
+	/* 	useEffect(() => {
 		const storedUserData = sessionStorage.getItem("userData");
 		const userData = storedUserData && JSON.parse(storedUserData);
 
 		updateUserData(userData);
+	}, []); */
+
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		if (!userData?.make?.name || userData?.make?.id === 0) {
+			console.log("NO MAKE");
+			router.push("/request-import-form/step_1");
+		} else if (!userData?.model?.name || userData?.model?.id === 0) {
+			console.log("NO MODEL");
+			router.push("/request-import-form/step_2");
+		} else if (
+			!userData?.productionYears?.startYear ||
+			!userData?.productionYears?.endYear
+		) {
+			console.log("NO YEAR(S)");
+			router.push("/request-import-form/step_3");
+		} else {
+			updateUserData(userData);
+		}
 	}, []);
 
 	// TODO: Need to either figure out how to get reload to redirect user to step_1/home page or save data through reload

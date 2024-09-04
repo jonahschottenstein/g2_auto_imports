@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import MakeModelSelector from "./MakeModelSelector";
 import { BackLink, NextLink } from "./CustomLinks";
 import FormContainer from "./FormContainer";
+import { useRouter } from "next/navigation";
 
 // ? Would it be bad to use effect hook?
 
@@ -14,6 +15,7 @@ import FormContainer from "./FormContainer";
 const ModelsForm = ({ models }: ModelsFormProps) => {
 	const user = useForm();
 	const updateUserData = useFormUpdater();
+	const router = useRouter();
 
 	const resetFormField = (formField: string) => {
 		switch (formField) {
@@ -31,11 +33,23 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 		}
 	};
 
-	useEffect(() => {
+	/* 	useEffect(() => {
 		const storedUserData = sessionStorage.getItem("userData");
 		const userData = storedUserData && JSON.parse(storedUserData);
 
 		updateUserData(userData);
+	}, []); */
+
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		if (!userData?.make?.name || !userData?.make?.id) {
+			console.log("NO MAKE");
+			router.push("/request-import-form/step_1");
+		} else {
+			updateUserData(userData);
+		}
 	}, []);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
