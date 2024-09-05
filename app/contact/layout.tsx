@@ -8,7 +8,9 @@ const Layout = ({
 }: Readonly<{
 	children: React.ReactNode;
 }>) => {
-	return <main className={`pt-[72px] h-auto flex flex-col`}>{children}</main>;
+	return (
+		<main className={`pt-[72px] flex flex-col min-h-svh`}>{children}</main>
+	);
 };
 // ? Not sure I need to use FormProvider
 
