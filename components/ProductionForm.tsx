@@ -160,7 +160,7 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 	const H1_HEIGHT = "64px";
 
 	return (
-		<FormContainer h1="Select Year(s)">
+		<FormContainer h1="Select Years">
 			<form className="request-import-form production-form flex flex-col flex-1 items-center justify-between">
 				{productionObj && productionYears && (
 					<ProductionYearsSelector
