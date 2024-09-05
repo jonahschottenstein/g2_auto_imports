@@ -56,7 +56,7 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 
 	return (
 		<FormContainer h1="Select Make">
-			<form className="request-import-form makes-form flex flex-col h-[calc(100%-124px)]">
+			<form className="request-import-form makes-form flex flex-col flex-1 justify-between">
 				<MakeModelSelector
 					category="make"
 					options={makes}

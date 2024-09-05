@@ -126,7 +126,7 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 
 	return (
 		<FormContainer h1="Select Model">
-			<form className="request-import-form models-form flex flex-col h-[calc(100%-124px)]">
+			<form className="request-import-form models-form flex flex-col flex-1 justify-between">
 				<MakeModelSelector
 					category="model"
 					options={getMakeModels(make)}
