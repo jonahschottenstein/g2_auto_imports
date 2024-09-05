@@ -3,6 +3,7 @@ import { inventory } from "@/inventory";
 import WhatIsSection from "@/components/WhatIsSection";
 import AboutUsSection from "@/components/AboutUsSection";
 import FeaturedInventorySection from "@/components/FeaturedInventorySection";
+import FAQSection from "@/components/FAQSection";
 
 export default async function Home() {
 	const featuredInventory = inventory.filter((car) => car.featured);
@@ -10,11 +11,12 @@ export default async function Home() {
 	return (
 		// * You changed pt to 32px because its child has pt of 40px (at large screen size)
 		// pt is 74px now because added 2px border bottom to header
-		<main className="flex flex-col flex-1 sm:pt-[74px]">
+		<main className="flex flex-col flex-1 pt-[74px]">
 			<Hero />
 			<WhatIsSection />
 			<AboutUsSection />
 			<FeaturedInventorySection featuredInventory={featuredInventory} />
+			<FAQSection />
 		</main>
 	);
 }
@@ -75,15 +77,25 @@ export default async function Home() {
 /* 
 ! TESTING
 
+// ! Should change ProductionForm h1 to Select Years, because the user is selecting the startYear and endYear
+! Should maybe make steps in FormStepper clickable. Have them take user to that page.
+! Think I should clear sessionStorage onSubmit
+	- Then can pass email to PostRequest with searchParams
+// ! When manually enter url to step 5 on request-import-form, can submit without filling out car info. Should prevent this.
+// * height: 100% on body is preventing min-height: 100vh from working on main, but I think height: 100% on body is required to get bottom of container to line up with bottom of page on desktop and top of address bar on mobile
+// ! For form pages, could maybe conditionally add styles.
+// 	- On pages that shouldn't exceed 100vh (makes, models, years, post-request), can set min-height: 100%
+! Should maybe use getStaticProps on step_1/page.tsx. https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props
+! FormReview has h1, h3, h4, but no h2. If you keep the page/component, fix this
 ! Don't forget about FAQ Section
 ! Need to replace Tokyo-Imports with G2 Auto Imports
 ? Should I make min-height of Home page Section 100vh?
 	- Not sure "What's Tokyo Imports?" Section looks good with height < 100vh
-! Need to figure out Desktop => Mobile layouts
-	- I've been adding space at the bottoms of pages so they don't overflow the viewport, but it looks bad on Desktop
-! Lighthouse says first CarCard Image loaded lazily on mobile. Need to add priority.
+// ! Need to figure out Desktop => Mobile layouts
+// 	- I've been adding space at the bottoms of pages so they don't overflow the viewport, but it looks bad on Desktop
+// ! Lighthouse says first CarCard Image loaded lazily on mobile. Need to add priority.
 ! Lighthouse saying CarCard Images not sized correctly on mobile
-! CarCard car title is an h3 element. When you use CarCards on /inventory page, there is only an h1 element, no h2s. Need to figure this out.
+// ! CarCard car title is an h3 element. When you use CarCards on /inventory page, there is only an h1 element, no h2s. Need to figure this out.
 ! Think you used the index for Make, Model, etc. options. Need to put real for values, ids, etc
 ! Look at passing data with searchParams for request-import-form
 ! Use useFormStatus to change UI to show user what's happening
@@ -97,7 +109,7 @@ export default async function Home() {
 // 	- Has to work for Featured Inventory Section and Inventory page
 // 	- Will need conditional logic
 ! Maybe see if you can add priority to Image conditionally if it's in the viewport / above the fold
-! Add priority to first CarCard Image on Inventory page
+// ! Add priority to first CarCard Image on Inventory page
 ? Should import all components to index.ts (Look into why)
 ? Don't know if Request Import button width should fill container at large sizes
 // ! Getting 500 internal server error on load of page 1 of request import form because you're using document.querySelector(".selector") before page has loaded in MakeModelSelector
