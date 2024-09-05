@@ -17,13 +17,13 @@ const PostContact = ({ userEmail }: PostContactProps) => {
 	// console.log("CONTACT INFO", contactInfo);
 
 	return (
-		<div className="form-container h-[calc(100%-20px)] flex flex-col max-w-screen-xl mx-auto">
+		<div className="form-container flex flex-col flex-1 max-w-screen-xl mx-auto">
 			<div className="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
 				<h1 className="text-center text-2xl font-display">
 					Your contact information has been received!
 				</h1>
 			</div>
-			<div className="flex flex-col pb-8 justify-between flex-1">
+			<div className="flex flex-col justify-between flex-1">
 				<p className="font-sans">
 					You will get an email confirmation at{" "}
 					<span className="font-bold">
