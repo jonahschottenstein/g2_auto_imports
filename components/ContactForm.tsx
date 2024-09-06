@@ -4,14 +4,18 @@ import {
 	ContactFormData,
 	ContactPageSchema,
 	FormFieldTypes,
+	FormFieldTypes2,
+	ImportFormData,
 	UserSchema,
+	UserSchema2,
 	ValidFieldNames,
+	ValidFieldNames2,
 } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import React, { useEffect, useRef } from "react";
 import { FieldError, UseFormRegister, useForm } from "react-hook-form";
-import FormField from "./FormField";
+import FormField, { FormField2 } from "./FormField";
 import {
 	useForm as useFormContext,
 	useFormUpdater,
@@ -223,6 +227,9 @@ const ContactForm = () => {
 	const router = useRouter();
 
 	const values = user.contactInfo;
+	console.log("u zer", user);
+	console.log("values", values);
+	console.log({ ...user.contactInfo });
 
 	const {
 		register,
@@ -450,6 +457,16 @@ export interface FormField2 {
 	inputId: string;
 	name: ValidFieldNames;
 	register: UseFormRegister<ContactFormData>;
+	error: FieldError | undefined;
+}
+
+export interface FormField3 {
+	key: string;
+	label?: string;
+	type: FormFieldTypes2;
+	inputId: string;
+	name: ValidFieldNames2;
+	register: UseFormRegister<ImportFormData>;
 	error: FieldError | undefined;
 }
 
@@ -749,5 +766,265 @@ export const ContactForm2 = ({
 				{buttonsGroupChildren}
 			</ButtonsGroup>
 		</form>
+	);
+};
+
+export const ContactForm3 = () => {
+	const user = useFormContext();
+	const updateUserData = useFormUpdater();
+	const formRef = useRef<HTMLFormElement>(null);
+	const router = useRouter();
+
+	const values = {
+		carMake: user.make?.name,
+		carModel: user.model?.name,
+		productionYears: `${user.productionYears?.startYear}-${user.productionYears?.endYear}`,
+		firstName: user.contactInfo?.firstName,
+		lastName: user.contactInfo?.lastName,
+		email: user.contactInfo?.email,
+		phone: user.contactInfo?.phone,
+		zipCode: user.contactInfo?.zipCode,
+		comments: user.contactInfo?.comments,
+	};
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		setError,
+	} = useForm<ImportFormData>({
+		resolver: zodResolver(UserSchema2),
+		values,
+	});
+
+	useEffect(() => {
+		const storedUserData = sessionStorage.getItem("userData");
+		const userData = storedUserData && JSON.parse(storedUserData);
+
+		if (!userData?.make?.name || userData?.make?.id === 0) {
+			console.log("NO MAKE");
+			router.push("/request-import-form/step_1");
+		} else if (!userData?.model?.name || userData?.model?.id === 0) {
+			console.log("NO MODEL");
+			router.push("/request-import-form/step_2");
+		} else if (
+			!userData?.productionYears?.startYear ||
+			!userData?.productionYears?.endYear
+		) {
+			console.log("NO YEAR(S)");
+			router.push("/request-import-form/step_3");
+		} else {
+			updateUserData(userData);
+		}
+	}, []);
+
+	const sendEmail = (form: HTMLFormElement) => {
+		if (!formRef.current) return;
+
+		emailjs
+			.sendForm("import_form_service", "import_form", form, {
+				publicKey: "mGa2zHLRjc8S7ytXl",
+			})
+			.then(
+				() => {
+					console.log("SUCCESS");
+				},
+				(error) => {
+					console.log("FAILED...", error.text);
+				}
+			);
+	};
+
+	const onSubmit = async (data: ImportFormData) => {
+		console.log("SUCCESS", data);
+
+		try {
+			const response = await axios.post("/api/form", data); // Make a POST request
+			const { errors = {} } = response.data; // Destructure the 'errors' property from the response data
+			console.log("ERRORS", errors);
+
+			// Define a mapping between server-side field names and their corresponding client-side names
+			const fieldErrorMapping: Record<string, ValidFieldNames2> = {
+				productionYears: "productionYears",
+				carMake: "carMake",
+				carModel: "carModel",
+				// contactInfo: "contactInfo",
+				firstName: "firstName",
+				lastName: "lastName",
+				email: "email",
+				phone: "phone",
+				zipCode: "zipCode",
+				comments: "comments",
+			};
+
+			// Find the first field with an error in the response data
+			const fieldWithError = Object.keys(fieldErrorMapping).find(
+				(field) => errors[field]
+			);
+
+			// If a field with an error is found, update the form error state using setError
+			if (fieldWithError) {
+				// Use the ValidFieldNames type to ensure the correct field names
+				setError(fieldErrorMapping[fieldWithError], {
+					type: "server",
+					message: errors[fieldWithError],
+				});
+			} else {
+				const data = {
+					contactInfo: {
+						firstName: (
+							document.getElementById("first-name") as HTMLInputElement
+						).value,
+						lastName: (document.getElementById("last-name") as HTMLInputElement)
+							.value,
+						email: (document.getElementById("email") as HTMLInputElement).value,
+						phone: (document.getElementById("phone") as HTMLInputElement).value,
+						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
+							.value,
+						comments: (
+							document.getElementById("comments") as HTMLTextAreaElement
+						).value,
+					},
+				};
+				const storedUserData = sessionStorage.getItem("userData");
+				const userData = storedUserData && JSON.parse(storedUserData);
+				const newUserData = {
+					...userData,
+					...data,
+				};
+
+				sessionStorage.setItem("userData", JSON.stringify({ ...newUserData }));
+
+				updateUserData(data);
+
+				/* const formStepper = document.querySelector("div.form-stepper");
+				const stepFourItem = document.querySelector("li.form-stepper-item-4");
+
+				stepFourItem?.classList.add("success");
+				formStepper?.classList.add("completed"); */
+
+				router.push("/request-import-form/post-request");
+
+				sendEmail(formRef.current as HTMLFormElement);
+			}
+		} catch (error) {
+			console.log("ERROR", error);
+			alert("Submitting form failed!");
+		}
+	};
+
+	const formFieldsData: FormField3[] = [
+		{
+			key: "production-years",
+			type: "hidden",
+			inputId: "production-years",
+			name: "productionYears",
+			register: register,
+			error: errors.productionYears,
+		},
+		{
+			key: "car-make",
+			type: "hidden",
+			inputId: "car-make",
+			name: "carMake",
+			register: register,
+			error: errors.firstName,
+		},
+		{
+			key: "car-model",
+			type: "hidden",
+			inputId: "car-model",
+			name: "carModel",
+			register: register,
+			error: errors.firstName,
+		},
+		{
+			key: "first-name",
+			label: "First Name",
+			type: "text",
+			inputId: "first-name",
+			name: "firstName",
+			register: register,
+			error: errors.firstName,
+		},
+		{
+			key: "last-name",
+			label: "Last Name",
+			type: "text",
+			inputId: "last-name",
+			name: "lastName",
+			register: register,
+			error: errors.lastName,
+		},
+		{
+			key: "email",
+			label: "Email",
+			type: "email",
+			inputId: "email",
+			name: "email",
+			register: register,
+			error: errors.email,
+		},
+		{
+			key: "phone",
+			label: "Phone",
+			type: "tel",
+			inputId: "phone",
+			name: "phone",
+			register: register,
+			error: errors.phone,
+		},
+		{
+			key: "zip-code",
+			label: "Zip Code",
+			type: "text",
+			inputId: "zip-code",
+			name: "zipCode",
+			register: register,
+			error: errors.zipCode,
+		},
+		{
+			key: "comments",
+			label: "Comments",
+			type: "textarea",
+			inputId: "comments",
+			name: "comments",
+			register: register,
+			error: errors.comments,
+		},
+	];
+
+	return (
+		<FormContainer h1="Contact Details">
+			<form
+				ref={formRef}
+				onSubmit={handleSubmit(onSubmit)}
+				className="request-import-form contact-form flex flex-col h-[calc(100%-64px)] font-sans">
+				<FormFieldsContainer>
+					{formFieldsData.map((formFieldData: FormField3) => {
+						return (
+							<FormField2
+								key={formFieldData.inputId}
+								label={formFieldData?.label}
+								type={formFieldData.type}
+								inputId={formFieldData.inputId}
+								name={formFieldData.name}
+								register={formFieldData.register}
+								error={formFieldData.error}
+								areCommentsRequired={false}
+							/>
+						);
+					})}
+				</FormFieldsContainer>
+				<div className="py-4">
+					<CustomButton
+						type="submit"
+						styles="w-full justify-center py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+						ariaLabel="Submit">
+						Submit
+					</CustomButton>
+				</div>
+			</form>
+		</FormContainer>
 	);
 };
