@@ -32,6 +32,10 @@ const siteLinks = [
 		href: "/inventory",
 	},
 	{
+		title: "FAQ",
+		href: "/faq",
+	},
+	{
 		title: "Contact",
 		href: "/contact/form",
 	},
