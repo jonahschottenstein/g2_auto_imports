@@ -13,6 +13,11 @@ interface FAQItemProps {
 interface FAQContainerProps {
 	children: React.ReactNode[];
 }
+
+interface FAQContentProps {
+	faqData: FAQItemProps[];
+	faqCategory?: string;
+}
 // Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.
 const faqData = [
 	{
@@ -68,9 +73,12 @@ const FAQContainer = ({ children }: FAQContainerProps) => {
 	return <ul className="faq-container">{children}</ul>;
 };
 
-const FAQContent = () => {
+export const FAQContent = ({ faqData, faqCategory }: FAQContentProps) => {
 	return (
-		<div className="max-w-2xl mx-auto">
+		<div className="faq-content max-w-2xl mx-auto">
+			{faqCategory && (
+				<h2 className="text-2xl font-bold font-sans">{faqCategory}</h2>
+			)}
 			<FAQContainer>
 				{faqData.map(({ question, answer }) => (
 					<FAQItem question={question} answer={answer} />
@@ -91,7 +99,7 @@ const FAQContent = () => {
 const FAQSection = () => {
 	return (
 		<Section h2="Frequently Asked Questions">
-			<FAQContent />
+			<FAQContent faqData={faqData} />
 		</Section>
 	);
 };
