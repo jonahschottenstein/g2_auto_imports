@@ -110,10 +110,12 @@ interface FormStepperItemProps {
 	// ? Should I be more specific and do "Make" | "Model" etc. ?
 }
 
-type StepName = "Make" | "Model" | "Year(s)" | "Contact" | "Review";
+// type StepName = "Make" | "Model" | "Year(s)" | "Contact" | "Review";
+type StepName = "Make" | "Model" | "Years" | "Contact";
 
 interface FormStepperProps2 {
-	steps: [StepName, StepName, StepName, StepName, StepName];
+	// steps: [StepName, StepName, StepName, StepName, StepName];
+	steps: [StepName, StepName, StepName, StepName];
 }
 
 const StepDisplay = ({ stepNumber }: StepDisplayProps) => {
@@ -209,7 +211,8 @@ const FormStepper = ({ steps }: FormStepperProps2) => {
 	useEffect(() => {
 		if (pathName) {
 			const stepValue = Number(pathName.slice(-1));
-			if ([1, 2, 3, 4, 5].includes(stepValue)) {
+			// if ([1, 2, 3, 4, 5].includes(stepValue)) {
+			if ([1, 2, 3, 4].includes(stepValue)) {
 				const step: Step = stepValue as Step;
 				updateStep(step);
 			} else {
