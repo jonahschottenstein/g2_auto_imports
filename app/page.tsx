@@ -78,6 +78,12 @@ export default async function Home() {
 ! TESTING
 
 ! NEED TO ACT ON REQUEST FORM. KEEP OR DON'T KEEP REVIEWFORM?
+	? Don't know if adding Edit button/link inside each FormReviewSectionRow is a good idea
+		- If user doesn't end up wanting to edit anything doesn't use the browser's back button
+		- Say user thinks about editing Make, so they click the Make row's Edit link
+		- Then, once back on step_1, they decide they don't want to edit it
+		- If they don't think to use the browser back button, they'll have to click through the whole form again
+	? Maybe best to make ContactPage (step_4) the last page
 
 // ! Should change ProductionForm h1 to Select Years, because the user is selecting the startYear and endYear
 ! Should maybe make steps in FormStepper clickable. Have them take user to that page.
