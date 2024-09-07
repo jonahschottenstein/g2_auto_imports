@@ -146,7 +146,32 @@ export interface ContactFormData {
 	comments?: string;
 }
 
+export interface ImportFormData {
+	carMake: string | undefined;
+	carModel: string | undefined;
+	productionYears: string | undefined;
+	firstName: string | undefined;
+	lastName: string | undefined;
+	email: string | undefined;
+	phone: string | undefined;
+	zipCode: string | undefined;
+	comments?: string | undefined;
+	// contactInfo: ContactFormData | undefined;
+}
+
 export type ValidFieldNames =
+	| "firstName"
+	| "lastName"
+	| "email"
+	| "phone"
+	| "zipCode"
+	| "comments";
+
+export type ValidFieldNames2 =
+	| "productionYears"
+	| "carMake"
+	| "carModel"
+	// | "contactInfo";
 	| "firstName"
 	| "lastName"
 	| "email"
@@ -156,6 +181,8 @@ export type ValidFieldNames =
 
 export type FormFieldTypes = "text" | "email" | "tel" | "textarea";
 
+export type FormFieldTypes2 = "text" | "email" | "tel" | "textarea" | "hidden";
+
 export interface FormFieldProps {
 	label: string;
 	type: FormFieldTypes;
@@ -164,6 +191,18 @@ export interface FormFieldProps {
 	register:
 		| UseFormRegister<ContactFormData>
 		| UseFormRegister<StandAloneContactFormData>;
+	error: FieldError | undefined;
+	valueAsNumber?: boolean;
+	rule?: string;
+	areCommentsRequired?: boolean;
+}
+
+export interface FormFieldProps2 {
+	label?: string;
+	type: FormFieldTypes2;
+	inputId: string;
+	name: ValidFieldNames2;
+	register: UseFormRegister<ImportFormData>;
 	error: FieldError | undefined;
 	valueAsNumber?: boolean;
 	rule?: string;
@@ -192,6 +231,58 @@ export interface StandAloneFormFieldProps {
 }
 
 export const UserSchema: ZodType<ContactFormData> = z.object({
+	firstName: z
+		.string({
+			required_error: "required field",
+			// TODO: Figure out if you want to include required_error. https://github.com/colinhacks/zod/issues/3114 says error message will only appear if the value is undefined, not an empty string.
+		})
+		.trim()
+		.min(1, { message: "Enter first name" })
+		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/, {
+			message:
+				"Please enter a valid first name. It should only contain letters.",
+			// TODO: Determine if you want to make it only contain letters.
+		}),
+	lastName: z
+		.string()
+		.trim()
+		.min(1, { message: "Enter last name" })
+		.regex(/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,40}$/, {
+			message:
+				"Please enter a valid last name. It should only contain letters.",
+			// TODO: Determine if you want to make it only contain letters.
+		}),
+	email: z.string().trim().email({
+		message:
+			"Please enter a valid email address in the format: example@domain.com.",
+	}),
+	phone: z
+		.string()
+		.trim()
+		.regex(/^(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/, {
+			message:
+				"Please enter a valid phone number, including area code. Only numbers, dashes, and parentheses are allowed.",
+			// TODO: Figure out if you want to allow spaces. Currently, spaces are allowed.
+		}),
+	zipCode: z
+		.string()
+		.trim()
+		.regex(/^[0-9]{5}$/, { message: "Please enter a valid 5-digit zip code." }),
+	comments: z.string().trim().max(500).optional(),
+});
+
+export const UserSchema2: ZodType<ImportFormData> = z.object({
+	carMake: z.string().min(1, { message: "Please enter a valid vehicle make." }),
+	carModel: z
+		.string()
+		.min(1, { message: "Please enter a valid vehicle model." }),
+	productionYears: z
+		.string()
+		.length(9)
+		.regex(/^\d{4}-\d{4}$/, {
+			message: "Please enter the years in the correct format.",
+		}),
+	// contactInfo: UserSchema,
 	firstName: z
 		.string({
 			required_error: "required field",
@@ -287,5 +378,6 @@ export interface FormReviewSectionProps {
 
 export interface FormReviewSectionRowProps {
 	children: React.ReactNode[];
+	href: string;
 }
 /* Form */
