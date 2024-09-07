@@ -12,7 +12,7 @@ import { FormReviewSectionProps, FormReviewSectionRowProps } from "@/types";
 
 // !Current component layout won't work. You have one Edit Button for all of Make, Model, Years. You would need an Edit Button for each of them
 
-const FormReviewSection = ({
+/* const FormReviewSection = ({
 	title,
 	children,
 	href,
@@ -26,12 +26,47 @@ const FormReviewSection = ({
 			<div className="content">{children}</div>
 		</div>
 	);
+}; */
+const FormReviewSection = ({
+	title,
+	children,
+	href,
+}: FormReviewSectionProps) => {
+	return (
+		<div className="form-review-section flex-1 font-sans">
+			<div className="title-row flex w-full justify-between gap-4">
+				<h3 className="font-bold text-sm text-[#6f6f6f]">{title}</h3>
+			</div>
+			<div className="content">{children}</div>
+		</div>
+	);
 };
 
-const FormReviewSectionRow = ({ children }: FormReviewSectionRowProps) => {
+/* const FormReviewSectionRow = ({ children }: FormReviewSectionRowProps) => {
 	return (
 		<div className="section-row flex flex-col w-full p-4 border-2 border-slate-50">
 			{children}
+		</div>
+	);
+}; */
+const FormReviewSectionRow = ({
+	children,
+	href,
+}: FormReviewSectionRowProps) => {
+	const router = useRouter();
+	return (
+		<div className="section-row flex flex-col w-full p-4 border-2 border-slate-50 relative">
+			{children}
+			{/* <button
+				className="edit-button absolute top-4 right-4 font-medium text-sm text-blue-600"
+				onClick={() => router.push(`${editHref}`)}>
+				Edit
+			</button> */}
+			<Link
+				href={href}
+				className="edit-link absolute top-4 right-4 font-medium text-sm text-blue-600">
+				Edit
+			</Link>
 		</div>
 	);
 };
@@ -141,7 +176,7 @@ const FormReview = () => {
 				className="request-import-form review-form flex flex-col h-[calc(100%-64px)]">
 				<div className="form-review-sections flex flex-col gap-4 flex-1">
 					<FormReviewSection title="Car Information" href="/">
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_3"}>
 							<h4 className="text-[#595959] text-sm">{`Year(s)`}</h4>
 							{/* <div className="font-bold">
 								{user.productionYears?.startYear ===
@@ -167,7 +202,7 @@ const FormReview = () => {
 								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_1"}>
 							<h4 className="text-[#595959] text-sm">Make</h4>
 							{/* <div className="font-bold">{user.make?.name}</div> */}
 							<input
@@ -179,7 +214,7 @@ const FormReview = () => {
 								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_2"}>
 							<h4 className="text-[#595959] text-sm">Model</h4>
 							{/* <div className="font-bold">{user.model?.name}</div> */}
 							<input
@@ -192,8 +227,10 @@ const FormReview = () => {
 							/>
 						</FormReviewSectionRow>
 					</FormReviewSection>
-					<FormReviewSection title="Contact Information" href="/">
-						<FormReviewSectionRow>
+					<FormReviewSection
+						title="Contact Information"
+						href="/request-import-form/step_4">
+						<FormReviewSectionRow href={"/request-import-form/step_4"}>
 							<h4 className="text-[#595959] text-sm">First Name</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.firstName}`}</div> */}
 							<input
@@ -205,7 +242,7 @@ const FormReview = () => {
 								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_4"}>
 							<h4 className="text-[#595959] text-sm">Last Name</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.lastName}`}</div> */}
 							<input
@@ -217,7 +254,7 @@ const FormReview = () => {
 								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_4"}>
 							<h4 className="text-[#595959] text-sm">Email</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.email}`}</div> */}
 							<input
@@ -229,7 +266,7 @@ const FormReview = () => {
 								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_4"}>
 							<h4 className="text-[#595959] text-sm">Phone</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.phone}`}</div> */}
 							<input
@@ -241,7 +278,7 @@ const FormReview = () => {
 								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_4"}>
 							<h4 className="text-[#595959] text-sm">Zip Code</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.zipCode}`}</div> */}
 							<input
@@ -253,7 +290,7 @@ const FormReview = () => {
 								className="bg-transparent pointer-events-none font-bold text-base"
 							/>
 						</FormReviewSectionRow>
-						<FormReviewSectionRow>
+						<FormReviewSectionRow href={"/request-import-form/step_4"}>
 							<h4 className="text-[#595959] text-sm">Comments</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.comments}`}</div> */}
 							<textarea
