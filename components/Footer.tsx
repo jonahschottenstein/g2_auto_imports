@@ -78,9 +78,10 @@ const FooterRow = ({ listItems }: FooterRowProps) => {
 			<ul className="flex gap-4">
 				{listItems.map((listItem, index) => {
 					return (
-						<li className="flex justify-center items-center text-center">
+						<li
+							key={listItem.title}
+							className="flex justify-center items-center text-center">
 							<Link
-								key={index}
 								href={listItem.href}
 								className="text-white text-sm flex justify-center items-center mx-2 hover:underline"
 								aria-label={`${listItem.title}`}
