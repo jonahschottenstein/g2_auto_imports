@@ -40,12 +40,13 @@ const NavBar = () => {
 	];
 
 	return (
-		<header className="border-b-2 border-gray-100 fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 z-20 px-4 md:px-6 lg:px-8">
+		<header className="border-b-2 border-gray-100 fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-1 h-12 z-20 px-4 md:px-6 lg:px-8">
 			<nav className="w-full mx-auto flex items-center justify-between max-w-screen-xl">
 				{/* Logo */}
 				<Link href={"/"} aria-label="Home page">
 					<svg
-						className="w-10 h-auto"
+						// className="w-10 h-auto"
+						className="w-8 h-auto"
 						width="100"
 						height="100"
 						viewBox="0 0 100 100"
@@ -63,8 +64,8 @@ const NavBar = () => {
 				<div className="relative flex md:hidden">
 					<HamburgerMenuButton onClick={toggleMenu} />
 					{isMenuOpen && (
-						<div className="fixed inset-0 bg-white z-50 flex flex-col items-start justify-start pt-[74px]">
-							<div className="open-menu-navbar h-[74px] absolute top-0 left-0 right-0 flex justify-between p-4">
+						<div className="fixed inset-0 bg-white z-50 flex flex-col items-start justify-start pt-header">
+							<div className="open-menu-navbar h-[var(--header-height)] absolute top-0 left-0 right-0 flex justify-between p-4">
 								<div className="font-sans text-black text-xl font-bold flex justify-center items-center">
 									Menu
 								</div>
