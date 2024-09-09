@@ -35,7 +35,7 @@ import CardGrid from "@/components/CardGrid";
 const Page = () => {
 	return (
 		<main className="flex-1 pt-header">
-			<div className="inventory-page w-full px-4 md:px-6 lg:px-8 py-12 h-full min-h-[calc(100vh_-_74px)]">
+			<div className="inventory-page w-full px-4 md:px-6 lg:px-8 py-12 h-full min-h-section">
 				<div className="mb-6 sm:mb-10 max-w-2xl mx-auto text-center">
 					<h1 className="font-medium font-display text-black text-2xl uppercase sm:text-4xl">
 						Inventory

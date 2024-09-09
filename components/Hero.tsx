@@ -5,6 +5,7 @@ import heroBackgroundDesktop from "../public/images/hero/hero_desktop.jpeg";
 import heroBackgroundSpaceGear from "../public/images/hero/hero_background_space_gear.jpg";
 import heroSpaceGearMobile from "../public/images/hero/hero_space_gear_mobile.jpg";
 import heroImageBoth from "../public/images/hero/hero_image_both.jpg";
+import heroBG from "../public/images/hero/hero_bg_2.jpg";
 
 const HeroContent = () => {
 	return (
@@ -36,11 +37,18 @@ const HeroContent = () => {
 
 const Hero = () => {
 	return (
-		<section className="relative w-full h-[calc(100vh-74px)] px-4 md:px-6 lg:px-8">
+		<section className="relative w-full h-[var(--section-height)] px-4 md:px-6 lg:px-8">
 			<div className="absolute inset-0">
-				{/* <div className="hero-image-wrapper relative w-full h-full"> */}
-				<div
-					className={`hero-image-wrapper relative w-full h-full bg-[url('../public/images/hero/hero_space_gear_mobile.jpg')] sm:bg-[url('../public/images/hero/hero_background_space_gear.jpg')] bg-no-repeat bg-cover bg-[50%_50%] sm:bg-[50%_70%]`}>
+				<div className="hero-image-wrapper relative w-full h-full">
+					{/* <div
+					className={`hero-image-wrapper relative w-full h-full bg-[url('../public/images/hero/hero_space_gear_mobile.jpg')] sm:bg-[url('../public/images/hero/hero_background_space_gear.jpg')] bg-no-repeat bg-cover bg-[50%_50%] sm:bg-[50%_70%]`}> */}
+					<Image
+						src={heroBG}
+						alt="JDM Car"
+						className="w-full h-full object-cover pointer-events-none select-none"
+						fill
+						priority
+					/>
 					{/* <Image
 						src={heroBackgroundDesktop}
 						alt="JDM Car"
