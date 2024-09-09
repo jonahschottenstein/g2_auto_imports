@@ -18,6 +18,9 @@ const config: Config = {
 				display: ["var(--font-oswald)"],
 				sans: ["var(--font-roboto-flex)"],
 			},
+			padding: {
+				"header": "var(--header-height)",
+			},
 		},
 	},
 	corePlugins: {
