@@ -800,6 +800,7 @@ export const ContactForm3 = () => {
 	useEffect(() => {
 		const storedUserData = sessionStorage.getItem("userData");
 		const userData = storedUserData && JSON.parse(storedUserData);
+
 		if (!userData) {
 			console.log("NO USER DATA");
 			router.push("/");
@@ -905,9 +906,14 @@ export const ContactForm3 = () => {
 				stepFourItem?.classList.add("success");
 				formStepper?.classList.add("completed"); */
 
-				router.push("/request-import-form/post-request");
+				// router.push("/request-import-form/post-request");
+				router.push(
+					`/request-import-form/post-request?email=${data.contactInfo.email}`
+				);
 
 				sendEmail(formRef.current as HTMLFormElement);
+
+				sessionStorage.clear();
 			}
 		} catch (error) {
 			console.log("ERROR", error);
