@@ -365,8 +365,8 @@ export const ContactPageSchema: ZodType<ContactFormData> = z.object({
 		.string()
 		.trim()
 		.max(500)
-		.regex(/^(?!\s*$).{10,}$/, {
-			message: "Please enter at least 10 characters.",
+		.regex(/^(?!\s*$).{1,}$/, {
+			message: "Please enter your comments.",
 		}),
 });
 
