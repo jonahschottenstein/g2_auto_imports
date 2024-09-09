@@ -21,6 +21,9 @@ const config: Config = {
 			padding: {
 				"header": "var(--header-height)",
 			},
+			minHeight: {
+				"section": "var(--section-height)",
+			},
 		},
 	},
 	corePlugins: {
