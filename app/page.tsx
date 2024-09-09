@@ -11,7 +11,7 @@ export default async function Home() {
 	return (
 		// * You changed pt to 32px because its child has pt of 40px (at large screen size)
 		// pt is 74px now because added 2px border bottom to header
-		<main className="flex flex-col flex-1 pt-[74px]">
+		<main className="flex flex-col flex-1 pt-header">
 			<Hero />
 			<WhatIsSection />
 			<AboutUsSection />
@@ -77,6 +77,9 @@ export default async function Home() {
 /* 
 ! TESTING
 
+! Need to disable scrolling when hamburger menu open on desktop
+	- Think you did this when ImageCarousel/ImageGallery was open
+! When two forms are submitted in quick succession, the user doesn't receive an email for the second one
 ? Don't know if it's bad UX that clicking the Request Import button on CarPage takes user to /step_4 of form without indicating/displaying that the selections from the first three steps. This would make the summary box useful.
 ! Need to better style FAQSection and faq page
 ! Need to figure out undesired form page navigation

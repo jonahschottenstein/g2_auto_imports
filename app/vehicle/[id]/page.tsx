@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 	);
 
 	return (
-		<main className="flex-1 pt-[72px]">
+		<main className="flex-1 pt-header">
 			<FormProvider>
 				<CarPage vehicleDetails={vehicleDetails} images={imageFileNames} />
 			</FormProvider>

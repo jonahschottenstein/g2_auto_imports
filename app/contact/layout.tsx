@@ -9,7 +9,7 @@ const Layout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<main className={`pt-[72px] flex flex-col min-h-svh`}>{children}</main>
+		<main className={`pt-header flex flex-col min-h-svh`}>{children}</main>
 	);
 };
 // ? Not sure I need to use FormProvider
