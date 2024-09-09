@@ -81,7 +81,7 @@ export const FAQContent = ({ faqData, faqCategory }: FAQContentProps) => {
 			)}
 			<FAQContainer>
 				{faqData.map(({ question, answer }) => (
-					<FAQItem question={question} answer={answer} />
+					<FAQItem key={question} question={question} answer={answer} />
 				))}
 				<div className="mt-10 lg:mt-20 text-center">
 					<Link
