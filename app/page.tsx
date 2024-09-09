@@ -77,24 +77,28 @@ export default async function Home() {
 /* 
 ! TESTING
 
-! NEED TO ACT ON REQUEST FORM. KEEP OR DON'T KEEP REVIEWFORM?
-	? Don't know if adding Edit button/link inside each FormReviewSectionRow is a good idea
-		- If user doesn't end up wanting to edit anything doesn't use the browser's back button
-		- Say user thinks about editing Make, so they click the Make row's Edit link
-		- Then, once back on step_1, they decide they don't want to edit it
-		- If they don't think to use the browser back button, they'll have to click through the whole form again
-	? Maybe best to make ContactPage (step_4) the last page
+? Don't know if it's bad UX that clicking the Request Import button on CarPage takes user to /step_4 of form without indicating/displaying that the selections from the first three steps. This would make the summary box useful.
+! Need to better style FAQSection and faq page
+! Need to figure out undesired form page navigation
+// ! NEED TO ACT ON REQUEST FORM. KEEP OR DON'T KEEP REVIEWFORM?
+// 	? Don't know if adding Edit button/link inside each FormReviewSectionRow is a good idea
+// 		- If user doesn't end up wanting to edit anything doesn't use the browser's back button
+// 		- Say user thinks about editing Make, so they click the Make row's Edit link
+// 		- Then, once back on step_1, they decide they don't want to edit it
+// 		- If they don't think to use the browser back button, they'll have to click through the whole form again
+// 	? Maybe best to make ContactPage (step_4) the last page
 
 // ! Should change ProductionForm h1 to Select Years, because the user is selecting the startYear and endYear
 ! Should maybe make steps in FormStepper clickable. Have them take user to that page.
-! Think I should clear sessionStorage onSubmit
-	- Then can pass email to PostRequest with searchParams
+// ! Think I should clear sessionStorage onSubmit
+// 	- Then can pass email to PostRequest with searchParams
 // ! When manually enter url to step 5 on request-import-form, can submit without filling out car info. Should prevent this.
 // * height: 100% on body is preventing min-height: 100vh from working on main, but I think height: 100% on body is required to get bottom of container to line up with bottom of page on desktop and top of address bar on mobile
 // ! For form pages, could maybe conditionally add styles.
 // 	- On pages that shouldn't exceed 100vh (makes, models, years, post-request), can set min-height: 100%
 ! Should maybe use getStaticProps on step_1/page.tsx. https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props
-! FormReview has h1, h3, h4, but no h2. If you keep the page/component, fix this
+// ! FormReview has h1, h3, h4, but no h2. If you keep the page/component, fix this
+// 	- Not using FormReview, so doesn't matter
 ! Don't forget about FAQ Section
 ! Need to replace Tokyo-Imports with G2 Auto Imports
 ? Should I make min-height of Home page Section 100vh?
@@ -107,11 +111,11 @@ export default async function Home() {
 ! Think you used the index for Make, Model, etc. options. Need to put real for values, ids, etc
 ! Look at passing data with searchParams for request-import-form
 ! Use useFormStatus to change UI to show user what's happening
-! Maybe pass user email to PostContact using params
+// ! Maybe pass user email to PostContact using params
 ? Is it an issue that you're using UserSchema for StandAloneContactForm in the POST function?
 // ! Need to adjust alignment on PostContact page 
 	- (and maybe PostRequest)
-! Make StandAloneContactForm comments section minimum character requirement 1 character
+// ! Make StandAloneContactForm comments section minimum character requirement 1 character
 // ! Properly size CarPage images
 // ! Figure out sizes prop for CarCard image
 // 	- Has to work for Featured Inventory Section and Inventory page
