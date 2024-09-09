@@ -800,8 +800,10 @@ export const ContactForm3 = () => {
 	useEffect(() => {
 		const storedUserData = sessionStorage.getItem("userData");
 		const userData = storedUserData && JSON.parse(storedUserData);
-
-		if (!userData?.make?.name || userData?.make?.id === 0) {
+		if (!userData) {
+			console.log("NO USER DATA");
+			router.push("/");
+		} else if (!userData?.make?.name || userData?.make?.id === 0) {
 			console.log("NO MAKE");
 			router.push("/request-import-form/step_1");
 		} else if (!userData?.model?.name || userData?.model?.id === 0) {
