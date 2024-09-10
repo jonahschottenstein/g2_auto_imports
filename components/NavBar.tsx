@@ -16,6 +16,22 @@ const NavBar = () => {
 	// Function to close the hamburger menu when a link is clicked
 	const closeMenu = () => setIsMenuOpen(false);
 
+	const unlockScroll = () => {
+		const body = document.querySelector("body");
+
+		if (!body) return;
+
+		body.style.overflow = "visible";
+	};
+
+	const lockScroll = () => {
+		const body = document.querySelector("body");
+
+		if (!body) return;
+
+		body.style.overflow = "hidden";
+	};
+
 	const handleResize = () => {
 		if (window.innerWidth >= 768) {
 			setIsMenuOpen(false);
@@ -26,6 +42,10 @@ const NavBar = () => {
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
+
+	useEffect(() => {
+		return isMenuOpen ? lockScroll() : unlockScroll();
+	}, [isMenuOpen]);
 
 	useEffect(() => {
 		closeMenu();
