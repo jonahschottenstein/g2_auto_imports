@@ -66,7 +66,7 @@ const CarCard = ({
 							</li>
 						))}
 					</ul>
-					<p className="car-price text-md font-semibold text-black font-sans">
+					<p className="car-price text-md font-semibold text-black font-sans mt-1">
 						{price}
 					</p>
 				</div>
