@@ -73,6 +73,13 @@ const MakeModelSelector = ({
 			{sortedOptions.map((option) => {
 				const itemProps =
 					stateValue === option.name ? { ref: selectedMakeRef } : {};
+				const inputId = `${option.name.replace(" ", "-")}-${option.id}`;
+				const dataAttribute =
+					category === "make"
+						? { "data-make-id": option.id }
+						: category === "model"
+						? { "data-model-id": option.id }
+						: {};
 
 				return (
 					<div
@@ -82,17 +89,20 @@ const MakeModelSelector = ({
 						{...itemProps}>
 						<label
 							// htmlFor={`${category}-${option.id}`}
-							htmlFor={`${option.id}`}
+							// htmlFor={`${option.id}`}
+							htmlFor={`${inputId}`}
 							className="block relative w-full h-full p-2 has-[:checked]:bg-blue-600 has-[:checked]:text-white cursor-pointer">
 							<input
 								type="radio"
 								// id={`${category}-${option.id}`}
-								id={`${option.id}`}
+								// id={`${option.id}`}
+								id={`${inputId}`}
 								name={category}
 								value={option.name}
 								checked={stateValue === option.name}
 								onChange={handleChange}
 								className={`${category}-option absolute h-0 w-0 top-0 left-0 opacity-0`}
+								{...dataAttribute}
 							/>
 							{option.name}
 						</label>
