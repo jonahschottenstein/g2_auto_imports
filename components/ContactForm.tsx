@@ -1024,10 +1024,12 @@ export const ContactForm3 = () => {
 						);
 					})}
 				</FormFieldsContainer>
-				<div className="py-4">
+				{/* <div className="form-nav-container flex justify-around py-4"> */}
+				<div className="form-nav-container w-full flex justify-around py-4">
+					<BackLink href="/request-import-form/step_3" isDisabled={false} />
 					<CustomButton
 						type="submit"
-						styles="w-full justify-center py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+						styles=" justify-center py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
 						ariaLabel="Submit">
 						Submit
 					</CustomButton>
