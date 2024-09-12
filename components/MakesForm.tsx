@@ -25,7 +25,7 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 		// ? Not sure I should use className here
 
 		const data = {
-			make: { id: Number(target.id), name: target.value },
+			make: { id: Number(target.dataset.makeId), name: target.value },
 			model: {
 				id: 0,
 				name: "",
@@ -40,7 +40,9 @@ const MakesForm = ({ makes }: MakesFormProps) => {
 
 		sessionStorage.setItem(
 			"userData",
-			JSON.stringify({ make: { id: Number(target.id), name: target.value } })
+			JSON.stringify({
+				make: { id: Number(target.dataset.makeId), name: target.value },
+			})
 		);
 
 		updateUserData(data);
