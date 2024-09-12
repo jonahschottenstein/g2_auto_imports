@@ -66,7 +66,7 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 		const data = hasSelectedProductionYears
 			? {
 					model: {
-						id: Number(target.id),
+						id: Number(target.dataset.modelId),
 						name: target.value,
 						makeId: Number(user.make?.id),
 					},
@@ -77,7 +77,7 @@ const ModelsForm = ({ models }: ModelsFormProps) => {
 			  }
 			: {
 					model: {
-						id: Number(target.id),
+						id: Number(target.dataset.modelId),
 						name: target.value,
 						makeId: Number(user.make?.id),
 					},
