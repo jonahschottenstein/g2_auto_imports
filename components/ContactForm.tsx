@@ -1025,7 +1025,7 @@ export const ContactForm3 = () => {
 					})}
 				</FormFieldsContainer>
 				{/* <div className="form-nav-container flex justify-around py-4"> */}
-				<div className="form-nav-container w-full flex justify-around py-4">
+				<div className="form-nav-container w-full flex justify-around p-4">
 					<BackLink href="/request-import-form/step_3" isDisabled={false} />
 					<CustomButton
 						type="submit"
