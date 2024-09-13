@@ -29,7 +29,7 @@ const CarCard = ({
 	return (
 		<div className="car-card flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
 			<div
-				className="car-card-image-wrapper relative w-full"
+				className="car-card-image-wrapper relative w-full group overflow-hidden"
 				style={{
 					aspectRatio: 16 / 9,
 				}}>
@@ -39,7 +39,7 @@ const CarCard = ({
 					style={{
 						objectPosition: "50% 63%",
 					}}
-					className="car-image object-cover pointer-events-none"
+					className="car-image object-cover pointer-events-none group-hover:scale-105 transition-transform duration-500"
 					fill
 					sizes={getImageSizes}
 					priority={index === 0 ? true : false}
