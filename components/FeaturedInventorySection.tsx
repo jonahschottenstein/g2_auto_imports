@@ -30,7 +30,7 @@ const FeaturedInventorySection = ({
 					}
 				)}
 			</CardGrid>
-			<div className="mt-10 lg:mt-20 text-center">
+			<div className="mt-12 lg:mt-24 text-center">
 				{/* <Link
 					href="/inventory"
 					className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:text-blue-700">
