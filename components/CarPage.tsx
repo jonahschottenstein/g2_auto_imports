@@ -545,7 +545,7 @@ interface CarTableProps {
 
 const CarTable = ({ vehicleDetails, displayKeys }: CarTableProps) => {
 	return (
-		<table className="car-table flex-1 mt-4">
+		<table className="car-table flex-1 mt-4 w-full">
 			<tbody>
 				{Object.entries(vehicleDetails).map(([key, value]) => {
 					if (displayKeys.includes(key)) {
@@ -654,14 +654,25 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 						onClose={closeModal}
 					/>
 				)}
-				<CustomButton
-					styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans mt-4"
-					ariaLabel="Request import"
-					handleClick={handleClick}>
-					Request Import
-				</CustomButton>
+				<div className="grid gap-1 grid-rows-1 md:grid-cols-[repeat(6,_minMax(10rem,_1fr))]">
+					<div className="block relative md:col-span-4 object-cover w-full h-full cursor-pointer">
+						<CustomButton
+							styles="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-sans mt-4 w-full"
+							ariaLabel="Request import"
+							handleClick={handleClick}>
+							Request Import
+						</CustomButton>
+					</div>
+				</div>
 				{vehicleDetails && (
-					<CarTable vehicleDetails={vehicleDetails} displayKeys={displayKeys} />
+					<div className="grid gap-1 grid-rows-1 md:grid-cols-[repeat(6,_minMax(10rem,_1fr))]">
+						<div className="block relative md:col-span-4 object-cover w-full h-full cursor-pointer">
+							<CarTable
+								vehicleDetails={vehicleDetails}
+								displayKeys={displayKeys}
+							/>
+						</div>
+					</div>
 				)}
 				<div className="vehicle-description-container max-w-2xl mt-4">
 					<h2 className="text-xl font-display uppercase my-2">Description</h2>
