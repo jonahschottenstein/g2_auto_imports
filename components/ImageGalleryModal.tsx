@@ -20,7 +20,7 @@ const ImageGalleryModal = ({
 	onClose,
 }: ImageGalleryModalProps) => {
 	return (
-		<div className="fixed inset-0 bg-black flex justify-center items-center pt-header">
+		<div className="fixed inset-0 bg-black flex justify-center items-center pt-header z-30">
 			<div className="relative bg-black p-4 md:px-20 w-full h-full overflow-scroll">
 				<XButton
 					onClose={onClose}
