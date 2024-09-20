@@ -8,6 +8,7 @@
 	--background-end-rgb: 255, 255, 255;
 	--header-height: 3rem;
 	--section-height: calc(100vh - (var(--header-height)));
+	--global-px: clamp(1rem, 6vw, 8rem);
 }
 
 /* @media (prefers-color-scheme: dark) {
