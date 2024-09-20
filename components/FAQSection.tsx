@@ -45,10 +45,10 @@ const faqData = [
 
 const FAQItem = ({ question, answer }: FAQItemProps) => {
 	return (
-		<li className="faq-item border-t-2 border-t-slate-100 first:border-t-0 py-4 font-sans">
+		<li className="faq-item border-t-2 border-t-slate-100 first:border-t-0 font-sans">
 			<details className="faq-item-details relative group">
 				<summary className="summary flex justify-between items-center list-none py-4 cursor-pointer">
-					<h3 className="text-xl font-semibold select-none">{question}</h3>
+					<h3 className="text-lg font-medium select-none">{question}</h3>
 					{/* 
                     Warning: Because the <summary> element has a default role of button (which strips all roles from child elements), this example will not work for users of assistive technologies such as screen readers. The <h4> will have its role removed and thus will not be treated as a heading for these users.
 
@@ -77,7 +77,9 @@ export const FAQContent = ({ faqData, faqCategory }: FAQContentProps) => {
 	return (
 		<div className="faq-content max-w-2xl mx-auto">
 			{faqCategory && (
-				<h2 className="text-2xl font-bold font-sans">{faqCategory}</h2>
+				<h2 className="text-xl font-medium font-display uppercase">
+					{faqCategory}
+				</h2>
 			)}
 			<FAQContainer>
 				{faqData.map(({ question, answer }) => (
