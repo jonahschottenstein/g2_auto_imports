@@ -76,9 +76,34 @@ export default async function Home() {
 // TODO:
 /* 
 ! TESTING
+! Make sure site has SSL certificate
+! Configure Google Search Console
+	- Submit XML Site Map to Google
+! Set up Google Analytics
+! Configure SEO
+	- Look into Meta tags
+! Favicon
+! Compress Images and convert to webp
 
-! Need to disable scrolling when hamburger menu open on desktop
-	- Think you did this when ImageCarousel/ImageGallery was open
+! Think AboutSection copyElement param can just be title: string and copy: string
+! Add alt text to AboutSection Images
+! Add Image sizes to AboutSection Images
+? Considering using global variable (--global-px) to change Section px and everywhere else it's applied so new About Section more closely resembles Mercedes enthusiasts page (look at Tesla's about page too for another option)
+! Instead of using margin-top for Hero text, try using transition: translation
+! Think I like the Header black
+! I think the Hero should have an image of the car and the CTA button should take the user to that car's CarPage. And it should have a slide show so both cars can be seen
+? Cars and bids has a lot more detail on their CarPage. Should any of that be included on this one?
+! Maybe at large screen sizes make the table and Description side by side on CarPage
+? Should there be a way for user to share a vehicle?
+? Should it be FAQ or FAQs?
+// ! Do what you did for NavBar Links & HamburgerMenu for Hero Images (change display from hidden to block / block to hidden, depending on viewport width)
+// ! Think you should make margin-top of section button the same as the section padding-bottom
+// ! Make sure prices are correct
+? Space between CarCard features and price may be too much
+? Do you need Copyright (or anything else) in Footer?
+// ! REQUEST-IMPORT-FORM DOES NOT HAVE A BACK
+// ! Need to disable scrolling when hamburger menu open on desktop
+// 	- Think you did this when ImageCarousel/ImageGallery was open
 ! When two forms are submitted in quick succession, the user doesn't receive an email for the second one
 ? Don't know if it's bad UX that clicking the Request Import button on CarPage takes user to /step_4 of form without indicating/displaying that the selections from the first three steps. This would make the summary box useful.
 ! Need to better style FAQSection and faq page
@@ -111,7 +136,7 @@ export default async function Home() {
 // ! Lighthouse says first CarCard Image loaded lazily on mobile. Need to add priority.
 ! Lighthouse saying CarCard Images not sized correctly on mobile
 // ! CarCard car title is an h3 element. When you use CarCards on /inventory page, there is only an h1 element, no h2s. Need to figure this out.
-! Think you used the index for Make, Model, etc. options. Need to put real for values, ids, etc
+// ! Think you used the index for Make, Model, etc. options. Need to put real for values, ids, etc
 ! Look at passing data with searchParams for request-import-form
 ! Use useFormStatus to change UI to show user what's happening
 // ! Maybe pass user email to PostContact using params
@@ -126,7 +151,7 @@ export default async function Home() {
 ! Maybe see if you can add priority to Image conditionally if it's in the viewport / above the fold
 // ! Add priority to first CarCard Image on Inventory page
 ? Should import all components to index.ts (Look into why)
-? Don't know if Request Import button width should fill container at large sizes
+// ? Don't know if Request Import button width should fill container at large sizes
 // ! Getting 500 internal server error on load of page 1 of request import form because you're using document.querySelector(".selector") before page has loaded in MakeModelSelector
 ! Layout on Chrome/Safari is slightly different than on Firefox
 	- e.g., Request import form nav buttons 
