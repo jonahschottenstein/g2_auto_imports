@@ -666,7 +666,7 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 				</div>
 				{vehicleDetails && (
 					<div className="grid gap-1 grid-rows-1 md:grid-cols-[repeat(6,_minMax(10rem,_1fr))]">
-						<div className="block relative md:col-span-4 object-cover w-full h-full cursor-pointer">
+						<div className="block relative md:col-span-4 object-cover w-full h-full">
 							<CarTable
 								vehicleDetails={vehicleDetails}
 								displayKeys={displayKeys}
