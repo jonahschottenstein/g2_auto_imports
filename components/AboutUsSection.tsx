@@ -1,7 +1,134 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Section from "./Section";
+import Image, { StaticImageData } from "next/image";
+// import heroDesktop from "../public/images/hero/heroDesktop.webp";
+// import desktopImage from "../public/images/hero/hero_desktop.jpeg";
+import about1 from "../public/images/about/about1.jpg";
+// import about3 from "../public/images/hero/hero_image_both.jpg";
+import about3 from "../public/images/hero/hero_bg.jpg";
+import about4 from "../public/images/hero/hero_test_3_desktop.jpg";
+import about2 from "../public/images/about/about2.jpg";
 
-export const AboutUsContent = () => {
+interface AboutUsContentItemProps {
+	imageSrc: StaticImageData;
+	imageAlt: string;
+	copyElement: ReactNode;
+	index: number;
+}
+
+const AboutUsContentItem = ({
+	imageSrc,
+	imageAlt,
+	copyElement,
+	index,
+}: AboutUsContentItemProps) => {
+	const mdFlexDirection =
+		index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse";
+
+	return (
+		<div
+			className={`about-content-item flex flex-col ${mdFlexDirection} gap-8`}>
+			<div className="image-wrapper w-full md:w-1/2">
+				<Image src={imageSrc} alt={imageAlt} />
+			</div>
+			<div className="copy-wrapper flex justify-center items-center w-full md:w-1/2">
+				{copyElement}
+			</div>
+		</div>
+	);
+};
+
+const items = [
+	{
+		imageSrc: about1,
+		imageAlt: "about1",
+		copyElement: (
+			<div className="font-sans md:pl-[16%]">
+				<h3 className="font-bold mb-4">Title</h3>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
+					dicta officia minima officiis laborum dolorum est odit quam natus
+					quidem repudiandae pariatur, amet architecto dolores, illo provident
+					accusamus praesentium fuga.
+				</p>
+			</div>
+		),
+	},
+	{
+		imageSrc: about2,
+		imageAlt: "about2",
+		copyElement: (
+			<div className="font-sans md:pr-[16%]">
+				<h3 className="font-bold mb-4">Title</h3>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
+					dicta officia minima officiis laborum dolorum est odit quam natus
+					quidem repudiandae pariatur, amet architecto dolores, illo provident
+					accusamus praesentium fuga.
+				</p>
+			</div>
+		),
+	},
+	{
+		imageSrc: about3,
+		imageAlt: "about3",
+		copyElement: (
+			<div className="font-sans md:pr-[16%]">
+				<h3 className="font-bold mb-4">Title</h3>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
+					dicta officia minima officiis laborum dolorum est odit quam natus
+					quidem repudiandae pariatur, amet architecto dolores, illo provident
+					accusamus praesentium fuga.
+				</p>
+			</div>
+		),
+	},
+	{
+		imageSrc: about4,
+		imageAlt: "about4",
+		copyElement: (
+			<div className="font-sans md:pr-[16%]">
+				<h3 className="font-bold mb-4">Title</h3>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
+					dicta officia minima officiis laborum dolorum est odit quam natus
+					quidem repudiandae pariatur, amet architecto dolores, illo provident
+					accusamus praesentium fuga.
+				</p>
+			</div>
+		),
+	},
+];
+
+interface AboutContentItem {
+	imageSrc: StaticImageData;
+	imageAlt: string;
+	copyElement: ReactNode;
+}
+
+interface AboutUsContentProps {
+	items: AboutContentItem[];
+}
+
+const AboutUsContent = ({ items }: AboutUsContentProps) => {
+	return (
+		<div className="about-content flex flex-col gap-16">
+			{items.map(({ imageSrc, imageAlt, copyElement }, index) => {
+				return (
+					<AboutUsContentItem
+						imageSrc={imageSrc}
+						imageAlt={imageAlt}
+						copyElement={copyElement}
+						index={index}
+					/>
+				);
+			})}
+		</div>
+	);
+};
+
+/* export const AboutUsContent = () => {
 	return (
 		<div className="max-w-2xl mx-auto">
 			<p className="text-left font-sans mb-8">
@@ -88,12 +215,12 @@ export const AboutUsContent = () => {
 			</ul>
 		</div>
 	);
-};
+}; */
 
 const AboutUsSection = () => {
 	return (
 		<Section h2="About Us">
-			<AboutUsContent />
+			<AboutUsContent items={items} />
 		</Section>
 	);
 };
