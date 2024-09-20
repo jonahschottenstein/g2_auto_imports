@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { Key, ReactNode } from "react";
 import Section from "./Section";
 import Image, { StaticImageData } from "next/image";
 // import heroDesktop from "../public/images/hero/heroDesktop.webp";
@@ -10,6 +10,7 @@ import about4 from "../public/images/hero/hero_test_3_desktop.jpg";
 import about2 from "../public/images/about/about2.jpg";
 
 interface AboutUsContentItemProps {
+	key: Key;
 	imageSrc: StaticImageData;
 	imageAlt: string;
 	copyElement: ReactNode;
@@ -27,7 +28,7 @@ const AboutUsContentItem = ({
 
 	return (
 		<div
-			className={`about-content-item flex flex-col ${mdFlexDirection} gap-8`}>
+			className={`about-content-item flex flex-col ${mdFlexDirection} gap-4 md:gap-8`}>
 			<div className="image-wrapper w-full md:w-1/2">
 				<Image src={imageSrc} alt={imageAlt} />
 			</div>
@@ -73,7 +74,7 @@ const items = [
 		imageSrc: about3,
 		imageAlt: "about3",
 		copyElement: (
-			<div className="font-sans md:pr-[16%]">
+			<div className="font-sans md:pl-[16%]">
 				<h3 className="font-bold mb-4">Title</h3>
 				<p>
 					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
@@ -117,6 +118,7 @@ const AboutUsContent = ({ items }: AboutUsContentProps) => {
 			{items.map(({ imageSrc, imageAlt, copyElement }, index) => {
 				return (
 					<AboutUsContentItem
+						key={imageAlt}
 						imageSrc={imageSrc}
 						imageAlt={imageAlt}
 						copyElement={copyElement}
