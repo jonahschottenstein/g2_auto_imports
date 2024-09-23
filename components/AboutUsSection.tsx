@@ -62,7 +62,7 @@ const items = [
 		imageAlt: "about2",
 		copyElement: (
 			<div className="font-sans md:pr-[16%]">
-				<h3 className="font-bold mb-4">Background</h3>
+				<h3 className="font-bold mb-4">Our Story</h3>
 				<p>
 					My name is Grant Glimcher, and I'm the founder of G2 Auto Imports.
 					Growing up, I watched as strict safety and emissions regulations led
