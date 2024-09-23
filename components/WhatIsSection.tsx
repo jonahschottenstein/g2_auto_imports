@@ -83,7 +83,12 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 				<div className="grid sm:grid-cols-2 gap-8 md:gap-12">
 					{iconBlocks.map(({ icon, title, blurb }) => {
 						return (
-							<IconBlockComponent icon={icon} title={title} blurb={blurb} />
+							<IconBlockComponent
+								key={title}
+								icon={icon}
+								title={title}
+								blurb={blurb}
+							/>
 						);
 					})}
 				</div>
