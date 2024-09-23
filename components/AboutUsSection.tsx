@@ -45,12 +45,14 @@ const items = [
 		imageAlt: "about1",
 		copyElement: (
 			<div className="font-sans md:pl-[16%]">
-				<h3 className="font-bold mb-4">Title</h3>
+				<h3 className="font-bold mb-4">Our Mission</h3>
 				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
-					dicta officia minima officiis laborum dolorum est odit quam natus
-					quidem repudiandae pariatur, amet architecto dolores, illo provident
-					accusamus praesentium fuga.
+					At G2 Auto Imports, our mission is to source unique and desirable
+					vehicles tailored specifically to you. Whether you're a fan of
+					hard-to-find classics, JDM icons, or anything in between, our goal is
+					to make your acquisition experience as simple as possible. We handle
+					sourcing, importing, and registering the vehicles, ensuring the title
+					transfer is as straightforward as any domestic vehicle purchase.
 				</p>
 			</div>
 		),
@@ -60,12 +62,14 @@ const items = [
 		imageAlt: "about2",
 		copyElement: (
 			<div className="font-sans md:pr-[16%]">
-				<h3 className="font-bold mb-4">Title</h3>
+				<h3 className="font-bold mb-4">Background</h3>
 				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
-					dicta officia minima officiis laborum dolorum est odit quam natus
-					quidem repudiandae pariatur, amet architecto dolores, illo provident
-					accusamus praesentium fuga.
+					My name is Grant Glimcher, and I'm the founder of G2 Auto Imports.
+					Growing up, I watched as strict safety and emissions regulations led
+					manufacturers to produce increasingly uniform vehicles, often
+					sacrificing style and creativity. While I have no issue with the
+					efficacy of these vehicles, I aim to bring more fun, excitement, and
+					variety to the roads—for the enjoyment of both owners and onlookers.
 				</p>
 			</div>
 		),
@@ -75,12 +79,13 @@ const items = [
 		imageAlt: "about3",
 		copyElement: (
 			<div className="font-sans md:pl-[16%]">
-				<h3 className="font-bold mb-4">Title</h3>
+				<h3 className="font-bold mb-4">Our Services</h3>
 				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
-					dicta officia minima officiis laborum dolorum est odit quam natus
-					quidem repudiandae pariatur, amet architecto dolores, illo provident
-					accusamus praesentium fuga.
+					Leveraging our relationships with exporters, international shipping
+					companies, customs brokers, inland shipping services, and unique
+					registration solutions, we provide an all-in-one service to find and
+					deliver any vehicle you are interested in. Explore our inventory
+					today, or contact us to discuss the vehicle that best fits your taste.
 				</p>
 			</div>
 		),
