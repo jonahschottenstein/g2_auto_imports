@@ -22,6 +22,7 @@ const MobileHeroImage = () => {
 			alt="Green 1999 Mitsubishi Delica Star Wagon"
 			className="w-full h-full object-cover object-[50%_60%] pointer-events-none select-none sm:hidden"
 			fill
+			sizes="(max-width: 640px) 100vw, 0px"
 			priority
 		/>
 	);
@@ -43,6 +44,7 @@ const DesktopHeroImage = () => {
 			alt="Green 1999 Mitsubishi Delica Star Wagon and white 1999 Mitsubishi Delica Space Gear"
 			className="w-full h-full object-cover pointer-events-none select-none hidden sm:block"
 			fill
+			sizes="(max-width: 640px): 0px, 100vw"
 			priority
 		/>
 	);
