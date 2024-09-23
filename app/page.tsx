@@ -84,10 +84,12 @@ export default async function Home() {
 	- Look into Meta tags
 ! Favicon
 ! Compress Images and convert to webp
+? Dark mode
 
+? Maybe add "Scroll to view more" under MakeModelSelector if options.length > 7
 ! Think AboutSection copyElement param can just be title: string and copy: string
 ! Add alt text to AboutSection Images
-! Add Image sizes to AboutSection Images
+// ! Add Image sizes to AboutSection Images
 ? Considering using global variable (--global-px) to change Section px and everywhere else it's applied so new About Section more closely resembles Mercedes enthusiasts page (look at Tesla's about page too for another option)
 ! Instead of using margin-top for Hero text, try using transition: translation
 ! Think I like the Header black
