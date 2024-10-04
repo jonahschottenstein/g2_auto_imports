@@ -85,6 +85,7 @@ export default async function Home() {
 ! Favicon
 ! Compress Images and convert to webp
 ? Dark mode
+! Add Google Analytics events where needed
 
 ? Maybe add "Scroll to view more" under MakeModelSelector if options.length > 7
 ! Think AboutSection copyElement param can just be title: string and copy: string
@@ -107,6 +108,7 @@ export default async function Home() {
 // ! Need to disable scrolling when hamburger menu open on desktop
 // 	- Think you did this when ImageCarousel/ImageGallery was open
 ! When two forms are submitted in quick succession, the user doesn't receive an email for the second one
+	- Don't remember if you already did this, but it might be a good idea to erase userData onSubmit, then if user navigates back a page, send them to step_1 if there's no userData
 ? Don't know if it's bad UX that clicking the Request Import button on CarPage takes user to /step_4 of form without indicating/displaying that the selections from the first three steps. This would make the summary box useful.
 ! Need to better style FAQSection and faq page
 ! Need to figure out undesired form page navigation
