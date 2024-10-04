@@ -37,7 +37,7 @@ const ImageGridItem = ({
 	return (
 		<div
 			key={index}
-			className="image-grid-item group block relative overflow-hidden first:rounded-l-lg last:rounded-ee-lg [&:nth-child(5)]:rounded-tr-lg md:[&:nth-child(5)]:rounded-none md:[&:nth-child(3)]:rounded-tr-lg first:row-span-2 first:col-span-2 md:first:row-span-4 md:first:col-span-4 object-cover w-full h-full cursor-pointer"
+			className="image-grid-item bg-slate-300 group block relative overflow-hidden first:rounded-l-lg last:rounded-ee-lg [&:nth-child(5)]:rounded-tr-lg md:[&:nth-child(5)]:rounded-none md:[&:nth-child(3)]:rounded-tr-lg first:row-span-2 first:col-span-2 md:first:row-span-4 md:first:col-span-4 object-cover w-full h-full cursor-pointer"
 			onClick={onClick}>
 			<Image
 				src={src}
@@ -47,7 +47,13 @@ const ImageGridItem = ({
 				className="w-full h-full object-cover"
 				priority={index === 0 ? true : false}
 			/>
-			{index === 8 && (
+			{/* {index === 8 && (
+				<div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-xl font-sans font-semibold">
+					All Photos ({totalPhotosCount})
+				</div>
+			)} */}
+			{((totalPhotosCount >= 9 && index === 8) ||
+				(totalPhotosCount < 9 && index === totalPhotosCount - 1)) && (
 				<div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-xl font-sans font-semibold">
 					All Photos ({totalPhotosCount})
 				</div>
@@ -62,6 +68,10 @@ const ImageGrid = ({
 	onLastImageClick,
 	totalPhotosCount,
 }: ImageGridProps) => {
+	const isLastImage = (index: number) =>
+		(totalPhotosCount >= 9 && index === 8) ||
+		(totalPhotosCount < 9 && index === totalPhotosCount - 1);
+
 	return (
 		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)] mt-4">
 			{images.slice(0, 9).map((image, index) => (
@@ -71,8 +81,11 @@ const ImageGrid = ({
 					alt={"alt"}
 					index={index}
 					totalPhotosCount={totalPhotosCount}
+					// onClick={() =>
+					// 	index === 8 ? onLastImageClick() : onImageClick(index)
+					// }
 					onClick={() =>
-						index === 8 ? onLastImageClick() : onImageClick(index)
+						isLastImage(index) ? onLastImageClick() : onImageClick(index)
 					}
 				/>
 			))}
