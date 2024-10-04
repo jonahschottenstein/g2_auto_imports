@@ -1,5 +1,6 @@
 import { CustomButtonProps } from "@/types";
 import React from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const CustomButton = ({
 	// title,
@@ -18,7 +19,12 @@ const CustomButton = ({
 			className={`custom-button font-sans ${styles}`}
 			aria-label={ariaLabel}
 			disabled={isDisabled}
-			onClick={handleClick}>
+			// onClick={handleClick}
+			onClick={(e) => {
+				handleClick && handleClick(e);
+				// sendGAEvent("event", "buttonClicked", { value: "xyz" });
+				sendGAEvent({ event: "buttonClicked", value: "xyz" });
+			}}>
 			{/* {title} */}
 			{children}
 		</button>
