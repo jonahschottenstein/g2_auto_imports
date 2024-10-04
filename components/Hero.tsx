@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 // import heroMobile from "../public/images/hero/heroMobile.webp";
 // import heroDesktop from "../public/images/hero/heroDesktop.webp";
-import starWagon from "../public/images/hero/hero_bg_just_green.jpg";
-import desktopImage from "../public/images/hero/hero_desktop.jpeg";
+// import starWagon from "../public/images/hero/hero_bg_just_green.jpg";
+// import desktopImage from "../public/images/hero/hero_desktop.jpeg";
+import heroD from "../public/images/hero/hero_d.webp";
+import heroM from "../public/images/webp/hero/hero_star_wagon.webp";
 
 const MobileHeroImage = () => {
 	/* return (
@@ -18,7 +20,7 @@ const MobileHeroImage = () => {
 	); */
 	return (
 		<Image
-			src={starWagon}
+			src={heroM}
 			alt="Green 1999 Mitsubishi Delica Star Wagon"
 			className="w-full h-full object-cover object-[50%_60%] pointer-events-none select-none sm:hidden"
 			fill
@@ -26,6 +28,7 @@ const MobileHeroImage = () => {
 			priority
 		/>
 	);
+	// ? Should max-width be 639px?
 };
 
 const DesktopHeroImage = () => {
@@ -40,7 +43,8 @@ const DesktopHeroImage = () => {
 	); */
 	return (
 		<Image
-			src={desktopImage}
+			// src={desktopImage}
+			src={heroD}
 			alt="Green 1999 Mitsubishi Delica Star Wagon and white 1999 Mitsubishi Delica Space Gear"
 			className="w-full h-full object-cover pointer-events-none select-none hidden sm:block"
 			fill
@@ -48,6 +52,7 @@ const DesktopHeroImage = () => {
 			priority
 		/>
 	);
+	// ? Should max-width be 639px?
 };
 
 const HeroContent = () => {
@@ -92,6 +97,7 @@ const HeroContent = () => {
 		</div>
 	);
 };
+// ? Should I use translate instead of margin to move text at different screen sizes?
 
 const Hero = () => {
 	return (
