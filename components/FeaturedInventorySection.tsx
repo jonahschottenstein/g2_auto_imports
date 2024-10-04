@@ -19,6 +19,7 @@ const FeaturedInventorySection = ({
 					({ imageSrc, year, make, model, price, features, pageUrl }) => {
 						return (
 							<CarCard
+								key={imageSrc}
 								href={pageUrl}
 								image={imageSrc}
 								name={`${year} ${make.name} ${model.name}`}
