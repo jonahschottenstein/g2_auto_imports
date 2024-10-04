@@ -1,13 +1,10 @@
 import React, { Key, ReactNode } from "react";
 import Section from "./Section";
 import Image, { StaticImageData } from "next/image";
-// import heroDesktop from "../public/images/hero/heroDesktop.webp";
-// import desktopImage from "../public/images/hero/hero_desktop.jpeg";
-import about1 from "../public/images/about/about1.jpg";
-// import about3 from "../public/images/hero/hero_image_both.jpg";
-import about3 from "../public/images/hero/hero_bg.jpg";
-import about4 from "../public/images/hero/hero_test_3_desktop.jpg";
-import about2 from "../public/images/about/about2.jpg";
+import about1 from "../public/images/about_compressed/about1.jpg";
+import about2 from "../public/images/about_compressed/about2.jpg";
+import about3 from "../public/images/about_compressed/about3.jpg";
+import about4 from "../public/images/about_compressed/about4.jpg";
 
 interface AboutUsContentItemProps {
 	key: Key;
@@ -29,8 +26,12 @@ const AboutUsContentItem = ({
 	return (
 		<div
 			className={`about-content-item flex flex-col ${mdFlexDirection} gap-4 md:gap-8`}>
-			<div className="image-wrapper w-full md:w-1/2">
-				<Image src={imageSrc} alt={imageAlt} />
+			<div className="image-wrapper w-full md:w-1/2 relative">
+				<Image
+					src={imageSrc}
+					alt={imageAlt}
+					sizes="(max-width: 768px): 100vw, 50vw"
+				/>
 			</div>
 			<div className="copy-wrapper flex justify-center items-center w-full md:w-1/2">
 				{copyElement}
