@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import about1 from "../public/images/about_compressed/about1.jpg";
 import about2 from "../public/images/about_compressed/about2.jpg";
 import about3 from "../public/images/about_compressed/about3.jpg";
-import about4 from "../public/images/about_compressed/about4.jpg";
+// import about4 from "../public/images/about_compressed/about4.jpg";
 
 interface AboutUsContentItemProps {
 	key: Key;
@@ -43,7 +43,8 @@ const AboutUsContentItem = ({
 const items = [
 	{
 		imageSrc: about1,
-		imageAlt: "about1",
+		imageAlt:
+			"Green Mitsubishi Delica Star Wagon (left) and white Mitsubishi Delica Space Gear (right) parked side-by-side on a dirt road.",
 		copyElement: (
 			<div className="font-sans md:pl-[16%]">
 				<h3 className="font-bold mb-4">Our Mission</h3>
@@ -60,7 +61,8 @@ const items = [
 	},
 	{
 		imageSrc: about2,
-		imageAlt: "about2",
+		imageAlt:
+			"White Mitsubishi Delica Space Gear parked in front of green Mitsubishi Delica Star Wagon on a dirt road.",
 		copyElement: (
 			<div className="font-sans md:pr-[16%]">
 				<h3 className="font-bold mb-4">Our Story</h3>
@@ -77,7 +79,8 @@ const items = [
 	},
 	{
 		imageSrc: about3,
-		imageAlt: "about3",
+		imageAlt:
+			"White Mitsubishi Delica Space Gear parked on a dirt road, facing camera.",
 		copyElement: (
 			<div className="font-sans md:pl-[16%]">
 				<h3 className="font-bold mb-4">Our Services</h3>
@@ -91,21 +94,21 @@ const items = [
 			</div>
 		),
 	},
-	{
-		imageSrc: about4,
-		imageAlt: "about4",
-		copyElement: (
-			<div className="font-sans md:pr-[16%]">
-				<h3 className="font-bold mb-4">Title</h3>
-				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
-					dicta officia minima officiis laborum dolorum est odit quam natus
-					quidem repudiandae pariatur, amet architecto dolores, illo provident
-					accusamus praesentium fuga.
-				</p>
-			</div>
-		),
-	},
+	// {
+	// 	imageSrc: about4,
+	// 	imageAlt: "about4",
+	// 	copyElement: (
+	// 		<div className="font-sans md:pr-[16%]">
+	// 			<h3 className="font-bold mb-4">Title</h3>
+	// 			<p>
+	// 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
+	// 				dicta officia minima officiis laborum dolorum est odit quam natus
+	// 				quidem repudiandae pariatur, amet architecto dolores, illo provident
+	// 				accusamus praesentium fuga.
+	// 			</p>
+	// 		</div>
+	// 	),
+	// },
 ];
 
 interface AboutContentItem {
