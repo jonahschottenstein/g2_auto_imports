@@ -543,6 +543,21 @@ interface CarTableProps {
 	displayKeys: string[];
 }
 
+const formatLabel = (str: string) => {
+	switch (str) {
+		case "vin":
+			return "VIN";
+		case "driveType":
+			return "Drive Type";
+		case "exteriorColor":
+			return "Exterior Color";
+		case "interiorColor":
+			return "Interior Color";
+		default:
+			return str;
+	}
+};
+
 const CarTable = ({ vehicleDetails, displayKeys }: CarTableProps) => {
 	return (
 		<table className="car-table flex-1 mt-4 w-full">
@@ -554,7 +569,8 @@ const CarTable = ({ vehicleDetails, displayKeys }: CarTableProps) => {
 								key={`${key}-row`}
 								className="first:border-t border-b border-gray-300">
 								<td className="py-2 text-black font-sans text-base font-semibold capitalize border-r border-gray-300 pl-2 pr-4">
-									{key}
+									{/* {key} */}
+									{formatLabel(key)}
 								</td>
 								<td className="py-2 text-gray-700 font-sans text-base pl-4">
 									{key === "features" ? value.join(", ") : value.name || value}
@@ -626,10 +642,24 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 		router.push("/request-import-form/step_4");
 	};
 
-	const displayKeys = ["year", "make", "model", "price", "mileage", "features"];
+	const displayKeys = [
+		"year",
+		"make",
+		"model",
+		"trim",
+		"vin",
+		"transmission",
+		"driveType",
+		"engine",
+		"mileage",
+		"exteriorColor",
+		"interiorColor",
+		"price",
+		"features",
+	];
 
 	return (
-		<div className="w-full px-4 md:px-6 lg:px-8 py-4">
+		<div className="w-full px-4 md:px-6 lg:px-8 pt-4 pb-8">
 			<div className="max-w-screen-xl mx-auto flex flex-col">
 				<div className="vehicle-heading">
 					<h1 className="font-display text-2xl">{`${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`}</h1>
@@ -677,12 +707,7 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 				<div className="vehicle-description-container max-w-2xl mt-4">
 					<h2 className="text-xl font-display uppercase my-2">Description</h2>
 					<p className="vehicle-description font-sans mb-4">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-						deserunt sed aut optio quibusdam nobis qui officiis ipsam harum
-						magni veritatis fuga, quisquam ex autem voluptatem delectus
-						exercitationem, reiciendis veniam quidem dolore nulla perferendis?
-						Ea quod, similique deleniti modi accusantium qui minus et ab aliquam
-						maiores, dignissimos aspernatur earum minima.
+						{vehicleDetails?.description}
 					</p>
 				</div>
 			</div>
