@@ -63,53 +63,61 @@ const MakeModelSelector = ({
 	// * 371px is the max-height that makes the page height full
 
 	return (
-		<div
-			className="selector flex-1 font-sans max-h-72 overflow-y-auto
+		<>
+			{" "}
+			<div
+				className="selector flex-1 font-sans max-h-72 overflow-y-auto
 			[&::-webkit-scrollbar]:w-2
 			[&::-webkit-scrollbar-track]:rounded-full
 			[&::-webkit-scrollbar-track]:bg-gray-100
 			[&::-webkit-scrollbar-thumb]:rounded-full
 			[&::-webkit-scrollbar-thumb]:bg-gray-300">
-			{sortedOptions.map((option) => {
-				const itemProps =
-					stateValue === option.name ? { ref: selectedMakeRef } : {};
-				const inputId = `${option.name.replace(" ", "-")}-${option.id}`;
-				const dataAttribute =
-					category === "make"
-						? { "data-make-id": option.id }
-						: category === "model"
-						? { "data-model-id": option.id }
-						: {};
+				{sortedOptions.map((option) => {
+					const itemProps =
+						stateValue === option.name ? { ref: selectedMakeRef } : {};
+					const inputId = `${option.name.replace(" ", "-")}-${option.id}`;
+					const dataAttribute =
+						category === "make"
+							? { "data-make-id": option.id }
+							: category === "model"
+							? { "data-model-id": option.id }
+							: {};
 
-				return (
-					<div
-						key={option.name}
-						/* className="option-container border-y-2 hover:bg-slate-500 active:bg-slate-600" */
-						className="option-container first:border-t-2 border-b-2 border-gray-100"
-						{...itemProps}>
-						<label
-							// htmlFor={`${category}-${option.id}`}
-							// htmlFor={`${option.id}`}
-							htmlFor={`${inputId}`}
-							className="block relative w-full h-full p-2 has-[:checked]:bg-blue-600 has-[:checked]:text-white cursor-pointer">
-							<input
-								type="radio"
-								// id={`${category}-${option.id}`}
-								// id={`${option.id}`}
-								id={`${inputId}`}
-								name={category}
-								value={option.name}
-								checked={stateValue === option.name}
-								onChange={handleChange}
-								className={`${category}-option absolute h-0 w-0 top-0 left-0 opacity-0`}
-								{...dataAttribute}
-							/>
-							{option.name}
-						</label>
-					</div>
-				);
-			})}
-		</div>
+					return (
+						<div
+							key={option.name}
+							/* className="option-container border-y-2 hover:bg-slate-500 active:bg-slate-600" */
+							className="option-container first:border-t-2 border-b-2 border-gray-100"
+							{...itemProps}>
+							<label
+								// htmlFor={`${category}-${option.id}`}
+								// htmlFor={`${option.id}`}
+								htmlFor={`${inputId}`}
+								className="block relative w-full h-full p-2 has-[:checked]:bg-blue-600 has-[:checked]:text-white cursor-pointer">
+								<input
+									type="radio"
+									// id={`${category}-${option.id}`}
+									// id={`${option.id}`}
+									id={`${inputId}`}
+									name={category}
+									value={option.name}
+									checked={stateValue === option.name}
+									onChange={handleChange}
+									className={`${category}-option absolute h-0 w-0 top-0 left-0 opacity-0`}
+									{...dataAttribute}
+								/>
+								{option.name}
+							</label>
+						</div>
+					);
+				})}
+			</div>
+			{sortedOptions.length > 7 ? (
+				<span className="font-sans text-center text-gray-500">
+					Scroll to view more
+				</span>
+			) : null}
+		</>
 	);
 };
 
