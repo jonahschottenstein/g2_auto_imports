@@ -21,17 +21,18 @@ interface FAQContentProps {
 // Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.
 const faqData = [
 	{
-		question: "Question 1",
+		question: "How do I pay?",
 		answer:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
 	},
 	{
-		question: "Question 2",
+		question: "Where do you ship to?",
 		answer:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
 	},
 	{
-		question: "Question 3",
+		question:
+			"How long does it take for the vehicle to arrive once it's purchased?",
 		answer:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
 	},
