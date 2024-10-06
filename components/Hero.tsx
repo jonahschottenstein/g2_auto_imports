@@ -80,17 +80,24 @@ const HeroContent = () => {
 		<div className="w-full h-full max-w-screen-xl mx-auto">
 			<div className="relative z-10 flex flex-col items-center justify-start h-full py-8 text-center text-white font-sans">
 				<div className="hero-content-wrapper flex flex-col justify-start items-center text-center py-4 gap-2 text-white sm:mt-20 xl:mt-16">
-					<h1 className="text-3xl text-center md:text-4xl lg:text-5xl font-bold mb-1">
-						Your Dream Car Awaits
+					{/* <h1 className="text-3xl text-center md:text-4xl lg:text-5xl font-bold mb-1">
+						You Pick the Car - We'll Handle the Rest
+					</h1> */}
+					{/* <h1 className="text-[4.5vw] text-center md:text-4xl lg:text-5xl font-bold mb-1">
+						You Pick the Car - We'll Handle the Rest
+					</h1> */}
+					<h1 className="text-[4.5vw] text-center md:text-4xl font-bold mb-1">
+						You Pick the Car - We'll Handle the Rest
 					</h1>
 					<p className="text-lg md:text-xl lg:text-2xl mb-4 max-w-[80%] font-semibold">
-						Explore our exclusive collection of JDM imports.
+						We’ll source, import, title, and deliver your vehicle straight to
+						your door.
 					</p>
 					<Link
-						href="/inventory"
+						href="/request-import-form/step_1"
 						className="w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-center text-white font-semibold rounded-lg transition duration-300"
-						aria-label="View inventory">
-						View Inventory
+						aria-label="Request Import">
+						Request Import
 					</Link>
 				</div>
 			</div>
