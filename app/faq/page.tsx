@@ -4,6 +4,8 @@ import React from "react";
 
 export const metadata: Metadata = {
 	title: "FAQ",
+	description:
+		"Answers to frequently asked questions about our import process.",
 };
 
 const Page = () => {

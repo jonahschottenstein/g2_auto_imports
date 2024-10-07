@@ -35,6 +35,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Inventory",
+	description: "Explore our inventory of Japanese Domestic Market vehicles.",
 };
 
 const Page = () => {

@@ -8,6 +8,8 @@ const FOOTER_HEIGHT = `24px`;
 
 export const metadata: Metadata = {
 	title: "Request Import Form",
+	description:
+		"Request an import by first selecting the desired make, model, and year of the vehicle you're interested in. Then, enter your contact information so we can discuss the import process and answer any questions you may have.",
 };
 
 const Layout = ({

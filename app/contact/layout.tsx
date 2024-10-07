@@ -6,6 +6,7 @@ const FOOTER_HEIGHT = `24px`;
 
 export const metadata: Metadata = {
 	title: "Contact Us",
+	description: "Contact us",
 };
 
 const Layout = ({
