@@ -86,7 +86,39 @@ export default async function Home() {
 ! Compress Images and convert to webp
 ? Dark mode
 ! Add Google Analytics events where needed
+? Do I need a privacy policy page?
+! Use the sites mentioned in this youtube video: SEO in Next.js 14 - The Ultimate Guide (Metadata, Sitemap, Robots, Google Search Console, Caching)
+	- open graph images
+	- test deployment
+	- etc.
+? May need to manually cache requests on /app/vehicle/[id]/page.tsx
+	- from video:
+		Manually duplicate requests if not using fetch
+		const getPost = cache(async (postId: string) => {
+			const post = await prisma.post.findUnique(postId);
+			return post;
+		})
+? Maybe add not-found.tsx page (39:40 in youtube video)
+* Should look into adding the sharp image optimization package that is recommended when you build the site
 
+* Add descriptions to metadata
+? I don't know if "Comments" is good to use as a label in the forms. Questions aren't comments, right?
+* Should go through and check to see if you are using as many server components as possible.
+	- e.g., if something isn't a server component because of something you can extract as a client component and import to the server component
+? Should I use, for example, &amp? Or is & ok? Idk if I have any instances where this matters
+* Maybe look at what happens when you go back a page while on PostRequest page
+? Do you have instagram, tiktok, youtube pages you want to link to?
+! Need to size ImageCarousel Images
+	- If there are portrait and landscape photos, would just have to do fill and sizes={100vw}
+! Ask if price should be in table
+// ! Put Star Wagon and Space Gear in parentheses
+! Remove FAQ Page & NavBar Link
+! Make CarPage ImageGrid Images squares
+! Replace logo
+// ! Change Hero CTA
+// ! Remove fourth About Us Item
+// ! Remove CarPage description
+// ! Add new CarPage table items
 ? Maybe add "Scroll to view more" under MakeModelSelector if options.length > 7
 ! Think AboutSection copyElement param can just be title: string and copy: string
 ! Add alt text to AboutSection Images
@@ -95,7 +127,7 @@ export default async function Home() {
 ! Instead of using margin-top for Hero text, try using transition: translation
 ! Think I like the Header black
 ! I think the Hero should have an image of the car and the CTA button should take the user to that car's CarPage. And it should have a slide show so both cars can be seen
-? Cars and bids has a lot more detail on their CarPage. Should any of that be included on this one?
+// ? Cars and bids has a lot more detail on their CarPage. Should any of that be included on this one?
 ! Maybe at large screen sizes make the table and Description side by side on CarPage
 ? Should there be a way for user to share a vehicle?
 ? Should it be FAQ or FAQs?
