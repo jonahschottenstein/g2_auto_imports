@@ -71,9 +71,18 @@ export interface Car {
 	year: number;
 	make: Make;
 	model: Model;
-	price: string;
+	trim: string;
+	vin: string;
+	transmission: string;
+	driveType: string;
+	engine: string;
 	mileage: string;
+	exteriorColor: string;
+	interiorColor: string;
+	price: string;
+	// mileage: string;
 	features: string[];
+	description: string;
 	pageUrl: string;
 	featured: boolean;
 }
