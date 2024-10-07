@@ -5,6 +5,33 @@ import CarPage from "@/components/CarPage";
 import { FormProvider } from "@/context/request-import-form-context";
 import { promises as fs } from "fs";
 import path from "path";
+import { Metadata } from "next";
+
+export async function generateStaticParams() {
+	return inventory.map(({ id }) => id);
+}
+
+export async function generateMetadata({
+	params,
+}: {
+	params: { id: string };
+}): Promise<Metadata> {
+	const vehicleDetails: Car | undefined = inventory.find(
+		({ id }) => id === params.id
+	);
+
+	return {
+		title: `${vehicleDetails?.year} ${vehicleDetails?.make.name} ${vehicleDetails?.model.name}`,
+		description: vehicleDetails?.description,
+		openGraph: {
+			images: [
+				{
+					url: `${vehicleDetails?.imageSrc}`,
+				},
+			],
+		},
+	};
+}
 
 const Page = async ({ params }: { params: { id: string } }) => {
 	const vehicleDetails: Car | undefined = inventory.find(
