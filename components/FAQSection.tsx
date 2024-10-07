@@ -37,7 +37,7 @@ const faqData = [
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
 	},
 	{
-		question: "Question 4",
+		question: "What happens if there is an issue with the vehicle?",
 		answer:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
 	},
