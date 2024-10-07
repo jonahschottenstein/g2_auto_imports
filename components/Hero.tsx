@@ -90,8 +90,8 @@ const HeroContent = () => {
 						You Pick the Car - We'll Handle the Rest
 					</h1>
 					<p className="text-lg md:text-xl lg:text-2xl mb-4 max-w-[80%] font-semibold">
-						We’ll source, import, title, and deliver your vehicle straight to
-						your door.
+						We&apos;ll source, import, title, and deliver your vehicle straight
+						to your door.
 					</p>
 					<Link
 						href="/request-import-form/step_1"
