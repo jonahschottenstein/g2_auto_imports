@@ -2,6 +2,7 @@ import React from "react";
 import { inventory } from "@/inventory";
 import { CarCard } from "@/components";
 import CardGrid from "@/components/CardGrid";
+import { Metadata } from "next";
 
 /* const page = () => {
 	return (
@@ -31,6 +32,10 @@ import CardGrid from "@/components/CardGrid";
 }; */
 
 // !Need to figure out if you want Footer to be visible. Removed this style previously.
+
+export const metadata: Metadata = {
+	title: "Inventory",
+};
 
 const Page = () => {
 	return (

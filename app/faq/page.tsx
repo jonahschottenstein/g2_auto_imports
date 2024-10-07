@@ -1,5 +1,10 @@
 import { FAQContent } from "@/components/FAQSection";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+	title: "FAQ",
+};
 
 const Page = () => {
 	const faqData = [

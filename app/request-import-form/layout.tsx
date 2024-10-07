@@ -1,9 +1,14 @@
 import { FormProvider } from "@/context/request-import-form-context";
 import { StepProvider } from "@/context/step-context";
+import { Metadata } from "next";
 import React from "react";
 
 const NAV_BAR_HEIGHT = `72px`;
 const FOOTER_HEIGHT = `24px`;
+
+export const metadata: Metadata = {
+	title: "Request Import Form",
+};
 
 const Layout = ({
 	children,
