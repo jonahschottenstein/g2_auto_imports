@@ -50,7 +50,7 @@ const items = [
 				<h3 className="font-bold mb-4">Our Mission</h3>
 				<p>
 					At G2 Auto Imports, our mission is to source unique and desirable
-					vehicles tailored specifically to you. Whether you're a fan of
+					vehicles tailored specifically to you. Whether you&apos;re a fan of
 					hard-to-find classics, JDM icons, or anything in between, our goal is
 					to make your acquisition experience as simple as possible. We handle
 					sourcing, importing, and registering the vehicles, ensuring the title

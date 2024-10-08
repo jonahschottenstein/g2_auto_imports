@@ -87,7 +87,7 @@ const HeroContent = () => {
 						You Pick the Car - We'll Handle the Rest
 					</h1> */}
 					<h1 className="text-[4.5vw] text-center md:text-4xl font-bold mb-1">
-						You Pick the Car - We'll Handle the Rest
+						You Pick the Car - We&apos;ll Handle the Rest
 					</h1>
 					<p className="text-lg md:text-xl lg:text-2xl mb-4 max-w-[80%] font-semibold">
 						We&apos;ll source, import, title, and deliver your vehicle straight

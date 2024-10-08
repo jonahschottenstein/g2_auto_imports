@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 		template: "%s - G2 Auto Imports",
 	},
 	description:
-		"You Pick the Car - We'll Handle the Rest. We’ll source, import, title, and deliver your vehicle straight to your door.",
+		"You Pick the Car - We'll Handle the Rest. We'll source, import, title, and deliver your vehicle straight to your door.",
 	twitter: {
 		card: "summary_large_image",
 	},
