@@ -291,12 +291,12 @@ const FormReview = () => {
 							/>
 						</FormReviewSectionRow>
 						<FormReviewSectionRow href={"/request-import-form/step_4"}>
-							<h4 className="text-[#595959] text-sm">Comments</h4>
+							<h4 className="text-[#595959] text-sm">Message</h4>
 							{/* <div className="font-bold">{`${user.contactInfo?.comments}`}</div> */}
 							<textarea
-								id="comments"
-								name="comments"
-								value={user.contactInfo?.comments}
+								id="message"
+								name="message"
+								value={user.contactInfo?.message}
 								readOnly
 								className="bg-transparent resize-none pointer-events-none font-bold text-base"
 							/>

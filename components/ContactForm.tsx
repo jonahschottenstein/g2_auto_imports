@@ -82,7 +82,7 @@ export const ContactPageContactForm = () => {
 				phone: "phone",
 				// state: "state",
 				zipCode: "zipCode",
-				comments: "comments",
+				message: "message",
 			};
 
 			// Find the first field with an error in the response data
@@ -109,9 +109,8 @@ export const ContactPageContactForm = () => {
 						phone: (document.getElementById("phone") as HTMLInputElement).value,
 						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
 							.value,
-						comments: (
-							document.getElementById("comments") as HTMLTextAreaElement
-						).value,
+						message: (document.getElementById("message") as HTMLTextAreaElement)
+							.value,
 					},
 				};
 
@@ -174,13 +173,13 @@ export const ContactPageContactForm = () => {
 			error: errors.zipCode,
 		},
 		{
-			key: "comments",
-			label: "Comments",
+			key: "message",
+			label: "Message",
 			type: "textarea",
-			inputId: "comments",
-			name: "comments",
+			inputId: "message",
+			name: "message",
 			register: register,
-			error: errors.comments,
+			error: errors.message,
 		},
 	];
 
@@ -202,8 +201,8 @@ export const ContactPageContactForm = () => {
 							name={formFieldData.name}
 							register={formFieldData.register}
 							error={formFieldData.error}
-							areCommentsRequired={
-								formFieldData.inputId === "comments" ? true : false
+							isMessageRequired={
+								formFieldData.inputId === "message" ? true : false
 							}
 						/>
 					);
@@ -287,7 +286,7 @@ const ContactForm = () => {
 				phone: "phone",
 				// state: "state",
 				zipCode: "zipCode",
-				comments: "comments",
+				message: "message",
 			};
 
 			// Find the first field with an error in the response data
@@ -314,9 +313,8 @@ const ContactForm = () => {
 						phone: (document.getElementById("phone") as HTMLInputElement).value,
 						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
 							.value,
-						comments: (
-							document.getElementById("comments") as HTMLTextAreaElement
-						).value,
+						message: (document.getElementById("message") as HTMLTextAreaElement)
+							.value,
 					},
 				};
 				const storedUserData = sessionStorage.getItem("userData");
@@ -400,12 +398,12 @@ const ContactForm = () => {
 						rule="#####"
 					/>
 					<FormField
-						label="Comments"
+						label="Message"
 						type="textarea"
-						inputId="comments"
-						name="comments"
+						inputId="message"
+						name="message"
 						register={register}
-						error={errors.comments}
+						error={errors.message}
 					/>
 				</div>
 				<div className="form-nav-container w-full flex justify-around p-4">
@@ -582,7 +580,7 @@ export const ContactForm2 = ({
 				phone: "phone",
 				// state: "state",
 				zipCode: "zipCode",
-				comments: "comments",
+				message: "message",
 			};
 
 			// Find the first field with an error in the response data
@@ -609,9 +607,8 @@ export const ContactForm2 = ({
 						phone: (document.getElementById("phone") as HTMLInputElement).value,
 						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
 							.value,
-						comments: (
-							document.getElementById("comments") as HTMLTextAreaElement
-						).value,
+						message: (document.getElementById("message") as HTMLTextAreaElement)
+							.value,
 					},
 				};
 
@@ -734,13 +731,13 @@ export const ContactForm2 = ({
 			error: errors.zipCode,
 		},
 		{
-			key: "comments",
-			label: "Comments",
+			key: "message",
+			label: "Message",
 			type: "textarea",
-			inputId: "comments",
-			name: "comments",
+			inputId: "message",
+			name: "message",
 			register: register,
-			error: errors.comments,
+			error: errors.message,
 		},
 	];
 	return (
@@ -784,7 +781,7 @@ export const ContactForm3 = () => {
 		email: user.contactInfo?.email,
 		phone: user.contactInfo?.phone,
 		zipCode: user.contactInfo?.zipCode,
-		comments: user.contactInfo?.comments,
+		message: user.contactInfo?.message,
 	};
 
 	const {
@@ -857,7 +854,7 @@ export const ContactForm3 = () => {
 				email: "email",
 				phone: "phone",
 				zipCode: "zipCode",
-				comments: "comments",
+				message: "message",
 			};
 
 			// Find the first field with an error in the response data
@@ -884,9 +881,8 @@ export const ContactForm3 = () => {
 						phone: (document.getElementById("phone") as HTMLInputElement).value,
 						zipCode: (document.getElementById("zip-code") as HTMLInputElement)
 							.value,
-						comments: (
-							document.getElementById("comments") as HTMLTextAreaElement
-						).value,
+						message: (document.getElementById("message") as HTMLTextAreaElement)
+							.value,
 					},
 				};
 				const storedUserData = sessionStorage.getItem("userData");
@@ -992,13 +988,13 @@ export const ContactForm3 = () => {
 			error: errors.zipCode,
 		},
 		{
-			key: "comments",
-			label: "Comments",
+			key: "message",
+			label: "Message",
 			type: "textarea",
-			inputId: "comments",
-			name: "comments",
+			inputId: "message",
+			name: "message",
 			register: register,
-			error: errors.comments,
+			error: errors.message,
 		},
 	];
 
@@ -1019,7 +1015,7 @@ export const ContactForm3 = () => {
 								name={formFieldData.name}
 								register={formFieldData.register}
 								error={formFieldData.error}
-								areCommentsRequired={false}
+								isMessageRequired={false}
 							/>
 						);
 					})}

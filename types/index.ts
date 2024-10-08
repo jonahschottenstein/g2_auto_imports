@@ -22,7 +22,7 @@ export interface User {
 		email: string;
 		phone: string;
 		zipCode: string;
-		comments?: string;
+		message?: string;
 	};
 }
 
@@ -152,7 +152,7 @@ export interface ContactFormData {
 	email: string;
 	phone: string;
 	zipCode: string;
-	comments?: string;
+	message?: string;
 }
 
 export interface ImportFormData {
@@ -164,7 +164,7 @@ export interface ImportFormData {
 	email: string | undefined;
 	phone: string | undefined;
 	zipCode: string | undefined;
-	comments?: string | undefined;
+	message?: string | undefined;
 	// contactInfo: ContactFormData | undefined;
 }
 
@@ -174,7 +174,7 @@ export type ValidFieldNames =
 	| "email"
 	| "phone"
 	| "zipCode"
-	| "comments";
+	| "message";
 
 export type ValidFieldNames2 =
 	| "productionYears"
@@ -186,7 +186,7 @@ export type ValidFieldNames2 =
 	| "email"
 	| "phone"
 	| "zipCode"
-	| "comments";
+	| "message";
 
 export type FormFieldTypes = "text" | "email" | "tel" | "textarea";
 
@@ -203,7 +203,7 @@ export interface FormFieldProps {
 	error: FieldError | undefined;
 	valueAsNumber?: boolean;
 	rule?: string;
-	areCommentsRequired?: boolean;
+	isMessageRequired?: boolean;
 }
 
 export interface FormFieldProps2 {
@@ -215,7 +215,7 @@ export interface FormFieldProps2 {
 	error: FieldError | undefined;
 	valueAsNumber?: boolean;
 	rule?: string;
-	areCommentsRequired?: boolean;
+	isMessageRequired?: boolean;
 }
 
 export interface StandAloneContactFormData {
@@ -224,7 +224,7 @@ export interface StandAloneContactFormData {
 	email: string;
 	phone: string;
 	zipCode: string;
-	comments: string;
+	message: string;
 }
 
 export interface StandAloneFormFieldProps {
@@ -236,7 +236,7 @@ export interface StandAloneFormFieldProps {
 	error: FieldError | undefined;
 	valueAsNumber?: boolean;
 	rule?: string;
-	areCommentsRequired?: boolean;
+	isMessageRequired?: boolean;
 }
 
 export const UserSchema: ZodType<ContactFormData> = z.object({
@@ -277,7 +277,7 @@ export const UserSchema: ZodType<ContactFormData> = z.object({
 		.string()
 		.trim()
 		.regex(/^[0-9]{5}$/, { message: "Please enter a valid 5-digit zip code." }),
-	comments: z.string().trim().max(500).optional(),
+	message: z.string().trim().max(500).optional(),
 });
 
 export const UserSchema2: ZodType<ImportFormData> = z.object({
@@ -329,7 +329,7 @@ export const UserSchema2: ZodType<ImportFormData> = z.object({
 		.string()
 		.trim()
 		.regex(/^[0-9]{5}$/, { message: "Please enter a valid 5-digit zip code." }),
-	comments: z.string().trim().max(500).optional(),
+	message: z.string().trim().max(500).optional(),
 });
 
 export const ContactPageSchema: ZodType<ContactFormData> = z.object({
@@ -370,12 +370,12 @@ export const ContactPageSchema: ZodType<ContactFormData> = z.object({
 		.string()
 		.trim()
 		.regex(/^[0-9]{5}$/, { message: "Please enter a valid 5-digit zip code." }),
-	comments: z
+	message: z
 		.string()
 		.trim()
 		.max(500)
 		.regex(/^(?!\s*$).{1,}$/, {
-			message: "Please enter your comments.",
+			message: "Please enter your message.",
 		}),
 });
 

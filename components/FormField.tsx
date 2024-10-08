@@ -11,7 +11,7 @@ const FormField = ({
 	error,
 	valueAsNumber,
 	rule,
-	areCommentsRequired,
+	isMessageRequired,
 }: FormFieldProps) => {
 	const inputMode =
 		inputId === "email"
@@ -24,7 +24,7 @@ const FormField = ({
 	// 		? "after:content-['(optional)']"
 	// 		: "after:content-['(required)']";
 	const afterLabelContent =
-		type === "textarea" && !areCommentsRequired
+		type === "textarea" && !isMessageRequired
 			? "after:content-['(optional)']"
 			: "after:content-['(required)']";
 
@@ -46,7 +46,7 @@ const FormField = ({
 				<textarea
 					id={inputId}
 					className={setInputStyles(error)}
-					required={areCommentsRequired}
+					required={isMessageRequired}
 					maxLength={500}
 					{...register(name, { maxLength: 500 })}
 					// TODO: Think I should set a max height/rows for textarea
@@ -83,7 +83,7 @@ export const FormField2 = ({
 	error,
 	valueAsNumber,
 	rule,
-	areCommentsRequired,
+	isMessageRequired,
 }: FormFieldProps2) => {
 	const inputMode =
 		inputId === "email"
@@ -96,7 +96,7 @@ export const FormField2 = ({
 	// 		? "after:content-['(optional)']"
 	// 		: "after:content-['(required)']";
 	const afterLabelContent =
-		type === "textarea" && !areCommentsRequired
+		type === "textarea" && !isMessageRequired
 			? "after:content-['(optional)']"
 			: "after:content-['(required)']";
 
@@ -126,7 +126,7 @@ export const FormField2 = ({
 				<textarea
 					id={inputId}
 					className={setInputStyles(error)}
-					required={areCommentsRequired}
+					required={isMessageRequired}
 					maxLength={500}
 					{...register(name, { maxLength: 500 })}
 					// TODO: Think I should set a max height/rows for textarea

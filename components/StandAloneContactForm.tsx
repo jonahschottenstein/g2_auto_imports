@@ -86,7 +86,7 @@ const StandAloneContactForm = () => {
 				email: "email",
 				phone: "phone",
 				zipCode: "zipCode",
-				comments: "comments",
+				message: "message",
 			};
 
 			// Find the first field with an error in the response data
@@ -162,13 +162,13 @@ const StandAloneContactForm = () => {
 			error: errors.zipCode,
 		},
 		{
-			key: "comments",
-			label: "Comments",
+			key: "message",
+			label: "Message",
 			type: "textarea",
-			inputId: "comments",
-			name: "comments",
+			inputId: "message",
+			name: "message",
 			register: register,
-			error: errors.comments,
+			error: errors.message,
 		},
 	];
 
@@ -190,8 +190,8 @@ const StandAloneContactForm = () => {
 							name={formFieldData.name}
 							register={formFieldData.register}
 							error={formFieldData.error}
-							areCommentsRequired={
-								formFieldData.inputId === "comments" ? true : false
+							isMessageRequired={
+								formFieldData.inputId === "message" ? true : false
 							}
 						/>
 					);
