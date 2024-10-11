@@ -80,8 +80,8 @@ export default async function Home() {
 ! Configure Google Search Console
 	- Submit XML Site Map to Google
 ! Set up Google Analytics
-! Configure SEO
-	- Look into Meta tags
+// ! Configure SEO
+// 	- Look into Meta tags
 ! Favicon
 ! Compress Images and convert to webp
 ? Dark mode
@@ -101,8 +101,14 @@ export default async function Home() {
 ? Maybe add not-found.tsx page (39:40 in youtube video)
 * Should look into adding the sharp image optimization package that is recommended when you build the site
 
-* Add descriptions to metadata
+* Not sure Hero subtext makes sense
+! Fix Hero layout on landscape mobile
+! Fix text sizing in Hero section
+* Look at importavehicle FAQ for reference
+! I don't think it's clear to the user what happens when they submit a request.
+// * Add descriptions to metadata
 ? I don't know if "Comments" is good to use as a label in the forms. Questions aren't comments, right?
+	- "Message" is probably better than "Comments"
 * Should go through and check to see if you are using as many server components as possible.
 	- e.g., if something isn't a server component because of something you can extract as a client component and import to the server component
 ? Should I use, for example, &amp? Or is & ok? Idk if I have any instances where this matters
@@ -119,9 +125,9 @@ export default async function Home() {
 // ! Remove fourth About Us Item
 // ! Remove CarPage description
 // ! Add new CarPage table items
-? Maybe add "Scroll to view more" under MakeModelSelector if options.length > 7
+// ? Maybe add "Scroll to view more" under MakeModelSelector if options.length > 7
 ! Think AboutSection copyElement param can just be title: string and copy: string
-! Add alt text to AboutSection Images
+// ! Add alt text to AboutSection Images
 // ! Add Image sizes to AboutSection Images
 ? Considering using global variable (--global-px) to change Section px and everywhere else it's applied so new About Section more closely resembles Mercedes enthusiasts page (look at Tesla's about page too for another option)
 ! Instead of using margin-top for Hero text, try using transition: translation
@@ -214,10 +220,10 @@ export default async function Home() {
 - I think it's better for images of cars to face right
 // ! Make it so NavBar doesn't re-render on page reload
 ! Hero image doesn't work on mobile
-! NavBar takes up too much room on mobile landscape
-	- Maybe:
-		- Make NavBar height 60px (same as Nike)
-		- Make it disappear on scroll down and reappear on scroll up
+// ! NavBar takes up too much room on mobile landscape
+// 	- Maybe:
+// 		- Make NavBar height 60px (same as Nike)
+// 		- Make it disappear on scroll down and reappear on scroll up
 // ! NavBar Links show, then are replaced with HamburgerMenuButton on mobile
 // 	- Fixed this, but takes too long
 // 	- Need to speed up
