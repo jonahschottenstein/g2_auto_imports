@@ -74,7 +74,7 @@ const socialMediaLinks = [
 
 const FooterRow = ({ listItems }: FooterRowProps) => {
 	return (
-		<div className="footer-row2 flex p-4 justify-center">
+		<div className="footer-row flex p-4 justify-center">
 			<ul className="flex gap-4">
 				{listItems.map((listItem, index) => {
 					return (
