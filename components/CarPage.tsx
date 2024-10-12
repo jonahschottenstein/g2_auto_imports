@@ -643,6 +643,7 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 	};
 
 	const displayKeys = [
+		"price",
 		"year",
 		"make",
 		"model",
@@ -654,7 +655,6 @@ const CarPage = ({ vehicleDetails, images }: VehicleDetails) => {
 		"mileage",
 		"exteriorColor",
 		"interiorColor",
-		"price",
 		"features",
 	];
 

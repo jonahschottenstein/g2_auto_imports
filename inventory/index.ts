@@ -4,6 +4,7 @@ export const inventory: Car[] = [
 	{
 		id: "P35W-0901053",
 		imageSrc: "/images/P35W-0901053/DSC00904.JPEG",
+		price: "$16,000",
 		year: 1999,
 		make: { id: 8, name: "MITSUBISHI" },
 		model: { id: 539, name: "DELICA (STAR WAGON)", makeId: 8 },
@@ -15,7 +16,6 @@ export const inventory: Car[] = [
 		mileage: "108,XXX mi",
 		exteriorColor: "Green",
 		interiorColor: "Grey",
-		price: "$16,000",
 		// mileage: "100,000 KM",
 		features: ["Turbo-Diesel", "4x4", "High Roof"],
 		description:
@@ -26,6 +26,7 @@ export const inventory: Car[] = [
 	{
 		id: "PEDW-0402421",
 		imageSrc: "/images/PEDW-0402421/DSC00905.JPEG",
+		price: "Price TBD",
 		year: 1999,
 		make: { id: 8, name: "MITSUBISHI" },
 		model: { id: 538, name: "DELICA (SPACE GEAR)", makeId: 8 },
@@ -38,7 +39,6 @@ export const inventory: Car[] = [
 		mileage: "91,XXX mi",
 		exteriorColor: "White",
 		interiorColor: "Black",
-		price: "Price TBD",
 		// mileage: "100,000 KM",
 		features: ["Turbo-Diesel", "4x4", "High Roof"],
 		description:
