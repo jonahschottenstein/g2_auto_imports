@@ -4,7 +4,7 @@ interface HalfLogoProps {
 	fillColor: "black" | "white";
 }
 
-const HalfLogoBlack = ({ fillColor }: HalfLogoProps) => {
+const HalfLogo = ({ fillColor }: HalfLogoProps) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -21,4 +21,4 @@ const HalfLogoBlack = ({ fillColor }: HalfLogoProps) => {
 	);
 };
 
-export default HalfLogoBlack;
+export default HalfLogo;
