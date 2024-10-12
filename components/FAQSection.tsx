@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
+import faqs from "@/faqs";
 
 interface FAQItemProps {
 	question: string;
@@ -18,31 +19,6 @@ interface FAQContentProps {
 	faqData: FAQItemProps[];
 	faqCategory?: string;
 }
-// Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.
-const faqData = [
-	{
-		question: "How do I pay?",
-		answer:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
-	},
-	{
-		question: "Where do you ship to?",
-		answer:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
-	},
-	{
-		question:
-			"How long does it take for the vehicle to arrive once it's purchased?",
-		answer:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
-	},
-	{
-		question: "What happens if there is an issue with the vehicle?",
-		answer:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat veniam, debitis eos molestiae provident praesentium perspiciatis adipisci eaque. Iure quam tenetur ratione ex molestias totam laudantium quae placeat accusamus.",
-	},
-	{ question: "Question 5", answer: "Answer 5" },
-];
 
 const FAQItem = ({ question, answer }: FAQItemProps) => {
 	return (
@@ -102,7 +78,7 @@ export const FAQContent = ({ faqData, faqCategory }: FAQContentProps) => {
 const FAQSection = () => {
 	return (
 		<Section h2="Frequently Asked Questions">
-			<FAQContent faqData={faqData} />
+			<FAQContent faqData={faqs} />
 			<div className="mt-12 lg:mt-24 text-center">
 				<Link
 					href="/faq"
