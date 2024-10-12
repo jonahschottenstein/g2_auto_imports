@@ -73,7 +73,7 @@ const ImageGrid = ({
 		(totalPhotosCount < 9 && index === totalPhotosCount - 1);
 
 	return (
-		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_100px)] mt-4">
+		<div className="image-grid grid overflow-x-auto gap-1 grid-rows-[repeat(2,_8rem)] grid-cols-[repeat(6,_minMax(10rem,_1fr))] md:grid-rows-[repeat(4,_7.5rem)] mt-4">
 			{images.slice(0, 9).map((image, index) => (
 				<ImageGridItem
 					key={image}
