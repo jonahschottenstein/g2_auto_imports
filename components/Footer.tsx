@@ -32,8 +32,8 @@ const siteLinks = [
 		href: "/inventory",
 	},
 	{
-		title: "FAQ",
-		href: "/faq",
+		title: "FAQs",
+		href: "/faqs",
 	},
 	{
 		title: "Contact",

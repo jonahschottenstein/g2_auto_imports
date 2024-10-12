@@ -55,7 +55,7 @@ const NavBar = () => {
 		{ title: "Home", href: "/" },
 		{ title: "Request Import", href: "/request-import-form/step_1" },
 		{ title: "Inventory", href: "/inventory" },
-		{ title: "FAQ", href: "/faq" },
+		{ title: "FAQs", href: "/faqs" },
 		{ title: "Contact", href: "/contact/form" },
 	];
 
