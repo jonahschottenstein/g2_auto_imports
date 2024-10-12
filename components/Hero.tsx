@@ -6,9 +6,10 @@ import Link from "next/link";
 // import starWagon from "../public/images/hero/hero_bg_just_green.jpg";
 import desktopImage from "../public/images/hero/hero_desktop.jpeg";
 // import heroD from "../public/images/hero/hero_d.webp";
-import heroM from "../public/images/webp/hero/hero_star_wagon.webp";
+// import heroM from "../public/images/webp/hero/hero_star_wagon.webp";
 // import heroStylized from "../public/images/hero/hero_image_stylized_3 (1).webp";
 // import test3M from "../public/images/hero/hero_test_3_mobile.jpg";
+import heroMobile from "../public/images/hero/heroMobile (1).jpeg";
 
 const MobileHeroImage = () => {
 	/* return (
@@ -20,11 +21,21 @@ const MobileHeroImage = () => {
 			priority
 		/>
 	); */
-	return (
+	/* return (
 		<Image
 			src={heroM}
 			alt="Green 1999 Mitsubishi Delica Star Wagon"
 			className="w-full h-full object-cover object-[50%_60%] pointer-events-none select-none sm:hidden"
+			fill
+			sizes="(max-width: 640px) 100vw, 0px"
+			priority
+		/>
+	); */
+	return (
+		<Image
+			src={heroMobile}
+			alt="Green 1999 Mitsubishi Delica Star Wagon"
+			className="w-full h-full object-cover pointer-events-none select-none sm:hidden"
 			fill
 			sizes="(max-width: 640px) 100vw, 0px"
 			priority
@@ -55,6 +66,17 @@ const DesktopHeroImage = () => {
 			priority
 		/>
 	);
+	// return (
+	// 	<Image
+	// 		src={desktopImage}
+	// 		alt="Green 1999 Mitsubishi Delica Star Wagon and white 1999 Mitsubishi Delica Space Gear"
+	// 		className="w-full h-full object-cover pointer-events-none select-none hidden sm:block"
+	// 		fill
+	// 		sizes="(max-width: 640px) 0px, 100vw"
+	// 		placeholder="blur"
+	// 		priority
+	// 	/>
+	// );
 	// ? Should max-width be 639px?
 };
 
