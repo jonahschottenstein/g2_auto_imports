@@ -1,0 +1,24 @@
+import React from "react";
+
+interface HalfLogoProps {
+	fillColor: "black" | "white";
+}
+
+const HalfLogoBlack = ({ fillColor }: HalfLogoProps) => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			version="1.2"
+			viewBox="0 0 200 200"
+			width="35"
+			height="35"
+			className="md:hidden">
+			<path
+				id="G2"
+				className={`s0 fill-${fillColor}`}
+				d="m92.8 73.6h-21.2v-11.8q0-6.6-3.4-10.2-3.4-3.6-9.4-3.6-6 0-9.4 3.6-3.4 3.6-3.4 10.2v76.4q0 6.6 3.4 10.2 3.4 3.6 9.4 3.6 6 0 9.4-3.6 3.4-3.6 3.4-10.2v-24.8h-12.8v-20h34v44.8q0 15.2-9.4 24.6-9.4 9.2-24.6 9.2-15.2 0-24.6-9.2-9.4-9.4-9.4-24.6v-76.4q0-15.2 9.4-24.4 9.4-9.4 24.6-9.4 15.2 0 24.6 9.4 9.4 9.2 9.4 24.4zm63.4 39.4l-23.2 37h42v20h-67.2v-18.4l31-49.4q8.6-13.6 11.8-22 3.2-8.6 3.2-16.8 0-7.4-3.4-11.2-3.2-4-9.4-4-6.2 0-9.6 4-3.2 3.8-3.2 11.2v8.2h-20.4v-6.6q0-17.2 8.8-27 9-9.8 24.6-9.8 15.8 0 24.8 9.2 9 9.2 9 25.4 0 11.4-4.2 22.4-4 10.8-14.6 27.8z"></path>
+		</svg>
+	);
+};
+
+export default HalfLogoBlack;
