@@ -1,7 +1,7 @@
 import {
 	faInstagram,
-	faTiktok,
-	faYoutube,
+	// faTiktok,
+	// faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -44,32 +44,32 @@ const siteLinks = [
 const instagramIcon = (
 	<FontAwesomeIcon className="fw w-7" icon={faInstagram} size="lg" />
 );
-const tiktokIcon = (
-	<FontAwesomeIcon className="fw w-7" icon={faTiktok} size="lg" />
-);
-const youtubeIcon = (
-	<FontAwesomeIcon className="fw w-7" icon={faYoutube} size="lg" />
-);
+// const tiktokIcon = (
+// 	<FontAwesomeIcon className="fw w-7" icon={faTiktok} size="lg" />
+// );
+// const youtubeIcon = (
+// 	<FontAwesomeIcon className="fw w-7" icon={faYoutube} size="lg" />
+// );
 
 const socialMediaLinks = [
 	{
 		title: "Instagram",
 		icon: instagramIcon,
-		href: "https://www.instagram.com/",
+		href: "https://www.instagram.com/g2autoimports?igsh=MTV1YWt5ejJwbW14cw%3D%3D&utm_source=qr",
 		target: "_blank",
 	},
-	{
-		title: "TikTok",
-		icon: tiktokIcon,
-		href: "https://www.tiktok.com/",
-		target: "_blank",
-	},
-	{
-		title: "YouTube",
-		icon: youtubeIcon,
-		href: "https://www.youtube.com/",
-		target: "_blank",
-	},
+	// {
+	// 	title: "TikTok",
+	// 	icon: tiktokIcon,
+	// 	href: "https://www.tiktok.com/",
+	// 	target: "_blank",
+	// },
+	// {
+	// 	title: "YouTube",
+	// 	icon: youtubeIcon,
+	// 	href: "https://www.youtube.com/",
+	// 	target: "_blank",
+	// },
 ];
 
 const FooterRow = ({ listItems }: FooterRowProps) => {
