@@ -38,6 +38,8 @@ const ImageGridItem = ({
 		<div
 			key={index}
 			className="image-grid-item bg-slate-300 group block relative overflow-hidden first:rounded-l-lg last:rounded-ee-lg [&:nth-child(5)]:rounded-tr-lg md:[&:nth-child(5)]:rounded-none md:[&:nth-child(3)]:rounded-tr-lg first:row-span-2 first:col-span-2 md:first:row-span-4 md:first:col-span-4 object-cover w-full h-full cursor-pointer"
+			role="button"
+			tabIndex={0}
 			onClick={onClick}>
 			<Image
 				src={src}
@@ -78,7 +80,7 @@ const ImageGrid = ({
 				<ImageGridItem
 					key={image}
 					src={image}
-					alt={"alt"}
+					alt={`Image grid item ${index + 1}`}
 					index={index}
 					totalPhotosCount={totalPhotosCount}
 					// onClick={() =>
