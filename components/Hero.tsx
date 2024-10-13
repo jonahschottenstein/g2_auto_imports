@@ -117,10 +117,10 @@ const HeroContent = () => {
 					<h1 className="text-[4.5vw] text-center md:text-4xl font-bold mb-1">
 						You Pick the Car. We&apos;ll Handle the Rest.
 					</h1>
-					<p className="text-base md:text-xl lg:text-2xl mb-4 max-w-[80%] font-semibold">
+					<h2 className="text-base md:text-xl lg:text-2xl mb-4 max-w-[80%] font-semibold">
 						We&apos;ll source, import, title, and deliver your vehicle straight
 						to your door.
-					</p>
+					</h2>
 					<Link
 						href="/request-import-form/step_1"
 						className="w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-center text-white font-semibold rounded-lg transition duration-300"
