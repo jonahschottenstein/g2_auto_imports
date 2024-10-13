@@ -51,14 +51,6 @@ export const FAQContent = ({ faqData, faqCategory }: FAQContentProps) => {
 				{faqData.map(({ question, answer }) => (
 					<FAQItem key={question} question={question} answer={answer} />
 				))}
-				{/* <div className="mt-10 lg:mt-20 text-center">
-					<Link
-						href="/inventory"
-						className="w-fit m-auto border-2 border-blue-600 text-base py-2 px-4 rounded-full block font-sans cursor-pointer text-center text-blue-600 hover:bg-blue-700 hover:text-white hover:border-transparent"
-						aria-label="View all FAQs">
-						View all FAQs
-					</Link>
-				</div> */}
 			</FAQContainer>
 		</div>
 	);

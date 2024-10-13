@@ -5,14 +5,11 @@ import React from "react";
 
 const prisma = new PrismaClient();
 
-// TODO: Think I need to do something when the page is refreshed. Currently, refreshing the page erases all user data, so if you're on the Model or Production page of the form, none of the options render.
-
 const page = async () => {
 	const makes = await prisma.make.findMany();
 
 	return (
 		<div className="form-page w-full flex flex-col flex-1 items-center overflow-x-hidden px-4 md:px-6 lg:px-8">
-			{/* <FormStepper steps={["Make", "Model", "Year(s)", "Contact", "Review"]} /> */}
 			<FormStepper steps={["Make", "Model", "Years", "Contact"]} />
 			<MakesForm makes={makes} />
 		</div>

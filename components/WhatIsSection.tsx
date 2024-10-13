@@ -40,7 +40,6 @@ const iconBlocks: IconBlockProps[] = [
 const IconBlockComponent = ({ icon, title, blurb }: IconBlockProps) => {
 	return (
 		<div className="flex gap-x-5">
-			{/* <FontAwesomeIcon className="shrink-0 fw w-7" icon={icon} size="sm" /> */}
 			<FontAwesomeIcon
 				className="shrink-0 mt-1 size-6 fw text-blue-600"
 				icon={icon}
@@ -60,7 +59,6 @@ const IconBlockGrid = ({ iconBlocks }: IconBlockArrayProps) => {
 	return (
 		<div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
 			<div className="lg:col-span-1">
-				{/* <h3 className="font-sans font-bold text-2xl md:text-3xl text-gray-800"> */}
 				<h3 className="font-sans font-bold text-xl md:text-2xl text-gray-800">
 					Your Gateway to Authentic JDM Imports
 				</h3>

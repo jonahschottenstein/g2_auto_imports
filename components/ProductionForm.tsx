@@ -13,13 +13,6 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 	const updateUserData = useFormUpdater();
 	const router = useRouter();
 
-	/* 	useEffect(() => {
-		const storedUserData = sessionStorage.getItem("userData");
-		const userData = storedUserData && JSON.parse(storedUserData);
-
-		updateUserData(userData);
-	}, []); */
-
 	useEffect(() => {
 		const storedUserData = sessionStorage.getItem("userData");
 		const userData = storedUserData && JSON.parse(storedUserData);
@@ -155,9 +148,6 @@ const ProductionForm = ({ production }: ProductionFormProps) => {
 	const isOkToContinue = canContinue();
 
 	const productionYears = user.productionYears;
-
-	const STEPPER_HEIGHT = "92px";
-	const H1_HEIGHT = "64px";
 
 	return (
 		<FormContainer h1="Select Years">

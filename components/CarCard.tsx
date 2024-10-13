@@ -47,7 +47,6 @@ const CarCard = ({
 							{name}
 						</h2>
 					)}
-					{/* <p className="car-card-features font-sans">{features.join(" | ")}</p> */}
 					<ul className="car-card-features-list">
 						{features.map((feature) => (
 							<li

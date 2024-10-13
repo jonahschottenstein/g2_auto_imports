@@ -1,11 +1,6 @@
 import { ImageGridItemProps, ImageGridProps } from "@/types";
 import Image from "next/image";
-import React, { MouseEventHandler } from "react";
-
-/* interface ImageProps {
-	src: string;
-	alt: string;
-} */
+import React from "react";
 
 const ImageGridItem = ({
 	src,
@@ -34,11 +29,6 @@ const ImageGridItem = ({
 				className="w-full h-full object-cover"
 				priority={index === 0 ? true : false}
 			/>
-			{/* {index === 8 && (
-				<div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-xl font-sans font-semibold">
-					All Photos ({totalPhotosCount})
-				</div>
-			)} */}
 			{((totalPhotosCount >= 9 && index === 8) ||
 				(totalPhotosCount < 9 && index === totalPhotosCount - 1)) && (
 				<div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center text-white text-xl font-sans font-semibold">
@@ -68,9 +58,6 @@ const ImageGrid = ({
 					alt={`Image grid item ${index + 1}`}
 					index={index}
 					totalPhotosCount={totalPhotosCount}
-					// onClick={() =>
-					// 	index === 8 ? onLastImageClick() : onImageClick(index)
-					// }
 					onClick={() =>
 						isLastImage(index) ? onLastImageClick() : onImageClick(index)
 					}

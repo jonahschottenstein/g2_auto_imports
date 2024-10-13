@@ -3,11 +3,6 @@ import React from "react";
 import XButton from "./XButton";
 import { ImageGalleryModalProps } from "@/types";
 
-/* interface ImageProps {
-	src: string;
-	alt: string;
-} */
-
 const ImageGalleryModal = ({
 	images,
 	onImageClick,
@@ -21,7 +16,6 @@ const ImageGalleryModal = ({
 					styles={"absolute top-4 right-2 text-white p-2 font-sans"}
 				/>
 				<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4 mt-12">
-					{/* {images.map(({ src, alt }, index) => ( */}
 					{images.map((image, index) => (
 						<Image
 							key={index}

@@ -9,8 +9,6 @@ export default async function Home() {
 	const featuredInventory = inventory.filter((car) => car.featured);
 
 	return (
-		// * You changed pt to 32px because its child has pt of 40px (at large screen size)
-		// pt is 74px now because added 2px border bottom to header
 		<main className="flex flex-col flex-1 pt-header">
 			<Hero />
 			<WhatIsSection />

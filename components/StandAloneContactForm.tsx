@@ -3,7 +3,6 @@
 import {
 	ContactPageSchema,
 	FormFieldsContainerProps,
-	FormFieldTypes,
 	StandAloneContactFormData,
 	StandAloneContactFormField,
 	ValidFieldNames,
@@ -11,7 +10,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import React, { useRef } from "react";
-import { FieldError, UseFormRegister, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import FormField from "./FormField";
 import CustomButton from "./CustomButton";
 import { useRouter } from "next/navigation";

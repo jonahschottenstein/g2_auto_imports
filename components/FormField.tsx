@@ -19,10 +19,7 @@ const FormField = ({
 			: inputId === "phone" || inputId === "zip-code"
 			? "numeric"
 			: "text";
-	// const afterLabelContent =
-	// 	type === "textarea"
-	// 		? "after:content-['(optional)']"
-	// 		: "after:content-['(required)']";
+
 	const afterLabelContent =
 		type === "textarea" && !isMessageRequired
 			? "after:content-['(optional)']"
@@ -35,12 +32,10 @@ const FormField = ({
 
 	return (
 		<div className="form-field-container flex flex-col">
-			{/* <label htmlFor={inputId} className="form-field-label"> */}
 			<label
 				htmlFor={inputId}
 				className={`form-field-label font-sans ${afterLabelContent} after:ml-1 after:text-xs`}>
 				{label}
-				{/* {type === "textarea" ? `${label} ` : `* ${label}`} */}
 			</label>
 			{type === "textarea" ? (
 				<textarea
@@ -56,13 +51,11 @@ const FormField = ({
 					type={type}
 					inputMode={inputMode}
 					id={inputId}
-					// className="p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg"
 					className={setInputStyles(error)}
 					required
 					{...register(name, { required: true, valueAsNumber })}
 				/>
 			)}
-			{/* {rule && <p className="rule text-xs">{rule}</p>} */}
 			{error && (
 				<span className="error-message font-sans text-sm text-red-600">
 					{error.message}
@@ -91,10 +84,6 @@ export const FormField2 = ({
 			: inputId === "phone" || inputId === "zip-code"
 			? "numeric"
 			: "text";
-	// const afterLabelContent =
-	// 	type === "textarea"
-	// 		? "after:content-['(optional)']"
-	// 		: "after:content-['(required)']";
 	const afterLabelContent =
 		type === "textarea" && !isMessageRequired
 			? "after:content-['(optional)']"
@@ -106,20 +95,17 @@ export const FormField2 = ({
 			: "p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg";
 
 	return (
-		// <div className="form-field-container flex flex-col">
 		<div
 			className={
 				type === "hidden"
 					? "form-field-container hidden"
 					: "form-field-container flex flex-col"
 			}>
-			{/* <label htmlFor={inputId} className="form-field-label"> */}
 			{label && (
 				<label
 					htmlFor={inputId}
 					className={`form-field-label font-sans ${afterLabelContent} after:ml-1 after:text-xs`}>
 					{label}
-					{/* {type === "textarea" ? `${label} ` : `* ${label}`} */}
 				</label>
 			)}
 			{type === "textarea" ? (
@@ -136,7 +122,6 @@ export const FormField2 = ({
 					type={type}
 					inputMode={inputMode}
 					id={inputId}
-					// className="p-1 font-sans bg-transparent border-2 border-gray-200 rounded-lg"
 					className={setInputStyles(error)}
 					required
 					{...register(name, { required: true, valueAsNumber })}

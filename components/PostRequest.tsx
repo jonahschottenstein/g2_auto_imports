@@ -7,16 +7,7 @@ import { useRouter } from "next/navigation";
 import { PostRequestProps } from "@/types";
 
 const PostRequest = ({ email }: PostRequestProps) => {
-	// const user = useForm();
-	// const updateUserData = useFormUpdater();
 	const router = useRouter();
-
-	/* 	useEffect(() => {
-		const storedUserData = sessionStorage.getItem("userData");
-		const userData = storedUserData && JSON.parse(storedUserData);
-
-		updateUserData(userData);
-	}, []); */
 
 	return (
 		<div className="form-container flex flex-col flex-1 max-w-screen-xl mx-auto">
@@ -29,7 +20,6 @@ const PostRequest = ({ email }: PostRequestProps) => {
 				<div>
 					<p className="font-sans">
 						You will get an email confirmation at{" "}
-						{/* <span className="font-bold">{user.contactInfo?.email}</span> */}
 						<span className="font-bold">{email}</span>
 					</p>
 				</div>

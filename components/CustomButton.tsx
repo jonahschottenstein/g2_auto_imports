@@ -3,7 +3,6 @@ import React from "react";
 // import { sendGAEvent } from "@next/third-parties/google";
 
 const CustomButton = ({
-	// title,
 	type = "button",
 	value,
 	styles,

@@ -40,13 +40,8 @@ const ImageCarousel = ({
 				<Image
 					src={images[currentImageIndex]}
 					alt={`Carousel ${currentImageIndex + 1}`}
-					// className="image-carousel-image w-auto h-full max-h-[450px] object-contain"
 					className="image-carousel-image object-contain"
-					// width={600}
-					// height={400}
 					fill
-					// priority={true}
-					// TODO: Figure this out (width/height/fill/sizes/etc.)
 				/>
 				<button
 					onClick={handleNext}
