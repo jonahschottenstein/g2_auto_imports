@@ -1,9 +1,5 @@
+import { SectionProps } from "@/types";
 import React from "react";
-
-interface SectionProps {
-	h2: string;
-	children: React.ReactNode;
-}
 
 const Section = ({ h2, children }: SectionProps) => {
 	return (

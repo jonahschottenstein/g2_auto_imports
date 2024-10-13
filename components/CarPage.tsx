@@ -3,16 +3,11 @@
 import { useFormUpdater } from "@/context/request-import-form-context";
 import React, { useEffect, useState } from "react";
 import CustomButton from "./CustomButton";
-import { Car } from "@/types";
+import { Car, CarTableProps, VehicleDetails } from "@/types";
 import { useRouter } from "next/navigation";
 import ImageGrid from "./ImageGrid";
 import ImageCarousel from "./ImageCarousel";
 import ImageGalleryModal from "./ImageGalleryModal";
-
-interface VehicleDetails {
-	vehicleDetails: Car | undefined;
-	images: string[];
-}
 
 // const CarPageOld = ({ vehicleDetails }: VehicleDetails) => {
 // 	const updateUserData = useFormUpdater();
@@ -537,11 +532,6 @@ interface VehicleDetails {
 // 		</div>
 // 	);
 // };
-
-interface CarTableProps {
-	vehicleDetails: Car;
-	displayKeys: string[];
-}
 
 const formatLabel = (str: string) => {
 	switch (str) {

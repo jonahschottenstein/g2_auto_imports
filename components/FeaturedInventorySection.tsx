@@ -3,11 +3,7 @@ import Section from "./Section";
 import CardGrid from "./CardGrid";
 import CarCard from "./CarCard";
 import Link from "next/link";
-import { Car } from "@/types";
-
-interface FeaturedInventorySectionProps {
-	featuredInventory: Car[];
-}
+import { Car, FeaturedInventorySectionProps } from "@/types";
 
 const FeaturedInventorySection = ({
 	featuredInventory,

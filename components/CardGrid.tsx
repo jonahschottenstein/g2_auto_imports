@@ -1,17 +1,8 @@
 "use client";
 
+import { CardGridChildProps, CardGridProps } from "@/types";
 import { usePathname } from "next/navigation";
 import React, { cloneElement, isValidElement } from "react";
-
-interface CardGridProps {
-	children:
-		| React.ReactElement<CardGridChildProps>
-		| React.ReactElement<CardGridChildProps>[];
-}
-
-interface CardGridChildProps {
-	pathName: string | null;
-}
 
 const CardGrid: React.FC<CardGridProps> = ({ children }: CardGridProps) => {
 	const pathName = usePathname();

@@ -1,16 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-interface CarCardProps {
-	href: string;
-	image: string;
-	name: string;
-	features: string[];
-	price: string;
-	pathName: string;
-	index?: number;
-}
+import { CarCardProps } from "@/types";
 
 const CarCard = ({
 	href,

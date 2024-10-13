@@ -1,8 +1,5 @@
+import { HalfLogoProps } from "@/types";
 import React from "react";
-
-interface HalfLogoProps {
-	fillColor: "black" | "white";
-}
 
 const HalfLogo = ({ fillColor }: HalfLogoProps) => {
 	return (

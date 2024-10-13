@@ -1,3 +1,4 @@
+import { FooterRowProps } from "@/types";
 import {
 	faInstagram,
 	// faTiktok,
@@ -6,17 +7,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
-
-interface ListItem {
-	title: string;
-	href: string;
-	// ? Not sure if there is a more specific type for url
-	icon?: React.ReactNode;
-}
-
-interface FooterRowProps {
-	listItems: ListItem[];
-}
 
 const siteLinks = [
 	{

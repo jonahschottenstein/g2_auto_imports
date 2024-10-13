@@ -1,4 +1,6 @@
-import { ChangeEventHandler, MouseEventHandler } from "react";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { StaticImageData } from "next/image";
+import { ChangeEventHandler, Key, MouseEventHandler, ReactNode } from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 import { ZodType, z } from "zod";
 
@@ -53,16 +55,32 @@ export interface ProgressLink {
 	href: string;
 	isDisabled: boolean;
 }
+
+export interface XButtonProps {
+	onClose: () => void;
+	styles: string;
+}
 /* Buttons/Links */
 
 /* Car */
 export interface CarCardProps {
-	imageSrc: string;
-	year: number;
-	make: string;
-	model: string;
+	href: string;
+	image: string;
+	name: string;
+	features: string[];
 	price: string;
-	pageUrl: string;
+	pathName: string;
+	index?: number;
+}
+
+export interface CardGridProps {
+	children:
+		| React.ReactElement<CardGridChildProps>
+		| React.ReactElement<CardGridChildProps>[];
+}
+
+export interface CardGridChildProps {
+	pathName: string | null;
 }
 
 export interface Car {
@@ -105,6 +123,105 @@ export interface Production {
 	modelId: number;
 }
 /* Car */
+
+/* CarPage */
+export interface VehicleDetails {
+	vehicleDetails: Car | undefined;
+	images: string[];
+}
+
+export interface CarTableProps {
+	vehicleDetails: Car;
+	displayKeys: string[];
+}
+
+export interface ImageCarouselProps {
+	images: string[];
+	currentIndex: number;
+	onClose: () => void;
+}
+
+export interface ImageGalleryModalProps {
+	// images: ImageProps[];
+	images: string[];
+	onImageClick: (index: number) => void;
+	onClose: () => void;
+}
+
+export interface ImageGridProps {
+	// images: ImageProps[];
+	images: string[];
+	onImageClick: (index: number) => void;
+	onLastImageClick: () => void;
+	totalPhotosCount: number;
+}
+
+export interface ImageGridItemProps {
+	src: string;
+	alt: string;
+	index: number;
+	totalPhotosCount: number;
+	onClick: MouseEventHandler<HTMLImageElement>;
+}
+/* CarPage */
+
+/* ContactForm */
+export interface FormFieldsContainerProps {
+	children: React.ReactNode;
+}
+
+export interface FormField2 {
+	key: string;
+	label: string;
+	type: FormFieldTypes;
+	inputId: string;
+	name: ValidFieldNames;
+	register: UseFormRegister<ContactFormData>;
+	error: FieldError | undefined;
+}
+
+export interface FormField3 {
+	key: string;
+	label?: string;
+	type: FormFieldTypes2;
+	inputId: string;
+	name: ValidFieldNames2;
+	register: UseFormRegister<ImportFormData>;
+	error: FieldError | undefined;
+}
+
+export interface ButtonsGroupProps {
+	styles: string;
+	children: React.ReactNode;
+}
+
+export interface ContactForm2Props {
+	buttonsGroupStyles: string;
+	buttonsGroupChildren: React.ReactNode;
+}
+/* ContactForm */
+
+/* PostContact */
+export interface PostContactProps {
+	userEmail: string;
+}
+/* PostContact */
+
+/* StandAloneContactForm */
+export interface StandAloneContactFormField {
+	key: string;
+	label: string;
+	type: FormFieldTypes;
+	inputId: string;
+	name: ValidFieldNames;
+	register: UseFormRegister<StandAloneContactFormData>;
+	error: FieldError | undefined;
+}
+
+export interface FormFieldsContainerProps {
+	children: React.ReactNode;
+}
+/* StandAloneContactForm */
 
 /* Form */
 export interface FormStepperProps {
@@ -390,3 +507,139 @@ export interface FormReviewSectionRowProps {
 	href: string;
 }
 /* Form */
+
+/* PostRequest */
+export interface PostRequestProps {
+	email: string;
+}
+/* PostRequest */
+
+/* Logos */
+export interface FullLogoProps {
+	fillColor: "black" | "white";
+}
+
+export interface HalfLogoProps {
+	fillColor: "black" | "white";
+}
+/* Logos */
+
+/* Section */
+export interface SectionProps {
+	h2: string;
+	children: React.ReactNode;
+}
+/* Section */
+
+/* What Is Section */
+export interface IconBlockProps {
+	icon: IconProp;
+	title: string;
+	blurb: string;
+}
+
+export interface IconBlockArrayProps {
+	iconBlocks: IconBlockProps[];
+}
+/* What Is Section */
+
+/* About Section */
+export interface AboutUsContentItemProps {
+	key: Key;
+	imageSrc: StaticImageData;
+	imageAlt: string;
+	copyElement: ReactNode;
+	index: number;
+}
+
+export interface AboutContentItem {
+	imageSrc: StaticImageData;
+	imageAlt: string;
+	copyElement: ReactNode;
+}
+
+export interface AboutUsContentProps {
+	items: AboutContentItem[];
+}
+/* About Section */
+
+/* Featured Inventory Section */
+export interface FeaturedInventorySectionProps {
+	featuredInventory: Car[];
+}
+/* Featured Inventory Section */
+
+/* FAQ Section */
+export interface FAQItemProps {
+	question: string;
+	answer: string;
+}
+
+export interface FAQContainerProps {
+	children: React.ReactNode[];
+}
+
+export interface FAQContentProps {
+	faqData: FAQItemProps[];
+	faqCategory?: string;
+}
+/* FAQ Section */
+
+/* Footer */
+export interface ListItem {
+	title: string;
+	href: string;
+	// ? Not sure if there is a more specific type for url
+	icon?: React.ReactNode;
+}
+
+export interface FooterRowProps {
+	listItems: ListItem[];
+}
+/* Footer */
+
+/* Step Context */
+export type Step = 1 | 2 | 3 | 4 | 5;
+
+export interface StepContextType {
+	step: number;
+	updateStep: (value: Step) => void;
+}
+/* Step Context */
+
+/* FormStepper */
+export interface StepDisplayProps {
+	stepNumber: Step;
+}
+
+export interface ItemStatusWrapperProps {
+	styles: string;
+	children: React.ReactNode;
+}
+
+export interface StepNameProps {
+	stepName: string;
+	// ? Should I be more specific and do "Make" | "Model" etc. ?
+}
+
+export interface FormStepperItemProps {
+	status: string;
+	// ? Should I be more specific and do "is-active" | "is-successful" etc. ?
+	stepNumber: Step;
+	stepName: string;
+	// ? Should I be more specific and do "Make" | "Model" etc. ?
+}
+
+export type StepName = "Make" | "Model" | "Years" | "Contact";
+
+export interface FormStepperProps2 {
+	// steps: [StepName, StepName, StepName, StepName, StepName];
+	steps: [StepName, StepName, StepName, StepName];
+}
+/* FormStepper */
+
+/* NavBar */
+export interface HamburgerMenuButtonProps {
+	onClick: () => void;
+}
+/* NavBar */

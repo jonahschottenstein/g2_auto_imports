@@ -4,10 +4,7 @@
 import React from "react";
 // import CustomButton from "./CustomButton";
 import Link from "next/link";
-
-interface PostContactProps {
-	userEmail: string;
-}
+import { PostContactProps } from "@/types";
 
 const PostContact = ({ userEmail }: PostContactProps) => {
 	// const router = useRouter();

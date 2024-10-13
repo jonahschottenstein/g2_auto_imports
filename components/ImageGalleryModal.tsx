@@ -1,18 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import XButton from "./XButton";
+import { ImageGalleryModalProps } from "@/types";
 
 /* interface ImageProps {
 	src: string;
 	alt: string;
 } */
-
-interface ImageGalleryModalProps {
-	// images: ImageProps[];
-	images: string[];
-	onImageClick: (index: number) => void;
-	onClose: () => void;
-}
 
 const ImageGalleryModal = ({
 	images,

@@ -1,12 +1,7 @@
 import React from "react";
 import XButton from "./XButton";
 import Image from "next/image";
-
-interface ImageCarouselProps {
-	images: string[];
-	currentIndex: number;
-	onClose: () => void;
-}
+import { ImageCarouselProps } from "@/types";
 
 const ImageCarousel = ({
 	images,

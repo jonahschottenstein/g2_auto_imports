@@ -4,10 +4,7 @@ import { useForm, useFormUpdater } from "@/context/request-import-form-context";
 import React, { useEffect } from "react";
 import CustomButton from "./CustomButton";
 import { useRouter } from "next/navigation";
-
-interface PostRequestProps {
-	email: string;
-}
+import { PostRequestProps } from "@/types";
 
 const PostRequest = ({ email }: PostRequestProps) => {
 	// const user = useForm();

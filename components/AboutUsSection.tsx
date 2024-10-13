@@ -4,15 +4,8 @@ import Image, { StaticImageData } from "next/image";
 import about1 from "../public/images/about_compressed/about1.jpg";
 import about2 from "../public/images/about_compressed/about2.jpg";
 import about3 from "../public/images/about_compressed/about3.jpg";
+import { AboutUsContentItemProps, AboutUsContentProps } from "@/types";
 // import about4 from "../public/images/about_compressed/about4.jpg";
-
-interface AboutUsContentItemProps {
-	key: Key;
-	imageSrc: StaticImageData;
-	imageAlt: string;
-	copyElement: ReactNode;
-	index: number;
-}
 
 const AboutUsContentItem = ({
 	imageSrc,
@@ -110,16 +103,6 @@ const items = [
 	// 	),
 	// },
 ];
-
-interface AboutContentItem {
-	imageSrc: StaticImageData;
-	imageAlt: string;
-	copyElement: ReactNode;
-}
-
-interface AboutUsContentProps {
-	items: AboutContentItem[];
-}
 
 const AboutUsContent = ({ items }: AboutUsContentProps) => {
 	return (

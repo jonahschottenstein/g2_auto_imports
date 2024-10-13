@@ -1,3 +1,4 @@
+import { ImageGridItemProps, ImageGridProps } from "@/types";
 import Image from "next/image";
 import React, { MouseEventHandler } from "react";
 
@@ -5,22 +6,6 @@ import React, { MouseEventHandler } from "react";
 	src: string;
 	alt: string;
 } */
-
-interface ImageGridProps {
-	// images: ImageProps[];
-	images: string[];
-	onImageClick: (index: number) => void;
-	onLastImageClick: () => void;
-	totalPhotosCount: number;
-}
-
-interface ImageGridItemProps {
-	src: string;
-	alt: string;
-	index: number;
-	totalPhotosCount: number;
-	onClick: MouseEventHandler<HTMLImageElement>;
-}
 
 const ImageGridItem = ({
 	src,

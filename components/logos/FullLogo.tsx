@@ -1,8 +1,5 @@
+import { FullLogoProps } from "@/types";
 import React from "react";
-
-interface FullLogoProps {
-	fillColor: "black" | "white";
-}
 
 const FullLogo = ({ fillColor }: FullLogoProps) => {
 	return (

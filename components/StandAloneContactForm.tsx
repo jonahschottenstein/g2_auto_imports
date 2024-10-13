@@ -2,8 +2,10 @@
 
 import {
 	ContactPageSchema,
+	FormFieldsContainerProps,
 	FormFieldTypes,
 	StandAloneContactFormData,
+	StandAloneContactFormField,
 	ValidFieldNames,
 } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,20 +16,6 @@ import FormField from "./FormField";
 import CustomButton from "./CustomButton";
 import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
-
-export interface FormField2 {
-	key: string;
-	label: string;
-	type: FormFieldTypes;
-	inputId: string;
-	name: ValidFieldNames;
-	register: UseFormRegister<StandAloneContactFormData>;
-	error: FieldError | undefined;
-}
-
-export interface FormFieldsContainerProps {
-	children: React.ReactNode;
-}
 
 export const FormFieldsContainer = ({ children }: FormFieldsContainerProps) => {
 	return (
@@ -115,7 +103,7 @@ const StandAloneContactForm = () => {
 		}
 	};
 
-	const formFieldsData: FormField2[] = [
+	const formFieldsData: StandAloneContactFormField[] = [
 		{
 			key: "first-name",
 			label: "First Name",
@@ -180,7 +168,7 @@ const StandAloneContactForm = () => {
 			onSubmit={handleSubmit(onSubmit)}
 			className="contact-form flex flex-col h-[calc(100%-64px)] font-sans">
 			<FormFieldsContainer>
-				{formFieldsData.map((formFieldData: FormField2) => {
+				{formFieldsData.map((formFieldData: StandAloneContactFormField) => {
 					return (
 						<FormField
 							key={formFieldData.inputId}

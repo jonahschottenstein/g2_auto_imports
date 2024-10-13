@@ -5,20 +5,7 @@ import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
 import faqs from "@/faqs";
-
-interface FAQItemProps {
-	question: string;
-	answer: string;
-}
-
-interface FAQContainerProps {
-	children: React.ReactNode[];
-}
-
-interface FAQContentProps {
-	faqData: FAQItemProps[];
-	faqCategory?: string;
-}
+import { FAQContainerProps, FAQContentProps, FAQItemProps } from "@/types";
 
 const FAQItem = ({ question, answer }: FAQItemProps) => {
 	return (

@@ -1,6 +1,14 @@
 "use client";
 
-import { Step, useStep, useStepUpdater } from "@/context/step-context";
+import { useStep, useStepUpdater } from "@/context/step-context";
+import {
+	FormStepperItemProps,
+	FormStepperProps2,
+	ItemStatusWrapperProps,
+	Step,
+	StepDisplayProps,
+	StepNameProps,
+} from "@/types";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
@@ -86,37 +94,9 @@ import React, { useEffect } from "react";
 
 export default FormStepper; */
 
-interface StepDisplayProps {
-	stepNumber: Step;
-}
-
-interface ItemStatusWrapperProps {
-	styles: string;
-	children: React.ReactNode;
-}
-
-interface StepNameProps {
-	stepName: string;
-	// ? Should I be more specific and do "Make" | "Model" etc. ?
-}
-
 // type Status = "is-active" | "is-successful" | "is-completed"
 
-interface FormStepperItemProps {
-	status: string;
-	// ? Should I be more specific and do "is-active" | "is-successful" etc. ?
-	stepNumber: Step;
-	stepName: string;
-	// ? Should I be more specific and do "Make" | "Model" etc. ?
-}
-
 // type StepName = "Make" | "Model" | "Year(s)" | "Contact" | "Review";
-type StepName = "Make" | "Model" | "Years" | "Contact";
-
-interface FormStepperProps2 {
-	// steps: [StepName, StepName, StepName, StepName, StepName];
-	steps: [StepName, StepName, StepName, StepName];
-}
 
 const StepDisplay = ({ stepNumber }: StepDisplayProps) => {
 	return <span>{stepNumber}</span>;

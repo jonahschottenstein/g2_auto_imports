@@ -1,13 +1,7 @@
 "use client";
 
+import { Step, StepContextType } from "@/types";
 import { createContext, useContext, useState } from "react";
-
-export type Step = 1 | 2 | 3 | 4 | 5;
-
-export interface StepContextType {
-	step: number;
-	updateStep: (value: Step) => void;
-}
 
 const StepContext = createContext<StepContextType | undefined>(undefined);
 

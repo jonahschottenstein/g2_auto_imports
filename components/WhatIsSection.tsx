@@ -8,16 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Section from "./Section";
-
-interface IconBlockProps {
-	icon: IconProp;
-	title: string;
-	blurb: string;
-}
-
-interface IconBlockArrayProps {
-	iconBlocks: IconBlockProps[];
-}
+import { IconBlockArrayProps, IconBlockProps } from "@/types";
 
 const iconBlocks: IconBlockProps[] = [
 	{
