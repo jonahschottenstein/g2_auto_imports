@@ -6,7 +6,7 @@ import "./globals.css";
 import { Footer, NavBar } from "@/components";
 
 // const inter = Inter({ subsets: ["latin"] });
-import { GoogleAnalytics } from "@next/third-parties/google";
+// import { GoogleAnalytics } from "@next/third-parties/google";
 
 const oswald = Oswald({
 	subsets: ["latin"],
@@ -43,7 +43,7 @@ export default function RootLayout({
 				{children}
 				<Footer />
 			</body>
-			<GoogleAnalytics gaId="G-XYZ" />
+			{/* <GoogleAnalytics gaId="G-XYZ" /> */}
 			{/* <PrelineScript /> */}
 		</html>
 	);
