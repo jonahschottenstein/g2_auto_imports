@@ -39,12 +39,19 @@ const Page = async ({ params }: { params: { id: string } }) => {
 	);
 	// * Not sure if you typed this correctly
 
+	// const imageDirectory = path.join(
+	// 	process.cwd(),
+	// 	`/public/images/${vehicleDetails?.id}`
+	// );
 	const imageDirectory = path.join(
 		process.cwd(),
-		`/public/images/${vehicleDetails?.id}`
+		`/public/images/webp/${vehicleDetails?.id}`
 	);
+	// const imageFileNames = (await fs.readdir(imageDirectory)).map(
+	// 	(fileName) => `/images/${vehicleDetails?.id}/${fileName}`
+	// );
 	const imageFileNames = (await fs.readdir(imageDirectory)).map(
-		(fileName) => `/images/${vehicleDetails?.id}/${fileName}`
+		(fileName) => `/images/webp/${vehicleDetails?.id}/${fileName}`
 	);
 
 	return (
