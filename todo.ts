@@ -28,6 +28,9 @@
 // * Should look into adding the sharp image optimization package that is recommended when you build the site
 ! Look at using FormData methods
 
+! Need to make ImageCarousel Images load faster. Taking way too long. Should change the sizes property and look at changing lazy loading to priority
+* Step 3 - When there are five rows of years, the last row is slightly cut off. You can still scroll, but idk if you want to try to make it so you don't need to
+? Should CTA button on CarPage be "Request Import?" The car is already imported.
 * Consider making a cropped version of Hero image to use for mobile
 * Should add more descriptive alt text to Carousel images
 // * Not sure Hero subtext makes sense
