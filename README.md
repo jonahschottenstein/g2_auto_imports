@@ -78,5 +78,3 @@ The site achieves **Google Lighthouse** scores of 97+ for Performance, Accessibi
 - The website has been designed with a focus on usability and smooth user experience, ensuring a frustration-free process for users requesting JDM car imports.
 
 ---
-
-Feel free to edit or add any further details if needed!
