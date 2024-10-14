@@ -1,10 +1,8 @@
-Here’s a draft for your `README.md`:
-
----
-
 # G2 Auto Imports
 
 [![Website](https://img.shields.io/website-up-down-green-red/https/g2-auto-imports.vercel.app.svg)](https://g2-auto-imports.vercel.app/)
+
+![Hero Section](./screenshots/hero-section.png)
 
 G2 Auto Imports is a company specializing in importing Japanese Domestic Market (JDM) cars. This website allows users to either inquire about vehicles currently in inventory or request a specific car to be imported.
 
