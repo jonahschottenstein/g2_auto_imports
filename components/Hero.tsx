@@ -41,7 +41,10 @@ const HeroContent = () => {
 			<div className="relative z-10 flex flex-col items-center justify-start h-full py-8 text-center text-white font-sans translate-y-20 transition-transform xl:translate-y-10 [@media(max-height:500px)]:translate-y-0 [@media(max-height:500px)]:pt-0">
 				<div className="hero-content-wrapper flex flex-col justify-start items-center text-center py-4 gap-2 text-white">
 					{/* <h1 className="text-[4.5vw] text-center md:text-4xl font-bold mb-1"> */}
-					<h1 className="text-xl sm:text-[4.5vw] text-center md:text-4xl font-bold mb-1">
+					{/* <h1 className="text-xl sm:text-[4.5vw] text-center md:text-4xl font-bold mb-1">
+						You Pick the Car. We&apos;ll Handle the Rest.
+					</h1> */}
+					<h1 className="text-[max(1.25rem,_4.5vw)] text-center md:text-4xl font-bold mb-1">
 						You Pick the Car. We&apos;ll Handle the Rest.
 					</h1>
 					<h2 className="text-base md:text-xl lg:text-2xl mb-4 max-w-[80%] font-semibold">
