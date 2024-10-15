@@ -11,12 +11,11 @@ const MobileHeroImage = () => {
 			alt="White 1999 Mitsubishi Delica Space Gear"
 			className="w-full h-full object-cover pointer-events-none select-none sm:hidden"
 			fill
-			sizes="(max-width: 639px) 100vw, 0px"
+			sizes="100vw"
 			placeholder="blur"
 			priority
 		/>
 	);
-	// ? Should max-width be 639px?
 };
 
 const DesktopHeroImage = () => {
@@ -29,8 +28,7 @@ const DesktopHeroImage = () => {
 			// className="w-full h-full object-cover object-[82%_50%] pointer-events-none select-none sm:block"
 			className="w-full h-full object-cover pointer-events-none select-none hidden sm:block"
 			fill
-			// sizes="100vw"
-			sizes="(max-width: 639px) 0px, 100vw"
+			sizes="100vw"
 			placeholder="blur"
 			priority
 		/>
