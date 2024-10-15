@@ -8,7 +8,7 @@ const MobileHeroImage = () => {
 	return (
 		<Image
 			src={heroMobile}
-			alt="Green 1999 Mitsubishi Delica Star Wagon"
+			alt="White 1999 Mitsubishi Delica Space Gear"
 			className="w-full h-full object-cover pointer-events-none select-none sm:hidden"
 			fill
 			sizes="(max-width: 639px) 100vw, 0px"
