@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import desktopImage from "../public/images/hero/hero_desktop.jpeg";
-import heroMobile from "../public/images/hero/heroMobile (1).jpeg";
+import desktopImage from "../public/images/hero/hero_desktop.jpg";
+import heroMobile from "../public/images/hero/heroMobile.jpg";
 
 const MobileHeroImage = () => {
 	return (
@@ -12,6 +12,7 @@ const MobileHeroImage = () => {
 			className="w-full h-full object-cover pointer-events-none select-none sm:hidden"
 			fill
 			sizes="(max-width: 639px) 100vw, 0px"
+			placeholder="blur"
 			priority
 		/>
 	);
@@ -30,6 +31,7 @@ const DesktopHeroImage = () => {
 			fill
 			// sizes="100vw"
 			sizes="(max-width: 639px) 0px, 100vw"
+			placeholder="blur"
 			priority
 		/>
 	);
